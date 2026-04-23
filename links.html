@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mila's Healing Touch - Links</title>
+<meta name="description" content="All links for Mila's Healing Touch - workshops, bookings, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #5d81ff;
+  --purple: #6412b2;
+  --dark: #1d0426;
+  --light: #f1efef;
+  --pink: #f10065;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: #2D1B69;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 60px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Amethyst crystal backdrop */
+.crystal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/pexels-amethyst-crystal.jpg') center center / cover no-repeat;
+  z-index: 0;
+}
+
+.crystal-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg,
+    rgba(45,27,105,0.75) 0%,
+    rgba(74,58,138,0.65) 30%,
+    rgba(126,87,194,0.6) 60%,
+    rgba(100,181,246,0.5) 100%
+  );
+}
+
+/* Sparkle particles */
+.sparkle-container {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: sparkle-rise linear infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes sparkle-rise {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: scale(1); }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+}
+
+/* Orb glow effects */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 300px; height: 300px;
+  background: rgba(241, 0, 101, 0.12);
+  top: 20%; left: -5%;
+  animation: orb-drift 12s ease-in-out infinite alternate;
+}
+.orb-2 {
+  width: 250px; height: 250px;
+  background: rgba(93, 129, 255, 0.15);
+  bottom: 10%; right: -5%;
+  animation: orb-drift 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orb-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, -20px); }
+}
+
+/* Card container */
+.link-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile section */
+.profile {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.profile-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(100, 18, 178, 0.3);
+  margin-bottom: 16px;
+}
+
+.profile-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.profile-title {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.profile-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+.divider {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink), transparent);
+  margin: 0 auto 32px;
+}
+
+/* Section labels */
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Link buttons */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(241, 0, 101, 0.08), rgba(93, 129, 255, 0.08));
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 14px;
+}
+
+.link-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(100, 18, 178, 0.25);
+}
+
+.link-btn:hover::before {
+  opacity: 1;
+}
+
+.link-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-home { background: linear-gradient(135deg, var(--purple), var(--blue)); }
+.icon-workshop { background: linear-gradient(135deg, var(--pink), var(--purple)); }
+.icon-live { background: linear-gradient(135deg, #f59e0b, #f10065); }
+.icon-book { background: linear-gradient(135deg, var(--blue), #8b5cf6); }
+
+.link-text {
+  position: relative;
+  z-index: 1;
+}
+
+.link-text span {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.link-text small {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.link-arrow {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+  transition: transform 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.link-btn:hover .link-arrow {
+  transform: translateX(3px);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Live pulse */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 6px;
+  animation: pulse-live 2s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes pulse-live {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+}
+
+/* Social icons */
+.socials {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.social-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(100, 18, 178, 0.3);
+  color: var(--white);
+}
+
+/* Footer */
+.footer-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* SVG icons */
+svg { width: 20px; height: 20px; fill: currentColor; }
+.link-icon svg { width: 20px; height: 20px; fill: white; }
+
+@media (max-width: 480px) {
+  body { padding: 30px 16px 50px; }
+  .profile-name { font-size: 28px; }
+  .link-btn { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="crystal-backdrop"></div>
+<div class="sparkle-container" id="sparkleContainer"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="link-card">
+
+  <!-- Profile -->
+  <div class="profile">
+    <img src="images/mila-headshot.jpg" alt="Mila Velazquez" class="profile-image">
+    <h1 class="profile-name">Mila's Healing Touch</h1>
+    <p class="profile-title">Intuitive Energy Healer | Emotion Code Practitioner | Spiritual Advisor</p>
+    <p class="profile-tagline">Release what's weighing you down</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Main Links -->
+  <div class="links">
+    <a href="https://mila-healing-touch.onrender.com" class="link-btn" target="_blank" rel="noopener">
+      <div class="link-icon icon-home">
+        <svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v10h-5v-6H11v6H6V11H3l9-8z"/></svg>
+      </div>
+      <div class="link-text">
+        <span>Website</span>
+        <small>Learn more about Mila's work</small>
+      </div>
+      <span class="link-arrow">&rsaquo;</span>
+    </a>
+
+    <a href="https://mila-healing-touch.onrender.com/workshops.html" class="link-btn" target="_blank" rel="noopener">
+      <div class="link-icon icon-workshop">
+        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div class="link-text">
+        <span>Workshop Library</span>
+        <small>On-demand workshops with workbooks</small>
+      </div>
+      <span class="link-arrow">&rsaquo;</span>
+    </a>
+
+    <a href="https://milashealingtouch.as.me/?appointmentType=78587690" class="link-btn" target="_blank" rel="noopener">
+      <div class="link-icon icon-live">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+      </div>
+      <div class="link-text">
+        <span>LIVE Workshops <span class="live-dot"></span></span>
+        <small>Join Mila live on Zoom</small>
+      </div>
+      <span class="link-arrow">&rsaquo;</span>
+    </a>
+
+    <a href="https://milashealingtouch.as.me/" class="link-btn" target="_blank" rel="noopener">
+      <div class="link-icon icon-book">
+        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+      </div>
+      <div class="link-text">
+        <span>Book a Session</span>
+        <small>1:1 healing sessions with Mila</small>
+      </div>
+      <span class="link-arrow">&rsaquo;</span>
+    </a>
+  </div>
+
+  <!-- Social -->
+  <p class="section-label">Connect</p>
+  <div class="socials">
+    <a href="https://www.youtube.com/@milashealingtouch" class="social-icon" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.7 1.1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.7-1.1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/milashealingtouch/" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.3-.1 1.6-.1 4.9-.1M12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.2 2.6.8 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.6 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.6 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.6-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.6-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.5a1.4 1.4 0 11-2.9 0 1.4 1.4 0 012.9 0z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/InnerWisdomHolisticHealing" class="social-icon" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12c0-6.6-5.4-12-12-12S0 5.4 0 12c0 6 4.4 11 10.1 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18 24 12z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@milashealingtouch" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.6 5.9c-1.6-.5-2.7-1.8-3-3.4-.1-.5-.1-.8-.1-1H13v13.3c0 1.7-1.4 3.1-3.1 3.1-1.7 0-3.1-1.4-3.1-3.1 0-1.7 1.4-3.1 3.1-3.1.3 0 .6 0 .9.1V8.3c-.3 0-.6-.1-.9-.1-3.6 0-6.5 2.9-6.5 6.5S6.3 21.2 9.9 21.2s6.5-2.9 6.5-6.5V8.5c1.4 1 3.1 1.6 4.9 1.6V6.7c-.6 0-1.2-.3-1.7-.8z"/></svg>
+    </a>
+  </div>
+
+  <p class="footer-text">Healing is not linear - it's layered</p>
+
+</div>
+
+<script>
+// Sparkle particles
+const container = document.getElementById('sparkleContainer');
+function createSparkle() {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.bottom = '-5px';
+  const size = Math.random() * 3 + 1;
+  s.style.width = size + 'px';
+  s.style.height = size + 'px';
+  const duration = Math.random() * 8 + 6;
+  s.style.animationDuration = duration + 's';
+  s.style.animationDelay = Math.random() * 3 + 's';
+  container.appendChild(s);
+  setTimeout(() => s.remove(), (duration + 3) * 1000);
+}
+setInterval(createSparkle, 400);
+for (let i = 0; i < 15; i++) setTimeout(createSparkle, i * 200);
+</script>
+
+</body>
+</html>

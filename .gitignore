@@ -1,0 +1,13 @@
+# Large originals (not referenced in site)
+mila-video.mp4
+nature-portrait-*-original.mp4
+
+# Frames directory (not needed for site)
+frames/
+
+# Unused clips (only include referenced ones)
+# clips/ directory has referenced files, include all
+
+# OS files
+.DS_Store
+Thumbs.db
