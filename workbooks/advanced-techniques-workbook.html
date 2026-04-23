@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Techniques - Workbook | Mila's Healing Touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+      --grad-accent-stripe: linear-gradient(180deg, #6412b2 0%, #5d81ff 100%);
+      --grad-accent-stripe-pink: linear-gradient(180deg, #f10065 0%, #6412b2 100%);
+      --grad-footer: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0));
+
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #e8e5ee;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PAGE SHELL
+    ============================================= */
+    .page {
+      width: var(--page-width);
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      padding: var(--page-pad) var(--page-pad) 24mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(29,4,38,0.12);
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page:nth-child(even)::before {
+      top: auto;
+      bottom: -80px;
+      right: auto;
+      left: -80px;
+      background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%);
+    }
+
+    .page:nth-child(3n)::before {
+      top: 40%;
+      right: -100px;
+      bottom: auto;
+      left: auto;
+      background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: var(--page-pad);
+      right: var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 400;
+      color: var(--grey-400);
+      padding-top: 7px;
+      letter-spacing: 0.04em;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--grad-footer);
+    }
+
+    .page-footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a05e, #6412b2);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       DECORATIVE ELEMENTS
+    ============================================= */
+    .gradient-bar {
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-bar-sm {
+      height: 1px;
+      background: var(--grad-gold);
+      border-radius: 1px;
+      margin-bottom: 14px;
+    }
+
+    .corner-accent {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent::before,
+    .corner-accent::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    .corner-accent::before {
+      width: 64px;
+      height: 64px;
+      border-top: 1px solid rgba(100,18,178,0.22);
+      border-right: 1px solid rgba(100,18,178,0.22);
+    }
+
+    .corner-accent::after {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(93,129,255,0.18);
+      border-right: 1px solid rgba(93,129,255,0.18);
+    }
+
+    .corner-accent-bottom {
+      position: absolute;
+      bottom: 24mm;
+      left: 8px;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent-bottom::before,
+    .corner-accent-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    .corner-accent-bottom::before {
+      width: 50px;
+      height: 50px;
+      border-bottom: 1px solid rgba(197,160,94,0.2);
+      border-left: 1px solid rgba(197,160,94,0.2);
+    }
+
+    .corner-accent-bottom::after {
+      width: 32px;
+      height: 32px;
+      border-bottom: 1px solid rgba(100,18,178,0.15);
+      border-left: 1px solid rgba(100,18,178,0.15);
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+
+    .section-divider span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .section-divider span:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      opacity: 0.9;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 42px; }
+    h2 { font-size: 28px; font-weight: 500; }
+    h3 { font-size: 20px; font-weight: 600; }
+    h4 { font-size: 15px; font-weight: 600; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--secondary); }
+
+    p {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #3a2e45;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* =============================================
+       QUOTE BLOCK
+    ============================================= */
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(197,160,94,0.06) 0%, rgba(93,129,255,0.05) 100%);
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .quote-block .attribution {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       CALLOUT / INFO BOX
+    ============================================= */
+    .callout {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      box-shadow: 0 2px 12px rgba(29,4,38,0.05);
+    }
+
+    .callout.accent-blue {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(93,129,255,0.05);
+      position: relative;
+    }
+
+    .callout.accent-blue::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe);
+    }
+
+    .callout.accent-purple {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(100,18,178,0.04);
+      position: relative;
+    }
+
+    .callout.accent-purple::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: linear-gradient(180deg, #6412b2 0%, #c5a05e 100%);
+    }
+
+    .callout.accent-pink {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(241,0,101,0.04);
+      position: relative;
+    }
+
+    .callout.accent-pink::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe-pink);
+    }
+
+    .callout.accent-gold {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(197,160,94,0.05);
+      border: 1px solid rgba(197,160,94,0.2);
+      position: relative;
+    }
+
+    .callout.accent-gold::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-gold);
+    }
+
+    .callout p {
+      font-size: 11px;
+      margin: 0;
+    }
+
+    .callout-title {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: var(--secondary);
+    }
+
+    /* =============================================
+       INPUT / WRITE FIELDS
+    ============================================= */
+    .write-field {
+      margin: 8px 0;
+    }
+
+    .write-field label {
+      font-size: 9.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey-600);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .write-line {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid var(--line-color);
+      padding: 4px 0;
+      font-size: 12px;
+      font-family: var(--font-body);
+      background: transparent;
+      color: var(--dark);
+      outline: none;
+      display: block;
+      min-height: 28px;
+    }
+
+    .write-line::placeholder {
+      color: var(--grey-400);
+      font-style: italic;
+    }
+
+    .journal-lines {
+      margin: 10px 0;
+    }
+
+    .journal-line {
+      height: 28px;
+      border-bottom: 1px solid var(--line-color);
+      width: 100%;
+      display: block;
+    }
+
+    .journal-prompt {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      margin-top: 18px;
+      display: block;
+      letter-spacing: 0.015em;
+      padding-left: 10px;
+      border-left: 2px solid var(--gold-light);
+    }
+
+    /* =============================================
+       STEPS / PROCESS LIST
+    ============================================= */
+    .step-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    /* =============================================
+       TABLES
+    ============================================= */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      font-family: var(--font-body);
+    }
+
+    th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--grey-200);
+      vertical-align: top;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #3a2e45;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--grey-100);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-write td {
+      border-bottom: 1.5px solid var(--line-color);
+      background: transparent;
+      vertical-align: bottom;
+      height: 32px;
+    }
+
+    .table-write td:first-child {
+      font-size: 9px;
+      color: var(--grey-400);
+      width: 20px;
+    }
+
+    /* =============================================
+       CHECKBOX LIST
+    ============================================= */
+    .check-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      color: #3a2e45;
+    }
+
+    .check-box {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--grey-400);
+      border-radius: 3px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+
+    /* =============================================
+       TWO / THREE COLUMN LAYOUT
+    ============================================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* =============================================
+       COVER PAGE
+    ============================================= */
+    .cover-page {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-page::before {
+      display: none;
+    }
+
+    /* Full-page background image */
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    /* Gradient overlay for readability */
+    .cover-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(29, 4, 38, 0.65) 0%,
+        rgba(100, 18, 178, 0.55) 30%,
+        rgba(29, 4, 38, 0.7) 60%,
+        rgba(29, 4, 38, 0.88) 100%
+      );
+      z-index: 1;
+    }
+
+    .cover-header {
+      background: transparent !important;
+      background-image: none !important;
+      padding: 60px var(--page-pad) 30px;
+      position: relative;
+      z-index: 2;
+      flex: 0;
+    }
+
+    /* Sacred geometry ring - subtle on full-bleed cover */
+    .cover-sacred-ring {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(197,160,94,0.08);
+      box-shadow:
+        0 0 0 18px rgba(93,129,255,0.03),
+        0 0 0 36px rgba(100,18,178,0.02);
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    /* Second sacred geometry ring - subtle */
+    .cover-sacred-ring-2 {
+      position: absolute;
+      top: 30px;
+      right: 60px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 1px solid rgba(197,160,94,0.06);
+      box-shadow:
+        0 0 0 12px rgba(93,129,255,0.025),
+        0 0 0 24px rgba(100,18,178,0.015);
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    /* Constellation dots */
+    .cover-constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 48px 48px, 72px 72px, 36px 36px;
+      background-position: 0 0, 24px 24px, 12px 12px;
+      opacity: 0.15;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    }
+
+    .cover-brand {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-brand::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    .cover-body {
+      flex: 1;
+      padding: 20px var(--page-pad) 28mm;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .participant-block {
+      margin-top: 16px;
+    }
+
+    .participant-block p {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .cover-field {
+      margin-bottom: 20px;
+    }
+
+    .cover-field label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cover-field-line {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding: 6px 0;
+      font-size: 14px;
+      font-family: var(--font-heading);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      outline: none;
+    }
+
+    .cover-field-line::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-field-line:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .cover-practitioner {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .practitioner-initials {
+      width: 44px;
+      height: 44px;
+      background: var(--grad-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(197,160,94,0.2), 0 2px 10px rgba(197,160,94,0.25);
+    }
+
+    .practitioner-info p {
+      margin: 0;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .practitioner-info strong {
+      font-size: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Cover page footer */
+    .cover-page .page-footer {
+      z-index: 2;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-page .page-footer .footer-brand {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       ABOUT MILA BOX
+    ============================================= */
+    .about-box {
+      background: var(--grad-subtle);
+      border: 1px solid rgba(100,18,178,0.12);
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      margin: 16px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(29,4,38,0.06);
+    }
+
+    .about-box::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(93,129,255,0.08);
+    }
+
+    /* =============================================
+       NEXT STEPS CARDS
+    ============================================= */
+    .next-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .next-step-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 14px;
+      padding: 16px 16px 14px;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(29,4,38,0.05);
+    }
+
+    .next-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 14px 14px 0 0;
+    }
+
+    .next-step-card h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .next-step-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin-bottom: 10px;
+    }
+
+    .link-pill {
+      display: inline-block;
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    /* =============================================
+       SECTION HEADER BAR
+    ============================================= */
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .section-number {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-number::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--grad-gold);
+      margin-top: 4px;
+    }
+
+    .section-header h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .section-header p {
+      font-size: 11.5px;
+      color: var(--grey-600);
+      margin-top: 6px;
+      font-style: italic;
+      font-family: var(--font-heading);
+    }
+
+    /* =============================================
+       EXERCISE BOX
+    ============================================= */
+    .exercise-box {
+      border: 1.5px solid rgba(93,129,255,0.4);
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      margin: 14px 0;
+      position: relative;
+      background: linear-gradient(160deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.035) 100%);
+      box-shadow: 0 2px 18px rgba(93,129,255,0.08);
+    }
+
+    .exercise-tag {
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(93,129,255,0.35);
+    }
+
+    .exercise-box h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    /* =============================================
+       PRACTICE LOG TABLE
+    ============================================= */
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5px;
+      margin-top: 12px;
+    }
+
+    .log-table th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .log-table td {
+      height: 36px;
+      border-bottom: 1px solid var(--line-color);
+      vertical-align: bottom;
+      padding: 0 8px 4px;
+      font-size: 9.5px;
+      color: #3a2e45;
+    }
+
+    .log-table tr:nth-child(even) td {
+      background: rgba(93,129,255,0.025);
+    }
+
+    /* =============================================
+       BODY MESSAGES TABLE
+    ============================================= */
+    .body-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+
+    .body-table thead th {
+      background: linear-gradient(135deg, #1d0426, #6412b2);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    .body-table tbody td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--grey-200);
+      font-size: 9.5px;
+      line-height: 1.55;
+      color: #3a2e45;
+      vertical-align: top;
+    }
+
+    .body-table tbody tr:nth-child(even) td {
+      background: rgba(93,129,255,0.03);
+    }
+
+    .body-table tbody tr:nth-child(odd) td {
+      background: rgba(100,18,178,0.02);
+    }
+
+    .body-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .body-label {
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 9.5px;
+    }
+
+    /* =============================================
+       IMAGE STRIPS
+    ============================================= */
+    .image-strip {
+      width: calc(100% + 36mm);
+      margin-left: calc(-1 * var(--page-pad));
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =============================================
+       FEATURED QUOTE WITH PHOTO
+    ============================================= */
+    .quote-featured {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 18px 0;
+    }
+
+    .quote-featured-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .quote-featured-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(29,4,38,0.82) 0%, rgba(100,18,178,0.72) 60%, rgba(29,4,38,0.78) 100%);
+      z-index: 1;
+    }
+
+    .quote-featured-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px 28px 22px;
+    }
+
+    .quote-featured-content p {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      letter-spacing: 0.015em;
+    }
+
+    .quote-featured-content .attribution {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: var(--font-body);
+    }
+
+    .quote-featured-mark {
+      font-family: var(--font-heading);
+      font-size: 72px;
+      font-weight: 300;
+      color: rgba(197,160,94,0.35);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    /* =============================================
+       SACRED GEOMETRY WATERMARK
+    ============================================= */
+    .geo-watermark {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.06;
+      background-image: url('./assets/texture-sacred-geometry.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .geo-watermark-br {
+      bottom: 28mm;
+      right: 0;
+      width: 220px;
+      height: 220px;
+    }
+
+    .geo-watermark-tl {
+      top: 40px;
+      left: 0;
+      width: 180px;
+      height: 180px;
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: 297mm;
+        margin: 0;
+        padding: 16mm 18mm 22mm;
+        box-shadow: none;
+        page-break-after: always;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .cover-page {
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .write-line, .cover-field-line {
+        border-bottom: 1.5px solid #d9d4e5;
+      }
+
+      .cover-bg,
+      .cover-header,
+      .cover-constellation,
+      .cover-sacred-ring,
+      .cover-sacred-ring-2,
+      .corner-accent,
+      .corner-accent-bottom,
+      .callout,
+      .callout.accent-blue,
+      .callout.accent-purple,
+      .callout.accent-pink,
+      .callout.accent-gold,
+      .exercise-box,
+      .about-box,
+      .quote-block,
+      .next-step-card,
+      .cover-practitioner,
+      .practitioner-initials,
+      .section-number::after,
+      .page-footer::before,
+      .page-top-border,
+      .body-table,
+      .log-table th,
+      .image-strip,
+      .quote-featured,
+      .quote-featured-bg,
+      .quote-featured-overlay,
+      .geo-watermark {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .image-strip {
+        width: calc(100% + 36mm);
+        margin-left: -18mm;
+      }
+
+      .cover-bg, .cover-bg::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =============================================
+       SCREEN ONLY HELPER
+    ============================================= */
+    @media screen {
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: white;
+        font-size: 11px;
+        font-family: var(--font-body);
+        padding: 10px 16px;
+        border-radius: 8px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT HINT (screen only) -->
+<div class="print-hint no-print">Print this page (Ctrl/Cmd + P) for A4 PDF output</div>
+
+<!-- =============================================
+     PAGE 1: COVER
+============================================= -->
+<div class="page cover-page">
+  <div class="cover-bg" style="background-image: url('./assets/pexels-golden-light-forest.jpg')"></div>
+
+  <div class="cover-header">
+    <div class="cover-sacred-ring"></div>
+    <div class="cover-sacred-ring-2"></div>
+    <div class="cover-constellation"></div>
+    <div class="cover-eyebrow">Practitioner Workshop Workbook</div>
+    <h1 class="cover-title">Advanced<br>Techniques</h1>
+    <p class="cover-subtitle">Beyond the Basics of Energy Healing</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+
+  <div class="cover-body">
+    <div>
+      <div class="participant-block">
+        <p>This workbook is for practitioners and students who have completed the foundational workshops. You already know the basics. This is where you go deeper.</p>
+
+        <div class="cover-field">
+          <label>Participant Name</label>
+          <input type="text" class="cover-field-line" placeholder="Your name here" />
+        </div>
+
+        <div class="cover-field">
+          <label>Workshop Date</label>
+          <input type="text" class="cover-field-line" placeholder="Date" />
+        </div>
+
+        <div class="cover-field">
+          <label>My intention for this session</label>
+          <input type="text" class="cover-field-line" placeholder="What do you want to step into today?" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-practitioner">
+      <div class="practitioner-initials">MV</div>
+      <div class="practitioner-info">
+        <strong>Mila Velazquez, MSPT, CECP</strong>
+        <p>Certified Emotion Code Practitioner &amp; Physical Therapist</p>
+        <p>milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 2: WELCOME
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png'); height: 60px;"></div>
+
+  <div class="section-header" style="margin-bottom: 14px;">
+    <span class="section-number">Welcome</span>
+    <h2>You Made It to the Advanced Level</h2>
+    <p>A practitioner-level workshop with Mila Velazquez, MSPT, CECP</p>
+  </div>
+
+  <p style="font-size: 13px; font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.9; color: #3a2e45; margin-bottom: 16px;">
+    You have already learned the Emotion Code basics. You know how to muscle test. You know how to find and release trapped emotions. Now it is time to trust yourself enough to go further.
+  </p>
+
+  <p style="margin-bottom: 14px;">
+    This workshop is about taking everything you already know and making it yours. Not just following the protocol - using your intuition, your environment, your tools, and your connection to the quantum field to go places the standard chart might never take you.
+  </p>
+
+  <p style="margin-bottom: 20px;">
+    Mila has been in rooms with people for over 30 years - first as a Physical Therapist, now as an energy healer. What she teaches in this workshop is not from a textbook. It is from thousands of hours of sessions, trusting what her hands and her higher self were showing her - even when the client thought she was wrong.
+  </p>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="quote-featured" style="margin: 10px 0;">
+    <div class="quote-featured-bg" style="background-image: url('./assets/pexels-golden-light-forest.jpg');"></div>
+    <div class="quote-featured-overlay"></div>
+    <div class="quote-featured-content">
+      <span class="quote-featured-mark">"</span>
+      <p>It's all about the intention. It doesn't matter the gesture.</p>
+      <span class="attribution">- Mila Velazquez</span>
+    </div>
+  </div>
+
+  <div class="callout accent-purple" style="margin-top: 12px;">
+    <div class="callout-title">What this workshop covers</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>Setting powerful intentions before every session</li>
+      <li><span class="check-box"></span>Creating a sacred space and connecting in the quantum field</li>
+      <li><span class="check-box"></span>The process of elimination - using your physical environment as a diagnostic tool</li>
+      <li><span class="check-box"></span>Reading what the body is showing you through symptoms and conditions</li>
+      <li><span class="check-box"></span>Holding your power when a client disagrees with your testing</li>
+      <li><span class="check-box"></span>Practitioner ethics, boundaries, and energetic protection</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 12px;">
+    <span class="section-label">Mila's teaching philosophy</span>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; line-height: 1.85; color: #3a2e45;">
+      Trust your body. Follow the subconscious. Keep your ego out of the way. The information is always there - you just have to get quiet enough to receive it.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 3: SETTING YOUR INTENTION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 01</span>
+    <h2>Setting Your Intention</h2>
+    <p>Your intention is what starts everything. Without it, you are just going through the motions.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Before you start any session - with a client, with yourself, with a surrogate - your intention is what activates the work. It is not the magnet. It is not the chart. It is not the words you say. It is the energy you are putting out before you ever open your mouth.
+  </p>
+
+  <p style="margin-bottom: 18px;">
+    Your intention comes from your heart. There are no magic words. There is no script. What matters is that it is strong, it is clear, and it is for the highest and greatest good of the person you are working with.
+  </p>
+
+  <div class="callout accent-blue">
+    <div class="callout-title">The 5 Pre-Session Checks</div>
+    <p>Before entering anyone's energy field, always confirm these five things. You are asking their higher self - not their conscious mind.</p>
+    <ol class="step-list" style="margin-top: 12px;">
+      <li>
+        <div class="step-number">1</div>
+        <div class="step-content"><strong>Ready?</strong> Is this person ready to receive healing right now?</div>
+      </li>
+      <li>
+        <div class="step-number">2</div>
+        <div class="step-content"><strong>Willing?</strong> Is their higher self willing to allow this work to happen?</div>
+      </li>
+      <li>
+        <div class="step-number">3</div>
+        <div class="step-content"><strong>Capable?</strong> Is their system capable of processing and releasing right now?</div>
+      </li>
+      <li>
+        <div class="step-number">4</div>
+        <div class="step-content"><strong>Safe?</strong> Is it safe - for them and for you - to proceed?</div>
+      </li>
+      <li>
+        <div class="step-number">5</div>
+        <div class="step-content"><strong>For their highest and greatest good?</strong> Does this session serve their highest path?</div>
+      </li>
+    </ol>
+  </div>
+
+  <p style="margin-bottom: 10px; margin-top: 6px;">If you get a weak response on any of these five checks, stop. Honor it. This is not failure - it is the system working exactly as it should.</p>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 4: INTENTION EXERCISE (continued from page 3)
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="geo-watermark geo-watermark-br"></div>
+  <div class="geo-watermark geo-watermark-tl"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 01 - continued</span>
+    <h2>Setting Your Intention</h2>
+    <p>Put it into your own words. This is where the knowing becomes yours.</p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Exercise</span>
+    <h3>Write Your Session Intention Template</h3>
+    <p style="font-size: 10.5px; color: var(--grey-600); margin-bottom: 14px;">This is not a script - it is a starting point. Write the intention you will set at the beginning of every session. It should come from the heart and feel true to you.</p>
+
+    <span class="journal-prompt">My intention when I enter a session is...</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+
+    <span class="journal-prompt">What I do not allow in my sacred space is...</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 5: CREATING SACRED SPACE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 02</span>
+    <h2>Creating Sacred Space</h2>
+    <p>You are working in the quantum field. The space you create before you begin matters.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    When you connect to someone's energy field - whether they are sitting across from you or on the other side of the world - you are meeting in the quantum field. Both of your higher selves come together there. That meeting point is your sacred space.
+  </p>
+
+  <p style="margin-bottom: 18px;">
+    Mila has connected to children in the next room and adults on the other side of the planet. The distance is irrelevant. What matters is the intention you set and the energetic bridge you create between your higher selves.
+  </p>
+
+  <div class="callout accent-purple">
+    <div class="callout-title">The 4 Steps to Creating Sacred Space</div>
+    <ol class="step-list" style="margin-top: 12px;">
+      <li>
+        <div class="step-number">1</div>
+        <div class="step-content"><strong>Set your intention.</strong> From the heart - not from a script. Be clear about what you are asking for. Call in your God, your angels, your guides. Ask for the person's guides and angels to be present with permission.</div>
+      </li>
+      <li>
+        <div class="step-number">2</div>
+        <div class="step-content"><strong>Create light around yourself.</strong> Surround your own energy field with protection and light before you ever reach out to another person's energy.</div>
+      </li>
+      <li>
+        <div class="step-number">3</div>
+        <div class="step-content"><strong>Build the bridge.</strong> Ask that your higher self and their higher self come together in the quantum field. Feel that connection. The information flows through that bridge.</div>
+      </li>
+      <li>
+        <div class="step-number">4</div>
+        <div class="step-content"><strong>Create light around the client.</strong> Surround their energy field. Set your intention for what you do not allow into that sacred space - and hold it firmly.</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="two-col" style="margin: 16px 0 0;">
+    <div>
+      <span class="section-label">What you are doing</span>
+      <ul class="check-list">
+        <li><span class="check-box"></span>Connecting higher selves in the quantum field</li>
+        <li><span class="check-box"></span>Opening the channel for information to flow</li>
+        <li><span class="check-box"></span>Establishing energetic protection for both of you</li>
+        <li><span class="check-box"></span>Inviting guides and angels with permission</li>
+      </ul>
+    </div>
+    <div>
+      <span class="section-label">What you are NOT allowing in</span>
+      <ul class="check-list">
+        <li><span class="check-box"></span>Energies that are not for the highest and greatest good</li>
+        <li><span class="check-box"></span>Entities or darkness that you cannot work with safely</li>
+        <li><span class="check-box"></span>Your own ego, projections, or assumptions</li>
+        <li><span class="check-box"></span>Anything that does not serve the healing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <span class="journal-prompt">After creating sacred space, what do I notice in my body or in my awareness?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 6: PROCESS OF ELIMINATION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-misty-mountains.png'); height: 60px;"></div>
+
+  <div class="section-header" style="margin-bottom: 14px;">
+    <span class="section-number">Section 03</span>
+    <h2>The Process of Elimination</h2>
+    <p>Your higher self and theirs are connected. Their higher self already knows everything in your space.</p>
+  </div>
+
+  <p style="margin-bottom: 10px;">
+    When you have asked every question you can think of and you still cannot find what you are looking for - this is where advanced practice begins. Instead of breaking your head trying to think of the answer, you let the quantum field show you.
+  </p>
+
+  <p style="margin-bottom: 12px;">
+    Because your higher self and the client's higher self are connected, their higher self already knows every book, card, chart, and crystal in your space. You ask it to guide you directly to the answer.
+  </p>
+
+  <div class="quote-block" style="margin: 12px 0; padding: 10px 16px;">
+    <p>"Show me and guide me to where the issue is in my space."</p>
+    <span class="attribution">- Mila's words to the higher self</span>
+  </div>
+
+  <div class="callout accent-blue" style="margin-bottom: 12px;">
+    <div class="callout-title">Step-by-Step Guide</div>
+    <ol class="step-list" style="margin-top: 8px; margin-bottom: 0;">
+      <li style="margin-bottom: 8px;">
+        <div class="step-number">1</div>
+        <div class="step-content"><strong>Ask to be shown.</strong> "Show me and guide me to where the issue is in my space." Then start muscle testing.</div>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <div class="step-number">2</div>
+        <div class="step-content"><strong>Locate by direction.</strong> "Is it on my right side? Left side? In front of me? Behind me?" Test each one until you get a strong response.</div>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <div class="step-number">3</div>
+        <div class="step-content"><strong>Narrow it down.</strong> Whatever is in that direction, start naming objects. "Is it my tarot cards? My oracle deck? A book? My crystals?" Go one by one until you hit strong.</div>
+      </li>
+      <li style="margin-bottom: 8px;">
+        <div class="step-number">4</div>
+        <div class="step-content"><strong>Work within the object.</strong> If it's a book - go to a page. If it's cards - let one come through or cut the deck. If it's a chart - work through the columns.</div>
+      </li>
+      <li style="margin-bottom: 0;">
+        <div class="step-number">5</div>
+        <div class="step-content"><strong>Trust what comes through.</strong> When the word, image, or concept makes sense - even if it surprises you - that is your confirmation. The synchronicity is the science.</div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="callout accent-gold" style="padding: 12px 16px;">
+    <div class="callout-title">The More Tools You Have, the More the Higher Self Can Use</div>
+    <p>Build your workspace intentionally. Books, charts, oracle and tarot cards, crystals, pendulums, printed reference guides - each one is another path the higher self can use to get information to you. You are not guessing. You are giving it options.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 7: READING THE BODY'S MESSAGES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 04</span>
+    <h2>Reading the Body's Messages</h2>
+    <p>Every symptom is a story. The body is not breaking down - it is communicating.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    When a client's higher self shows you a physical condition or symptom - even one the client does not currently have - it is pointing you toward the emotional energy underneath it. The condition is the metaphor. Your job is to understand what it means energetically.
+  </p>
+
+  <p style="margin-bottom: 14px;">
+    Mila's physical therapy background gives her a medical foundation for this work. But you do not need a medical degree - you need the language. When the colon shows up, you know it relates to letting go. When inflammation shows up, something is eating at the person. When the throat shows up, something is not being expressed. Start building that vocabulary.
+  </p>
+
+  <div class="callout accent-pink" style="margin-bottom: 16px;">
+    <div class="callout-title">Mila's Live Example - From the Workshop</div>
+    <p>Working with a student named Lori, Mila used the process of elimination and landed on <strong>colitis</strong> - which Lori did not have. But colitis meant: the colon (inability to let go) plus "itis" (inflammation, something eating at you). Mila asked - is it her own inability to let go? No. Someone else's. She held strong. The trapped emotions she found were <strong>absorbed</strong> - she had been absorbing her husband's feelings of unworthiness. The body was showing the energetic truth, not the literal diagnosis.</p>
+  </div>
+
+  <table class="body-table">
+    <thead>
+      <tr>
+        <th style="width:28%;">Physical Presentation</th>
+        <th style="width:36%;">Energetic / Emotional Root</th>
+        <th style="width:36%;">What to Explore</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="body-label">Colitis / Colon issues</span></td>
+        <td>Inability to let go - holding on to what needs to be released</td>
+        <td>What or who are they (or someone close to them) unwilling to release?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Any "-itis" (inflammation)</span></td>
+        <td>Something eating at the person - internal conflict or absorbed anger</td>
+        <td>Is it their own feeling or is it absorbed from someone else?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Throat / voice issues</span></td>
+        <td>Something unexpressed - words swallowed, truth withheld</td>
+        <td>What are they not saying? Who are they not saying it to?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Fatigue / chronic exhaustion</span></td>
+        <td>Carrying too much - often for others, not just themselves</td>
+        <td>Whose energy are they holding? What do they not have permission to put down?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Back pain</span></td>
+        <td>Lack of support - emotional, financial, or relational</td>
+        <td>Where in their life do they feel unsupported or alone with a burden?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Knee pain</span></td>
+        <td>Resistance to change - inflexibility in moving forward</td>
+        <td>What direction in life are they unable or unwilling to move toward?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Frequent illness / low immunity</span></td>
+        <td>Depleted boundaries - giving too much, absorbing too much</td>
+        <td>Where are their energetic boundaries weakest? Who is draining them?</td>
+      </tr>
+      <tr>
+        <td><span class="body-label">Separation anxiety (children)</span></td>
+        <td>Absorbed emotional instability from the home environment</td>
+        <td>What was happening for the parents during the child's early years?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 10px; font-size: 10px; color: var(--grey-600); font-style: italic;">This is a starting point - not a diagnosis. Always ask the higher self to confirm. Your interpretation must be verified through muscle testing.</p>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 8: EXERCISE - PRACTICE SESSION SETUP
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="geo-watermark geo-watermark-br"></div>
+  <div class="geo-watermark geo-watermark-tl"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Exercise 01</span>
+    <h2>Practice Session Setup</h2>
+    <p>Run through this before every practice session until it becomes second nature.</p>
+  </div>
+
+  <p style="margin-bottom: 16px;">This is a full guided exercise to take you from intention-setting through to baseline muscle testing. Use it for every practice session - with yourself, a partner, or a volunteer client.</p>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Guided Exercise</span>
+    <h3>Before You Begin</h3>
+
+    <span class="section-label" style="margin-top: 8px;">Pre-session checklist</span>
+    <ul class="check-list">
+      <li><span class="check-box"></span><strong>Hydration check</strong> - Am I hydrated? Does my client need water before we start?</li>
+      <li><span class="check-box"></span><strong>Clear your space</strong> - Physically tidy and energetically clear the room you are working in.</li>
+      <li><span class="check-box"></span><strong>Set your intention</strong> - State it clearly from the heart. What is this session for?</li>
+      <li><span class="check-box"></span><strong>Create sacred space</strong> - Light around yourself, bridge, light around the client.</li>
+      <li><span class="check-box"></span><strong>Get permission</strong> - Ask their higher self for permission to enter their energy field.</li>
+      <li><span class="check-box"></span><strong>Run the 5 checks</strong> - Ready? Willing? Capable? Safe? For their highest and greatest good?</li>
+      <li><span class="check-box"></span><strong>Establish your baseline</strong> - Calibrate your muscle testing before you begin asking session questions.</li>
+    </ul>
+
+    <div class="two-col" style="margin-top: 16px; gap: 14px;">
+      <div>
+        <span class="section-label">I am working with</span>
+        <div class="write-field">
+          <input type="text" class="write-line" placeholder="Name or initials" />
+        </div>
+        <span class="section-label" style="margin-top: 10px;">Session type</span>
+        <div class="write-field">
+          <input type="text" class="write-line" placeholder="In-person / remote / surrogate" />
+        </div>
+        <span class="section-label" style="margin-top: 10px;">All 5 checks clear?</span>
+        <div class="write-field">
+          <input type="text" class="write-line" placeholder="Yes / No (note any that came up weak)" />
+        </div>
+      </div>
+      <div>
+        <span class="section-label">My intention for this session</span>
+        <div class="journal-lines">
+          <div class="journal-line"></div>
+          <div class="journal-line"></div>
+          <div class="journal-line"></div>
+        </div>
+        <span class="section-label" style="margin-top: 10px;">First impression when I connected</span>
+        <div class="journal-lines">
+          <div class="journal-line"></div>
+          <div class="journal-line"></div>
+          <div class="journal-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="journal-prompt">What did I notice when I created the energetic bridge?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 9: EXERCISE - PROCESS OF ELIMINATION PRACTICE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="geo-watermark geo-watermark-br"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Exercise 02</span>
+    <h2>Process of Elimination Practice</h2>
+    <p>Use this when standard muscle testing is not landing you on the answer. Trust the process.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">Work through this either on yourself or with a partner. Read through the guided walkthrough first, then fill in the recording table as you go.</p>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Guided Walkthrough</span>
+    <h3>Find the Issue Through Your Environment</h3>
+
+    <ol class="step-list">
+      <li>
+        <div class="step-number">1</div>
+        <div class="step-content">Say (out loud or in your mind): <em>"Show me and guide me to where the issue is in my space."</em> Begin muscle testing.</div>
+      </li>
+      <li>
+        <div class="step-number">2</div>
+        <div class="step-content">Ask: <em>"Is it on my right? My left? In front of me? Behind me?"</em> Test each direction. Mark which one tests strong below.</div>
+      </li>
+      <li>
+        <div class="step-number">3</div>
+        <div class="step-content">Look at everything in that direction. Name each object and test. "Is it my cards? A book? A chart? My crystals?" Go one by one.</div>
+      </li>
+      <li>
+        <div class="step-number">4</div>
+        <div class="step-content">Once you find the object, work within it. Page, card, paragraph, column - keep narrowing down until you land on something specific.</div>
+      </li>
+      <li>
+        <div class="step-number">5</div>
+        <div class="step-content">Ask: <em>"Do you have a trapped emotion with [word or concept]?"</em> Use what you found as the starting point and go from there.</div>
+      </li>
+    </ol>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <span class="section-label">Recording Table - Process of Elimination</span>
+    <table class="log-table" style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th style="width:18%;">Direction (strong)</th>
+          <th style="width:22%;">Object Found</th>
+          <th style="width:24%;">What it Pointed To</th>
+          <th style="width:36%;">Emotion / Release / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <span class="journal-prompt">What surprised me about this process? What made sense?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 10: WHEN THE CLIENT DISAGREES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header" style="margin-bottom: 14px;">
+    <span class="section-number">Section 05</span>
+    <h2>When the Client Disagrees</h2>
+    <p>You are not working with their conscious mind. You are working with their higher self. These are not the same thing.</p>
+  </div>
+
+  <p style="margin-bottom: 10px;">
+    The conscious mind is the part that says "that's not right" and "I don't think so" and "that doesn't make sense." And it will often say these things when the higher self is showing you something exactly right. Your job is to hold your findings - lovingly, firmly, and without apology.
+  </p>
+
+  <div class="quote-block" style="margin: 10px 0; padding: 10px 16px;">
+    <p>"Thank you for letting me cognitively know that you don't feel that way. But your higher self is saying yes, and I'm going to honor your higher self."</p>
+    <span class="attribution">- Mila, to clients who push back</span>
+  </div>
+
+  <p style="margin-bottom: 10px;">
+    This is not arrogance - it is the practice. Mila explains it through her physical therapy background: when a patient came in for back pain, her hands would intuitively go to the knee. Every time the patient said "there's nothing wrong with my knee." Every time, the knee was where the chain started - a misaligned patella pulling the ITB, destabilizing the glute, throwing off the pelvis. If she had listened to the patient, she would have missed the root entirely.
+  </p>
+
+  <div class="callout accent-blue" style="margin-bottom: 12px;">
+    <div class="callout-title">How to Hold Your Power Gracefully</div>
+    <ul class="check-list" style="margin-top: 6px;">
+      <li><span class="check-box"></span>Acknowledge what they said - "I hear you, thank you for sharing that."</li>
+      <li><span class="check-box"></span>Redirect to the higher self - "But your subconscious is giving me something different, and I need to honor that."</li>
+      <li><span class="check-box"></span>Keep moving - do not debate, do not defend. Continue the session. The light bulb will come later.</li>
+      <li><span class="check-box"></span>Invite them to sit with it - "This may not make sense right now. Come back to it in a few days."</li>
+      <li><span class="check-box"></span>Trust your muscle testing - one clear strong response is worth more than their opinion.</li>
+    </ul>
+  </div>
+
+  <div class="callout accent-pink" style="padding: 12px 16px;">
+    <div class="callout-title">Confidence is Part of the Healing</div>
+    <p>When a client sees that you are confident, that you have your work together, and that you are not a pushover - they have more respect for the process. Mila says it plainly: as soon as they see you are not going to be moved by their skepticism, they settle in. And then the real work can begin.</p>
+  </div>
+
+  <div class="section-divider" style="margin: 12px 0;"><span></span><span></span><span></span></div>
+
+  <span class="journal-prompt">Think of a time you doubted your own reading. What happened when you stayed with it anyway?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 11: PRACTITIONER ETHICS & BOUNDARIES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 06</span>
+    <h2>Practitioner Ethics &amp; Boundaries</h2>
+    <p>This work is powerful. With that power comes responsibility - to your clients, and to yourself.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Energy work without ethics is energetic trespassing. You cannot enter someone's energy field without their permission. You cannot do surrogate work on a child without the parent's consent. You cannot "snoop" in someone else's business just because you have the skill to do it.
+  </p>
+
+  <div class="callout accent-purple" style="margin-bottom: 16px;">
+    <div class="callout-title">Permission is Non-Negotiable</div>
+    <p>Before you connect to anyone's energy field - ask. Even in a live workshop demonstration, Mila asks: <em>"Do you give me permission to hook on to your energy field?"</em> This is not a formality. It is the foundation. You do not enter without it.</p>
+  </div>
+
+  <div class="two-col" style="margin: 16px 0;">
+    <div>
+      <span class="section-label">Energetic Boundaries</span>
+      <ul class="check-list">
+        <li><span class="check-box"></span>Always get explicit permission before connecting</li>
+        <li><span class="check-box"></span>Do not do remote work on someone without their knowledge</li>
+        <li><span class="check-box"></span>Clear your own energy field after every session</li>
+        <li><span class="check-box"></span>Know when a session is complete and disconnect cleanly</li>
+        <li><span class="check-box"></span>Protect yourself before each session, not after</li>
+      </ul>
+    </div>
+    <div>
+      <span class="section-label">Knowing When Not to Work</span>
+      <ul class="check-list">
+        <li><span class="check-box"></span>If the 5 checks come back unsafe - stop</li>
+        <li><span class="check-box"></span>If you sense something is off before you even begin - trust it</li>
+        <li><span class="check-box"></span>If a client needs medical care, refer them on</li>
+        <li><span class="check-box"></span>If someone is on significant mental health medication - do not work on them</li>
+        <li><span class="check-box"></span>A refund and a kind goodbye is always the right call when it is not safe</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout accent-gold" style="margin-bottom: 16px;">
+    <div class="callout-title">Animal and Child Surrogate Work</div>
+    <p>Working through a surrogate requires an extra layer of permission. For children - always get explicit consent from the parent or guardian before connecting to the child's energy. For animals - the owner's permission is required. This is not just ethics, it is energetic protection for you.</p>
+  </div>
+
+  <div class="callout accent-blue">
+    <div class="callout-title">Mila's Practitioner Contract with Herself</div>
+    <p>Every session, Mila puts out this intention: <em>"To do no harm, ever. That the higher self guides and leads me. That anyone who is not for my highest and greatest good simply does not show up."</em> This is not passive - it is an active energetic boundary she sets with intention.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 12: PRACTICE LOG / SESSION NOTES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="geo-watermark geo-watermark-br"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Practice Log</span>
+    <h2>Session Notes &amp; Tracking</h2>
+    <p>Record your practice sessions here. Patterns emerge over time - and the patterns are where the real learning lives.</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">Use this log after each practice session. The more honest and detailed your notes, the faster you will grow.</p>
+
+  <table class="log-table">
+    <thead>
+      <tr>
+        <th style="width:10%;">Date</th>
+        <th style="width:14%;">Client / Self</th>
+        <th style="width:16%;">Session Type</th>
+        <th style="width:22%;">What I Found</th>
+        <th style="width:20%;">Technique Used</th>
+        <th style="width:18%;">Observations / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <span class="section-label" style="margin-top: 14px;">Patterns I am noticing across sessions</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">Questions I want to bring to Mila</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">What I want to practice more of</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 13: NEXT STEPS + ABOUT MILA
+============================================= -->
+<div class="page" style="background-image: url('./assets/texture-gold-glow.png'); background-size: cover; background-position: center; background-blend-mode: soft-light;">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-sunset-gold.png');"></div>
+
+  <div class="section-header">
+    <span class="section-number">Next Steps</span>
+    <h2>Where Do You Go From Here?</h2>
+    <p>You have done the foundational workshops. You have done the advanced. Now you practice.</p>
+  </div>
+
+  <p style="margin-bottom: 18px;">
+    The fastest way to build your confidence as a practitioner is to work with real people, in real sessions, and trust the process when it does not make sense yet. That is when the growth happens. The light bulb moments - the ones where a client goes quiet because something just landed for them - those are the moments that will keep you going.
+  </p>
+
+  <div class="next-steps-grid">
+    <div class="next-step-card">
+      <h3>Book a 1:1 Session with Mila</h3>
+      <p>Experience what a full advanced session feels like from the client's seat. The fastest way to understand the work is to receive it at this level.</p>
+      <a href="https://milashealingtouch.com" class="link-pill">Book Now</a>
+    </div>
+    <div class="next-step-card">
+      <h3>Learn the Emotion Code</h3>
+      <p>Return to the foundational workshop with new eyes. Students consistently find they pick up layers they missed the first time.</p>
+      <a href="https://milashealingtouch.com" class="link-pill">Register</a>
+    </div>
+    <div class="next-step-card">
+      <h3>Energy Clearing Workshop</h3>
+      <p>Learn how to clear your space, protect your energy, and work with the energetic environment around you and your clients.</p>
+      <a href="https://milashealingtouch.com" class="link-pill">Register</a>
+    </div>
+    <div class="next-step-card">
+      <h3>Muscle Test Like Mila</h3>
+      <p>Go deeper on muscle testing technique - the foundation that everything else is built on. Precision here changes everything.</p>
+      <a href="https://milashealingtouch.com" class="link-pill">Register</a>
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="about-box">
+    <span class="section-label">About Mila</span>
+    <p style="font-size: 11.5px; font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.85; margin-bottom: 12px; color: #3a2e45;">
+      Mila Velazquez is a Certified Emotion Code Practitioner and Masters-level Physical Therapist with over 30 years of experience working with the human body. Her path moved from conventional physical therapy - where she was already working intuitively, her hands going to places the standard protocol never would - to energy healing, where that intuition finally had a framework.
+    </p>
+    <p style="font-size: 11.5px; font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.85; margin-bottom: 12px; color: #3a2e45;">
+      She works with adults, children, and animals - in person and remotely - and has taught hundreds of students to trust their own bodies and higher selves in the healing process. Her workshops are known for being direct, practical, and genuinely transformative.
+    </p>
+    <div style="display: flex; align-items: center; gap: 14px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(197,160,94,0.2);">
+      <div class="practitioner-initials">MV</div>
+      <div>
+        <strong style="font-family: var(--font-heading); font-size: 13px; display: block; margin-bottom: 2px;">Mila Velazquez, MSPT, CECP</strong>
+        <p style="font-size: 10px; color: var(--grey-600); margin: 0;">milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Advanced Techniques Workshop</span>
+  </div>
+</div>
+
+</body>
+</html>

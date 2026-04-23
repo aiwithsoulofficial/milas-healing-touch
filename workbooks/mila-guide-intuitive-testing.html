@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Your Intuitive Testing - Mila's Facilitator Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #e8e5ee;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       PAGE SHELL
+    ============================================= */
+    .page {
+      width: var(--page-width);
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      padding: var(--page-pad) var(--page-pad) 24mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(29,4,38,0.12);
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page:nth-child(even)::before {
+      top: auto;
+      bottom: -80px;
+      right: auto;
+      left: -80px;
+      background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%);
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: var(--page-pad);
+      right: var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--grey-400);
+      padding-top: 7px;
+      letter-spacing: 0.04em;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0));
+    }
+
+    .page-footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a05e, #6412b2);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       DECORATIVE
+    ============================================= */
+    .gradient-bar {
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .corner-accent {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent::before,
+    .corner-accent::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    .corner-accent::before {
+      width: 64px;
+      height: 64px;
+      border-top: 1px solid rgba(100,18,178,0.22);
+      border-right: 1px solid rgba(100,18,178,0.22);
+    }
+
+    .corner-accent::after {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(93,129,255,0.18);
+      border-right: 1px solid rgba(93,129,255,0.18);
+    }
+
+    /* =============================================
+       PRESENTER TYPOGRAPHY - LARGE & SCANNABLE
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 48px; }
+    h2 { font-size: 32px; font-weight: 500; }
+    h3 { font-size: 24px; font-weight: 600; }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+    }
+
+    p, li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3a2e45;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* =============================================
+       MODULE HEADER
+    ============================================= */
+    .module-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--grey-200);
+    }
+
+    .module-number {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .module-number::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 2px;
+      background: var(--grad-gold);
+      margin-top: 6px;
+    }
+
+    .module-header h2 {
+      font-size: 34px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       TIMING BADGE - Blue
+    ============================================= */
+    .timing-badge {
+      display: inline-block;
+      background: rgba(93,129,255,0.12);
+      border: 2px solid rgba(93,129,255,0.35);
+      border-radius: 10px;
+      padding: 8px 18px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      margin-top: 8px;
+    }
+
+    .timing-badge::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* =============================================
+       SAY THIS - Purple callout
+    ============================================= */
+    .say-this {
+      border-left: 5px solid var(--secondary);
+      padding: 18px 22px;
+      background: rgba(100,18,178,0.06);
+      border-radius: 0 14px 14px 0;
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .say-this-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .say-this p {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    /* =============================================
+       DEMO / EXERCISE - Gold callout
+    ============================================= */
+    .demo-cue {
+      border-left: 5px solid var(--gold);
+      padding: 16px 22px;
+      background: rgba(197,160,94,0.1);
+      border-radius: 0 14px 14px 0;
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .demo-cue-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #8a6d2e;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .demo-cue p, .demo-cue li {
+      font-size: 15px;
+      color: #3a2e45;
+      line-height: 1.6;
+    }
+
+    .demo-cue ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0 0;
+    }
+
+    .demo-cue ul li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .demo-cue ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* =============================================
+       WARNING / BOUNDARY - Pink/accent callout
+    ============================================= */
+    .warning-cue {
+      border-left: 5px solid var(--accent);
+      padding: 16px 22px;
+      background: rgba(241,0,101,0.05);
+      border-radius: 0 14px 14px 0;
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .warning-cue-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .warning-cue p {
+      font-size: 15px;
+      color: #3a2e45;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       TEACHING POINTS - bullet list
+    ============================================= */
+    .teach-points {
+      list-style: none;
+      margin: 14px 0;
+      padding: 0;
+    }
+
+    .teach-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3a2e45;
+    }
+
+    .teach-points li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--grad-bar);
+      margin-top: 7px;
+    }
+
+    .teach-points.gold li::before {
+      background: var(--grad-gold);
+    }
+
+    /* =============================================
+       TRANSITION CUE
+    ============================================= */
+    .transition {
+      border-top: 1px solid var(--grey-200);
+      margin-top: 20px;
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .transition-arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--grad-bar);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .transition p {
+      font-size: 14px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--grey-600);
+    }
+
+    /* =============================================
+       TIMING OVERVIEW TABLE
+    ============================================= */
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-body);
+      margin: 16px 0;
+    }
+
+    .timing-table th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 12px 14px;
+      text-align: left;
+    }
+
+    .timing-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--grey-200);
+      font-size: 14px;
+      line-height: 1.5;
+      color: #3a2e45;
+    }
+
+    .timing-table tr:nth-child(even) td {
+      background: var(--grey-100);
+    }
+
+    .timing-table .time-col {
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      width: 80px;
+    }
+
+    .timing-table .total-row td {
+      background: rgba(100,18,178,0.08);
+      font-weight: 700;
+      color: var(--dark);
+      border-top: 2px solid var(--secondary);
+      font-size: 15px;
+    }
+
+    /* =============================================
+       COVER PAGE
+    ============================================= */
+    .cover-page {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-page::before {
+      display: none;
+    }
+
+    .cover-constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 48px 48px, 72px 72px, 36px 36px;
+      background-position: 0 0, 24px 24px, 12px 12px;
+      opacity: 0.12;
+      z-index: 0;
+    }
+
+    .cover-header {
+      padding: 70px var(--page-pad) 40px;
+      position: relative;
+      z-index: 2;
+      flex: 0;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0;
+    }
+
+    .cover-brand {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 28px;
+    }
+
+    .cover-brand::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    .cover-body {
+      flex: 1;
+      padding: 20px var(--page-pad) 28mm;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .cover-meta {
+      margin-top: auto;
+    }
+
+    .cover-meta p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .cover-meta strong {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background: rgba(197,160,94,0.2);
+      border: 1px solid rgba(197,160,94,0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 8px 18px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+
+    .cover-page .page-footer {
+      z-index: 2;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-page .page-footer .footer-brand {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       AFFIRMATION BLOCK - closing page
+    ============================================= */
+    .affirmation-block {
+      background: linear-gradient(135deg, rgba(100,18,178,0.08) 0%, rgba(93,129,255,0.06) 100%);
+      border: 1px solid rgba(100,18,178,0.15);
+      border-radius: 18px;
+      padding: 32px 28px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .affirmation-block p {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .affirmation-block .affirmation-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+      font-style: normal;
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: 297mm;
+        margin: 0;
+        padding: 16mm 18mm 22mm;
+        box-shadow: none;
+        page-break-after: always;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .cover-page {
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .say-this,
+      .demo-cue,
+      .warning-cue,
+      .timing-badge,
+      .affirmation-block,
+      .cover-page,
+      .cover-constellation,
+      .corner-accent,
+      .page-top-border,
+      .page-footer::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @media screen {
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: white;
+        font-size: 11px;
+        font-family: var(--font-body);
+        padding: 10px 16px;
+        border-radius: 8px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-hint no-print">Print (Ctrl/Cmd + P) for A4 PDF</div>
+
+<!-- ============================================= -->
+<!-- COVER PAGE                                    -->
+<!-- ============================================= -->
+<div class="page cover-page">
+  <div class="cover-constellation"></div>
+
+  <div class="cover-header">
+    <div class="cover-eyebrow">Facilitator Guide</div>
+    <h1 class="cover-title">Master Your<br>Intuitive Testing</h1>
+    <p class="cover-subtitle">Trust Your Body's Wisdom</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-meta">
+      <p><strong>Format:</strong> LIVE on Zoom</p>
+      <p><strong>Duration:</strong> ~2 hours (6 parts)</p>
+      <p><strong>Price:</strong> $111 live / $77 replay</p>
+      <p><strong>Recording:</strong> Available for replay</p>
+      <div class="cover-badge">Mila's Eyes Only</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Facilitator Guide - Not for Distribution</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- TIMING OVERVIEW                               -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">At a Glance</span>
+    <h2>Workshop Timing Overview</h2>
+  </div>
+
+  <table class="timing-table">
+    <thead>
+      <tr>
+        <th>Part</th>
+        <th>Topic</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>The Quantum Connection</td>
+        <td class="time-col">15 min</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>The Sway Test</td>
+        <td class="time-col">20 min</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Pendulum Testing</td>
+        <td class="time-col">20 min</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Testing on Another Person</td>
+        <td class="time-col">20 min</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Surrogate Testing</td>
+        <td class="time-col">20 min</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Integration & Closing</td>
+        <td class="time-col">15 min</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">Total Workshop Time</td>
+        <td>~2 hours</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="demo-cue" style="margin-top: 20px;">
+    <span class="demo-cue-label">Workshop Flow Note</span>
+    <p>Each part follows the same pattern: <strong>teach the concept &rarr; demonstrate live &rarr; guide them through practice</strong>. Every part has a hands-on exercise.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 1: The Quantum Connection                -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 1</span>
+    <h2>The Quantum Connection</h2>
+    <div class="timing-badge">15 Minutes</div>
+  </div>
+
+  <ul class="teach-points">
+    <li>How you connect <strong>higher self to higher self</strong> in the quantum field</li>
+    <li>Information flows simultaneously to both practitioner and client</li>
+    <li>Visible intuition - what it looks like when information flows through the body</li>
+    <li>Your finger method: <strong>index finger = yes/strong</strong>, <strong>pinky = no/weak</strong></li>
+    <li>The difference between physical science and metaphysical science in practice</li>
+  </ul>
+
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"Energy has no space, time, or distance."</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Demo Now</span>
+    <p>Show your finger method on camera. Hold up your hand - demonstrate the index finger response (strong/yes) and the pinky response (weak/no). Let them see how information moves through your body visibly.</p>
+  </div>
+
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now I'm going to teach you the first method you can do right now, right where you are - the sway test. Stand up for me..."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 1</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 2: The Sway Test                         -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 2</span>
+    <h2>The Sway Test</h2>
+    <div class="timing-badge">20 Minutes</div>
+  </div>
+
+  <p style="font-size: 16px; margin-bottom: 14px;"><strong>Your body is a living pendulum.</strong></p>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Demo Now - Stand Up and Show Them</span>
+    <ul>
+      <li>Stand upright, feet hip-width apart</li>
+      <li>Relax shoulders - loose but not sloppy</li>
+      <li>Close eyes if comfortable</li>
+      <li>State "Show me yes" - observe direction</li>
+      <li>State "Show me no" - observe opposite</li>
+    </ul>
+  </div>
+
+  <ul class="teach-points">
+    <li><strong>Forward = yes, backward = no</strong> (for many, but NOT always - everyone is different)</li>
+    <li>The key: <strong>allow</strong> the body to respond - do not force it</li>
+  </ul>
+
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"Allow the body to respond. Don't make it perform."</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Practice Exercise - Guide Them Through This</span>
+    <p>Have everyone stand. Walk them through:</p>
+    <ul>
+      <li>"Show me yes" / "Show me no" - find their direction</li>
+      <li>Test: <strong>"My body loves clean water"</strong> (should get yes)</li>
+      <li>Test: <strong>"I am sitting in a chair"</strong> (should get no, since they're standing)</li>
+      <li>Test with objects: supplement, crystal, essential oil, food</li>
+    </ul>
+  </div>
+
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now let's add another tool to your kit - the pendulum. You can sit back down for this one..."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 2</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 3: Pendulum Testing                      -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 3</span>
+    <h2>Pendulum Testing</h2>
+    <div class="timing-badge">20 Minutes</div>
+  </div>
+
+  <div class="say-this">
+    <span class="say-this-label">Open With</span>
+    <p>"The pendulum is NOT magic. It amplifies subtle energetic information. It is an extension of your intention, nervous system, subtle energetic communication, and intuitive guidance."</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Demo Now - Hold Up Your Pendulum</span>
+    <ul>
+      <li>Hold chain between thumb and finger, let hang still</li>
+      <li>Elbow supported, take a breath, centre yourself</li>
+      <li>"Show me yes" - observe (clockwise / counterclockwise / forward-back / side-side)</li>
+      <li>"Show me no"</li>
+      <li>"Show me maybe / unclear"</li>
+    </ul>
+  </div>
+
+  <div class="warning-cue">
+    <span class="warning-cue-label">Important Teaching Point</span>
+    <p>Each person's pendulum language is <strong>DIFFERENT</strong>. There are no universal rules. They must calibrate their own pendulum first.</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Practice Exercise</span>
+    <p>Have them calibrate their pendulum, then test:</p>
+    <ul>
+      <li>"Is this supplement beneficial for me?"</li>
+      <li>"Do I need more water?"</li>
+      <li>"Do I have permission to continue?"</li>
+    </ul>
+  </div>
+
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now we're going to take this to the next level - testing on another person. This is where it gets really powerful..."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 3</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 4: Testing on Another Person             -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 4</span>
+    <h2>Testing on Another Person</h2>
+    <div class="timing-badge">20 Minutes</div>
+  </div>
+
+  <h4 style="margin-bottom: 10px;">Requires:</h4>
+  <ul class="teach-points">
+    <li><strong>Permission</strong> - always ask first</li>
+    <li><strong>Clear explanation</strong> - tell them what you're doing</li>
+    <li><strong>Respect</strong> - gentle handling</li>
+    <li><strong>Neutrality</strong> - no agenda, just listening</li>
+  </ul>
+
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"You are not there to dominate their body. You are there to listen to it."</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Demo Now - Basic Arm Test Method</span>
+    <ul>
+      <li>Person holds arm straight out to the side</li>
+      <li>They resist gently</li>
+      <li>Apply LIGHT pressure only</li>
+      <li>True statement = muscle stays stable</li>
+      <li>False/stressful statement = muscle weakens/unlocks</li>
+    </ul>
+  </div>
+
+  <div class="warning-cue">
+    <span class="warning-cue-label">Critical Point</span>
+    <p><strong>NEVER aggressive.</strong> Too much force distorts results. Light pressure is all you need.</p>
+  </div>
+
+  <h4 style="margin-top: 16px; margin-bottom: 10px;">What can be tested:</h4>
+  <ul class="teach-points">
+    <li>Emotional stress</li>
+    <li>Energetic imbalances</li>
+    <li>Supplements</li>
+    <li>Healing priorities</li>
+    <li>Readiness to release</li>
+  </ul>
+
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now I'm going to teach you something that opens this work up to a whole new level - surrogate testing. This is how you test for someone who isn't in the room..."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 4</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 5: Surrogate Testing                     -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 5</span>
+    <h2>Surrogate Testing</h2>
+    <div class="timing-badge">20 Minutes</div>
+  </div>
+
+  <p style="font-size: 15px; margin-bottom: 14px;">Testing through one person on behalf of another - person, animal, child.</p>
+
+  <h4 style="margin-bottom: 10px;">Used when:</h4>
+  <ul class="teach-points">
+    <li>Not physically present</li>
+    <li>Child too young</li>
+    <li>Animal testing</li>
+    <li>Someone too weak to test directly</li>
+  </ul>
+
+  <div class="say-this">
+    <span class="say-this-label">Teaching Foundation</span>
+    <p>"Consciousness and energetic information are NOT limited by physical distance."</p>
+  </div>
+
+  <div class="demo-cue">
+    <span class="demo-cue-label">Demo Now - Walk Them Through The Steps</span>
+    <ul>
+      <li>Centre and ground yourself</li>
+      <li>Ask permission: "Do I have permission to surrogate test for this person/animal?"</li>
+      <li>Clearly identify who you're testing for</li>
+      <li>Connect only with their field for the highest good</li>
+      <li>Use your chosen method (sway, finger, pendulum)</li>
+    </ul>
+  </div>
+
+  <div class="warning-cue">
+    <span class="warning-cue-label">Critical Boundary - Emphasise This</span>
+    <p>Surrogate testing is <strong>NOT</strong> for: spying, bypassing consent, satisfying curiosity, or checking up on people.</p>
+  </div>
+
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"That is not spiritual wisdom. That is energetic boundary crossing."</p>
+  </div>
+
+  <p style="font-size: 15px; margin-top: 12px;"><strong>Teach this with maturity and integrity.</strong></p>
+
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Let's bring it all together now - find what works for you, and close with a powerful affirmation..."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 5</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PART 6: Integration & Closing                 -->
+<!-- ============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="module-header">
+    <span class="module-number">Part 6</span>
+    <h2>Integration & Closing</h2>
+    <div class="timing-badge">15 Minutes</div>
+  </div>
+
+  <ul class="teach-points">
+    <li>Ask them: <strong>Which method feels most natural to YOU?</strong></li>
+    <li>Encourage building a <strong>daily practice</strong> - even 2 minutes a day</li>
+    <li>When done with integrity, humility, and connection, muscle testing becomes more than a technique - it becomes a <strong>language</strong></li>
+  </ul>
+
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"The body is always speaking. The question is, are we still enough to listen?"</p>
+  </div>
+
+  <div class="gradient-bar" style="margin-top: 24px;"></div>
+
+  <div class="affirmation-block">
+    <span class="affirmation-label">Closing Affirmation - Lead Them Through This Slowly</span>
+    <p>
+      "I trust my body."<br><br>
+      "I trust truth."<br><br>
+      "I trust clear guidance."<br><br>
+      "I ask to receive only what serves the highest good."<br><br>
+      "I honor what is revealed, and I honor<br>what is not yet ready to be revealed."
+    </p>
+  </div>
+
+  <div class="demo-cue" style="margin-top: 16px;">
+    <span class="demo-cue-label">After Closing Affirmation</span>
+    <p>Thank everyone for being here and for their trust. Open for <strong>Q&A with Mila</strong>. Mention the workbook they will receive, the replay, and MilasHealingTouch.com.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Part 6 - End</span>
+  </div>
+</div>
+
+</body>
+</html>

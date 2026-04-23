@@ -1,0 +1,2973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Your Intuitive Testing - Workbook | Mila's Healing Touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+      --grad-accent-stripe: linear-gradient(180deg, #6412b2 0%, #5d81ff 100%);
+      --grad-accent-stripe-pink: linear-gradient(180deg, #f10065 0%, #6412b2 100%);
+      --grad-footer: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0));
+
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #e8e5ee;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PAGE SHELL
+    ============================================= */
+    .page {
+      width: var(--page-width);
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      padding: var(--page-pad) var(--page-pad) 24mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(29,4,38,0.12);
+    }
+
+    /* Subtle per-page radial glow - top-right default */
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Alternating glow positions */
+    .page:nth-child(even)::before {
+      top: auto;
+      bottom: -80px;
+      right: auto;
+      left: -80px;
+      background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%);
+    }
+
+    .page:nth-child(3n)::before {
+      top: 40%;
+      right: -100px;
+      bottom: auto;
+      left: auto;
+      background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
+    }
+
+    /* All page content sits above the glow */
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top decorative border on interior pages */
+    .page-top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* =============================================
+       FOOTER (every page)
+    ============================================= */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: var(--page-pad);
+      right: var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 400;
+      color: var(--grey-400);
+      padding-top: 7px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Gradient line replaces solid border above footer */
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--grad-footer);
+    }
+
+    .page-footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a05e, #6412b2);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       DECORATIVE ELEMENTS
+    ============================================= */
+    .gradient-bar {
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-bar-sm {
+      height: 1px;
+      background: var(--grad-gold);
+      border-radius: 1px;
+      margin-bottom: 14px;
+    }
+
+    /* Corner arcs - sacred geometry accents */
+    .corner-accent {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent::before,
+    .corner-accent::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    .corner-accent::before {
+      width: 64px;
+      height: 64px;
+      border-top: 1px solid rgba(100,18,178,0.22);
+      border-right: 1px solid rgba(100,18,178,0.22);
+    }
+
+    .corner-accent::after {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(93,129,255,0.18);
+      border-right: 1px solid rgba(93,129,255,0.18);
+    }
+
+    .corner-accent-bottom {
+      position: absolute;
+      bottom: 24mm;
+      left: 8px;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent-bottom::before,
+    .corner-accent-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    .corner-accent-bottom::before {
+      width: 50px;
+      height: 50px;
+      border-bottom: 1px solid rgba(197,160,94,0.2);
+      border-left: 1px solid rgba(197,160,94,0.2);
+    }
+
+    .corner-accent-bottom::after {
+      width: 32px;
+      height: 32px;
+      border-bottom: 1px solid rgba(100,18,178,0.15);
+      border-left: 1px solid rgba(100,18,178,0.15);
+    }
+
+    /* Section divider - three dots */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+
+    .section-divider span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .section-divider span:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      opacity: 0.9;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 42px; }
+    h2 { font-size: 28px; font-weight: 500; }
+    h3 { font-size: 20px; font-weight: 600; }
+    h4 { font-size: 15px; font-weight: 600; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--secondary); }
+
+    p {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #3a2e45;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* =============================================
+       QUOTE BLOCK
+    ============================================= */
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(197,160,94,0.06) 0%, rgba(93,129,255,0.05) 100%);
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .quote-block .attribution {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       CALLOUT / INFO BOX
+    ============================================= */
+    .callout {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      box-shadow: 0 2px 12px rgba(29,4,38,0.05);
+    }
+
+    .callout.accent-blue {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(93,129,255,0.05);
+      position: relative;
+    }
+
+    .callout.accent-blue::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe);
+    }
+
+    .callout.accent-purple {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(100,18,178,0.04);
+      position: relative;
+    }
+
+    .callout.accent-purple::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: linear-gradient(180deg, #6412b2 0%, #c5a05e 100%);
+    }
+
+    .callout.accent-pink {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(241,0,101,0.04);
+      position: relative;
+    }
+
+    .callout.accent-pink::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe-pink);
+    }
+
+    .callout p {
+      font-size: 11px;
+      margin: 0;
+    }
+
+    .callout-title {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: var(--secondary);
+    }
+
+    /* =============================================
+       INPUT / WRITE FIELDS
+    ============================================= */
+    .write-field {
+      margin: 8px 0;
+    }
+
+    .write-field label {
+      font-size: 9.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey-600);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .write-line {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid var(--line-color);
+      padding: 4px 0;
+      font-size: 12px;
+      font-family: var(--font-body);
+      background: transparent;
+      color: var(--dark);
+      outline: none;
+      display: block;
+      min-height: 28px;
+    }
+
+    /* Journal lines */
+    .journal-lines {
+      margin: 10px 0;
+    }
+
+    .journal-line {
+      height: 28px;
+      border-bottom: 1px solid var(--line-color);
+      width: 100%;
+      display: block;
+    }
+
+    .journal-prompt {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      margin-top: 18px;
+      display: block;
+      letter-spacing: 0.015em;
+      padding-left: 10px;
+      border-left: 2px solid var(--gold-light);
+    }
+
+    /* =============================================
+       STEPS / PROCESS LIST
+    ============================================= */
+    .step-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .step-content span {
+      font-size: 10.5px;
+      color: var(--grey-600);
+    }
+
+    /* =============================================
+       TABLES
+    ============================================= */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      font-family: var(--font-body);
+    }
+
+    th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--grey-200);
+      vertical-align: top;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #3a2e45;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--grey-100);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-write td {
+      border-bottom: 1.5px solid var(--line-color);
+      background: transparent !important;
+      vertical-align: bottom;
+      height: 32px;
+    }
+
+    /* =============================================
+       CHECKBOX LIST
+    ============================================= */
+    .check-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      color: #3a2e45;
+    }
+
+    .check-box {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--grey-400);
+      border-radius: 3px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+
+    /* =============================================
+       TWO COLUMN LAYOUT
+    ============================================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .two-col-wide {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 20px;
+    }
+
+    /* =============================================
+       SECTION HEADER BAR
+    ============================================= */
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .section-number {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Thin decorative rule under section numbers */
+    .section-number::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--grad-gold);
+      margin-top: 4px;
+    }
+
+    .section-header h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .section-header p {
+      font-size: 11.5px;
+      color: var(--grey-600);
+      margin-top: 6px;
+      font-style: italic;
+      font-family: var(--font-heading);
+    }
+
+    /* =============================================
+       EXERCISE BOX
+    ============================================= */
+    .exercise-box {
+      border: 1.5px solid rgba(93,129,255,0.4);
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      margin: 14px 0;
+      position: relative;
+      background: linear-gradient(160deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.035) 100%);
+      box-shadow: 0 2px 18px rgba(93,129,255,0.08);
+    }
+
+    .exercise-tag {
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(93,129,255,0.35);
+    }
+
+    .exercise-box h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    /* =============================================
+       CARE GRID
+    ============================================= */
+    .care-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .care-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 8px;
+      padding: 14px;
+      border-top: 3px solid var(--secondary);
+      position: relative;
+    }
+
+    .care-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .care-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin: 0;
+    }
+
+    /* =============================================
+       EXPERIENCE LIST
+    ============================================= */
+    .experience-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .experience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 10.5px;
+      border-bottom: 1px solid var(--grey-200);
+      color: #3a2e45;
+    }
+
+    .experience-list li:last-child { border-bottom: none; }
+
+    .exp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* =============================================
+       NEXT STEPS CARDS
+    ============================================= */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .path-card {
+      border: 1.5px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 16px 14px 14px;
+      text-align: center;
+      position: relative;
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .path-card:nth-child(2)::before {
+      background: var(--secondary);
+    }
+
+    .path-card:nth-child(3)::before {
+      background: var(--accent);
+    }
+
+    .path-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .path-card p {
+      font-size: 9.5px;
+      color: var(--grey-600);
+      margin-bottom: 8px;
+    }
+
+    .path-link {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+      display: block;
+    }
+
+    /* =============================================
+       ABOUT / PRACTITIONER BLOCK
+    ============================================= */
+    .about-block {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 14px 0;
+    }
+
+    .about-avatar {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .credential-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 8px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       PROCESSING GRID
+    ============================================= */
+    .processing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .processing-item {
+      background: linear-gradient(135deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.03) 100%);
+      border: 1px solid rgba(100,18,178,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 10px;
+      color: #3a2e45;
+      line-height: 1.6;
+    }
+
+    .processing-item strong {
+      font-size: 10px;
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 3px;
+    }
+
+    /* =============================================
+       TOC STYLES
+    ============================================= */
+    .toc-list {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .toc-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--grey-200);
+      font-size: 11px;
+      color: #3a2e45;
+    }
+
+    .toc-list li:last-child {
+      border-bottom: none;
+    }
+
+    .toc-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+    }
+
+    .toc-title {
+      flex: 1;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .toc-subtitle {
+      font-family: var(--font-body);
+      font-size: 9.5px;
+      color: var(--grey-600);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .toc-page {
+      font-size: 10px;
+      color: var(--grey-400);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       COVER PAGE
+    ============================================= */
+    .cover-page {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cover page suppresses the generic page::before glow */
+    .cover-page::before {
+      display: none;
+    }
+
+    /* Full-page background image */
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    /* Gradient overlay for readability */
+    .cover-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(29, 4, 38, 0.65) 0%,
+        rgba(100, 18, 178, 0.55) 30%,
+        rgba(29, 4, 38, 0.7) 60%,
+        rgba(29, 4, 38, 0.88) 100%
+      );
+      z-index: 1;
+    }
+
+    .cover-header {
+      background: transparent !important;
+      background-image: none !important;
+      padding: 60px var(--page-pad) 30px;
+      position: relative;
+      z-index: 2;
+      flex: 0;
+    }
+
+    /* Image strip dividers */
+    .image-strip {
+      width: calc(100% + 36mm);
+      margin-left: calc(-1 * var(--page-pad));
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      border-radius: 0;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Sacred geometry watermark for journal pages */
+    .sacred-watermark {
+      position: absolute;
+      bottom: 30mm;
+      right: 10mm;
+      width: 200px;
+      height: 200px;
+      background-image: url('./assets/texture-sacred-geometry.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    /* Sacred geometry ring - subtle on full-bleed cover */
+    .cover-sacred-ring {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(197,160,94,0.08);
+      box-shadow:
+        0 0 0 18px rgba(93,129,255,0.03),
+        0 0 0 36px rgba(100,18,178,0.02);
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    /* Constellation dots */
+    .cover-constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 48px 48px, 72px 72px, 36px 36px;
+      background-position: 0 0, 24px 24px, 12px 12px;
+      opacity: 0.15;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    }
+
+    .cover-brand {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-brand::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    .cover-body {
+      flex: 1;
+      padding: 20px var(--page-pad) 28mm;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .participant-block {
+      margin-top: 16px;
+    }
+
+    .participant-block p {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .cover-field {
+      margin-bottom: 20px;
+    }
+
+    .cover-field label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cover-field-line {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding: 6px 0;
+      font-size: 14px;
+      font-family: var(--font-heading);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      outline: none;
+      display: block;
+    }
+
+    .cover-field-line::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-field-line:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .cover-practitioner {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .practitioner-initials {
+      width: 44px;
+      height: 44px;
+      background: var(--grad-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(197,160,94,0.2), 0 2px 10px rgba(197,160,94,0.25);
+    }
+
+    .practitioner-info p {
+      margin: 0;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .practitioner-info strong {
+      font-size: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Cover page footer */
+    .cover-page .page-footer {
+      z-index: 2;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-page .page-footer .footer-brand {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Featured quote with dark overlay background */
+    .quote-featured {
+      background: var(--dark);
+      position: relative;
+      border-left: none;
+      border-radius: 12px;
+      padding: 24px 28px;
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .quote-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(29,4,38,0.82), rgba(100,18,178,0.72));
+      border-radius: 12px;
+    }
+    .quote-featured p, .quote-featured .attribution {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .quote-featured p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .quote-featured .attribution {
+      color: rgba(255,255,255,0.7);
+      font-size: 9.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* Full-page affirmation styling */
+    .affirmation-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .affirmation-block {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .affirmation-block p {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.8;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .affirmation-block p.affirmation-large {
+      font-size: 26px;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: 297mm;
+        margin: 0;
+        padding: 16mm 18mm 22mm;
+        box-shadow: none;
+        page-break-after: always;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .cover-page {
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .write-line, .cover-field-line {
+        border-bottom: 1.5px solid #d9d4e5;
+      }
+
+      /* Ensure all decorative backgrounds print */
+      .cover-bg,
+      .cover-header,
+      .cover-constellation,
+      .cover-sacred-ring,
+      .corner-accent,
+      .corner-accent-bottom,
+      .callout,
+      .callout.accent-blue,
+      .callout.accent-purple,
+      .callout.accent-pink,
+      .exercise-box,
+      .processing-item,
+      .quote-block,
+      .quote-featured,
+      .image-strip,
+      .cover-practitioner,
+      .practitioner-initials,
+      .section-number::after,
+      .page-footer::before,
+      .page-top-border {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .image-strip {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .sacred-watermark {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cover-bg, .cover-bg::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =============================================
+       SCREEN ONLY HELPER
+    ============================================= */
+    @media screen {
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: white;
+        font-size: 11px;
+        font-family: var(--font-body);
+        padding: 10px 16px;
+        border-radius: 8px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT HINT (screen only) -->
+<div class="print-hint no-print">Print this page (Ctrl/Cmd + P) for A4 PDF output</div>
+
+<!-- =============================================
+     PAGE 1: COVER
+============================================= -->
+<div class="page cover-page">
+  <div class="cover-bg" style="background-image: url('./assets/pexels-celestial-moon.jpg')"></div>
+
+  <div class="cover-header">
+    <div class="cover-sacred-ring"></div>
+    <div class="cover-constellation"></div>
+    <div class="cover-eyebrow">Workshop Workbook</div>
+    <h1 class="cover-title">Master Your<br>Intuitive Testing</h1>
+    <p class="cover-subtitle">Connecting to Your Higher Self in the Quantum Field</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+
+  <div class="cover-body">
+    <div>
+      <div class="participant-block">
+        <p>This workbook is yours to keep. Write in it, practise with it, and return to it as you develop your intuitive testing abilities.</p>
+
+        <div class="cover-field">
+          <label>Participant Name</label>
+          <input type="text" class="cover-field-line" placeholder="Your name here" />
+        </div>
+
+        <div class="cover-field">
+          <label>Date</label>
+          <input type="text" class="cover-field-line" placeholder="Date" />
+        </div>
+
+        <div class="cover-field">
+          <label>My Intention for This Workshop</label>
+          <input type="text" class="cover-field-line" placeholder="What do you want to open up to today?" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-practitioner">
+      <div class="practitioner-initials">MV</div>
+      <div class="practitioner-info">
+        <strong>Mila Velazquez, MSPT, CECP</strong>
+        <p>Certified Emotion Code Practitioner &nbsp;|&nbsp; Retired Physical Therapist</p>
+        <p>milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Intuitive Testing Workshop &nbsp;&copy;&nbsp; 2026</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 2: TABLE OF CONTENTS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Contents</span>
+    <h2>Your Workshop Journey</h2>
+    <p>Six pathways to developing your intuitive testing abilities</p>
+  </div>
+
+  <ul class="toc-list">
+    <li>
+      <span class="toc-num">1</span>
+      <div>
+        <span class="toc-title">The Quantum Connection</span>
+        <span class="toc-subtitle">How Mila connects higher self to higher self - visible intuition and the finger method</span>
+      </div>
+    </li>
+    <li>
+      <span class="toc-num">2</span>
+      <div>
+        <span class="toc-title">The Sway Test</span>
+        <span class="toc-subtitle">Your body as a living pendulum - learning to listen and allow</span>
+      </div>
+    </li>
+    <li>
+      <span class="toc-num">3</span>
+      <div>
+        <span class="toc-title">Pendulum Testing</span>
+        <span class="toc-subtitle">Setup, calibration, and discovering your pendulum's unique language</span>
+      </div>
+    </li>
+    <li>
+      <span class="toc-num">4</span>
+      <div>
+        <span class="toc-title">Testing on Another Person</span>
+        <span class="toc-subtitle">The arm test method - permission, boundaries, and gentle listening</span>
+      </div>
+    </li>
+    <li>
+      <span class="toc-num">5</span>
+      <div>
+        <span class="toc-title">Surrogate Testing</span>
+        <span class="toc-subtitle">Testing at a distance - method, permission protocol, and ethical boundaries</span>
+      </div>
+    </li>
+    <li>
+      <span class="toc-num">6</span>
+      <div>
+        <span class="toc-title">Integration &amp; Closing</span>
+        <span class="toc-subtitle">Finding your method, building daily practice, and the closing affirmation</span>
+      </div>
+    </li>
+    <li style="border-bottom: none; padding-top: 12px;">
+      <span class="toc-num" style="background: var(--grad-gold); color: var(--dark);">+</span>
+      <div>
+        <span class="toc-title">My Testing Practice Log</span>
+        <span class="toc-subtitle">Lined pages for recording your daily practice, methods, results, and observations</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="quote-block">
+    <p>"Energy has no space, time, or distance."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="callout accent-purple" style="margin-top: 14px;">
+    <div class="callout-title">What you'll need today</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>This workbook and something to write with</li>
+      <li><span class="check-box"></span>A pendulum (if you have one - not required)</li>
+      <li><span class="check-box"></span>A glass of water nearby</li>
+      <li><span class="check-box"></span>Objects to test with: supplement, crystal, essential oil, or food item</li>
+      <li><span class="check-box"></span>An open mind and a willingness to trust your body</li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Table of Contents</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 3: PART 1 - THE QUANTUM CONNECTION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 01</span>
+    <h2>The Quantum Connection</h2>
+    <p>How Mila connects higher self to higher self in the quantum field</p>
+  </div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png');"></div>
+
+  <p style="margin-bottom: 14px;">
+    Intuitive testing begins with a connection - not a physical one, but an energetic one. When Mila works, she connects her higher self to the higher self of whoever she is working with. This happens in the quantum field - a space where information flows simultaneously to both practitioner and client.
+  </p>
+
+  <p style="margin-bottom: 14px;">
+    This isn't wishful thinking. It's how energy works. Information is not limited by the physical body, by geography, or by time. When you learn to connect in this way, you gain access to a form of communication that is deeper, more precise, and more honest than words alone.
+  </p>
+
+  <div class="quote-featured">
+    <p>"Energy has no space, time, or distance."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Visible intuition</span>
+
+  <p style="margin-bottom: 14px;">
+    When intuitive information flows through the body, it becomes visible. You might see subtle movements in the hands, fingers, or posture of a practitioner. This is not performance - it's the nervous system translating energetic information into physical response. This is what we're learning to develop today.
+  </p>
+
+  <div class="callout accent-blue">
+    <div class="callout-title">Mila's Finger Method</div>
+    <p style="margin-bottom: 6px;">Mila uses a simple, elegant system with her fingers to receive yes/no answers from the body:</p>
+    <ul class="check-list" style="margin-top: 6px;">
+      <li><span class="check-box"></span><strong>Index finger</strong> - signals YES (strong response)</li>
+      <li><span class="check-box"></span><strong>Pinky finger</strong> - signals NO (weak response)</li>
+    </ul>
+    <p style="margin-top: 6px;">This is one of many methods. Today you'll explore several and find the one that feels most natural to you.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Physical science vs. metaphysical science</span>
+
+  <p style="margin-bottom: 10px;">
+    Physical science measures what can be observed with instruments. Metaphysical science explores what is experienced through the body, the nervous system, and consciousness itself. Both are real. Both produce results. Intuitive testing lives at the intersection - using the physical body as the instrument to access metaphysical information.
+  </p>
+
+  <span class="journal-prompt">What does "connecting to your higher self" mean to you right now?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 1: The Quantum Connection</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 4: PART 2 - THE SWAY TEST
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 02</span>
+    <h2>The Sway Test</h2>
+    <p>Your body as a living pendulum - learning to listen and allow</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    The sway test is one of the most accessible forms of intuitive testing. Your entire body becomes the instrument. When you stand still and relaxed, your body will naturally lean toward truth (yes) and away from untruth (no). It's subtle. It's real. And it takes practice to trust.
+  </p>
+
+  <div class="quote-block">
+    <p>"Allow the body to respond. Don't make it perform."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Step-by-Step Method</span>
+    <h3>How to Perform the Sway Test</h3>
+
+    <ol class="step-list">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Stand upright, feet hip-width apart</strong>
+          <span>Plant yourself. Feel your feet on the ground. You want stability, not rigidity.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>Relax your shoulders - loose but not sloppy</strong>
+          <span>Arms by your sides. Drop the tension. Breathe.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>Close your eyes if comfortable</strong>
+          <span>This helps you tune into the subtle movement without visual distraction.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>State "Show me yes" - observe which direction your body moves</strong>
+          <span>For many people, forward = yes. But not always. YOUR body will show YOU.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">5</span>
+        <div class="step-content">
+          <strong>State "Show me no" - observe the opposite direction</strong>
+          <span>Backward = no for most. But some people sway sideways. There's no wrong answer.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="callout accent-pink">
+    <div class="callout-title">Important</div>
+    <p>Forward = yes and backward = no works for many people, but NOT always. Trust YOUR body's unique response. The key is to observe, not to force.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 2: The Sway Test</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 5: SWAY TEST - PRACTICE EXERCISES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Sway Test - Practice Exercises</span>
+  <h3 style="margin-bottom: 16px;">Now It's Your Turn</h3>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Practice Exercise 1</span>
+    <h3>Calibration Statements</h3>
+    <p style="margin-bottom: 10px; font-size: 10.5px; color: var(--grey-600);">Stand in position. Say each statement aloud or in your mind. Record what your body does.</p>
+
+    <div class="write-field">
+      <label>"My body loves clean water" (should be YES)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"I am sitting in a chair right now" (should be NO if standing)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"My name is [your actual name]" (should be YES)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"My name is [a random wrong name]" (should be NO)</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="exercise-box" style="margin-top: 20px;">
+    <span class="exercise-tag">Practice Exercise 2</span>
+    <h3>Testing with Objects</h3>
+    <p style="margin-bottom: 10px; font-size: 10.5px; color: var(--grey-600);">Hold an object (supplement, crystal, essential oil, food) close to your chest. Stand in sway position. Ask: "Is this beneficial for my body right now?"</p>
+
+    <div class="write-field">
+      <label>Object tested</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Body response (direction &amp; strength)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Object tested</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Body response (direction &amp; strength)</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <span class="journal-prompt">What did you notice about your body's response? Was it subtle or strong?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 2: Sway Test Practice</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 6: PART 3 - PENDULUM TESTING
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 03</span>
+    <h2>Pendulum Testing</h2>
+    <p>Amplifying subtle energetic information through a physical tool</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    The pendulum is not magic. It is an extension of you - your intention, your nervous system, your subtle energetic communication, and your intuitive guidance. It amplifies what your body already knows, making the invisible visible through movement.
+  </p>
+
+  <div class="callout accent-blue">
+    <div class="callout-title">Key Principle</div>
+    <p>Each person's pendulum language is DIFFERENT. There are no universal rules. Your pendulum might swing clockwise for yes, counterclockwise for no - or it might swing forward-back, side-to-side, or in a completely unique pattern. You must calibrate YOUR instrument.</p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Step-by-Step Method</span>
+    <h3>How to Use a Pendulum</h3>
+
+    <ol class="step-list">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Hold the chain between your thumb and finger</strong>
+          <span>Let the pendulum hang still. Elbow supported on a table or steady in air.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>Take a breath and centre yourself</strong>
+          <span>Clear your mind. Release any expectation of what the answer "should" be.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>Say "Show me yes" - observe the movement</strong>
+          <span>It may swing clockwise, counterclockwise, forward-back, or side-to-side. Just observe.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>Say "Show me no" - observe the opposite</strong>
+          <span>Your pendulum should move in a distinctly different pattern from your "yes."</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">5</span>
+        <div class="step-content">
+          <strong>Say "Show me maybe" or "Show me unclear"</strong>
+          <span>This gives you a third signal - essential for honest, accurate readings.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">Record Your Pendulum's Language</span>
+
+  <div class="processing-grid">
+    <div class="processing-item">
+      <strong>My "Yes" Looks Like:</strong>
+      <div class="journal-line" style="margin-top: 6px;"></div>
+      <div class="journal-line"></div>
+    </div>
+    <div class="processing-item">
+      <strong>My "No" Looks Like:</strong>
+      <div class="journal-line" style="margin-top: 6px;"></div>
+      <div class="journal-line"></div>
+    </div>
+    <div class="processing-item">
+      <strong>My "Maybe/Unclear" Looks Like:</strong>
+      <div class="journal-line" style="margin-top: 6px;"></div>
+      <div class="journal-line"></div>
+    </div>
+    <div class="processing-item">
+      <strong>Notes / Observations:</strong>
+      <div class="journal-line" style="margin-top: 6px;"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 3: Pendulum Testing</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 7: PENDULUM TESTING - PRACTICE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Pendulum Testing - Practice</span>
+  <h3 style="margin-bottom: 16px;">Practice Questions</h3>
+
+  <p style="margin-bottom: 14px;">
+    Now that you've established your pendulum's language, practise with questions where you already know the answer - then move to questions where you're genuinely seeking information.
+  </p>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Practice Exercise</span>
+    <h3>Pendulum Practice Questions</h3>
+
+    <p style="margin-bottom: 10px; font-size: 10.5px; color: var(--grey-600);">Ask each question, let the pendulum settle, then record the response.</p>
+
+    <div class="write-field">
+      <label>"Is this supplement beneficial for me?" (hold supplement near pendulum)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"Do I need more water right now?"</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"Do I have permission to continue testing?"</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>"My name is [your real name]" (calibration - should be YES)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Your own question:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Pendulum response:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Your own question:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Pendulum response:</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <span class="journal-prompt">How did the pendulum feel compared to the sway test? Which felt more natural?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 3: Pendulum Practice</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 8: PART 4 - TESTING ON ANOTHER PERSON
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 04</span>
+    <h2>Testing on Another Person</h2>
+    <p>The arm test method - permission, boundaries, and gentle listening</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Testing on another person is a privilege. It requires permission, a clear explanation of what you're doing, respect for their body, gentle handling, and complete neutrality. You are not there to prove anything. You are there to listen.
+  </p>
+
+  <div class="quote-block">
+    <p>"You are not there to dominate their body. You are there to listen to it."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">The Arm Test Method</span>
+    <h3>Basic Arm Test - Step by Step</h3>
+
+    <ol class="step-list">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Person holds their arm straight out to the side</strong>
+          <span>Shoulder height, palm facing down. Comfortable, not strained.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>They resist gently as you apply light downward pressure</strong>
+          <span>Tell them: "Hold firm but don't fight me." Light pressure only.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>True statement = muscle stays stable and strong</strong>
+          <span>The arm holds. This is a "yes" response from the body.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>False or stressful statement = muscle weakens or unlocks</strong>
+          <span>The arm gives way. Not because they're weak - because the energy field changed.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="callout accent-pink">
+    <div class="callout-title">Critical Reminder</div>
+    <p>NEVER be aggressive with muscle testing. Too much force distorts the results entirely. This is about subtlety, not strength. If you're pushing hard, you're doing it wrong.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">What can be tested with the arm test</span>
+
+  <div class="care-grid">
+    <div class="care-card">
+      <h4>Emotional Stress</h4>
+      <p>Identifying trapped emotions and emotional patterns affecting the body</p>
+    </div>
+    <div class="care-card">
+      <h4>Energetic Imbalances</h4>
+      <p>Testing for blocks, misalignments, and disruptions in the energy field</p>
+    </div>
+    <div class="care-card">
+      <h4>Supplements &amp; Remedies</h4>
+      <p>Testing whether a substance is beneficial for the person at this time</p>
+    </div>
+    <div class="care-card">
+      <h4>Readiness to Release</h4>
+      <p>Checking whether the body is ready and willing to let go of what's stored</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 4: Testing on Another Person</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 9: TESTING ON ANOTHER - PRACTICE & ETHICS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Part 4 Continued - Practice &amp; Ethics</span>
+  <h3 style="margin-bottom: 16px;">Practising the Arm Test</h3>
+
+  <div class="callout accent-purple" style="margin-bottom: 16px;">
+    <div class="callout-title">Before You Begin</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>Ask permission: "May I test your arm?"</li>
+      <li><span class="check-box"></span>Explain what you're doing and what they'll feel</li>
+      <li><span class="check-box"></span>Confirm they're comfortable and ready</li>
+      <li><span class="check-box"></span>Use only LIGHT pressure - this is not a strength test</li>
+      <li><span class="check-box"></span>Stay neutral - release any attachment to the outcome</li>
+    </ul>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Practice Exercise</span>
+    <h3>Arm Test Practice</h3>
+
+    <div class="write-field">
+      <label>Partner's name</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Calibration: "Say your own name" - arm response</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Calibration: "Say a false name" - arm response</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Test statement 1:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Arm response:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Test statement 2:</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Arm response:</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <span class="journal-prompt">What did you observe about testing another person vs. testing yourself?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 4: Arm Test Practice</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 10: PART 5 - SURROGATE TESTING
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 05</span>
+    <h2>Surrogate Testing</h2>
+    <p>Testing at a distance through consciousness and energetic connection</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Surrogate testing means testing through one person on behalf of another - a person, an animal, or a child. This method is used when the subject is not physically present, when a child is too young to be tested directly, when testing for an animal, or when someone is too weak to participate.
+  </p>
+
+  <p style="margin-bottom: 14px;">
+    The foundation of surrogate testing is this: consciousness and energetic information are NOT limited by physical distance. If this feels like a stretch, remember - Mila does this work remotely every day, with clients across the world. The results speak for themselves.
+  </p>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Step-by-Step Method</span>
+    <h3>How to Surrogate Test</h3>
+
+    <ol class="step-list">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Centre and ground yourself</strong>
+          <span>Take several deep breaths. Clear your mind. Be fully present.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>Ask permission</strong>
+          <span>"Do I have permission to surrogate test for this person/animal?" Use your testing method. If no - stop. Honour the boundary.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>Clearly identify who you're testing for</strong>
+          <span>State their name. Be specific. "I am now connecting with [name]'s energy field."</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>Connect only with their field for the highest good</strong>
+          <span>Set the intention. This is not casual - it's sacred. You are being entrusted with someone's energetic information.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">5</span>
+        <div class="step-content">
+          <strong>Use your chosen method (sway, finger, pendulum)</strong>
+          <span>Proceed with your testing, interpreting the responses as belonging to the person you're connected with.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="callout accent-pink">
+    <div class="callout-title">Critical Ethical Boundaries</div>
+    <p style="margin-bottom: 8px;">Surrogate testing is NOT for:</p>
+    <ul class="experience-list" style="margin: 4px 0;">
+      <li><span class="exp-dot"></span>Spying on someone or checking up on them</li>
+      <li><span class="exp-dot"></span>Bypassing consent or testing without permission</li>
+      <li><span class="exp-dot"></span>Satisfying curiosity about someone else's private information</li>
+      <li><span class="exp-dot"></span>Any purpose that is not for the highest good of the person being tested</li>
+    </ul>
+  </div>
+
+  <div class="quote-featured">
+    <p>"That is not spiritual wisdom. That is energetic boundary crossing."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="callout accent-blue">
+    <p>Teach this method with maturity and integrity. The ability to access someone's energy field is a responsibility, not an entertainment. Approach it with the same seriousness you'd bring to handling someone's medical records.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 5: Surrogate Testing</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 11: SURROGATE TESTING - REFLECTION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Part 5 Continued - Reflection</span>
+  <h3 style="margin-bottom: 16px;">Surrogate Testing Reflection</h3>
+
+  <span class="journal-prompt">When might you use surrogate testing in your life? (Think about children, animals, or loved ones at a distance)</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="journal-prompt">What does "permission" mean to you in the context of energy work?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="journal-prompt">How do you feel about the idea that consciousness and energetic information are not limited by physical distance?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="callout accent-purple">
+    <div class="callout-title">Permission Protocol - Quick Reference</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>Always ask for energetic permission before surrogate testing</li>
+      <li><span class="check-box"></span>If the answer is "no" - honour it. Stop immediately.</li>
+      <li><span class="check-box"></span>State clearly who you are testing for by name</li>
+      <li><span class="check-box"></span>Set the intention: "for the highest good only"</li>
+      <li><span class="check-box"></span>Disconnect consciously when you are finished</li>
+      <li><span class="check-box"></span>Never share what you discover without consent</li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 5: Surrogate Testing Reflection</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 12: PART 6 - INTEGRATION & CLOSING
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Part 06</span>
+    <h2>Integration &amp; Closing</h2>
+    <p>Finding your method, building daily practice</p>
+  </div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-misty-mountains.png');"></div>
+
+  <p style="margin-bottom: 14px;">
+    You've now explored four different methods of intuitive testing - the sway test, pendulum testing, arm testing on another person, and surrogate testing. Not every method will resonate with everyone. That's by design. The goal is to find the one that feels most natural to YOU.
+  </p>
+
+  <div class="quote-block">
+    <p>"The body is always speaking. The question is, are we still enough to listen?"</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Reflection Activity</span>
+    <h3>Which Method Works for You?</h3>
+
+    <p style="margin-bottom: 12px; font-size: 10.5px; color: var(--grey-600);">Rate each method from 1 (didn't connect) to 5 (felt natural and clear).</p>
+
+    <table>
+      <tr>
+        <th style="width: 40%;">Method</th>
+        <th style="width: 20%;">Rating (1-5)</th>
+        <th style="width: 40%;">Notes</th>
+      </tr>
+      <tr>
+        <td>Sway Test</td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+      </tr>
+      <tr>
+        <td>Pendulum Testing</td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+      </tr>
+      <tr>
+        <td>Arm Test (on another person)</td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+      </tr>
+      <tr>
+        <td>Surrogate Testing</td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+      </tr>
+      <tr>
+        <td>Finger Method (Mila's)</td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+        <td class="table-write" style="border-bottom: 1.5px solid var(--line-color);"></td>
+      </tr>
+    </table>
+  </div>
+
+  <span class="journal-prompt">My primary testing method going forward will be:</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="journal-prompt">Why does this method feel right for me?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Part 6: Integration &amp; Closing</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 13: DAILY PRACTICE PLAN
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Part 6 Continued</span>
+  <h3 style="margin-bottom: 6px;">Your Daily Practice Plan</h3>
+  <p style="margin-bottom: 16px; font-size: 11px; color: var(--grey-600);">When done with integrity, humility, and connection, muscle testing becomes more than a technique - it becomes a language.</p>
+
+  <div class="callout accent-blue" style="margin-bottom: 16px;">
+    <div class="callout-title">Building Your Practice</div>
+    <p>Like any skill, intuitive testing gets stronger with consistent practice. Start with 5 minutes a day. Use simple questions. Trust what comes through. Don't overthink it.</p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Action Plan</span>
+    <h3>My 7-Day Practice Commitment</h3>
+
+    <div class="write-field">
+      <label>Method I will practise daily</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Time of day I'll practise</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Duration (start small - 5 minutes is enough)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>My first 3 practice questions</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>How I'll prepare (grounding, breathing, centering)</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="processing-grid" style="margin-top: 14px;">
+    <div class="processing-item">
+      <strong>Morning Practice Ideas:</strong>
+      "Is my body hydrated?" / "Is this breakfast good for me?" / "Do I need rest today?"
+    </div>
+    <div class="processing-item">
+      <strong>Evening Practice Ideas:</strong>
+      "Did I honour my energy today?" / "Is there something my body wants to release?" / "Am I ready for sleep?"
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="callout accent-purple">
+    <p>Remember: you're not trying to get the "right" answer. You're building a relationship with your body's wisdom. Be patient. Be curious. Be honest about what you receive.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Daily Practice Plan</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 14: CLOSING AFFIRMATION
+============================================= -->
+<div class="page affirmation-page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px;">
+
+    <div class="gradient-bar-sm" style="width: 80px; margin: 0 auto 24px;"></div>
+
+    <span class="section-label" style="margin-bottom: 20px; text-align: center;">Closing Affirmation - Led by Mila</span>
+
+    <div class="affirmation-block">
+      <p style="font-family: var(--font-heading); font-size: 13px; font-weight: 400; color: var(--grey-600); margin-bottom: 28px; font-style: normal; letter-spacing: 0.06em;">Place your hand on your heart. Take a breath. Say each line aloud.</p>
+
+      <p class="affirmation-large">"I trust my body."</p>
+
+      <div class="section-divider"><span></span><span></span><span></span></div>
+
+      <p class="affirmation-large">"I trust truth."</p>
+
+      <div class="section-divider"><span></span><span></span><span></span></div>
+
+      <p class="affirmation-large">"I trust clear guidance."</p>
+
+      <div class="section-divider"><span></span><span></span><span></span></div>
+
+      <p style="font-family: var(--font-heading); font-size: 20px; font-style: italic; font-weight: 300; color: var(--dark); line-height: 1.8; margin-bottom: 10px;">"I ask to receive only what serves<br>the highest good."</p>
+
+      <div class="section-divider"><span></span><span></span><span></span></div>
+
+      <p style="font-family: var(--font-heading); font-size: 20px; font-style: italic; font-weight: 300; color: var(--dark); line-height: 1.8; margin-bottom: 10px;">"I honor what is revealed,<br>and I honor what is not yet<br>ready to be revealed."</p>
+    </div>
+
+    <div style="margin-top: 36px;">
+      <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 12px;"></div>
+      <p style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);">Mila Velazquez</p>
+      <p style="font-family: var(--font-body); font-size: 9px; color: var(--grey-400); margin-top: 4px; letter-spacing: 0.06em;">Mila's Healing Touch</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Closing Affirmation</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 15: TESTING PRACTICE LOG - PAGE 1
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Practice Log</span>
+    <h2>My Testing Practice Log</h2>
+    <p>Record your daily practice - date, method, questions, results, and what you noticed</p>
+  </div>
+
+  <table>
+    <tr>
+      <th style="width: 14%;">Date</th>
+      <th style="width: 16%;">Method Used</th>
+      <th style="width: 30%;">Question / Statement Tested</th>
+      <th style="width: 14%;">Result</th>
+      <th style="width: 26%;">Observations</th>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Practice Log - Page 1</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 16: TESTING PRACTICE LOG - PAGE 2
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <span class="section-label">Practice Log - Continued</span>
+  <h3 style="margin-bottom: 16px;">Daily Practice Notes</h3>
+
+  <table>
+    <tr>
+      <th style="width: 14%;">Date</th>
+      <th style="width: 16%;">Method Used</th>
+      <th style="width: 30%;">Question / Statement Tested</th>
+      <th style="width: 14%;">Result</th>
+      <th style="width: 26%;">Observations</th>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="table-write">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <span class="journal-prompt" style="margin-top: 20px;">Weekly reflection - what patterns are you noticing in your testing?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="journal-prompt">What is your body teaching you through this practice?</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Practice Log - Page 2</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 17: YOUR NEXT STEPS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-sunset-gold.png');"></div>
+
+  <div class="section-header">
+    <span class="section-number">Next Steps</span>
+    <h2>Your Next Steps</h2>
+    <p>Today was a starting point - not a finish line</p>
+  </div>
+
+  <p style="margin-bottom: 16px;">
+    Intuitive testing is a skill that deepens with practice, patience, and trust. Today you've learned the foundations. What happens next is up to you - and Mila is here to support you every step of the way.
+  </p>
+
+  <div class="paths-grid">
+
+    <div class="path-card">
+      <h4>Book a 1:1 Session</h4>
+      <p>Experience Mila's intuitive testing and clearing work in a private session. This is where the deep, personalised work happens.</p>
+      <a class="path-link" href="https://milashealingtouch.as.me">milashealingtouch.as.me</a>
+    </div>
+
+    <div class="path-card">
+      <h4>Join Another Workshop</h4>
+      <p>Workshops run regularly and each one builds on the last. Deepen your practice with guided learning and community.</p>
+      <a class="path-link" href="https://milashealingtouch.com">milashealingtouch.com</a>
+    </div>
+
+    <div class="path-card">
+      <h4>Watch the Replay</h4>
+      <p>Your workshop recording is available for replay. Revisit the demonstrations and practise along at your own pace.</p>
+      <a class="path-link" href="https://milashealingtouch.com">milashealingtouch.com</a>
+    </div>
+
+  </div>
+
+  <span class="section-label" style="margin-top: 18px;">Stay connected</span>
+
+  <div style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap;">
+    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
+      <span style="font-weight: 600; color: var(--dark);">Instagram</span>
+      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
+    </div>
+    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
+      <span style="font-weight: 600; color: var(--dark);">Facebook</span>
+      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
+    </div>
+    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
+      <span style="font-weight: 600; color: var(--dark);">TikTok</span>
+      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
+    </div>
+    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
+      <span style="font-weight: 600; color: var(--dark);">Website</span>
+      <span style="color: var(--secondary); margin-left: 6px;">milashealingtouch.com</span>
+    </div>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 16px;">
+    <p>If something from today is sitting with you - a question, a feeling, a moment where your body spoke and you weren't sure what it meant - reach out. That's exactly what Mila is here for.</p>
+  </div>
+
+  <div style="margin-top: 22px; text-align: center;">
+    <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 12px;"></div>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--secondary); line-height: 1.6;">
+      Your body knows how to speak. You're learning to listen.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Your Next Steps</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 18: ABOUT MILA
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">About Your Practitioner</span>
+    <h2>About Mila</h2>
+  </div>
+
+  <div class="about-block">
+
+    <div class="about-avatar">MV</div>
+
+    <div>
+      <h3 style="font-size: 20px; margin-bottom: 4px;">Mila Velazquez</h3>
+      <div class="credential-badges">
+        <span class="badge">MSPT</span>
+        <span class="badge">CECP</span>
+        <span class="badge">30+ Years Clinical Experience</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    I spent 30 years as a Physical Therapist watching patients carry pain that had no physical explanation. The imaging was clear. The tissue was fine. The mechanics were good. And yet - they hurt. That question led me to energy work, to the Emotion Code, and to the intuitive testing methods I teach today.
+  </p>
+
+  <p style="margin-bottom: 12px;">
+    I've now combined three decades of clinical knowledge with Certified Emotion Code Practice. I understand the body from the inside out - both what science says and what science hasn't figured out yet. I take both seriously.
+  </p>
+
+  <div class="quote-block">
+    <p>"I am a master manipulator of energy, for the highest and greatest good of humanity."</p>
+    <span class="attribution">- Mila Velazquez, MSPT, CECP</span>
+  </div>
+
+  <p style="margin-bottom: 16px;">
+    My approach is direct, warm, and grounded in real anatomy and real emotional experience. I own the woo - but I also own 30 years of watching bodies heal, and I know what's possible when we stop ignoring half the picture.
+  </p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
+      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">MSPT</p>
+      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Master of Science in Physical Therapy</p>
+    </div>
+    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
+      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">CECP</p>
+      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Certified Emotion Code Practitioner</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; background: var(--dark); border-radius: 12px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Connect with Mila</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.com</p>
+    </div>
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Book a session</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.as.me</p>
+    </div>
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Social</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">@milashealingtouch everywhere</p>
+    </div>
+    <div>
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--grad-bar); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: white; flex-shrink: 0;">MV</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 18px; text-align: center;">
+    <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 10px;"></div>
+    <p style="font-size: 9px; color: var(--grey-400); letter-spacing: 0.06em;">
+      Master Your Intuitive Testing Workshop &nbsp;|&nbsp; Mila's Healing Touch &nbsp;|&nbsp; All rights reserved
+    </p>
+    <p style="font-size: 9px; color: var(--grey-400); margin-top: 4px;">
+      This workbook is for educational purposes. It is not medical advice. Consult a healthcare provider for medical concerns.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>About Mila Velazquez, MSPT, CECP</span>
+  </div>
+</div>
+
+</body>
+</html>

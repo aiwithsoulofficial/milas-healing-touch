@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fire, Frequency &amp; Flame - Workbook | Mila's Healing Touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+      --grad-accent-stripe: linear-gradient(180deg, #6412b2 0%, #5d81ff 100%);
+      --grad-accent-stripe-pink: linear-gradient(180deg, #f10065 0%, #6412b2 100%);
+      --grad-footer: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0));
+
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #e8e5ee;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PAGE SHELL
+    ============================================= */
+    .page {
+      width: var(--page-width);
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      padding: var(--page-pad) var(--page-pad) 24mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(29,4,38,0.12);
+    }
+
+    /* Subtle per-page radial glow - top-right default */
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Alternating glow positions */
+    .page:nth-child(even)::before {
+      top: auto;
+      bottom: -80px;
+      right: auto;
+      left: -80px;
+      background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%);
+    }
+
+    .page:nth-child(3n)::before {
+      top: 40%;
+      right: -100px;
+      bottom: auto;
+      left: auto;
+      background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
+    }
+
+    /* All page content sits above the glow */
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top decorative border on interior pages */
+    .page-top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* =============================================
+       FOOTER (every page)
+    ============================================= */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: var(--page-pad);
+      right: var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 400;
+      color: var(--grey-400);
+      padding-top: 7px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Gradient line replaces solid border above footer */
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--grad-footer);
+    }
+
+    .page-footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a05e, #6412b2);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       DECORATIVE ELEMENTS
+    ============================================= */
+    .gradient-bar {
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-bar-sm {
+      height: 1px;
+      background: var(--grad-gold);
+      border-radius: 1px;
+      margin-bottom: 14px;
+    }
+
+    /* Corner arcs */
+    .corner-accent {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent::before,
+    .corner-accent::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    .corner-accent::before {
+      width: 64px;
+      height: 64px;
+      border-top: 1px solid rgba(100,18,178,0.22);
+      border-right: 1px solid rgba(100,18,178,0.22);
+    }
+
+    .corner-accent::after {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(93,129,255,0.18);
+      border-right: 1px solid rgba(93,129,255,0.18);
+    }
+
+    .corner-accent-bottom {
+      position: absolute;
+      bottom: 24mm;
+      left: 8px;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent-bottom::before,
+    .corner-accent-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    .corner-accent-bottom::before {
+      width: 50px;
+      height: 50px;
+      border-bottom: 1px solid rgba(197,160,94,0.2);
+      border-left: 1px solid rgba(197,160,94,0.2);
+    }
+
+    .corner-accent-bottom::after {
+      width: 32px;
+      height: 32px;
+      border-bottom: 1px solid rgba(100,18,178,0.15);
+      border-left: 1px solid rgba(100,18,178,0.15);
+    }
+
+    /* Section divider - three dots */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+
+    .section-divider span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .section-divider span:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      opacity: 0.9;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 42px; }
+    h2 { font-size: 28px; font-weight: 500; }
+    h3 { font-size: 20px; font-weight: 600; }
+    h4 { font-size: 15px; font-weight: 600; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--secondary); }
+
+    p {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #3a2e45;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* =============================================
+       QUOTE BLOCK
+    ============================================= */
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(197,160,94,0.06) 0%, rgba(93,129,255,0.05) 100%);
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .quote-block .attribution {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       CALLOUT / INFO BOX
+    ============================================= */
+    .callout {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      box-shadow: 0 2px 12px rgba(29,4,38,0.05);
+    }
+
+    .callout.accent-blue {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(93,129,255,0.05);
+      position: relative;
+    }
+
+    .callout.accent-blue::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe);
+    }
+
+    .callout.accent-purple {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(100,18,178,0.04);
+      position: relative;
+    }
+
+    .callout.accent-purple::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: linear-gradient(180deg, #6412b2 0%, #c5a05e 100%);
+    }
+
+    .callout.accent-pink {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(241,0,101,0.04);
+      position: relative;
+    }
+
+    .callout.accent-pink::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe-pink);
+    }
+
+    .callout p {
+      font-size: 11px;
+      margin: 0;
+    }
+
+    .callout-title {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: var(--secondary);
+    }
+
+    /* =============================================
+       INPUT / WRITE FIELDS
+    ============================================= */
+    .write-field {
+      margin: 8px 0;
+    }
+
+    .write-field label {
+      font-size: 9.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey-600);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .write-line {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid var(--line-color);
+      padding: 4px 0;
+      font-size: 12px;
+      font-family: var(--font-body);
+      background: transparent;
+      color: var(--dark);
+      outline: none;
+      display: block;
+      min-height: 28px;
+    }
+
+    /* Journal lines */
+    .journal-lines {
+      margin: 10px 0;
+    }
+
+    .journal-line {
+      height: 28px;
+      border-bottom: 1px solid var(--line-color);
+      width: 100%;
+      display: block;
+    }
+
+    .journal-prompt {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      margin-top: 18px;
+      display: block;
+      letter-spacing: 0.015em;
+      padding-left: 10px;
+      border-left: 2px solid var(--gold-light);
+    }
+
+    /* =============================================
+       STEPS / PROCESS LIST
+    ============================================= */
+    .step-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .step-content span {
+      font-size: 10.5px;
+      color: var(--grey-600);
+    }
+
+    /* =============================================
+       TABLES
+    ============================================= */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      font-family: var(--font-body);
+    }
+
+    th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--grey-200);
+      vertical-align: top;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #3a2e45;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--grey-100);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-write td {
+      border-bottom: 1.5px solid var(--line-color);
+      background: transparent !important;
+      vertical-align: bottom;
+      height: 32px;
+    }
+
+    /* =============================================
+       CHECKBOX LIST
+    ============================================= */
+    .check-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      color: #3a2e45;
+    }
+
+    .check-box {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--grey-400);
+      border-radius: 3px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+
+    /* =============================================
+       TWO COLUMN LAYOUT
+    ============================================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .two-col-wide {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 20px;
+    }
+
+    /* =============================================
+       SECTION HEADER BAR
+    ============================================= */
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .section-number {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Thin decorative rule under section numbers */
+    .section-number::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--grad-gold);
+      margin-top: 4px;
+    }
+
+    .section-header h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .section-header p {
+      font-size: 11.5px;
+      color: var(--grey-600);
+      margin-top: 6px;
+      font-style: italic;
+      font-family: var(--font-heading);
+    }
+
+    /* =============================================
+       EXERCISE BOX
+    ============================================= */
+    .exercise-box {
+      border: 1.5px solid rgba(93,129,255,0.4);
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      margin: 14px 0;
+      position: relative;
+      background: linear-gradient(160deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.035) 100%);
+      box-shadow: 0 2px 18px rgba(93,129,255,0.08);
+    }
+
+    .exercise-tag {
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(93,129,255,0.35);
+    }
+
+    .exercise-box h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    /* =============================================
+       EXPERIENCE LIST
+    ============================================= */
+    .experience-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .experience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 10.5px;
+      border-bottom: 1px solid var(--grey-200);
+      color: #3a2e45;
+    }
+
+    .experience-list li:last-child { border-bottom: none; }
+
+    .exp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* =============================================
+       CARE GRID
+    ============================================= */
+    .care-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .care-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 8px;
+      padding: 14px;
+      border-top: 3px solid var(--secondary);
+      position: relative;
+    }
+
+    .care-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .care-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin: 0;
+    }
+
+    /* =============================================
+       NEXT STEPS CARDS
+    ============================================= */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .path-card {
+      border: 1.5px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 16px 14px 14px;
+      text-align: center;
+      position: relative;
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .path-card:nth-child(2)::before {
+      background: var(--secondary);
+    }
+
+    .path-card:nth-child(3)::before {
+      background: var(--accent);
+    }
+
+    .path-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .path-card p {
+      font-size: 9.5px;
+      color: var(--grey-600);
+      margin-bottom: 8px;
+    }
+
+    .path-link {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+      display: block;
+    }
+
+    /* =============================================
+       ABOUT / PRACTITIONER BLOCK
+    ============================================= */
+    .about-block {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 14px 0;
+    }
+
+    .about-avatar {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .credential-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 8px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       PROCESSING GRID
+    ============================================= */
+    .processing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .processing-item {
+      background: linear-gradient(135deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.03) 100%);
+      border: 1px solid rgba(100,18,178,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 10px;
+      color: #3a2e45;
+      line-height: 1.6;
+    }
+
+    .processing-item strong {
+      font-size: 10px;
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 3px;
+    }
+
+    /* =============================================
+       COVER PAGE
+    ============================================= */
+    .cover-page {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cover page suppresses the generic page::before glow */
+    .cover-page::before {
+      display: none;
+    }
+
+    /* Full-page background image */
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    /* Gradient overlay for readability */
+    .cover-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(29, 4, 38, 0.65) 0%,
+        rgba(100, 18, 178, 0.55) 30%,
+        rgba(29, 4, 38, 0.7) 60%,
+        rgba(29, 4, 38, 0.88) 100%
+      );
+      z-index: 1;
+    }
+
+    .cover-header {
+      background: transparent !important;
+      background-image: none !important;
+      padding: 60px var(--page-pad) 30px;
+      position: relative;
+      z-index: 2;
+      flex: 0;
+    }
+
+    /* Image strip dividers */
+    .image-strip {
+      width: calc(100% + 36mm);
+      margin-left: calc(-1 * var(--page-pad));
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      border-radius: 0;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* About/final page gold glow background */
+    .page-about {
+      background-image: url('./assets/texture-gold-glow.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: soft-light;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Featured quote with photo background */
+    .quote-featured {
+      background-image: url('./assets/pexels-candle-flame.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-left: none;
+      border-radius: 12px;
+      padding: 24px 28px;
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .quote-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(29,4,38,0.82), rgba(100,18,178,0.72));
+      border-radius: 12px;
+    }
+    .quote-featured p, .quote-featured .attribution {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .quote-featured p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .quote-featured .attribution {
+      color: rgba(255,255,255,0.7);
+      font-size: 9.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* Sacred geometry watermark for journal pages */
+    .sacred-watermark {
+      position: absolute;
+      bottom: 30mm;
+      right: 10mm;
+      width: 200px;
+      height: 200px;
+      background-image: url('./assets/texture-sacred-geometry.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    /* Sacred geometry ring - subtle on full-bleed cover */
+    .cover-sacred-ring {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(197,160,94,0.08);
+      box-shadow:
+        0 0 0 18px rgba(93,129,255,0.03),
+        0 0 0 36px rgba(100,18,178,0.02);
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    /* Constellation dots */
+    .cover-constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 48px 48px, 72px 72px, 36px 36px;
+      background-position: 0 0, 24px 24px, 12px 12px;
+      opacity: 0.15;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    }
+
+    .cover-brand {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-brand::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    .cover-body {
+      flex: 1;
+      padding: 20px var(--page-pad) 28mm;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .participant-block {
+      margin-top: 16px;
+    }
+
+    .participant-block p {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .cover-field {
+      margin-bottom: 20px;
+    }
+
+    .cover-field label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cover-field-line {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding: 6px 0;
+      font-size: 14px;
+      font-family: var(--font-heading);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      outline: none;
+      display: block;
+    }
+
+    .cover-field-line::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-field-line:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .cover-practitioner {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .practitioner-initials {
+      width: 44px;
+      height: 44px;
+      background: var(--grad-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(197,160,94,0.2), 0 2px 10px rgba(197,160,94,0.25);
+    }
+
+    .practitioner-info p {
+      margin: 0;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .practitioner-info strong {
+      font-size: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Cover page footer */
+    .cover-page .page-footer {
+      z-index: 2;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-page .page-footer .footer-brand {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       TOC STYLES
+    ============================================= */
+    .toc-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .toc-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--grey-200);
+      font-size: 11px;
+      color: #3a2e45;
+    }
+
+    .toc-list li:last-child {
+      border-bottom: none;
+    }
+
+    .toc-number {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .toc-title {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark);
+      flex: 1;
+    }
+
+    .toc-dots {
+      flex: 1;
+      border-bottom: 1px dotted var(--grey-400);
+      min-width: 20px;
+      margin-bottom: 3px;
+    }
+
+    .toc-page {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--grey-600);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       COLOUR SWATCH
+    ============================================= */
+    .colour-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       FLAME SVG ILLUSTRATIONS
+    ============================================= */
+    .flame-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .flame-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 12px 10px;
+      text-align: center;
+      background: var(--grey-100);
+    }
+
+    .flame-card svg {
+      display: block;
+      margin: 0 auto 8px;
+    }
+
+    .flame-card h4 {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-body);
+    }
+
+    .flame-card p {
+      font-size: 9px;
+      color: var(--grey-600);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: 297mm;
+        margin: 0;
+        padding: 16mm 18mm 22mm;
+        box-shadow: none;
+        page-break-after: always;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .cover-page {
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .write-line, .cover-field-line {
+        border-bottom: 1.5px solid #d9d4e5;
+      }
+
+      /* Ensure all decorative backgrounds print */
+      .cover-bg,
+      .cover-header,
+      .cover-constellation,
+      .cover-sacred-ring,
+      .corner-accent,
+      .corner-accent-bottom,
+      .callout,
+      .callout.accent-blue,
+      .callout.accent-purple,
+      .callout.accent-pink,
+      .exercise-box,
+      .processing-item,
+      .quote-block,
+      .quote-featured,
+      .image-strip,
+      .cover-practitioner,
+      .practitioner-initials,
+      .section-number::after,
+      .page-footer::before,
+      .page-top-border {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .image-strip {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .sacred-watermark {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page-about {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cover-bg, .cover-bg::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =============================================
+       SCREEN ONLY HELPER
+    ============================================= */
+    @media screen {
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: white;
+        font-size: 11px;
+        font-family: var(--font-body);
+        padding: 10px 16px;
+        border-radius: 8px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT HINT (screen only) -->
+<div class="print-hint no-print">Print this page (Ctrl/Cmd + P) for A4 PDF output</div>
+
+<!-- =============================================
+     PAGE 1: COVER
+============================================= -->
+<div class="page cover-page">
+  <div class="cover-bg" style="background-image: url('./assets/candle-test-1.jpg')"></div>
+
+  <div class="cover-header">
+    <div class="cover-sacred-ring"></div>
+    <div class="cover-constellation"></div>
+    <div class="cover-eyebrow">Workshop Workbook</div>
+    <h1 class="cover-title">Fire, Frequency<br>&amp; Flame</h1>
+    <p class="cover-subtitle">Working with Candle Energy</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+
+  <div class="cover-body">
+    <div>
+      <div class="participant-block">
+        <p>This workbook is yours to keep. Write in it, return to it, and let it be a sacred record of your journey with fire and intention.</p>
+
+        <div class="cover-field">
+          <label>Participant Name</label>
+          <input type="text" class="cover-field-line" placeholder="Your name here" />
+        </div>
+
+        <div class="cover-field">
+          <label>Date</label>
+          <input type="text" class="cover-field-line" placeholder="Date" />
+        </div>
+
+        <div class="cover-field">
+          <label>Intention for Today</label>
+          <input type="text" class="cover-field-line" placeholder="What are you calling in?" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-practitioner">
+      <div class="practitioner-initials">MV</div>
+      <div class="practitioner-info">
+        <strong>Mila Velazquez, MSPT, CECP</strong>
+        <p>Certified Emotion Code Practitioner &nbsp;|&nbsp; Retired Physical Therapist</p>
+        <p>milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Fire, Frequency &amp; Flame &nbsp;&copy;&nbsp; 2026</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 2: TABLE OF CONTENTS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Contents</span>
+    <h2>Your Workshop Journey</h2>
+    <p>Fire, Frequency, Intention &amp; the Language of Flame</p>
+  </div>
+
+  <ul class="toc-list">
+    <li>
+      <span class="toc-number">01</span>
+      <span class="toc-title">The Metaphysical Power of Fire</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">02</span>
+      <span class="toc-title">What a Candle Really Does Energetically</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">03</span>
+      <span class="toc-title">The Scientific / Physical Side of Candles</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">04</span>
+      <span class="toc-title">How to Read Candle Flames</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">05</span>
+      <span class="toc-title">The Wax, Drips, Soot &amp; Shapes</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">06</span>
+      <span class="toc-title">Candle Colours, Frequency &amp; Vibration</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">07</span>
+      <span class="toc-title">How to Choose the Right Candle</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">08</span>
+      <span class="toc-title">Types of Candles &amp; Their Metaphysical Use</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">09</span>
+      <span class="toc-title">How to Prepare a Candle Energetically</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">10</span>
+      <span class="toc-title">Simple Candle Ritual - Live Practice</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">11</span>
+      <span class="toc-title">Spiritual Discernment</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li>
+      <span class="toc-number">12</span>
+      <span class="toc-title">Fire Safety</span>
+      <span class="toc-dots"></span>
+    </li>
+    <li style="border-top: 2px solid var(--grey-200); padding-top: 12px; margin-top: 4px;">
+      <span class="toc-number" style="color: var(--gold);">+</span>
+      <span class="toc-title" style="font-style: italic;">My Candle Journal</span>
+      <span class="toc-dots"></span>
+    </li>
+  </ul>
+
+  <div class="callout accent-purple" style="margin-top: 20px;">
+    <div class="callout-title">What you'll need today</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>1 candle (any colour you feel drawn to)</li>
+      <li><span class="check-box"></span>Lighter or matches</li>
+      <li><span class="check-box"></span>This workbook and something to write with</li>
+      <li><span class="check-box"></span>Journal or paper</li>
+      <li><span class="check-box"></span>Optional: a crystal, essential oil, or sacred object</li>
+      <li><span class="check-box"></span>A quiet, safe space</li>
+    </ul>
+  </div>
+
+  <div class="quote-block" style="margin-top: 16px;">
+    <p>"Candles remind us that light is not passive. Light reveals. Light warms. Light transforms."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Table of Contents</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 3: MODULE 1 - THE METAPHYSICAL POWER OF FIRE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 01</span>
+    <h2>The Metaphysical Power of Fire</h2>
+    <p>Transformation, alchemy, action, purification, illumination</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Fire is one of the four classical elements - and it is the most active and transformative. Water feels. Earth grounds. Air moves thought. But fire <strong>changes things</strong>. Fire does not leave things the same.
+  </p>
+
+  <div class="quote-featured">
+    <p>"Fire does not leave things the same."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label">The element of fire represents</span>
+
+  <div class="processing-grid">
+    <div class="processing-item">
+      <strong>Transformation</strong>
+      What is dense begins to soften, move, and release
+    </div>
+    <div class="processing-item">
+      <strong>Purification</strong>
+      Burning away what no longer serves
+    </div>
+    <div class="processing-item">
+      <strong>Illumination</strong>
+      Making visible what was hidden
+    </div>
+    <div class="processing-item">
+      <strong>Rebirth</strong>
+      Destruction of the old, activation of the new
+    </div>
+    <div class="processing-item">
+      <strong>Power &amp; Will</strong>
+      The force of action and spiritual activation
+    </div>
+    <div class="processing-item">
+      <strong>Spirit</strong>
+      The element closest to the divine spark
+    </div>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Energetic uses of fire in spiritual practice</span>
+
+  <ul class="experience-list">
+    <li><span class="exp-dot"></span>Clearing stagnant energy from spaces and the auric field</li>
+    <li><span class="exp-dot"></span>Prayer, devotion, and calling in divine support</li>
+    <li><span class="exp-dot"></span>Manifestation and intention setting</li>
+    <li><span class="exp-dot"></span>Protection work and boundary setting</li>
+    <li><span class="exp-dot"></span>Ancestral connection and honouring those who have passed</li>
+    <li><span class="exp-dot"></span>Grief and release - letting go of emotional weight</li>
+    <li><span class="exp-dot"></span>Chakra work, meditation, and emotional healing</li>
+  </ul>
+
+  <div class="exercise-box" style="margin-top: 16px;">
+    <span class="exercise-tag">Reflection</span>
+    <h3>Your Relationship with Fire</h3>
+    <span class="journal-prompt">When you think of fire, what comes up for you? Comfort? Fear? Power? Memory?</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 1 - The Metaphysical Power of Fire</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 4: MODULE 2 - WHAT A CANDLE REALLY DOES ENERGETICALLY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 02</span>
+    <h2>What a Candle Really Does Energetically</h2>
+    <p>The power is in the consciousness, not the wax</p>
+  </div>
+
+  <div class="quote-block">
+    <p>"A candle is not magic by itself. The power is not in the wax alone - the power is in the consciousness, intention, energy, prayer, frequency, and the relationship between you and what you are calling in or releasing."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label">A candle acts as</span>
+
+  <ul class="experience-list">
+    <li><span class="exp-dot"></span><strong>Focus point for consciousness</strong> - directing your attention and awareness</li>
+    <li><span class="exp-dot"></span><strong>Carrier for intention</strong> - giving your prayer a physical form</li>
+    <li><span class="exp-dot"></span><strong>Symbolic offering</strong> - an act of devotion and sacred exchange</li>
+    <li><span class="exp-dot"></span><strong>Spiritual anchor</strong> - holding space for your energetic work</li>
+    <li><span class="exp-dot"></span><strong>Transformational portal</strong> - the flame as a bridge between worlds</li>
+    <li><span class="exp-dot"></span><strong>Visual mirror</strong> - reflecting movement, resistance, and energy in real time</li>
+  </ul>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <span class="section-label">When you light with intention, you are</span>
+
+  <div class="care-grid">
+    <div class="care-card">
+      <h4>Directing Focus</h4>
+      <p>Narrowing the mind to a single purpose, creating clarity from chaos</p>
+    </div>
+    <div class="care-card">
+      <h4>Creating Ritual Space</h4>
+      <p>Signalling to your nervous system and spirit that sacred work has begun</p>
+    </div>
+    <div class="care-card">
+      <h4>Anchoring Thought into Form</h4>
+      <p>Moving intention from the mental realm into the physical world</p>
+    </div>
+    <div class="care-card">
+      <h4>Moving Subconscious Energy</h4>
+      <p>Using symbolic action to shift patterns beneath conscious awareness</p>
+    </div>
+  </div>
+
+  <div class="exercise-box" style="margin-top: 12px;">
+    <span class="exercise-tag">Reflection</span>
+    <h3>Your Intention Today</h3>
+    <span class="journal-prompt">What are you calling in? What are you releasing? What support do you need?</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 2 - What a Candle Really Does Energetically</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 5: MODULE 3 - THE SCIENTIFIC / PHYSICAL SIDE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 03</span>
+    <h2>The Scientific / Physical Side of Candles</h2>
+    <p>Understanding what physically happens when a candle burns</p>
+  </div>
+
+  <div class="quote-block">
+    <p>"Even physically, the candle is a perfect metaphor for transformation. The solid becomes liquid. The liquid becomes vapour. The vapour becomes flame. Spiritually, this mirrors what happens in healing: what is dense begins to soften, move, release, and transform."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label">The physical process of combustion</span>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Flame melts wax</strong>
+        <span>Heat radiates from the flame, liquefying the solid wax around the wick</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Liquid wax travels up the wick</strong>
+        <span>Capillary action draws the liquid fuel upward through the braided wick</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Heat vaporises the wax</strong>
+        <span>The liquid wax at the top of the wick is converted to gas by intense heat</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Vapour reacts with oxygen</strong>
+        <span>This combustion reaction creates heat and light - the visible flame</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout accent-blue" style="margin-top: 8px;">
+    <div class="callout-title">Basic combustion formula</div>
+    <p><strong>Fuel + Heat + Oxygen = Heat + Light</strong> - Flames move due to convection, rising hot air creates the teardrop shape we recognise.</p>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <span class="section-label">Why flames move - holding both truths</span>
+
+  <div class="two-col">
+    <div>
+      <div class="callout accent-blue" style="margin: 0;">
+        <div class="callout-title">Physical causes</div>
+        <p>Air currents, drafts, uneven wick, impurities in the wax, moisture content, room temperature changes</p>
+      </div>
+    </div>
+    <div>
+      <div class="callout accent-purple" style="margin: 0;">
+        <div class="callout-title">Metaphysical causes</div>
+        <p>Energetic activity, emotional resistance, spirit communication, clearing in progress, energy shifting</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-featured" style="margin-top: 16px;">
+    <p>"Not every dancing flame means spirit is talking. Sometimes your AC vent is talking. We have to learn how to hold both truths: the physical world and the energetic world. Discernment is spiritual maturity."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 3 - The Scientific / Physical Side of Candles</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 6: MODULE 4 - HOW TO READ CANDLE FLAMES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 04</span>
+    <h2>How to Read Candle Flames</h2>
+    <p>Symbolic language - not fear, not obsession, but noticing patterns</p>
+  </div>
+
+  <div class="callout accent-purple" style="margin-bottom: 14px;">
+    <p><strong>Key teaching point:</strong> Candle reading is symbolic language. It is not about fear, obsession, or rigid rules. It is about noticing patterns, energy, and intuitive messages.</p>
+  </div>
+
+  <span class="section-label">Flame interpretation reference chart</span>
+
+  <table style="margin-bottom: 8px;">
+    <thead>
+      <tr>
+        <th style="width: 22%;">Flame Behaviour</th>
+        <th style="width: 38%;">Metaphysical Meaning</th>
+        <th style="width: 22%;">Message</th>
+        <th style="width: 18%;">Physical Cause</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Strong, steady</strong></td>
+        <td>Aligned energy, clear intention, strong spiritual support</td>
+        <td><em>"The path is clear. Energy is stable."</em></td>
+        <td>Good wick, still air</td>
+      </tr>
+      <tr>
+        <td><strong>Tall flame</strong></td>
+        <td>Strong energy, heightened spiritual activity, amplified intention, emotional intensity</td>
+        <td><em>"This work is active."</em></td>
+        <td>Wick too long, excess fuel</td>
+      </tr>
+      <tr>
+        <td><strong>Small or weak</strong></td>
+        <td>Low momentum, fatigue, emotional heaviness, resistance, blocked intention</td>
+        <td><em>"Energy may need more clarity, support, or clearing."</em></td>
+        <td>Short wick, poor oxygen, wax drowning wick</td>
+      </tr>
+      <tr>
+        <td><strong>Flickering / dancing</strong></td>
+        <td>Energetic movement, spiritual communication, resistance shifting</td>
+        <td><em>"Something is moving."</em></td>
+        <td>Airflow, room movement</td>
+      </tr>
+      <tr>
+        <td><strong>Popping / crackling</strong></td>
+        <td>Emotional charge, energetic resistance, "something wants to be heard", tension releasing</td>
+        <td><em>"Listen."</em></td>
+        <td>Trapped moisture, debris, wick impurities</td>
+      </tr>
+      <tr>
+        <td><strong>Goes out unexpectedly</strong></td>
+        <td>Resistance, timing not aligned, energy needs reassessment, spiritual pause</td>
+        <td><em>"Pause. Reassess. Clear first."</em></td>
+        <td>Drowning wick, no oxygen, draft</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout accent-pink" style="margin-top: 8px;">
+    <p><strong>Remember:</strong> A candle going out is not automatically a curse, attack, or doom. Sometimes it means pause. Sometimes it means clear first. Sometimes it means the work needs to be approached differently.</p>
+  </div>
+
+  <div class="exercise-box" style="margin-top: 10px;">
+    <span class="exercise-tag">Activity</span>
+    <h3>Flame Observation Practice</h3>
+    <p style="margin-bottom: 8px;">Light your candle now. Observe it for 2 minutes in silence. Record what you see.</p>
+    <div class="write-field">
+      <label>What is the flame doing?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What do you feel watching it?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>Any intuitive messages?</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 4 - How to Read Candle Flames</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 7: MODULE 5 - WAX, DRIPS, SOOT & SHAPES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 05</span>
+    <h2>The Wax, Drips, Soot &amp; Shapes</h2>
+    <p>Reading the residue - what the candle leaves behind</p>
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    Wax represents emotional residue, energetic discharge, subconscious material, and how energy is being processed. What the candle leaves behind tells a story.
+  </p>
+
+  <span class="section-label">Wax burn patterns</span>
+
+  <div class="processing-grid" style="margin-bottom: 14px;">
+    <div class="processing-item">
+      <strong>Burns clean</strong>
+      Smooth energy flow, aligned intention, minimal resistance
+    </div>
+    <div class="processing-item">
+      <strong>Excessive dripping</strong>
+      Emotional overflow, unresolved heaviness, grief, release in progress
+    </div>
+    <div class="processing-item">
+      <strong>Heavy to the left</strong>
+      Receiving, feminine energy, subconscious, the past
+    </div>
+    <div class="processing-item">
+      <strong>Heavy to the right</strong>
+      Action, masculine energy, conscious mind, the future
+    </div>
+  </div>
+
+  <div class="callout accent-blue" style="margin-bottom: 12px;">
+    <p><strong>Teach as symbolic, not dogma.</strong> Left/right interpretations are a framework for reflection, not absolute rules.</p>
+  </div>
+
+  <span class="section-label">Wax shape interpretation guide</span>
+
+  <table style="margin-bottom: 10px;">
+    <thead>
+      <tr>
+        <th style="width: 20%;">Shape</th>
+        <th style="width: 40%;">Symbolic Meaning</th>
+        <th style="width: 40%;">Questions to Ask Yourself</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Heart</strong></td><td>Love, healing, heart chakra activation</td><td>Where is love expanding in my life?</td></tr>
+      <tr><td><strong>Spiral</strong></td><td>Cycle, evolution, energy in movement</td><td>What is cycling through right now?</td></tr>
+      <tr><td><strong>Tears / drops</strong></td><td>Grief, emotional release, letting go</td><td>What am I releasing?</td></tr>
+      <tr><td><strong>Snake</strong></td><td>Transformation, shedding old skin</td><td>What identity am I outgrowing?</td></tr>
+      <tr><td><strong>Flower</strong></td><td>Opening, heart expansion, new growth</td><td>Where am I blossoming?</td></tr>
+      <tr><td><strong>Cross / X</strong></td><td>Crossroads, ending, divine support</td><td>What decision am I facing?</td></tr>
+      <tr><td><strong>Circle</strong></td><td>Completion, protection, wholeness</td><td>What cycle is completing?</td></tr>
+      <tr><td><strong>Mountain</strong></td><td>Obstacle, strength building, endurance</td><td>What is this building in me?</td></tr>
+      <tr><td><strong>Face / figure</strong></td><td>Spirit symbolism, ancestral message</td><td>Who is trying to communicate?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote-block" style="margin-top: 8px;">
+    <p>"Wax shapes are not always literal prophecy. They are often symbolic mirrors for the subconscious and energetic field."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label" style="margin-top: 10px;">Black soot and smoke</span>
+  <p style="margin-bottom: 6px;">
+    <strong>Metaphysical:</strong> Dense energy clearing, emotional heaviness, resistance, stagnant patterns releasing.<br>
+    <strong>Physical:</strong> Wick too long, incomplete combustion, poor quality wax.
+  </p>
+
+  <div class="callout accent-pink" style="margin-top: 4px;">
+    <p>"Not every black mark is a spiritual war story. Sometimes the wick just needed trimming."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 5 - The Wax, Drips, Soot &amp; Shapes</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 8: MODULE 6 - CANDLE COLOURS, FREQUENCY & VIBRATION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 06</span>
+    <h2>Candle Colours, Frequency &amp; Vibration</h2>
+    <p>Three lenses: metaphysical, psychological, and the science of light</p>
+  </div>
+
+  <div class="callout accent-purple" style="margin-bottom: 12px; padding: 10px 14px;">
+    <p>"When we talk about colour frequency spiritually, we are also borrowing from the truth that colour is literally vibration in the visible spectrum. Colour absolutely affects human perception, emotional response, symbolism, and energetic intention."</p>
+  </div>
+
+  <span class="section-label">Colour reference chart</span>
+
+  <table style="font-size: 9px;">
+    <thead>
+      <tr>
+        <th style="width: 12%;">Colour</th>
+        <th style="width: 24%;">Metaphysical Properties</th>
+        <th style="width: 34%;">Use For</th>
+        <th style="width: 30%;">Energetic Feel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="colour-swatch" style="background: #ffffff; border: 1px solid #ccc;"></span><strong>White</strong></td>
+        <td>Purity, peace, cleansing, divine connection, truth</td>
+        <td>Healing, blessings, angelic work, general spiritual support</td>
+        <td>Clear, high, pure, spacious</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #1a1a1a;"></span><strong>Black</strong></td>
+        <td>Protection, banishing, shielding, boundaries, shadow work</td>
+        <td>Energetic clearing, cord cutting, release, boundary setting</td>
+        <td>Dense, grounding, protective</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #d32f2f;"></span><strong>Red</strong></td>
+        <td>Life force, vitality, courage, root chakra, survival</td>
+        <td>Motivation, grounding, empowerment, physical energy</td>
+        <td>Strong, activating, embodied</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #f57c00;"></span><strong>Orange</strong></td>
+        <td>Creativity, pleasure, emotional flow, sacral chakra</td>
+        <td>Inspiration, confidence, emotional healing, creative work</td>
+        <td>Warm, flowing, expressive</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #fdd835;"></span><strong>Yellow</strong></td>
+        <td>Clarity, intellect, focus, personal power, solar plexus</td>
+        <td>Decision-making, mental clarity, self-worth, learning</td>
+        <td>Bright, alert, mentally activating</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #43a047;"></span><strong>Green</strong></td>
+        <td>Healing, heart chakra, abundance, growth, renewal</td>
+        <td>Emotional healing, prosperity, physical healing, harmony</td>
+        <td>Balanced, restorative, nurturing</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #f48fb1;"></span><strong>Pink</strong></td>
+        <td>Love, self-love, compassion, gentleness, tenderness</td>
+        <td>Inner child work, heart healing, relationships, self-worth</td>
+        <td>Soft, loving, receptive</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #1976d2;"></span><strong>Blue</strong></td>
+        <td>Peace, communication, truth, throat chakra, calm</td>
+        <td>Speaking truth, conflict resolution, prayer, anxiety support</td>
+        <td>Cooling, truthful, calming</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #7b1fa2;"></span><strong>Purple</strong></td>
+        <td>Intuition, psychic awareness, crown/third eye, wisdom</td>
+        <td>Meditation, spiritual connection, intuitive development, dream work</td>
+        <td>Mystical, elevated, inward</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #c5a05e;"></span><strong>Gold</strong></td>
+        <td>Divine abundance, higher wisdom, solar power, success</td>
+        <td>Prosperity, divine alignment, confidence, manifestation</td>
+        <td>Radiant, expansive, empowered</td>
+      </tr>
+      <tr>
+        <td><span class="colour-swatch" style="background: #bdbdbd;"></span><strong>Silver</strong></td>
+        <td>Intuition, moon energy, feminine energy, reflection</td>
+        <td>Moon rituals, dream work, emotional healing, inner wisdom</td>
+        <td>Reflective, intuitive, receptive</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="exercise-box" style="margin-top: 12px;">
+    <span class="exercise-tag">Activity</span>
+    <h3>Colour Intuition Check</h3>
+    <div class="write-field">
+      <label>What colour candle did you bring today?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>Why were you drawn to that colour?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>After reading the chart, what does it tell you about where you are right now?</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 6 - Candle Colours, Frequency &amp; Vibration</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 9: MODULE 7 - HOW TO CHOOSE THE RIGHT CANDLE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 07</span>
+    <h2>How to Choose the Right Candle</h2>
+    <p>Intention first, then colour, then form</p>
+  </div>
+
+  <p style="margin-bottom: 16px;">
+    Choosing a candle is an intuitive act. Start with your intention, then let the colour and form follow. There is no wrong choice - only conscious choice.
+  </p>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Start with Intention</strong>
+        <span>Ask yourself: What am I calling in? What am I releasing? What support do I need? The answer to this shapes everything else.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Match the Colour</strong>
+        <span>Use the colour reference chart (Module 6) to match your intention to a colour frequency. Trust what you are drawn to - your intuition often knows before your mind does.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Choose the Candle Shape/Type</strong>
+        <span>Match the form to the ritual type and duration. Short work uses short candles. Long-term intentions need sustained burn times. See Module 8 for types.</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Guided Exercise</span>
+    <h3>Candle Selection Worksheet</h3>
+    <p style="margin-bottom: 12px;">Use this worksheet to intentionally choose your candle for any ritual or energetic work.</p>
+
+    <div class="write-field">
+      <label>What is my current intention or need?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>Am I calling something in, or releasing something?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What colour am I drawn to? (trust your first instinct)</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What does the colour chart say about that colour?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>How long do I want this work to last? (quick focus / sustained / ongoing)</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>Which candle type matches? (tea light, chime, pillar, jar, figure)</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="callout accent-blue" style="margin-top: 12px;">
+    <p>If you only have a white candle, use a white candle. White holds all frequencies and can stand in for any colour. The intention is what matters most.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 7 - How to Choose the Right Candle</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 10: MODULE 8 - TYPES OF CANDLES
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 08</span>
+    <h2>Types of Candles &amp; Their Metaphysical Use</h2>
+    <p>The form helps shape the focus of the work</p>
+  </div>
+
+  <div class="quote-block" style="margin-bottom: 16px;">
+    <p>"The candle form helps shape the focus of the work. The more specific the symbolism, the more directed the subconscious and energetic field become."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">Candle Type</th>
+        <th style="width: 42%;">Metaphysical Use</th>
+        <th style="width: 40%;">Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tea lights</strong></td>
+        <td>Simple intention work, daily prayer, quick energetic focus</td>
+        <td>Short daily rituals, meditations, setting the tone for a space</td>
+      </tr>
+      <tr>
+        <td><strong>Chime candles</strong></td>
+        <td>Focused rituals, specific intentions, chakra or spell work</td>
+        <td>20-30 minute targeted rituals, specific prayer, colour-coded work</td>
+      </tr>
+      <tr>
+        <td><strong>Pillar candles</strong></td>
+        <td>Long-term intentions, strong energetic anchoring, altar work</td>
+        <td>Sustained work over days/weeks, ongoing healing, altar centrepieces</td>
+      </tr>
+      <tr>
+        <td><strong>Jar / novena candles</strong></td>
+        <td>Prayer, devotional work, consistency, protection and healing</td>
+        <td>7-day devotional prayers, protection candles, grief work, ancestor altars</td>
+      </tr>
+      <tr>
+        <td><strong>Figure candles</strong></td>
+        <td>Symbolic work, relationship healing, ancestral and intention rituals</td>
+        <td>Specific person work, relationship healing, fertility, symbolic focus</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Reflection</span>
+    <h3>My Candle Practice</h3>
+    <span class="journal-prompt">Which candle type resonates with you most? What kind of energetic work are you drawn to?</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+    <span class="journal-prompt">Think about your current life. What type of candle work would serve you right now?</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 8 - Types of Candles &amp; Their Metaphysical Use</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 11: MODULE 9 - HOW TO PREPARE A CANDLE ENERGETICALLY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 09</span>
+    <h2>How to Prepare a Candle Energetically</h2>
+    <p>Cleanse, program, anoint - imprinting consciousness into form</p>
+  </div>
+
+  <div class="quote-featured">
+    <p>"You are not just lighting wax. You are imprinting consciousness into form."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <ol class="step-list" style="margin-top: 16px;">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Step 1 - Cleanse the candle</strong>
+        <span>Clear any residual energy from the candle before use. Methods include: prayer, breath, smoke cleansing (sage, palo santo), sound (singing bowl, clapping), intention, Reiki or energy work, or simply holding it in your hands and setting the intention to clear.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Step 2 - Program the candle</strong>
+        <span>Hold the candle in your hands. State clearly what the candle is for. Speak what you are releasing. Speak what you are calling in. Ask Spirit, God, Source, or your guides to support the work. This is where consciousness meets form.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Step 3 - Optional anointing</strong>
+        <span>Apply a small amount of oil to the candle with intention. Anoint <strong>top to bottom</strong> for release work (sending energy out). Anoint <strong>bottom to top</strong> for drawing in. Toward you = calling in. Away from you = releasing.</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout accent-blue" style="margin-top: 12px;">
+    <div class="callout-title">Anointing direction quick reference</div>
+    <div class="two-col">
+      <div>
+        <p><strong>Top to Bottom</strong> (away from you)<br>= Release, banish, let go, clear</p>
+      </div>
+      <div>
+        <p><strong>Bottom to Top</strong> (toward you)<br>= Draw in, manifest, attract, heal</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-box" style="margin-top: 16px;">
+    <span class="exercise-tag">Live Practice</span>
+    <h3>Prepare Your Candle Now</h3>
+    <p style="margin-bottom: 8px;">Take your candle. Hold it. Follow the three steps. Write down what you said to your candle.</p>
+    <div class="write-field">
+      <label>What did you cleanse with?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What did you program your candle for?</label>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>If anointed, which direction and why?</label>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 9 - How to Prepare a Candle Energetically</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 12: MODULE 10 - SIMPLE CANDLE RITUAL
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 10</span>
+    <h2>Simple Candle Ritual - Live Practice</h2>
+    <p>Healing &amp; Release Candle Ritual</p>
+  </div>
+
+  <div class="callout accent-purple" style="margin-bottom: 12px;">
+    <div class="callout-title">What you need</div>
+    <p>1 candle (prepared from Module 9), lighter or matches, paper or journal, optional crystal, optional oil, a quiet space</p>
+  </div>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Ground yourself</strong>
+        <span>Take three slow, deep breaths. Place your hand on your heart. Feel your feet on the floor. Arrive fully in this moment.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Set your intention</strong>
+        <span>Ask yourself: What am I ready to release? What am I ready to call in? Write it below.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Speak your prayer</strong>
+        <span>"I ask that this candle support the release of all energy, emotion, thought patterns, beliefs, and attachments that are no longer in alignment with my highest good. I call in healing, clarity, peace, truth, and divine support."</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Light consciously</strong>
+        <span>"As this flame burns, may all that no longer serves me be transmuted into light."</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">5</span>
+      <div class="step-content">
+        <strong>Sit with the flame</strong>
+        <span>Observe: feelings, emotions, thoughts, body sensations, and what the candle itself does.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">6</span>
+      <div class="step-content">
+        <strong>Close with gratitude</strong>
+        <span>"Thank you for what has been revealed, cleared, and transformed."</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">My Ritual Record</span>
+    <h3>Document Your Experience</h3>
+    <div class="write-field">
+      <label>What I am releasing</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What I am calling in</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>My prayer (in my own words)</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+    <div class="write-field">
+      <label>What I observed during the ritual (flame, body, emotions, thoughts)</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 10 - Simple Candle Ritual</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 13: MODULE 11 - SPIRITUAL DISCERNMENT
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 11</span>
+    <h2>Spiritual Discernment</h2>
+    <p>Tools support your healing - they don't replace it</p>
+  </div>
+
+  <div class="quote-featured">
+    <p>"A candle can support your healing, but it is not here to bypass your healing. Ritual should deepen your awareness - not replace your inner work."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <p style="margin-bottom: 14px; margin-top: 14px;">
+    Candles are powerful tools. But they are tools. They are not replacements for the deeper work of healing, regulation, and self-responsibility. Part of spiritual maturity is knowing the difference.
+  </p>
+
+  <span class="section-label">Candles are NOT replacements for</span>
+
+  <div class="processing-grid">
+    <div class="processing-item">
+      <strong>Nervous System Regulation</strong>
+      Breathwork, somatic practices, and grounding your body
+    </div>
+    <div class="processing-item">
+      <strong>Trauma Healing</strong>
+      Professional support for deep wounds that need clinical care
+    </div>
+    <div class="processing-item">
+      <strong>Therapy</strong>
+      Ongoing emotional processing with a trained professional
+    </div>
+    <div class="processing-item">
+      <strong>Medical Care</strong>
+      Physical symptoms that require diagnosis and treatment
+    </div>
+    <div class="processing-item">
+      <strong>Emotional Responsibility</strong>
+      Doing your own inner work and taking ownership
+    </div>
+    <div class="processing-item">
+      <strong>Practical Action</strong>
+      The real-world steps that manifestation requires
+    </div>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 16px;">
+    <p><strong>Spiritual bypassing</strong> is using spiritual practices to avoid dealing with emotional pain, unresolved trauma, or practical responsibilities. A candle ritual before a difficult conversation is beautiful. A candle ritual <em>instead</em> of a difficult conversation is avoidance.</p>
+  </div>
+
+  <div class="exercise-box" style="margin-top: 16px;">
+    <span class="exercise-tag">Reflection</span>
+    <h3>Discernment Check-In</h3>
+    <span class="journal-prompt">Where in my life am I using spiritual practice to support my growth? Where might I be using it to avoid something?</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 11 - Spiritual Discernment</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 14: MODULE 12 - FIRE SAFETY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Module 12</span>
+    <h2>Fire Safety</h2>
+    <p>We honour the element of fire by respecting it</p>
+  </div>
+
+  <div class="quote-block" style="margin-bottom: 16px;">
+    <p>"We honour the element of fire by respecting it."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label">Essential fire safety rules</span>
+
+  <ul class="check-list">
+    <li><span class="check-box"></span><strong>Never leave a candle unattended</strong> - this is non-negotiable, regardless of ritual</li>
+    <li><span class="check-box"></span><strong>Keep away from flammable materials</strong> - curtains, paper, loose fabric, pets, children</li>
+    <li><span class="check-box"></span><strong>Use a stable, heat-safe surface</strong> - ceramic plate, fire-safe tray, stone or tile</li>
+    <li><span class="check-box"></span><strong>Trim wick to 1/4 inch before use</strong> - reduces soot, prevents tall flames, cleaner burn</li>
+    <li><span class="check-box"></span><strong>Avoid heavy drafts</strong> - uneven burning, dripping, and fire hazard</li>
+    <li><span class="check-box"></span><strong>Don't burn too long</strong> - follow the candle manufacturer's recommended burn time</li>
+    <li><span class="check-box"></span><strong>Use discernment with herbs, oils, and dressings</strong> - dried herbs and oils are flammable; keep additions minimal and away from the wick</li>
+    <li><span class="check-box"></span><strong>Extinguish consciously and safely</strong> - use a snuffer or pinch; blowing can scatter hot wax or sparks</li>
+  </ul>
+
+  <div class="callout accent-blue" style="margin-top: 16px;">
+    <div class="callout-title">Remember</div>
+    <p>Sacred practice and practical safety are not in conflict. You can honour the spiritual significance of fire <em>and</em> respect its physical power at the same time. That is the whole point of discernment.</p>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="quote-block">
+    <p>"Candles remind us that light is not passive. Light reveals. Light warms. Light transforms. When we work with candles consciously, we are entering into sacred relationship with intention, energy, symbolism, and Spirit. The candle is not just burning wax. It is showing us where energy is moving, where healing is happening, and where consciousness is ready to rise."</p>
+    <span class="attribution">- Mila Velazquez, Workshop Closing</span>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Module 12 - Fire Safety</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 15: MY CANDLE JOURNAL - PAGE 1
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">My Candle Journal</span>
+    <h2>Ritual Record &amp; Flame Observations</h2>
+    <p>Use these pages to document your ongoing candle practice</p>
+  </div>
+
+  <div class="callout accent-purple" style="margin-bottom: 16px; padding: 10px 14px;">
+    <p>Each time you work with a candle, record your observations here. Over time, you will begin to recognise your own symbolic language - the patterns that are unique to you and your energy.</p>
+  </div>
+
+  <!-- Journal Entry 1 -->
+  <div class="exercise-box" style="margin-bottom: 16px;">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour (steady, tall, flickering, popping, weak)</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes observed</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Soot or smoke?</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages during the burn</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation - what do I feel this means?</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- Journal Entry 2 -->
+  <div class="exercise-box">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>My Candle Journal</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 16: MY CANDLE JOURNAL - PAGE 2
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header" style="margin-bottom: 14px; padding-bottom: 10px;">
+    <span class="section-number">My Candle Journal - continued</span>
+    <h2>Ritual Records</h2>
+  </div>
+
+  <!-- Journal Entry 3 -->
+  <div class="exercise-box" style="margin-bottom: 16px;">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- Journal Entry 4 -->
+  <div class="exercise-box" style="margin-bottom: 16px;">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- Free-form journal space -->
+  <span class="section-label" style="margin-top: 8px;">Additional notes &amp; observations</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>My Candle Journal</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 17: MY CANDLE JOURNAL - PAGE 3
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header" style="margin-bottom: 14px; padding-bottom: 10px;">
+    <span class="section-number">My Candle Journal - continued</span>
+    <h2>Ritual Records</h2>
+  </div>
+
+  <!-- Journal Entry 5 -->
+  <div class="exercise-box" style="margin-bottom: 16px;">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <!-- Journal Entry 6 -->
+  <div class="exercise-box" style="margin-bottom: 16px;">
+    <span class="exercise-tag">Journal Entry</span>
+    <h3>Candle Ritual Record</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="write-field">
+        <label>Date</label>
+        <div class="write-line"></div>
+      </div>
+      <div class="write-field">
+        <label>Candle Colour</label>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="write-field">
+      <label>Intention / Purpose</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Flame behaviour</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Wax patterns, drips, or shapes</label>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Emotions, sensations, or messages</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="write-field">
+      <label>Intuitive interpretation</label>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>My Candle Journal</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 18: ABOUT MILA
+============================================= -->
+<div class="page page-about">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">About Your Practitioner</span>
+    <h2>About Mila</h2>
+  </div>
+
+  <div class="about-block">
+
+    <div class="about-avatar">MV</div>
+
+    <div>
+      <h3 style="font-size: 20px; margin-bottom: 4px;">Mila Velazquez</h3>
+      <div class="credential-badges">
+        <span class="badge">MSPT</span>
+        <span class="badge">CECP</span>
+        <span class="badge">30+ Years Clinical Experience</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    I spent 30 years as a Physical Therapist watching patients carry pain that had no physical explanation. The imaging was clear. The tissue was fine. The mechanics were good. And yet - they hurt. That question led me to energy work, to the Emotion Code, and eventually to the deeper understanding that healing happens on every level - physical, emotional, energetic, and spiritual.
+  </p>
+
+  <p style="margin-bottom: 12px;">
+    Fire has been part of human spiritual practice since the beginning. I teach candle work because it is accessible, powerful, and deeply personal. You don't need expensive tools or years of training. You need a candle, an intention, and the willingness to show up.
+  </p>
+
+  <div class="quote-block">
+    <p>"The candle is not just burning wax. It is showing us where energy is moving, where healing is happening, and where consciousness is ready to rise."</p>
+    <span class="attribution">- Mila Velazquez, MSPT, CECP</span>
+  </div>
+
+  <p style="margin-bottom: 16px;">
+    My approach is direct, warm, and grounded in real anatomy and real emotional experience. I own the woo - but I also own 30 years of watching bodies heal, and I know what's possible when we stop ignoring half the picture.
+  </p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
+      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">MSPT</p>
+      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Master of Science in Physical Therapy</p>
+    </div>
+    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
+      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">CECP</p>
+      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Certified Emotion Code Practitioner</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; background: var(--dark); border-radius: 12px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Connect with Mila</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.com</p>
+    </div>
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Book a session</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.as.me</p>
+    </div>
+    <div>
+      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Social</p>
+      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">@milashealingtouch everywhere</p>
+    </div>
+    <div>
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--grad-bar); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: white; flex-shrink: 0;">MV</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 18px; text-align: center;">
+    <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 10px;"></div>
+    <p style="font-size: 9px; color: var(--grey-400); letter-spacing: 0.06em;">
+      Fire, Frequency &amp; Flame Workshop &nbsp;|&nbsp; Mila's Healing Touch &nbsp;|&nbsp; All rights reserved
+    </p>
+    <p style="font-size: 9px; color: var(--grey-400); margin-top: 4px;">
+      This workbook is for educational purposes. It is not medical advice. Consult a healthcare provider for medical concerns.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>About Mila Velazquez, MSPT, CECP</span>
+  </div>
+</div>
+
+</body>
+</html>
