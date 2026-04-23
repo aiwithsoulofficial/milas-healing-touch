@@ -623,18 +623,30 @@
     clearOptions();
 
     if (opt.next === 'LINK') {
-      // Open link in new tab
-      window.open(opt.url, '_blank', 'noopener,noreferrer');
+      var url = opt.url;
+      var isExternal = url.indexOf('http') === 0;
 
-      // Show farewell message
+      // Show farewell message first
       state.busy = true;
       var typing = showTyping();
       await delay(700);
       removeTyping(typing);
-      addBotBubble(LINK_FAREWELL);
+      addBotBubble(isExternal ? LINK_FAREWELL : "Taking you there now!");
 
-      // After a pause, offer to restart
-      await delay(500);
+      await delay(400);
+
+      // Create a clickable link button so it always works (no popup blockers)
+      var linkBtn = document.createElement('a');
+      linkBtn.className = 'mht-option-btn';
+      linkBtn.href = url;
+      linkBtn.style.display = 'block';
+      linkBtn.style.textDecoration = 'none';
+      if (isExternal) {
+        linkBtn.target = '_blank';
+        linkBtn.rel = 'noopener noreferrer';
+      }
+      linkBtn.textContent = isExternal ? 'Open booking page' : 'Go to page';
+      els.options.appendChild(linkBtn);
 
       var restartBtn = document.createElement('button');
       restartBtn.className = 'mht-option-btn';
