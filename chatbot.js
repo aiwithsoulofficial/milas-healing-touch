@@ -56,7 +56,7 @@
       options: [
         { label: 'Live workshops ($111)',           next: 'WORKSHOP_LIVE' },
         { label: 'Pre-recorded workshops ($77)',    next: 'WORKSHOP_RECORDED' },
-        { label: 'Get all 4 recordings ($297)',     next: 'WORKSHOP_BUNDLE' },
+        { label: 'Get all 6 recordings ($347)',     next: 'WORKSHOP_BUNDLE' },
         { label: 'Back to start',                   next: 'START' },
       ],
     },
@@ -83,7 +83,7 @@
         { label: '2. Muscle Test Like Mila',        next: 'WORKSHOP_MT' },
         { label: '3. Learn the Emotion Code',       next: 'WORKSHOP_EMO' },
         { label: '4. Advanced Techniques',          next: 'WORKSHOP_ADV' },
-        { label: 'Get all 4 for $297',              next: 'WORKSHOP_BUNDLE' },
+        { label: 'Get all 6 for $347',              next: 'WORKSHOP_BUNDLE' },
       ],
     },
 
@@ -93,7 +93,7 @@
         '"Weight lifted like magic." - Multiple clients',
       ],
       options: [
-        { label: 'Buy Energy Clearing - $77',  next: 'LINK', url: 'https://mila-healing-touch.onrender.com/workshops.html#workshops' },
+        { label: 'Buy Energy Clearing - $77',  next: 'LINK', url: 'workshops.html#workshops' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -104,7 +104,7 @@
         "Muscle Test Like Mila (64 min) - Your body already knows the answer. Learn three methods - the sway test, the arm test, and the O-ring finger test - and practice live. This is the skill that makes everything else in energy work possible.",
       ],
       options: [
-        { label: 'Buy Muscle Testing - $77',   next: 'LINK', url: 'https://mila-healing-touch.onrender.com/workshops.html#workshops' },
+        { label: 'Buy Muscle Testing - $77',   next: 'LINK', url: 'workshops.html#workshops' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -116,7 +116,7 @@
         '"Better after one session than 10 years of talk therapy." - Nancy B',
       ],
       options: [
-        { label: 'Buy Emotion Code - $77',     next: 'LINK', url: 'https://mila-healing-touch.onrender.com/workshops.html#workshops' },
+        { label: 'Buy Emotion Code - $77',     next: 'LINK', url: 'workshops.html#workshops' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -127,7 +127,7 @@
         "Advanced Techniques (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, the process of elimination technique, reading the body's messages, and live healing demonstrations.",
       ],
       options: [
-        { label: 'Buy Advanced - $77',         next: 'LINK', url: 'https://mila-healing-touch.onrender.com/workshops.html#workshops' },
+        { label: 'Buy Advanced - $77',         next: 'LINK', url: 'workshops.html#workshops' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -135,11 +135,11 @@
 
     WORKSHOP_BUNDLE: {
       messages: [
-        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297 (save $11 vs buying individually). Over 4 hours of content. Lifetime access to everything.",
+        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $347 (save $30+ vs buying individually). Over 4 hours of content. Lifetime access to everything.",
         "Energy Clearing, Muscle Test Like Mila, Learn the Emotion Code, and Advanced Techniques - the full foundation for a self-healing practice.",
       ],
       options: [
-        { label: 'Get the Complete Collection - $297', next: 'LINK', url: 'https://mila-healing-touch.onrender.com/workshops.html#workshops' },
+        { label: 'Get the Complete Collection - $347', next: 'LINK', url: 'workshops.html#workshops' },
         { label: 'See individual workshops',            next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                       next: 'START' },
       ],
@@ -151,7 +151,7 @@
         "In the meantime, her live workshops are running - same energy, same gift, group experience. $111 each.",
       ],
       options: [
-        { label: 'Join the waitlist',            next: 'LINK', url: 'https://mila-healing-touch.onrender.com/#waitlist' },
+        { label: 'Join the waitlist',            next: 'LINK', url: '#waitlist' },
         { label: 'Check out workshops instead',  next: 'WORKSHOP_PATH' },
         { label: 'Back to start',                next: 'START' },
       ],
