@@ -189,5 +189,8 @@
   }
 
   // Wait for fonts + images
-  window.addEventListener("load", init);
+  window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+    init();
+  });
 })();
