@@ -246,6 +246,22 @@
     if (header) header.classList.add("scrolled");
   }
 
+  /* ---------- VIDEO AUTOPLAY ON SCROLL ---------- */
+  function initVideoAutoplay() {
+    var videos = document.querySelectorAll("video[autoplay]");
+    if (!videos.length) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(function () {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(function (v) { observer.observe(v); });
+  }
+
   /* ---------- INIT ---------- */
   function init() {
     setHeaderScrolled();
@@ -257,6 +273,7 @@
     initBundleCard();
     initFAQ();
     initAnchorLinks();
+    initVideoAutoplay();
   }
 
   window.addEventListener("load", init);
