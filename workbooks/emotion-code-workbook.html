@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learn the Emotion Code - Workbook | Mila's Healing Touch</title>
+  <title>Learn the Emotion Code: The Basics - Workbook | Mila's Healing Touch</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -73,7 +73,6 @@
       box-shadow: 0 4px 32px rgba(29,4,38,0.12);
     }
 
-    /* Subtle per-page radial glow - top-right default */
     .page::before {
       content: '';
       position: absolute;
@@ -87,7 +86,6 @@
       z-index: 0;
     }
 
-    /* Alternating glow positions */
     .page:nth-child(even)::before {
       top: auto;
       bottom: -80px;
@@ -104,13 +102,11 @@
       background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
     }
 
-    /* All page content sits above the glow */
     .page > * {
       position: relative;
       z-index: 1;
     }
 
-    /* Top decorative border on interior pages */
     .page-top-border {
       position: absolute;
       top: 0;
@@ -141,7 +137,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* Gradient line replaces solid border above footer */
     .page-footer::before {
       content: '';
       position: absolute;
@@ -184,7 +179,6 @@
       margin-bottom: 14px;
     }
 
-    /* Corner arcs - replaces blob corners */
     .corner-accent {
       position: absolute;
       top: 8px;
@@ -257,7 +251,6 @@
       border-left: 1px solid rgba(100,18,178,0.15);
     }
 
-    /* Section divider - three dots */
     .section-divider {
       display: flex;
       align-items: center;
@@ -466,7 +459,6 @@
       font-style: italic;
     }
 
-    /* Journal lines */
     .journal-lines {
       margin: 10px 0;
     }
@@ -687,20 +679,6 @@
       position: relative;
     }
 
-    /* Sway Test - standing figure outline */
-    .sway-figure {
-      width: 56px;
-      height: 56px;
-      position: relative;
-    }
-
-    .sway-figure svg,
-    .arm-figure svg,
-    .finger-figure svg {
-      width: 56px;
-      height: 56px;
-    }
-
     .test-name {
       font-family: var(--font-body);
       font-size: 10px;
@@ -773,12 +751,10 @@
       overflow: hidden;
     }
 
-    /* Cover page suppresses the generic page::before glow */
     .cover-page::before {
       display: none;
     }
 
-    /* Full-page background image */
     .cover-bg {
       position: absolute;
       inset: 0;
@@ -787,7 +763,6 @@
       z-index: 0;
     }
 
-    /* Gradient overlay for readability */
     .cover-bg::after {
       content: '';
       position: absolute;
@@ -811,7 +786,6 @@
       flex: 0;
     }
 
-    /* Sacred geometry ring - subtle on full-bleed cover */
     .cover-sacred-ring {
       position: absolute;
       top: -40px;
@@ -827,7 +801,6 @@
       opacity: 0.08;
     }
 
-    /* Constellation dots */
     .cover-constellation {
       position: absolute;
       top: 0;
@@ -858,7 +831,7 @@
 
     .cover-title {
       font-family: var(--font-heading);
-      font-size: 56px;
+      font-size: 52px;
       font-weight: 300;
       color: var(--white);
       line-height: 1.05;
@@ -1001,7 +974,6 @@
       margin-bottom: 2px;
     }
 
-    /* Cover page - practitioner info text overrides */
     .cover-page .practitioner-info p {
       color: rgba(255,255,255,0.6);
     }
@@ -1010,7 +982,6 @@
       color: var(--white);
     }
 
-    /* Cover page footer */
     .cover-page .page-footer {
       z-index: 2;
       color: rgba(255,255,255,0.3);
@@ -1145,7 +1116,6 @@
       margin-bottom: 4px;
     }
 
-    /* Thin decorative rule under section numbers */
     .section-number::after {
       content: '';
       display: block;
@@ -1184,69 +1154,6 @@
     }
 
     /* =============================================
-       FEATURED QUOTE WITH NATURE BACKGROUND
-    ============================================= */
-    .quote-featured {
-      background-image: url('./assets/pexels-lavender-field.jpg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      border-left: none;
-      border-radius: 12px;
-      padding: 28px 32px;
-      overflow: hidden;
-      margin: 20px 0;
-    }
-
-    .quote-featured::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(29,4,38,0.82), rgba(100,18,178,0.72));
-      border-radius: 12px;
-    }
-
-    .quote-featured p {
-      position: relative;
-      z-index: 1;
-      color: white !important;
-      font-size: 16px !important;
-    }
-
-    .quote-featured .attribution {
-      position: relative;
-      z-index: 1;
-      color: rgba(255,255,255,0.7) !important;
-    }
-
-    /* =============================================
-       SACRED GEOMETRY WATERMARKS
-    ============================================= */
-    .sacred-watermark {
-      position: absolute;
-      bottom: 30mm;
-      right: 10mm;
-      width: 200px;
-      height: 200px;
-      background-image: url('./assets/texture-sacred-geometry.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.06;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* =============================================
-       WARM PAGE BACKGROUND
-    ============================================= */
-    .page-warm {
-      background-image: url('./assets/texture-gold-glow.png');
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: overlay;
-    }
-
-    /* =============================================
        EXERCISE BOX
     ============================================= */
     .exercise-box {
@@ -1277,6 +1184,33 @@
     .exercise-box h3 {
       font-size: 17px;
       margin-bottom: 10px;
+    }
+
+    /* =============================================
+       SACRED GEOMETRY WATERMARKS
+    ============================================= */
+    .sacred-watermark {
+      position: absolute;
+      bottom: 30mm;
+      right: 10mm;
+      width: 200px;
+      height: 200px;
+      background-image: url('./assets/texture-sacred-geometry.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* =============================================
+       WARM PAGE BACKGROUND
+    ============================================= */
+    .page-warm {
+      background-image: url('./assets/texture-gold-glow.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
     }
 
     /* =============================================
@@ -1334,7 +1268,6 @@
         border-bottom: 1.5px solid #d9d4e5;
       }
 
-      /* Ensure all decorative backgrounds print */
       .cover-bg,
       .cover-header,
       .cover-constellation,
@@ -1360,7 +1293,7 @@
         print-color-adjust: exact;
       }
 
-      .image-strip, .quote-featured, .sacred-watermark, .page-warm {
+      .image-strip, .sacred-watermark, .page-warm {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -1412,7 +1345,7 @@
     <div class="cover-constellation"></div>
     <div class="cover-eyebrow">Workshop Workbook</div>
     <h1 class="cover-title">Learn the<br>Emotion Code</h1>
-    <p class="cover-subtitle">Release what you've been carrying</p>
+    <p class="cover-subtitle">The Basics</p>
     <div class="cover-brand">Mila's Healing Touch</div>
   </div>
 
@@ -1453,12 +1386,12 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Learn the Emotion Code Workshop</span>
+    <span>Learn the Emotion Code: The Basics</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 2: WELCOME
+     PAGE 2: WELCOME & MILA'S APPROACH
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1475,45 +1408,33 @@
 
   <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png');"></div>
 
-  <p style="font-size: 13px; font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.9; color: #3a2e45; margin-bottom: 16px;">
-    The Emotion Code is just the tool - what matters is what it unlocks.
+  <p style="margin-bottom: 14px;">
+    The Emotion Code is a mind and body technique created by Dr. Bradley Nelson to find where emotional energies are - the emotional energies that are making us not well. Mila is a certified Emotion Code practitioner who also trained in the Neuro-Emotional Technique, the Omnium Method, and consciousness studies. She blended them all together to create her own approach.
   </p>
 
   <p style="margin-bottom: 14px;">
-    Today you will learn how your subconscious mind communicates, how to find what your body is holding onto, and how to release it. For good.
+    As Mila says: every energy healer makes it their own. The Emotion Code is just another tool in your toolbox of the tools that you already have.
   </p>
 
-  <p style="margin-bottom: 14px;">
-    You do not need any special gifts or training to do this. Your body already knows how to do it. We are simply learning its language.
-  </p>
-
-  <p style="margin-bottom: 20px;">
-    This workbook is a reference guide, a practice log, and a space for your own observations. Come back to it. The patterns that emerge over time are often the most important ones.
-  </p>
-
-  <div class="section-divider"><span></span><span></span><span></span></div>
-
-  <div class="quote-featured">
-    <p>"Better after one session than 10 years of talk therapy."</p>
-    <span class="attribution">- Nancy B.</span>
+  <div class="quote-block">
+    <p>"I took the Emotion Code, I took the Neuro-Emotional Technique, the Omnium Method, and a few other studies in consciousness, and I kind of blended it all together to make it my own."</p>
+    <span class="attribution">- Mila Velazquez</span>
   </div>
 
-  <div class="callout accent-purple" style="margin-top: 20px;">
-    <div class="callout-title">What you will leave with today</div>
-    <ul class="check-list" style="margin-top: 4px;">
-      <li><span class="check-box"></span>An understanding of what trapped emotions are and how they affect your body</li>
-      <li><span class="check-box"></span>Working knowledge of the Emotion Code chart</li>
-      <li><span class="check-box"></span>At least one method of muscle testing you can use on yourself</li>
-      <li><span class="check-box"></span>Your first trapped emotion identified and released</li>
-      <li><span class="check-box"></span>A framework for ongoing self-practice at home</li>
-    </ul>
+  <div class="callout accent-purple" style="margin-top: 16px;">
+    <div class="callout-title">Mila's approach vs. Dr. Bradley Nelson</div>
+    <p>Dr. Nelson teaches that the body "makes" a trapped emotion when a painful experience is not filtered. Mila disagrees. She believes the energy comes in from outside - and when it does not filter through, it becomes lodged in the body. It gets lodged in your organs, your glands, your bioenergetic field, your fascia. The body does not create the emotion - the energy enters and gets stuck.</p>
   </div>
 
-  <div style="margin-top: 22px;">
-    <span class="section-label">A note from Mila</span>
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; line-height: 1.85; color: #3a2e45;">
-      I have been in rooms with people for over 30 years - first as a Physical Therapist, now as an Emotion Code Practitioner. What I know is this: your body has been trying to tell you something. Today, we learn how to listen.
-    </p>
+  <div style="margin-top: 16px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
   </div>
 
   <div class="page-footer">
@@ -1521,12 +1442,12 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Learn the Emotion Code Workshop</span>
+    <span>Learn the Emotion Code: The Basics</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 3: WHAT IS THE EMOTION CODE
+     PAGE 3: FOUR CAUSES OF ILLNESS & KEY DISTINCTIONS
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1536,53 +1457,79 @@
 
   <div class="section-header">
     <span class="section-number">Section 01</span>
-    <h2>What is the Emotion Code?</h2>
-    <p>Developed by Dr. Bradley Nelson, D.C.</p>
+    <h2>The Four Causes of Illness</h2>
+    <p>What makes us well and what makes us sick</p>
   </div>
 
   <p style="margin-bottom: 14px;">
-    The Emotion Code is an energy healing method developed by Dr. Bradley Nelson, a chiropractor who spent decades observing a pattern in his patients: physical symptoms that had no clear physical cause - and that disappeared when the emotional energy behind them was identified and released.
-  </p>
-
-  <div class="section-divider"><span></span><span></span><span></span></div>
-
-  <div class="callout accent-blue" style="margin-bottom: 16px;">
-    <div class="callout-title">The Core Principle</div>
-    <p>Emotional energy can become <strong>trapped in the body</strong> during intense or overwhelming experiences. These trapped emotions create energetic imbalances that can contribute to physical pain, emotional reactivity, relationship difficulties, and patterns that seem impossible to shift - no matter how much work you do.</p>
-  </div>
-
-  <p style="margin-bottom: 14px;">
-    Trapped emotions are real, measurable energies. They are not metaphor. They occupy space in your body, and they can distort the energy field of the tissue or organ where they are lodged.
+    Mila teaches that there are four main things in life that can make us well or make us sick. These are the four areas we look at when dealing with the mind, the body, the spirit, and the soul.
   </p>
 
   <div class="two-col" style="margin: 18px 0;">
     <div>
-      <span class="section-label">How it works</span>
-      <ul class="check-list">
-        <li><span class="check-box"></span>We use <strong>muscle testing</strong> to communicate with the subconscious mind</li>
-        <li><span class="check-box"></span>The subconscious identifies the specific <strong>trapped emotion</strong></li>
-        <li><span class="check-box"></span>We may gather details - the age it was trapped, whether it is inherited</li>
-        <li><span class="check-box"></span>We release it using <strong>magnetic energy</strong> along the governing meridian</li>
-      </ul>
+      <ol class="step-list">
+        <li>
+          <span class="step-number">1</span>
+          <div class="step-content">
+            <strong>Nutritional</strong>
+            A nutritional issue will make you either healthy or not.
+          </div>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <div class="step-content">
+            <strong>Emotional</strong>
+            Emotional energies that get lodged and are not filtered through.
+          </div>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <div class="step-content">
+            <strong>Structural</strong>
+            Physical and structural issues in the body.
+          </div>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <div class="step-content">
+            <strong>Pathogen / Toxicity</strong>
+            Toxicity, bacteria, and pathogens.
+          </div>
+        </li>
+      </ol>
     </div>
     <div>
-      <span class="section-label">What it can help with</span>
-      <ul class="check-list">
-        <li><span class="check-box"></span>Chronic physical pain with no clear cause</li>
-        <li><span class="check-box"></span>Anxiety, sadness, patterns of fear</li>
-        <li><span class="check-box"></span>Relationship difficulties</li>
-        <li><span class="check-box"></span>Feeling stuck or unable to move forward</li>
-        <li><span class="check-box"></span>The sense that something is blocking you</li>
-      </ul>
+      <div class="callout accent-blue">
+        <div class="callout-title">Beyond the emotions</div>
+        <p>There are other energies beyond the emotions that can hold an issue: offensive energies, post-traumatic energies, pathogens, toxicity, misalignments, and color imbalances. Today we focus only on the emotional energies.</p>
+      </div>
     </div>
   </div>
 
-  <div class="callout accent-pink" style="margin-top: 4px;">
-    <div class="callout-title">The Governing Meridian</div>
-    <p>The governing meridian runs from the tailbone, up the spine, over the top of the head and down the face to the upper lip. In traditional Chinese medicine, it governs all of the yang meridians. Running a magnet or your hand along this line three times is what releases the trapped emotional energy - essentially giving the subconscious the message that the emotion has been acknowledged and can now go.</p>
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="section-header" style="margin-top: 12px;">
+    <span class="section-number">Key Distinction</span>
+    <h2>Higher Self vs. Subconscious</h2>
+    <p>Understanding who holds the information</p>
   </div>
 
-  <div style="margin-top: 20px;">
+  <div class="two-col" style="margin: 12px 0;">
+    <div class="callout accent-purple" style="margin: 0;">
+      <div class="callout-title">The Subconscious Mind</div>
+      <p>Holds all of your programming. All of the experiences you have ever had in this life. Your programs, your patterns. Dr. Bradley says it holds everything, including past lives.</p>
+    </div>
+    <div class="callout accent-blue" style="margin: 0;">
+      <div class="callout-title">The Higher Self</div>
+      <p>Your own librarian. It is inside of you and outside of you. It is where the Akashic Records are. It holds all the information - including past lives. It is all-knowing, it is in the quantum field, and it knows your charts, what you are thinking, and where you are looking.</p>
+    </div>
+  </div>
+
+  <p style="margin-top: 12px; margin-bottom: 8px;">
+    Mila teaches that when you bring the subconscious mind and the higher self together, you can find the information you need to help someone heal.
+  </p>
+
+  <div style="margin-top: 14px;">
     <span class="section-label">Notes</span>
     <div class="journal-lines">
       <div class="journal-line"></div>
@@ -1597,25 +1544,321 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Learn the Emotion Code Workshop</span>
+    <span>Four Causes of Illness</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 4: EMOTION CODE CHART
+     PAGE 4: PERMISSION PROTOCOL & SAFETY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 02</span>
+    <h2>Permission Protocol</h2>
+    <p>You must ask before entering anyone's energy field</p>
+  </div>
+
+  <div class="callout accent-pink" style="margin-bottom: 16px;">
+    <div class="callout-title">The Rule</div>
+    <p><strong>Before you can enter anybody's energy field, you have to ask for their permission.</strong> Without their permission, your answers will be wrong. You will ask "Is it in column A?" and get yes. "Is it in column B?" and also get yes. That means you are not in - because you never asked for permission.</p>
+  </div>
+
+  <span class="section-label">Permission rules</span>
+  <ul class="check-list" style="margin-bottom: 16px;">
+    <li><span class="check-box"></span><strong>Adults:</strong> You must ask the person directly for permission before working on them.</li>
+    <li><span class="check-box"></span><strong>Children under 18:</strong> You must ask permission of one of the parents.</li>
+    <li><span class="check-box"></span><strong>Animals:</strong> Permission must come from the owner - not the person caring for the animal. If the person who contacts you is the boarder and not the owner, you cannot get in without the owner's permission.</li>
+    <li><span class="check-box"></span><strong>Comatose person:</strong> This is a judgment call. Some healers say to talk to the person's spirit - but you must consider whether you are meddling in their karma.</li>
+  </ul>
+
+  <div class="quote-block">
+    <p>"It's by all the laws of the universe. You can't break the laws of the universe."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="section-header" style="margin-top: 8px;">
+    <span class="section-number">Section 03</span>
+    <h2>Safety Checks</h2>
+    <p>What Mila asks before every single session</p>
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    Before starting any session, Mila asks a series of safety questions. Dr. Brad does not teach about safety - Mila added this herself.
+  </p>
+
+  <ol class="step-list" style="margin-bottom: 12px;">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Is it safe for me to work with this person?</strong>
+        If you get a no, give them their money back and call it a day. Does this person have an entity in their energy field?
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Is it safe for that person to work with me?</strong>
+        Some things are not safe to clear - for example, certain issues in pregnant women. They can come back after they give birth.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Am I meddling in business that is not for their highest and greatest good?</strong>
+        You have no right to meddle in somebody else's karma. It is not good for them and it is not good for you.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Is it karmic for them?</strong>
+        If what they are going through is karmic, clearing it could do more harm than good.
+      </div>
+    </li>
+  </ol>
+
+  <div style="margin-top: 12px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Permission Protocol &amp; Safety Checks</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 5: WILLINGNESS TO HEAL & DON'T FEEL SORRY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 04</span>
+    <h2>Willingness to Heal</h2>
+    <p>You can clear everything - but if the person is not ready, they will not heal</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Before starting any session, Mila checks four things. If a person does not meet all four, you can clear everything and nothing will stick.
+  </p>
+
+  <div class="two-col" style="margin: 14px 0;">
+    <div>
+      <ol class="step-list">
+        <li>
+          <span class="step-number">1</span>
+          <div class="step-content"><strong>Are they willing to heal?</strong></div>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <div class="step-content"><strong>Are they ready to heal?</strong></div>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <div class="step-content"><strong>Are they capable?</strong></div>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <div class="step-content"><strong>Do they feel safe?</strong></div>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <div class="callout accent-purple" style="margin: 0;">
+        <div class="callout-title">Signs of no will</div>
+        <p>Some people have a resistance to healing. Some people have self-sabotage. They may be playing the victim and liking where they are. If someone is not willing, they will come back session after session and get nothing. Some parents run from healer to healer and spend a fortune.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="section-header" style="margin-top: 8px;">
+    <span class="section-number">Key Teaching</span>
+    <h2>Don't Feel Sorry for Anyone</h2>
+  </div>
+
+  <div class="callout accent-pink" style="margin-bottom: 14px;">
+    <div class="callout-title">Mila's boundary as a healer</div>
+    <p>"I don't feel sorry for anybody. Sorry is a very low vibration. I don't worry about them. I don't feel bad for them. I don't feel sorry for them. To each their own. Everyone has something in their life."</p>
+  </div>
+
+  <p style="margin-bottom: 10px;">
+    Mila shared a story of a 29-year-old woman who came on as a breath of fresh air and then told her she had breast cancer in her bone, her liver, travelling through her body. Mila's internal response: "This does not belong to you. This is her life. This is her journey. This is her path. This is her karma. It's not mine. And I don't accept it in."
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    Every person has their own life path. Healers are assisters - we do not do the healing. We help people heal.
+  </p>
+
+  <div style="margin-top: 14px;">
+    <span class="section-label">Reflections on boundaries as a healer</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Willingness to Heal</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 6: MUSCLE TESTING & PROXY/SURROGATE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 05</span>
+    <h2>Muscle Testing, Proxy &amp; Surrogate</h2>
+    <p>How we communicate with the subconscious mind</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    We speak to the subconscious mind by using the nervous system and manually muscle testing. You can also use a pendulum or the sway test to test yourself.
+  </p>
+
+  <span class="section-label">Three testing methods</span>
+
+  <div class="test-methods">
+    <div class="test-card">
+      <div class="test-icon">
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="10" r="6" fill="none" stroke="#6412b2" stroke-width="2"/>
+          <line x1="28" y1="16" x2="28" y2="36" stroke="#6412b2" stroke-width="2"/>
+          <line x1="28" y1="22" x2="18" y2="30" stroke="#6412b2" stroke-width="2"/>
+          <line x1="28" y1="22" x2="38" y2="30" stroke="#6412b2" stroke-width="2"/>
+          <line x1="28" y1="36" x2="20" y2="50" stroke="#6412b2" stroke-width="2"/>
+          <line x1="28" y1="36" x2="36" y2="50" stroke="#6412b2" stroke-width="2"/>
+          <path d="M 10 28 Q 6 20 10 12" stroke="#5d81ff" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+          <path d="M 46 28 Q 50 20 46 12" stroke="#5d81ff" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+        </svg>
+      </div>
+      <div class="test-name">Sway Test</div>
+      <p class="test-desc">Stand relaxed. Make a true statement - your body sways forward. Make a false statement - it sways back. This is your baseline yes/no.</p>
+    </div>
+
+    <div class="test-card">
+      <div class="test-icon">
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="22" r="5" fill="none" stroke="#6412b2" stroke-width="2"/>
+          <line x1="14" y1="27" x2="14" y2="40" stroke="#6412b2" stroke-width="2"/>
+          <line x1="14" y1="40" x2="10" y2="50" stroke="#6412b2" stroke-width="2"/>
+          <line x1="14" y1="40" x2="18" y2="50" stroke="#6412b2" stroke-width="2"/>
+          <line x1="14" y1="32" x2="44" y2="28" stroke="#6412b2" stroke-width="2"/>
+          <ellipse cx="46" cy="28" rx="4" ry="3" fill="none" stroke="#6412b2" stroke-width="1.5"/>
+          <line x1="44" y1="18" x2="44" y2="24" stroke="#5d81ff" stroke-width="2"/>
+          <polygon points="44,26 41,21 47,21" fill="#5d81ff"/>
+        </svg>
+      </div>
+      <div class="test-name">Arm Test</div>
+      <p class="test-desc">When they hold strong, it is a yes. When they go weak, it is a no. Strong means congruent. Weak means non-congruent.</p>
+    </div>
+
+    <div class="test-card">
+      <div class="test-icon">
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="28" cy="28" rx="12" ry="10" fill="none" stroke="#6412b2" stroke-width="2"/>
+          <path d="M 16 28 Q 8 20 12 12 Q 16 6 22 12" stroke="#6412b2" stroke-width="2" fill="none"/>
+          <path d="M 40 28 Q 48 20 44 12 Q 40 6 34 12" stroke="#5d81ff" stroke-width="2" fill="none"/>
+          <line x1="44" y1="28" x2="50" y2="34" stroke="#f10065" stroke-width="1.5" stroke-dasharray="2,2"/>
+        </svg>
+      </div>
+      <div class="test-name">Finger Test</div>
+      <p class="test-desc">Form a ring with your thumb and finger. Try to pull it apart while making a statement. Ring holds = yes. Ring breaks = no.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <span class="section-label">Proxy Testing &amp; Surrogate Testing</span>
+
+  <div class="callout accent-blue" style="margin-bottom: 12px;">
+    <div class="callout-title">The AM / FM Analogy</div>
+    <p>If you want to work on someone else - an animal, a child, another person - Dr. Bradley says you take proxy. It is like one person is on AM and the other is on FM. You both have to come together into one frequency, one channel, so one person can test for the other.</p>
+  </div>
+
+  <p style="margin-bottom: 10px;">
+    Dr. Brad does this with intention: "My intention is I'm going to test on behalf of Chris." When he muscle tests, he says "My name is Mila" - he goes weak. "My name is Chris" - he goes strong. That is proxy.
+  </p>
+
+  <div class="callout accent-purple" style="margin-bottom: 10px;">
+    <div class="callout-title">Mila's approach is different</div>
+    <p>Mila does not take on the other person's energy. When you take on someone's energy and you see many people in a day, you are exhausted by the end. In her Advanced Healers course, she teaches how to connect to someone's higher self in the quantum field to get the same information without absorbing their energy.</p>
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    You can also test through a <strong>surrogate</strong> - hooking two people up together so one person can be tested on behalf of the other.
+  </p>
+
+  <div style="margin-top: 10px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Muscle Testing, Proxy &amp; Surrogate</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 7: THE EMOTION CODE CHART
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">Section 02</span>
+    <span class="section-number">Section 06</span>
     <h2>The Chart of Emotions</h2>
-    <p>Your primary reference tool - use it every time you work with the Emotion Code</p>
+    <p>Two columns, six rows, 60 emotions - your primary reference tool</p>
   </div>
 
   <div class="callout accent-blue" style="margin-bottom: 14px; padding: 10px 14px;">
-    <p style="font-size: 10px;">The chart is divided into <strong>Column A</strong> and <strong>Column B</strong>, and <strong>6 rows</strong> corresponding to organ systems. Muscle testing tells you which column, which row, and then which specific emotion within that group.</p>
+    <p style="font-size: 10px;">The chart has <strong>Column A</strong> and <strong>Column B</strong>, with <strong>6 rows</strong>. You start by asking which column, then even or odd rows, then the specific row, then test each emotion in that group until you hold strong.</p>
   </div>
 
   <div class="chart-image-wrapper" style="text-align: center; margin: 16px 0;">
@@ -1686,8 +1929,13 @@
     </table>
   </div>
 
-  <div class="callout accent-purple" style="margin-top: 14px; padding: 10px 14px;">
-    <p style="font-size: 10px;"><strong>How to use this chart:</strong> Start by asking "Is the emotion in Column A or Column B?" Then ask "Is it in rows 1-3?" to narrow it down, then identify the specific row, and finally ask about each emotion in that group. Your subconscious will give a <strong>yes</strong> response for the correct one.</p>
+  <div style="margin-top: 12px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
   </div>
 
   <div class="page-footer">
@@ -1700,7 +1948,111 @@
 </div>
 
 <!-- =============================================
-     PAGE 5: MUSCLE TESTING
+     PAGE 8: FINDING & RELEASING EMOTIONS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 07</span>
+    <h2>Finding &amp; Releasing Emotions</h2>
+    <p>The step-by-step process Mila teaches</p>
+  </div>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Set your intention</strong>
+        Call upon your angels, spirits, guides, higher self, God, the universe. Ask for your team and the other person's team to come together. Clear your space. Use elements - fire, water, air, earth.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Ask permission and run safety checks</strong>
+        Ask for permission. Check if it is safe for you and safe for them. Check for entities. Check for karma.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Check willingness</strong>
+        Are they willing, ready, capable, and do they feel safe?
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Ask broad questions first</strong>
+        Where is the energy? Is it in the aura? The physical body? Is it a relationship issue? A parenting issue? Money? Career? Start broad and go in - like being a detective.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">5</span>
+      <div class="step-content">
+        <strong>Use the chart to find the emotion</strong>
+        Column A or B? Even or odd row? Which specific row? Test each emotion until you hold strong.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">6</span>
+      <div class="step-content">
+        <strong>Check if the subconscious needs more information</strong>
+        If yes, go back through ages: Prenatal? In utero? At birth? 0-10? 10-20? Narrow down to the specific age (within 2 years is a good window).
+      </div>
+    </li>
+    <li>
+      <span class="step-number">7</span>
+      <div class="step-content">
+        <strong>Ask if it is safe to clear</strong>
+        If not safe, find the emotion underneath that needs to be cleared first.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">8</span>
+      <div class="step-content">
+        <strong>Release the emotion</strong>
+        Clear through the governing meridian (runs from the forehead over the head and down the back). You can use your hand, a magnet, a dowser crystal, intention, breath work, bells, sound frequency. There is no wrong way.
+      </div>
+    </li>
+    <li>
+      <span class="step-number">9</span>
+      <div class="step-content">
+        <strong>Continue until complete</strong>
+        Ask: "Are there any other trapped emotions in this category?" Keep going until you get a no. Then ask: "Are you hiding something from me?" Check past lives if needed. Continue until 100% released.
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout accent-blue" style="margin-top: 8px;">
+    <div class="callout-title">The beauty of the emotion code</div>
+    <p>You do not have to remember the event in order to clear the energy. With the Neuro-Emotional Technique, you have to remember the event cognitively. Why put someone through the same trauma again if they have already repressed it?</p>
+  </div>
+
+  <div style="margin-top: 12px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Finding &amp; Releasing Emotions</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 9: THREE TYPES OF EMOTIONS
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1710,295 +2062,57 @@
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">Section 03</span>
-    <h2>Understanding Muscle Testing</h2>
-    <p>How the subconscious communicates through the body</p>
+    <span class="section-number">Section 08</span>
+    <h2>Three Types of Trapped Emotions</h2>
+    <p>Personal, absorbed, and inherited - three distinct categories</p>
   </div>
 
-  <p style="margin-bottom: 14px;">
-    Your subconscious mind processes everything - every experience, every emotion, every sensation you have ever had. It does not use words. It communicates through the body. Muscle testing is how we ask.
-  </p>
+  <div class="three-col" style="margin: 14px 0;">
+    <div class="callout accent-blue" style="margin: 0;">
+      <div class="callout-title">Personal</div>
+      <p>Your own emotion from your own experience. "Is it yours? Yes." This is the most straightforward - it happened to you and got stuck.</p>
+    </div>
+    <div class="callout accent-purple" style="margin: 0;">
+      <div class="callout-title">Absorbed</div>
+      <p>Someone else's emotion that you took on. "Was it absorbed? Yes. From whom?" You can trace it - was it from mom, dad, your husband, a sibling? That person was in that emotional state and you absorbed it.</p>
+    </div>
+    <div class="callout accent-pink" style="margin: 0;">
+      <div class="callout-title">Inherited</div>
+      <p>Passed down through generations. If you go through the emotions and go weak on all of them, ask: "Is it inherited?" Then find the emotion again - "Oh, you inherited peeved." How many generations? Trace the lineage through mother's and father's sides.</p>
+    </div>
+  </div>
 
-  <p style="margin-bottom: 18px;">
-    When a true statement is made, the body becomes stronger. When a false statement is made, or something resonates with an unresolved energy, the body becomes temporarily weaker. This is not a trick - it is the same principle used in kinesiology, and your body does it automatically whether you intend it to or not.
-  </p>
-
-  <div class="quote-block" style="margin-bottom: 20px;">
-    <p>"Your body knows. It has always known. Muscle testing is just how we ask."</p>
+  <div class="quote-block" style="margin-top: 16px;">
+    <p>"People like it. They want to know where they received their shit from. It's important for them. And then they cry because they remember great-grandmother, grandmother."</p>
     <span class="attribution">- Mila Velazquez</span>
   </div>
 
-  <span class="section-label">Three Methods for Self-Testing</span>
-
-  <div class="test-methods">
-    <!-- SWAY TEST -->
-    <div class="test-card">
-      <div class="test-icon">
-        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <!-- Standing figure -->
-          <circle cx="28" cy="10" r="6" fill="none" stroke="#6412b2" stroke-width="2"/>
-          <line x1="28" y1="16" x2="28" y2="36" stroke="#6412b2" stroke-width="2"/>
-          <line x1="28" y1="22" x2="18" y2="30" stroke="#6412b2" stroke-width="2"/>
-          <line x1="28" y1="22" x2="38" y2="30" stroke="#6412b2" stroke-width="2"/>
-          <line x1="28" y1="36" x2="20" y2="50" stroke="#6412b2" stroke-width="2"/>
-          <line x1="28" y1="36" x2="36" y2="50" stroke="#6412b2" stroke-width="2"/>
-          <!-- Sway arrows -->
-          <path d="M 10 28 Q 6 20 10 12" stroke="#5d81ff" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
-          <path d="M 46 28 Q 50 20 46 12" stroke="#5d81ff" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
-        </svg>
-      </div>
-      <div class="test-name">Sway Test</div>
-      <p class="test-desc">Stand relaxed, feet shoulder-width apart. Make a true statement - your body will gently sway forward. Make a false statement - it will sway back. This is your baseline yes/no signal.</p>
-    </div>
-
-    <!-- ARM TEST -->
-    <div class="test-card">
-      <div class="test-icon">
-        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outstretched arm -->
-          <circle cx="14" cy="22" r="5" fill="none" stroke="#6412b2" stroke-width="2"/>
-          <line x1="14" y1="27" x2="14" y2="40" stroke="#6412b2" stroke-width="2"/>
-          <line x1="14" y1="40" x2="10" y2="50" stroke="#6412b2" stroke-width="2"/>
-          <line x1="14" y1="40" x2="18" y2="50" stroke="#6412b2" stroke-width="2"/>
-          <!-- Arm extended -->
-          <line x1="14" y1="32" x2="44" y2="28" stroke="#6412b2" stroke-width="2"/>
-          <ellipse cx="46" cy="28" rx="4" ry="3" fill="none" stroke="#6412b2" stroke-width="1.5"/>
-          <!-- Downward pressure arrow -->
-          <line x1="44" y1="18" x2="44" y2="24" stroke="#5d81ff" stroke-width="2"/>
-          <polygon points="44,26 41,21 47,21" fill="#5d81ff"/>
-        </svg>
-      </div>
-      <div class="test-name">Arm Test</div>
-      <p class="test-desc">Extend one arm to the side at shoulder height. A partner applies gentle downward pressure on the wrist. A true statement - the arm holds strong. A false statement - the arm gives way.</p>
-    </div>
-
-    <!-- FINGER TEST -->
-    <div class="test-card">
-      <div class="test-icon">
-        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <!-- Finger ring -->
-          <ellipse cx="28" cy="28" rx="12" ry="10" fill="none" stroke="#6412b2" stroke-width="2"/>
-          <!-- Thumb -->
-          <path d="M 16 28 Q 8 20 12 12 Q 16 6 22 12" stroke="#6412b2" stroke-width="2" fill="none"/>
-          <!-- Index finger pulling -->
-          <path d="M 40 28 Q 48 20 44 12 Q 40 6 34 12" stroke="#5d81ff" stroke-width="2" fill="none"/>
-          <!-- Break arrow -->
-          <line x1="44" y1="28" x2="50" y2="34" stroke="#f10065" stroke-width="1.5" stroke-dasharray="2,2"/>
-        </svg>
-      </div>
-      <div class="test-name">Finger Test</div>
-      <p class="test-desc">Form a ring with your thumb and one finger. Try to pull the ring apart while making your statement. Strong ring = yes (true). Ring pulls apart easily = no (false). Good for solo practice.</p>
-    </div>
-  </div>
-
-  <div class="callout accent-blue" style="margin-top: 6px;">
-    <div class="callout-title">Important</div>
-    <p>Muscle testing is a skill. It takes practice to trust it, especially on yourself. Hydration helps. If you are getting inconsistent signals, drink water and try again. Testing on simple, known truths first (your name, your birthday) builds confidence.</p>
-  </div>
-
-  <div style="margin-top: 16px;">
-    <span class="section-label">Notes on muscle testing</span>
-    <div class="journal-lines">
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-    </div>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Learn the Emotion Code Workshop</span>
-  </div>
-</div>
-
-<!-- =============================================
-     PAGE 6: THE RELEASE PROCESS
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Section 04</span>
-    <h2>The Release Process</h2>
-    <p>Step by step - follow this every time</p>
-  </div>
-
-  <p style="margin-bottom: 16px;">
-    The process is simple. Your subconscious does the heavy lifting. Your job is to ask the right questions in the right order, stay present, and trust what you receive.
+  <p style="margin-top: 14px; margin-bottom: 10px;">
+    Mila gives a story of the cognitive experience: you find the emotion was fear, absorbed from an ex-husband, around age 18. You give the person a story so they understand where they were in life at that point. When the light bulb goes off, you can tell right away that they remember. But they do not have to remember - the energy can still be cleared.
   </p>
 
-  <ol class="step-list">
-    <li>
-      <span class="step-number">1</span>
-      <div class="step-content">
-        <strong>Establish your baseline</strong>
-        Say your name and notice the sway forward (or a strong muscle test response). Say a false name and notice the movement back. This is your yes/no signal for the session.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">2</span>
-      <div class="step-content">
-        <strong>Ask: "Do I have a trapped emotion that my body is ready to release?"</strong>
-        Wait for a clear yes or no response. If yes, continue. If no, ask if there is something else your body needs first.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">3</span>
-      <div class="step-content">
-        <strong>Identify the column</strong>
-        Ask: "Is this emotion in Column A?" If yes - Column A. If no - Column B.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">4</span>
-      <div class="step-content">
-        <strong>Identify the row</strong>
-        Ask: "Is it in rows 1, 2, or 3?" Narrow down to the specific row using yes/no questions.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">5</span>
-      <div class="step-content">
-        <strong>Narrow to the specific emotion</strong>
-        Read through the emotions in that row one at a time. Your body will give a clear yes when you land on the right one.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">6</span>
-      <div class="step-content">
-        <strong>Ask for details (optional but valuable)</strong>
-        Ask: "How old was I when this was trapped?" Count down in decades, then years. Ask: "Is this an inherited emotion?" (passed down from a parent or ancestor). If inherited, ask: "Was it from my mother's side or father's side?"
-      </div>
-    </li>
-    <li>
-      <span class="step-number">7</span>
-      <div class="step-content">
-        <strong>Release the emotion</strong>
-        Intend to release the trapped emotion. Run a magnet (or your hand, or a finger) firmly along the governing meridian - from the centre of your forehead, over the top of your head, and down the back of your neck - three times for a personal emotion, ten times for an inherited emotion.
-      </div>
-    </li>
-    <li>
-      <span class="step-number">8</span>
-      <div class="step-content">
-        <strong>Confirm the release</strong>
-        Ask: "Was that trapped emotion successfully released?" You should receive a clear yes. If not, repeat the release.
-      </div>
-    </li>
-  </ol>
-
-  <div class="callout accent-pink" style="margin-top: 8px;">
-    <p style="font-size: 10.5px;"><strong>Governing meridian reminder:</strong> Start at the centre of your forehead. Run your hand (or magnet) over the crown of your head, continuing firmly down the back of your neck to the base of your skull. That is one pass. Do this 3 times for a standard release, 10 times for an inherited emotion.</p>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>The Release Process</span>
-  </div>
-</div>
-
-<!-- =============================================
-     PAGE 7: EXERCISE 1 - MUSCLE TESTING
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Workshop Exercise 01</span>
-    <h2>Practice Muscle Testing</h2>
-    <p>Establishing your personal yes/no signal</p>
-  </div>
-
-  <div class="exercise-box">
-    <span class="exercise-tag">Guided Exercise</span>
-    <h3>The Sway Test - Finding Your Signal</h3>
-    <p style="margin-bottom: 14px;">Follow along with Mila. Take your time with each step - there is no rush.</p>
-
-    <ol class="step-list" style="margin-top: 0;">
-      <li>
-        <span class="step-number">1</span>
-        <div class="step-content">Stand with your feet hip-width apart. Soften your knees. Let your arms hang loose at your sides. Close your eyes if it feels comfortable.</div>
-      </li>
-      <li>
-        <span class="step-number">2</span>
-        <div class="step-content">Take three slow breaths. Feel your feet on the floor.</div>
-      </li>
-      <li>
-        <span class="step-number">3</span>
-        <div class="step-content">Say your full name out loud: <em>"My name is [your name]."</em> Notice any sensation in your body. Do you feel a gentle forward pull? A sense of opening?</div>
-      </li>
-      <li>
-        <span class="step-number">4</span>
-        <div class="step-content">Now say a completely false name: <em>"My name is [not your name]."</em> Notice what changes. Does your body want to sway back? Feel heavier? Resist?</div>
-      </li>
-      <li>
-        <span class="step-number">5</span>
-        <div class="step-content">Repeat with something you know to be true: <em>"I am a woman" / "I am a human being."</em> Then something false. Build confidence in the signal.</div>
-      </li>
-    </ol>
-  </div>
-
-  <div style="margin-top: 20px;">
-    <span class="section-label">My experience with the sway test</span>
-    <div class="journal-lines">
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-    </div>
-  </div>
-
   <div style="margin-top: 16px;">
-    <span class="section-label">Which testing method feels most natural for me?</span>
-    <div style="display: flex; gap: 24px; margin-top: 8px;">
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 11px; cursor: pointer;">
-        <span class="check-box"></span> Sway Test
-      </label>
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 11px; cursor: pointer;">
-        <span class="check-box"></span> Arm Test (with a partner)
-      </label>
-      <label style="display: flex; align-items: center; gap: 8px; font-size: 11px; cursor: pointer;">
-        <span class="check-box"></span> Finger Test
-      </label>
-    </div>
-  </div>
-
-  <div style="margin-top: 18px;">
-    <span class="section-label">What surprised me or felt different than I expected</span>
+    <span class="section-label">Notes on the three types</span>
     <div class="journal-lines">
       <div class="journal-line"></div>
       <div class="journal-line"></div>
       <div class="journal-line"></div>
       <div class="journal-line"></div>
+      <div class="journal-line"></div>
     </div>
   </div>
-
-  <div class="sacred-watermark"></div>
 
   <div class="page-footer">
     <div class="footer-brand">
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Exercise 01 - Practice Muscle Testing</span>
+    <span>Three Types of Trapped Emotions</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 8: EXERCISE 2 - FIRST TRAPPED EMOTION
+     PAGE 10: ENTITIES & DARK ENERGIES
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -2007,17 +2121,162 @@
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">Workshop Exercise 02</span>
-    <h2>Find Your First Trapped Emotion</h2>
-    <p>A guided walkthrough using the chart</p>
+    <span class="section-number">Section 09</span>
+    <h2>Entities &amp; Dark Energies</h2>
+    <p>Know your limits and protect yourself</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Mila is direct about this topic. When someone comes on, she looks at the person and can tell intuitively if there is an entity. Then she decides whether she is going to release it or not.
+  </p>
+
+  <div class="callout accent-pink" style="margin-bottom: 14px;">
+    <div class="callout-title">Mila's approach to entities</div>
+    <p>If it is safe and the entity can be released, she does it. If it is a demonic energy or something too strong, she will not go there. If she gets a "no" on safety, she tells the person it is not safe, gives them their money back, and calls it a day. She does not scare anyone, but she is honest.</p>
+  </div>
+
+  <span class="section-label">Key points from Mila</span>
+  <ul class="check-list" style="margin-bottom: 14px;">
+    <li><span class="check-box"></span>A disincarnate (someone who passed on and got stuck in another person's energy field) is something simple to release and send into the light.</li>
+    <li><span class="check-box"></span>A really nasty energy - you cannot just do it through distance, no matter what anybody says.</li>
+    <li><span class="check-box"></span>If someone is drunk or on drugs, Mila feels it and knows it. That is not something she will work with.</li>
+    <li><span class="check-box"></span>You have to know what you can do and what you are not willing to do.</li>
+    <li><span class="check-box"></span>Entities love fear. You cannot be afraid of it. If you are afraid of it, you cannot deal with it.</li>
+    <li><span class="check-box"></span>Your angels, spirits, and guides are there to protect you. Every healer has a contract.</li>
+    <li><span class="check-box"></span>You have to make sure 100% it is safe for you to go into someone's energy field - that they do not have something that will pass from them to you, because it is energy.</li>
+  </ul>
+
+  <div class="quote-block">
+    <p>"I ask and intend that any negativity goes up and out into the light. I ask that any energies that are not for our highest and greatest good do not enter our energy field, that we have no interference - and so be it."</p>
+    <span class="attribution">- Mila Velazquez (opening prayer)</span>
+  </div>
+
+  <div style="margin-top: 14px;">
+    <span class="section-label">Notes</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Entities &amp; Dark Energies</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 11: PROCESSING SYMPTOMS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 10</span>
+    <h2>Processing After a Session</h2>
+    <p>What happens when the energy leaves - from Mila's experience</p>
+  </div>
+
+  <p style="margin-bottom: 12px;">
+    Mila tests at the end of each session how many days the person needs to process. Processing means the energy is integrating - it is gone, it is out of the system, out of the energy field. People feel it emotionally, mentally, physically, or spiritually.
+  </p>
+
+  <div class="callout accent-blue" style="margin-bottom: 14px;">
+    <div class="callout-title">The numbers</div>
+    <p>Dr. Bradley Nelson says that 60% of people process and feel it. 40% do not feel a single thing. Everybody processes differently, and everybody has a different time frame.</p>
+  </div>
+
+  <span class="section-label">Processing symptoms Mila has observed</span>
+
+  <div class="processing-grid" style="margin-bottom: 14px;">
+    <div class="processing-item">
+      <strong>Crying</strong>
+      Some people cry for days at a time. This is the emotion completing its exit.
+    </div>
+    <div class="processing-item">
+      <strong>Uncontrollable laughing</strong>
+      An unexpected release that comes through joy or relief.
+    </div>
+    <div class="processing-item">
+      <strong>Itchiness / restlessness</strong>
+      The body physically reacting to the energy shift.
+    </div>
+    <div class="processing-item">
+      <strong>Vomiting / diarrhea</strong>
+      Physical purging as the body releases.
+    </div>
+    <div class="processing-item">
+      <strong>Shivering / feeling cold</strong>
+      Mila's own processing symptom. She had a client sitting by a fireplace saying "this isn't helping" - and the energy was processing. Like running a fever where nothing makes you warm.
+    </div>
+    <div class="processing-item">
+      <strong>Fatigue / wanting to sleep</strong>
+      People get tired. Some sleep for hours. One client slept for three hours and woke up happy.
+    </div>
+    <div class="processing-item">
+      <strong>Aggression in dogs</strong>
+      Dogs can bite and become aggressive during processing.
+    </div>
+    <div class="processing-item">
+      <strong>Tantrums in children</strong>
+      Children can become fussy and throw tantrums. Sometimes they just want to lay down and sleep.
+    </div>
+  </div>
+
+  <div class="callout accent-purple" style="margin-bottom: 12px;">
+    <div class="callout-title">Feeling lighter</div>
+    <p>People physically feel lighter. They feel relieved. We are releasing negative energies that no longer serve and elevating the vibration of a person. It is all about frequency and vibration.</p>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <span class="section-label">My processing experience</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Processing After a Session</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE 12: PRACTICE EXERCISE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Workshop Exercise</span>
+    <h2>Find a Trapped Emotion</h2>
+    <p>Practice using the chart and muscle testing</p>
   </div>
 
   <p style="margin-bottom: 16px;">
-    Work through the release process step by step with Mila. Use the chart on page 4 as your reference. Record what you find in the table below. Trust your body - it knows what it is ready to release today.
+    Work through the process step by step. Use the chart on the previous page as your reference. Record what you find in the table below. Trust your body.
   </p>
 
   <div class="callout accent-purple" style="margin-bottom: 16px; padding: 10px 14px;">
-    <p style="font-size: 10px;">Questions to ask: Column A or B? &nbsp; Row 1-3 or 4-6? &nbsp; Which specific row? &nbsp; Which emotion? &nbsp; How old was I? &nbsp; Inherited? &nbsp; From whom?</p>
+    <p style="font-size: 10px;">Questions to ask: Column A or B? &nbsp; Even or odd row? &nbsp; Which specific row? &nbsp; Which emotion? &nbsp; Do I need to know more? &nbsp; How old? &nbsp; Absorbed? Inherited? Personal? &nbsp; From whom? &nbsp; Is it safe to clear?</p>
   </div>
 
   <table style="margin-bottom: 6px;">
@@ -2026,38 +2285,21 @@
         <th style="width: 10%;">#</th>
         <th style="width: 10%;">Column</th>
         <th style="width: 8%;">Row</th>
-        <th style="width: 20%;">Emotion</th>
-        <th style="width: 12%;">Age Trapped</th>
-        <th style="width: 12%;">Inherited?</th>
-        <th style="width: 18%;">From Whom?</th>
-        <th style="width: 10%;">Released?</th>
+        <th style="width: 18%;">Emotion</th>
+        <th style="width: 10%;">Type</th>
+        <th style="width: 12%;">Age</th>
+        <th style="width: 16%;">From Whom?</th>
+        <th style="width: 8%;">Safe?</th>
+        <th style="width: 8%;">Cleared?</th>
       </tr>
     </thead>
     <tbody class="table-write">
-      <tr>
-        <td>1</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
+      <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
   </table>
 
@@ -2086,12 +2328,12 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Exercise 02 - Find Your First Trapped Emotion</span>
+    <span>Workshop Exercise</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 9: HEART-WALL
+     PAGE 13: RECOMMENDED READING & MODALITIES
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -2100,138 +2342,52 @@
 
   <div class="gradient-bar"></div>
 
-  <div class="image-strip" style="background-image: url('./assets/overlay-amethyst-crystal.png'); height: 50px;"></div>
-
-  <div class="section-header" style="margin-bottom: 12px; padding-bottom: 10px;">
-    <span class="section-number">Section 05</span>
-    <h2>What is a Heart-Wall?</h2>
-    <p>One of the most significant discoveries in energy healing</p>
+  <div class="section-header">
+    <span class="section-number">Section 11</span>
+    <h2>Recommended Reading &amp; Modalities</h2>
+    <p>Resources Mila mentioned during the workshop</p>
   </div>
 
-  <p style="margin-bottom: 10px;">
-    When we experience deep heartache - loss, betrayal, grief, or prolonged emotional pain - the subconscious mind can take action to protect us. It builds what Dr. Nelson calls a Heart-Wall: a barrier around the heart made up of trapped emotional energy.
-  </p>
+  <span class="section-label">Books &amp; Authors</span>
 
-  <p style="margin-bottom: 10px;">
-    In the short term, this protection makes sense. It shields us from the full weight of pain we were not equipped to process at the time. But over time, a Heart-Wall becomes a wall - and it blocks not only pain coming in, but love going out and coming in as well.
-  </p>
+  <ul class="check-list" style="margin-bottom: 16px;">
+    <li><span class="check-box"></span><strong>Dr. Bradley Nelson</strong> - The Emotion Code. Everybody can buy his book and read it. Mila recommends it as the foundation for this modality.</li>
+    <li><span class="check-box"></span><strong>Bruce Lipton</strong> - Biology of Belief. A cellular biologist who says what our beliefs are is our biology. He dives deep with the subconscious and unconscious. He also likes PSYCH-K.</li>
+    <li><span class="check-box"></span><strong>Dr. Joe Dispenza</strong> - Mila loves his work and says he has a great technique.</li>
+    <li><span class="check-box"></span><strong>Lynn McTaggart</strong> - Intentions. Shows how the body can heal with intentions and the power of energy.</li>
+    <li><span class="check-box"></span><strong>Caroline Corey</strong> - Creator of the Omnium Method. Mila says she is "the most woo woo out there" but does a lot of scientific, evidence-based work with consciousness.</li>
+  </ul>
 
-  <div class="section-divider"><span></span><span></span><span></span></div>
+  <span class="section-label">Other Modalities Mila Mentioned</span>
 
-  <div class="callout accent-purple" style="margin: 10px 0; padding: 10px 14px;">
-    <div class="callout-title">Signs you may have a Heart-Wall</div>
-    <ul class="check-list" style="margin-top: 4px;">
-      <li><span class="check-box"></span>Difficulty feeling genuine joy or love even when life is objectively good</li>
-      <li><span class="check-box"></span>Feeling disconnected from people you care about</li>
-      <li><span class="check-box"></span>Relationships that consistently feel flat, effortful, or just slightly out of reach</li>
-      <li><span class="check-box"></span>A persistent sense of loneliness even in the company of others</li>
-      <li><span class="check-box"></span>Difficulty receiving love, compliments, or support gracefully</li>
-      <li><span class="check-box"></span>A feeling that your heart is somehow guarded - even when you do not want it to be</li>
-    </ul>
-  </div>
-
-  <div class="two-col" style="margin: 10px 0; gap: 14px;">
+  <div class="two-col" style="margin: 14px 0;">
     <div>
-      <span class="section-label">The Heart-Wall removal process</span>
-      <p style="font-size: 10.5px; margin-bottom: 8px;">Heart-Wall removal works the same way as releasing any trapped emotion - but there are multiple layers. Each layer is a different trapped emotion that contributed to the wall. Most people need several sessions to clear a Heart-Wall completely. The results are often profound.</p>
-      <p style="font-size: 10.5px;">The subconscious will often describe the Heart-Wall as a material - wood, stone, brick, glass. This is not imagination. It is the subconscious communicating texture and density.</p>
+      <ul class="check-list">
+        <li><span class="check-box"></span><strong>Neuro-Emotional Technique (NET)</strong> - Requires remembering the event cognitively. Mila integrated it with the Emotion Code.</li>
+        <li><span class="check-box"></span><strong>The Omnium Method</strong> - Consciousness-based approach by Caroline Corey.</li>
+        <li><span class="check-box"></span><strong>PSYCH-K</strong> - Another modality that Bruce Lipton recommends.</li>
+      </ul>
     </div>
     <div>
-      <div class="quote-block" style="height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 10px 14px;">
-        <p>"Helped me rekindle my relationship with my sister after 2 years of distance. I did not expect that - but my body knew what needed to go."</p>
-        <span class="attribution">- Anna O.</span>
+      <div class="callout accent-blue" style="margin: 0;">
+        <div class="callout-title">Mila's philosophy</div>
+        <p>It has to make sense not only from the metaphysical but from the sciences. She needs a scientific reason for why something happens. She brought the sciences together with the metaphysics, plus energy, plus intuition.</p>
       </div>
     </div>
   </div>
 
-  <div class="callout accent-pink" style="padding: 10px 14px;">
-    <div class="callout-title">Heart-Wall clearing is available as a focused 1:1 session with Mila</div>
-    <p style="font-size: 10px;">Book at milashealingtouch.as.me - ask for the Heart-Wall Clearing session. Most clients notice a difference within 24-72 hours of their first session.</p>
+  <div class="section-divider"><span></span><span></span><span></span></div>
+
+  <div class="callout accent-purple" style="margin-top: 8px;">
+    <div class="callout-title">On getting certified</div>
+    <p>Mila teaches this workshop for people who want to self-heal - to give you a taste of what the Emotion Code is. If something really resonates and you want to use it on other people, she recommends getting the full certification. There are tons of other modalities out there too - it does not mean you will be certified in each one, but if something truly calls to you, pursue it.</p>
   </div>
-
-  <div style="margin-top: 10px;">
-    <span class="section-label">My reflection on Heart-Wall</span>
-    <div class="journal-lines">
-      <div class="journal-line"></div>
-      <div class="journal-line"></div>
-    </div>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>What is a Heart-Wall?</span>
-  </div>
-</div>
-
-<!-- =============================================
-     PAGE 10: AFTER YOUR SESSION
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Section 06</span>
-    <h2>After Your Session</h2>
-    <p>What to expect in the 1-3 days after releasing trapped emotions</p>
-  </div>
-
-  <p style="margin-bottom: 16px;">
-    Your body just did something significant. Releasing trapped emotions is real work - even though it feels gentle. Give yourself some care in the hours and days that follow.
-  </p>
-
-  <div class="callout accent-blue" style="margin-bottom: 18px;">
-    <div class="callout-title">The Processing Period</div>
-    <p>A processing period of <strong>1 to 3 days</strong> after releasing is completely normal and is actually a sign that something real happened. This is not a bad sign - it is your body integrating the change. Stay with it.</p>
-  </div>
-
-  <span class="section-label">Common experiences during processing</span>
-
-  <div class="processing-grid" style="margin-bottom: 16px;">
-    <div class="processing-item">
-      <strong>Emotional release</strong>
-      You may feel waves of the released emotion - tears, sadness, even unexpected relief. This is the energy completing its exit. Let it move through you.
-    </div>
-    <div class="processing-item">
-      <strong>Tiredness</strong>
-      Energy work is genuinely tiring. Rest if you can. Your nervous system has been recalibrated.
-    </div>
-    <div class="processing-item">
-      <strong>Vivid dreams</strong>
-      Your subconscious often continues processing during sleep. Dreams may be intense, meaningful, or just strange. Write them down if you can.
-    </div>
-    <div class="processing-item">
-      <strong>Feeling lighter</strong>
-      Many people describe a literal physical sensation of weight lifting. This is real. The energy that was trapped had density.
-    </div>
-    <div class="processing-item">
-      <strong>Temporary echoes</strong>
-      You may briefly feel the emotion you released more intensely before it clears completely. This passes. It does not mean the release did not work.
-    </div>
-    <div class="processing-item">
-      <strong>Physical shifts</strong>
-      Tingling, warmth, or changes in areas of chronic tension are common. Your body is reorganising.
-    </div>
-  </div>
-
-  <span class="section-label">Post-session self-care</span>
-
-  <ul class="check-list">
-    <li><span class="check-box"></span><strong>Drink water.</strong> Lots of it. Energy work is dehydrating and hydration supports the release process.</li>
-    <li><span class="check-box"></span><strong>Rest when you can.</strong> Avoid scheduling something demanding immediately after a session.</li>
-    <li><span class="check-box"></span><strong>Be gentle with yourself.</strong> This is not the day for hard conversations or big decisions.</li>
-    <li><span class="check-box"></span><strong>Note what comes up.</strong> Emotions, memories, dreams, or physical sensations that arise in the following days are often connected to what was released.</li>
-    <li><span class="check-box"></span><strong>Trust the process.</strong> Your subconscious knows what it is doing.</li>
-  </ul>
 
   <div style="margin-top: 16px;">
-    <span class="section-label">How I feel right now - notes</span>
+    <span class="section-label">Books and resources I want to explore</span>
     <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
       <div class="journal-line"></div>
       <div class="journal-line"></div>
       <div class="journal-line"></div>
@@ -2243,59 +2399,55 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>After Your Session</span>
+    <span>Recommended Reading &amp; Modalities</span>
   </div>
 </div>
 
 <!-- =============================================
-     PAGE 11: PRACTICE LOG
+     PAGE 14: PRACTICE LOG
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">Section 07</span>
+    <span class="section-number">Section 12</span>
     <h2>Practice Log</h2>
-    <p>For ongoing self-practice at home - keep this with you</p>
+    <p>For ongoing self-practice at home</p>
   </div>
 
   <p style="margin-bottom: 14px; font-size: 10.5px;">
-    Regular self-practice is where the real shifts happen. Even one or two emotions per session, a few times a week, builds momentum over time. Use this log to track what your subconscious brings forward - patterns will emerge.
+    Mila says: practice makes perfect. Start on yourself before touching somebody else. Practice with the sway test, the pendulum, and start with questions you already know the answer to. Make sure your crown chakra is open and connected to the divine - otherwise you cannot get to your higher self or the quantum field.
   </p>
 
   <table>
     <thead>
       <tr>
-        <th style="width: 14%;">Date</th>
-        <th style="width: 20%;">Emotion Found</th>
-        <th style="width: 12%;">Col / Row</th>
+        <th style="width: 12%;">Date</th>
+        <th style="width: 18%;">Emotion Found</th>
+        <th style="width: 10%;">Col / Row</th>
+        <th style="width: 10%;">Type</th>
         <th style="width: 10%;">Age</th>
-        <th style="width: 22%;">Details (inherited, from whom, context)</th>
-        <th style="width: 12%;">Released?</th>
+        <th style="width: 20%;">Details</th>
+        <th style="width: 10%;">Safe?</th>
+        <th style="width: 10%;">Released?</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="table-write"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
   </table>
-
-  <div class="callout accent-purple" style="margin-top: 16px; padding: 10px 14px;">
-    <p style="font-size: 10px;">
-      <strong>Tip:</strong> After a few weeks of practice, look back at what your body has been releasing. Are certain emotions showing up repeatedly? Are they clustered around a particular time in your life? This is your subconscious revealing what it is ready to clear - and pointing you toward the deeper work.
-    </p>
-  </div>
 
   <div style="margin-top: 14px;">
     <span class="section-label">Patterns I am noticing over time</span>
@@ -2316,7 +2468,7 @@
 </div>
 
 <!-- =============================================
-     PAGE 12: JOURNAL SPACE (1 of 2)
+     PAGE 15: JOURNAL SPACE
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -2325,71 +2477,12 @@
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">Section 08</span>
-    <h2>Journal Space</h2>
-    <p>Your body communicates in more ways than muscle testing</p>
-  </div>
-
-  <span class="journal-prompt">"What emotions came up for me today?"</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <span class="journal-prompt" style="margin-top: 22px;">"What patterns do I notice in my trapped emotions?"</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <span class="journal-prompt" style="margin-top: 22px;">"How does my body feel after releasing?"</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <div class="sacred-watermark"></div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Journal Space</span>
-  </div>
-</div>
-
-<!-- =============================================
-     PAGE 13: JOURNAL SPACE (2 of 2)
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 14px;">
-    <span class="section-number">Journal - continued</span>
-    <h2>Free Writing</h2>
+    <span class="section-number">Journal Space</span>
+    <h2>Reflections &amp; Free Writing</h2>
     <p>Use this space however your body is asking you to use it</p>
   </div>
 
-  <span class="journal-prompt">"What do I want to feel free from?"</span>
+  <span class="journal-prompt">"What resonated most for me in today's workshop?"</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
@@ -2400,7 +2493,7 @@
     <div class="journal-line"></div>
   </div>
 
-  <span class="journal-prompt" style="margin-top: 22px;">"What has been the most surprising thing I learned today?"</span>
+  <span class="journal-prompt" style="margin-top: 22px;">"What do I want to release?"</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
@@ -2435,75 +2528,7 @@
 </div>
 
 <!-- =============================================
-     PAGE 14: YOUR NEXT STEPS
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Section 09</span>
-    <h2>Your Next Steps</h2>
-    <p>Keep going - the work you did today is just the beginning</p>
-  </div>
-
-  <div class="image-strip" style="background-image: url('./assets/overlay-sunset-gold.png');"></div>
-
-  <p style="margin-bottom: 18px;">
-    Today you learned how your subconscious communicates, identified and released trapped emotions, and experienced the Emotion Code firsthand. Most people feel something shift. The question now is: what do you do with that?
-  </p>
-
-  <div class="next-steps-grid">
-    <div class="next-step-card">
-      <h3>Book a 1:1 Deep Session</h3>
-      <p>A focused 60-minute session with Mila. We go deeper, work through layers your body is ready to release, and address what came up today. This is where the most significant changes happen.</p>
-      <a href="https://milashealingtouch.as.me" class="link-pill">Book at milashealingtouch.as.me</a>
-    </div>
-
-    <div class="next-step-card">
-      <h3>Muscle Test Like Mila</h3>
-      <p>A workshop dedicated entirely to muscle testing - building accuracy and confidence in your own body's yes/no signal. A strong testing foundation changes everything.</p>
-      <a href="https://milashealingtouch.as.me" class="link-pill">See upcoming workshops</a>
-    </div>
-
-    <div class="next-step-card">
-      <h3>Energy Clearing Workshop</h3>
-      <p>The next step after today. We go beyond the Emotion Code into broader energy clearing techniques - including Heart-Wall removal, inherited emotions, and absorbed emotions.</p>
-      <a href="https://milashealingtouch.as.me" class="link-pill">Join the waitlist</a>
-    </div>
-
-    <div class="next-step-card">
-      <h3>Stay Connected</h3>
-      <p>Follow along for tips, case studies, and gentle reminders that your body knows what it needs. The content is practical - not pretty-wellness. Real tools for real people.</p>
-      <p style="margin-top: 10px; font-weight: 600; font-size: 10px; color: var(--dark);">@milashealingtouch</p>
-    </div>
-  </div>
-
-  <div class="callout accent-pink" style="margin-top: 8px;">
-    <div class="callout-title">Heart-Wall Clearing - specifically</div>
-    <p style="font-size: 10.5px;">If what resonated most for you today was the Heart-Wall section - book a dedicated Heart-Wall Clearing session. Mention this workshop when you book and Mila will know where to start.</p>
-  </div>
-
-  <div style="margin-top: 16px; text-align: center;">
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--secondary); line-height: 1.6;">
-      "Your body has been carrying things you were not meant to carry forever.<br>Today you started putting some of it down."
-    </p>
-    <p style="font-size: 9.5px; color: var(--grey-600); margin-top: 6px;">- Mila Velazquez</p>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Your Next Steps</span>
-  </div>
-</div>
-
-<!-- =============================================
-     PAGE 15: ABOUT MILA
+     PAGE 16: NEXT STEPS & ABOUT MILA
 ============================================= -->
 <div class="page page-warm">
   <div class="page-top-border"></div>
@@ -2513,47 +2538,46 @@
   <div class="gradient-bar"></div>
 
   <div class="section-header">
-    <span class="section-number">About Your Practitioner</span>
-    <h2>About Mila</h2>
+    <span class="section-number">Your Next Steps</span>
+    <h2>Keep Going</h2>
+    <p>The work you did today is just the beginning</p>
   </div>
+
+  <div class="next-steps-grid" style="margin-bottom: 16px;">
+    <div class="next-step-card">
+      <h3>Book a 1:1 Session</h3>
+      <p>A focused session with Mila where she goes deeper - working through layers your body is ready to release. This is where the most significant changes happen.</p>
+      <a href="https://milashealingtouch.as.me" class="link-pill">Book at milashealingtouch.as.me</a>
+    </div>
+
+    <div class="next-step-card">
+      <h3>Advanced Healers Course</h3>
+      <p>Where Mila teaches how to connect to someone's higher self in the quantum field - getting the same information without taking on their energy.</p>
+      <a href="https://milashealingtouch.as.me" class="link-pill">See upcoming workshops</a>
+    </div>
+
+    <div class="next-step-card">
+      <h3>Get Certified</h3>
+      <p>If the Emotion Code truly calls to you and you want to use it on others, Mila recommends pursuing the full certification through Dr. Bradley Nelson's program.</p>
+      <a href="https://milashealingtouch.as.me" class="link-pill">Ask Mila for details</a>
+    </div>
+
+    <div class="next-step-card">
+      <h3>Stay Connected</h3>
+      <p>Follow along for tips and practical guidance. Mila keeps it real - real tools for real people.</p>
+      <p style="margin-top: 10px; font-weight: 600; font-size: 10px; color: var(--dark);">@milashealingtouch</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span></span><span></span><span></span></div>
 
   <div class="about-box">
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; line-height: 1.9; color: var(--dark); font-weight: 400; position: relative; z-index: 1;">
-      "I spent 30 years as a Physical Therapist watching patients carry pain that had no physical explanation. I tried everything I knew. Sometimes it helped. Often, it did not touch the real thing.
-    </p>
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; line-height: 1.9; color: var(--dark); font-weight: 400; margin-top: 12px; position: relative; z-index: 1;">
-      The Emotion Code was the missing piece. It gave me a language for what I had been watching for decades - people carrying emotional weight in their bodies and calling it physical pain.
-    </p>
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; line-height: 1.9; color: var(--dark); font-weight: 400; margin-top: 12px; position: relative; z-index: 1;">
-      Now I help women release what they have been carrying - usually in a single session."
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; line-height: 1.9; color: var(--dark); font-weight: 400; position: relative; z-index: 1;">
+      Mila Velazquez is a retired Physical Therapist (still licensed in the state of New Jersey) who spent 30 years evaluating and treating neurological and orthopedic conditions. She is a Certified Emotion Code Practitioner who also trained in the Neuro-Emotional Technique and the Omnium Method. She brought the sciences together with the metaphysics, plus energy, plus intuition - and made it her own.
     </p>
   </div>
 
-  <div style="display: flex; gap: 20px; margin-top: 20px; align-items: flex-start;">
-    <div style="flex: 1;">
-      <span class="section-label">Credentials</span>
-      <ul class="check-list" style="margin-top: 8px;">
-        <li><span class="check-box" style="border-color: var(--secondary);"></span><strong>MSPT</strong> - Master of Science in Physical Therapy</li>
-        <li><span class="check-box" style="border-color: var(--secondary);"></span><strong>CECP</strong> - Certified Emotion Code Practitioner</li>
-        <li><span class="check-box" style="border-color: var(--secondary);"></span>30 years clinical experience in physical therapy</li>
-        <li><span class="check-box" style="border-color: var(--secondary);"></span>Specialisation in the mind-body connection and energy healing</li>
-      </ul>
-    </div>
-
-    <div style="flex: 1;">
-      <span class="section-label">What Mila's clients say</span>
-      <div class="quote-block" style="margin-top: 8px;">
-        <p>"Better after one session than 10 years of talk therapy."</p>
-        <span class="attribution">- Nancy B.</span>
-      </div>
-      <div class="quote-block">
-        <p>"Helped me rekindle my relationship with my sister after 2 years of distance."</p>
-        <span class="attribution">- Anna O.</span>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top: 20px; background: var(--dark); border-radius: 12px; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+  <div style="margin-top: 14px; background: var(--dark); border-radius: 12px; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
     <div>
       <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 4px;">Connect with Mila</p>
       <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.com</p>
@@ -2574,7 +2598,7 @@
   <div style="margin-top: 18px; text-align: center;">
     <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 12px;"></div>
     <p style="font-size: 9px; color: var(--grey-400); letter-spacing: 0.06em;">
-      Learn the Emotion Code Workshop &nbsp;|&nbsp; Mila's Healing Touch &nbsp;|&nbsp; All rights reserved
+      Learn the Emotion Code: The Basics &nbsp;|&nbsp; Mila's Healing Touch &nbsp;|&nbsp; All rights reserved
     </p>
     <p style="font-size: 9px; color: var(--grey-400); margin-top: 4px;">
       This workbook is for educational purposes. It is not medical advice. Consult a healthcare provider for medical concerns.

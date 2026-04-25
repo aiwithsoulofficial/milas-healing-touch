@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy Clearing Workshop - Workbook | Mila's Healing Touch</title>
+  <title>Not Your Energy, Not Your Problem - Workbook | Mila's Healing Touch</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -73,7 +73,6 @@
       box-shadow: 0 4px 32px rgba(29,4,38,0.12);
     }
 
-    /* Subtle per-page radial glow - top-right default */
     .page::before {
       content: '';
       position: absolute;
@@ -87,7 +86,6 @@
       z-index: 0;
     }
 
-    /* Alternating glow positions */
     .page:nth-child(even)::before {
       top: auto;
       bottom: -80px;
@@ -104,13 +102,11 @@
       background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
     }
 
-    /* All page content sits above the glow */
     .page > * {
       position: relative;
       z-index: 1;
     }
 
-    /* Top decorative border on interior pages */
     .page-top-border {
       position: absolute;
       top: 0;
@@ -141,7 +137,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* Gradient line replaces solid border above footer */
     .page-footer::before {
       content: '';
       position: absolute;
@@ -184,7 +179,6 @@
       margin-bottom: 14px;
     }
 
-    /* Corner arcs - replaces blob corners */
     .corner-accent {
       position: absolute;
       top: 8px;
@@ -257,7 +251,6 @@
       border-left: 1px solid rgba(100,18,178,0.15);
     }
 
-    /* Section divider - three dots */
     .section-divider {
       display: flex;
       align-items: center;
@@ -461,7 +454,6 @@
       min-height: 28px;
     }
 
-    /* Journal lines */
     .journal-lines {
       margin: 10px 0;
     }
@@ -643,7 +635,6 @@
       margin-bottom: 4px;
     }
 
-    /* Thin decorative rule under section numbers */
     .section-number::after {
       content: '';
       display: block;
@@ -700,165 +691,7 @@
     }
 
     /* =============================================
-       BODY DIAGRAM / SVG LAYOUTS
-    ============================================= */
-    .body-diagram-wrap {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin: 14px 0;
-    }
-
-    .body-figure {
-      flex-shrink: 0;
-      width: 44mm;
-    }
-
-    .body-svg {
-      width: 100%;
-      height: auto;
-    }
-
-    .emotion-locations {
-      flex: 1;
-    }
-
-    .location-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 6px 0;
-      border-bottom: 1px solid var(--grey-200);
-      font-size: 10px;
-    }
-
-    .location-item:last-child { border-bottom: none; }
-
-    .location-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    .location-label {
-      font-weight: 600;
-      color: var(--dark);
-      min-width: 22mm;
-      font-size: 10px;
-    }
-
-    .location-desc {
-      color: var(--grey-600);
-      font-size: 9.5px;
-    }
-
-    /* =============================================
-       MERIDIAN DIAGRAM LAYOUT
-    ============================================= */
-    .meridian-wrap {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin: 14px 0;
-    }
-
-    .meridian-figure {
-      flex-shrink: 0;
-      width: 36mm;
-      text-align: center;
-    }
-
-    .meridian-label {
-      font-size: 8px;
-      color: var(--grey-600);
-      text-align: center;
-      margin-top: 6px;
-      font-family: var(--font-body);
-    }
-
-    /* =============================================
-       BODY SCAN LAYOUT
-    ============================================= */
-    .scan-wrap {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin: 14px 0;
-    }
-
-    .scan-figure {
-      flex-shrink: 0;
-      width: 40mm;
-    }
-
-    /* =============================================
-       EMOTION CHART (two-column grid layout)
-    ============================================= */
-    .emotion-chart {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin: 6px 0;
-    }
-
-    .emotion-column-header {
-      background: var(--grad-bar);
-      color: var(--white);
-      padding: 4px 6px;
-      font-size: 7.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-align: center;
-      border-radius: 4px 4px 0 0;
-      font-family: var(--font-body);
-    }
-
-    .emotion-group {
-      margin-bottom: 2px;
-    }
-
-    .emotion-group-header {
-      background: rgba(100,18,178,0.08);
-      padding: 1px 5px;
-      font-size: 6.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--secondary);
-      border-left: 3px solid var(--secondary);
-      font-family: var(--font-body);
-      line-height: 1.4;
-    }
-
-    .emotion-row {
-      display: flex;
-      border-bottom: 1px solid var(--grey-200);
-    }
-
-    .emotion-num {
-      width: 16px;
-      padding: 1px 3px;
-      font-size: 6.5px;
-      color: var(--grey-400);
-      font-weight: 600;
-      flex-shrink: 0;
-      border-right: 1px solid var(--grey-200);
-      font-family: var(--font-body);
-    }
-
-    .emotion-name {
-      padding: 1px 4px;
-      font-size: 7.5px;
-      flex: 1;
-      color: #3a2e45;
-      line-height: 1.35;
-    }
-
-    /* =============================================
-       CARE GRID (post-clearing)
+       CARE GRID
     ============================================= */
     .care-grid {
       display: grid;
@@ -1044,6 +877,40 @@
     }
 
     /* =============================================
+       ELEMENT CARD
+    ============================================= */
+    .element-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      position: relative;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .element-card h4 {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: var(--dark);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .element-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .element-card.fire { border-left-color: #f10065; }
+    .element-card.water { border-left-color: #5d81ff; }
+    .element-card.earth { border-left-color: #c5a05e; }
+    .element-card.air { border-left-color: #6412b2; }
+
+    /* =============================================
        COVER PAGE
     ============================================= */
     .cover-page {
@@ -1055,12 +922,10 @@
       overflow: hidden;
     }
 
-    /* Cover page suppresses the generic page::before glow */
     .cover-page::before {
       display: none;
     }
 
-    /* Full-page background image */
     .cover-bg {
       position: absolute;
       inset: 0;
@@ -1069,7 +934,6 @@
       z-index: 0;
     }
 
-    /* Gradient overlay for readability */
     .cover-bg::after {
       content: '';
       position: absolute;
@@ -1093,7 +957,6 @@
       flex: 0;
     }
 
-    /* Image strip dividers */
     .image-strip {
       width: calc(100% + 36mm);
       margin-left: calc(-1 * var(--page-pad));
@@ -1109,7 +972,6 @@
       print-color-adjust: exact;
     }
 
-    /* About/final page gold glow background */
     .page-about {
       background-image: url('./assets/texture-gold-glow.png');
       background-size: cover;
@@ -1119,7 +981,6 @@
       print-color-adjust: exact;
     }
 
-    /* Featured quote with photo background */
     .quote-featured {
       background-image: url('./assets/pexels-candle-flame.jpg');
       background-size: cover;
@@ -1161,7 +1022,6 @@
       font-family: var(--font-body);
     }
 
-    /* Sacred geometry watermark for journal pages */
     .sacred-watermark {
       position: absolute;
       bottom: 30mm;
@@ -1175,7 +1035,6 @@
       pointer-events: none;
     }
 
-    /* Sacred geometry ring - subtle on full-bleed cover */
     .cover-sacred-ring {
       position: absolute;
       top: -40px;
@@ -1191,7 +1050,6 @@
       opacity: 0.08;
     }
 
-    /* Constellation dots */
     .cover-constellation {
       position: absolute;
       top: 0;
@@ -1222,7 +1080,7 @@
 
     .cover-title {
       font-family: var(--font-heading);
-      font-size: 56px;
+      font-size: 50px;
       font-weight: 300;
       color: var(--white);
       line-height: 1.05;
@@ -1235,7 +1093,7 @@
 
     .cover-subtitle {
       font-family: var(--font-heading);
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 300;
       font-style: italic;
       color: rgba(255,255,255,0.8);
@@ -1366,7 +1224,6 @@
       margin-bottom: 2px;
     }
 
-    /* Cover page footer */
     .cover-page .page-footer {
       z-index: 2;
       color: rgba(255,255,255,0.3);
@@ -1431,7 +1288,6 @@
         border-bottom: 1.5px solid #d9d4e5;
       }
 
-      /* Ensure all decorative backgrounds print */
       .cover-bg,
       .cover-header,
       .cover-constellation,
@@ -1476,7 +1332,7 @@
         print-color-adjust: exact;
       }
 
-      .chart-image-wrapper img {
+      .element-card {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -1517,15 +1373,15 @@
     <div class="cover-sacred-ring"></div>
     <div class="cover-constellation"></div>
     <div class="cover-eyebrow">Workshop Workbook</div>
-    <h1 class="cover-title">Energy Clearing<br>Workshop</h1>
-    <p class="cover-subtitle">A guided workbook for your healing journey</p>
+    <h1 class="cover-title">Not Your Energy,<br>Not Your Problem</h1>
+    <p class="cover-subtitle">Energy Clearing Workshop with Mila Velazquez</p>
     <div class="cover-brand">Mila's Healing Touch</div>
   </div>
 
   <div class="cover-body">
     <div>
       <div class="participant-block">
-        <p>This workbook is yours to keep. Write in it, return to it, and let it be a record of your healing.</p>
+        <p>This workbook is yours to keep. Write in it, return to it, and use it as your guide to clearing and protecting your energy.</p>
 
         <div class="cover-field">
           <label>Participant Name</label>
@@ -1536,19 +1392,14 @@
           <label>Date</label>
           <input type="text" class="cover-field-line" placeholder="Date" />
         </div>
-
-        <div class="cover-field">
-          <label>Workshop Session</label>
-          <input type="text" class="cover-field-line" placeholder="Session" />
-        </div>
       </div>
     </div>
 
     <div class="cover-practitioner">
       <div class="practitioner-initials">MV</div>
       <div class="practitioner-info">
-        <strong>Mila Velazquez, MSPT, CECP</strong>
-        <p>Certified Emotion Code Practitioner &nbsp;|&nbsp; Retired Physical Therapist</p>
+        <strong>Mila Velazquez</strong>
+        <p>Energy Healer &nbsp;|&nbsp; Retired Physical Therapist</p>
         <p>milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
       </div>
     </div>
@@ -1559,76 +1410,13 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Energy Clearing Workshop &nbsp;&copy;&nbsp; 2026</span>
+    <span>Not Your Energy, Not Your Problem &nbsp;&copy;&nbsp; 2026</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 2: WELCOME
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Welcome</span>
-    <h2>You showed up. That matters.</h2>
-    <p>Welcome to your Energy Clearing Workshop</p>
-  </div>
-
-  <div class="image-strip" style="background-image: url('./assets/overlay-misty-mountains.png');"></div>
-
-  <p style="margin-bottom: 14px;">
-    Welcome to your Energy Clearing Workshop. Today you're going to learn how to identify and release trapped emotional energy that's been weighing you down. No experience needed - just an open mind and a willingness to feel lighter.
-  </p>
-
-  <p style="margin-bottom: 14px;">
-    This workbook is yours. Write in it. Mark it up. Come back to it. There's no right or wrong way to move through this - your body knows what it needs, and today we're going to start listening.
-  </p>
-
-  <p style="margin-bottom: 14px;">
-    I want to be honest with you: energy clearing isn't magic. It's not a one-and-done fix. But it is real. After 30 years as a Physical Therapist, I watched patients carry pain that had no physical explanation. The scans were clear. The tissue was fine. And yet - they hurt. That's trapped emotional energy at work, and that's what we're addressing today.
-  </p>
-
-  <div class="quote-block">
-    <p>"Weight lifted like magic."</p>
-    <span class="attribution">- Multiple clients, after their first clearing session</span>
-  </div>
-
-  <p style="margin-bottom: 16px;">
-    By the end of this workshop you'll understand what trapped emotions are, how your body stores them, and you'll walk away with a simple self-clearing practice you can use at home. That's a real skill. Keep this workbook somewhere you'll find it.
-  </p>
-
-  <div class="callout accent-purple">
-    <div class="callout-title">What you'll need today</div>
-    <ul class="check-list" style="margin-top: 4px;">
-      <li><span class="check-box"></span>This workbook and something to write with</li>
-      <li><span class="check-box"></span>A glass of water nearby (drink it - seriously)</li>
-      <li><span class="check-box"></span>A quiet space where you won't be interrupted</li>
-      <li><span class="check-box"></span>Permission to feel whatever comes up</li>
-    </ul>
-  </div>
-
-  <div class="callout accent-blue" style="margin-top: 12px;">
-    <p>A note before we begin: some emotions that surface today might surprise you. Be gentle with yourself. There's nothing wrong with you - your body has just been holding things it was never meant to hold forever.</p>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Energy Clearing Workshop</span>
-  </div>
-</div>
-
-
-<!-- =============================================
-     PAGE 3: WHAT IS ENERGY CLEARING?
+     PAGE 2: WHAT IS ENERGY?
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1639,99 +1427,49 @@
 
   <div class="section-header">
     <span class="section-number">Section 01</span>
-    <h2>What is Energy Clearing?</h2>
-    <p>Understanding how emotional energy gets stored in the body</p>
+    <h2>What is Energy?</h2>
+    <p>Understanding the unseen life force that flows through all living things</p>
   </div>
 
   <p style="margin-bottom: 14px;">
-    Every emotion you've ever felt creates an energetic imprint in your body. Most of the time, that energy moves through and releases naturally. But sometimes - during moments of overwhelm, trauma, or times when it wasn't safe to feel something fully - that emotional energy gets stuck. It becomes what we call a trapped emotion.
+    Energy is an unseen life force that flows through all living things. It flows through space, objects, and environments. Everything is a vibration.
   </p>
 
   <p style="margin-bottom: 14px;">
-    Trapped emotions aren't in your head. They have a real, physical location in your body. And over time they can interfere with your physical health, your emotional state, and the patterns that show up in your relationships and your life.
+    At every given point in time, you give off a vibration. Every action, every emotion, every thought, every event leaves behind some kind of energy.
   </p>
+
+  <div class="quote-block">
+    <p>"To clear the energy means to release what doesn't belong to you, to extract, to release and to cleanse in order to restore the flow and the balance back into your energy field."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
 
   <p style="margin-bottom: 14px;">
-    Energy clearing is the process of identifying exactly which emotions are trapped, where they're stored, and releasing them - gently, permanently.
+    Just like cleaning your home and your body, you clean yourself energetically. Your home has an energy to it, too. If we want to be in balance and harmony, energies that are no longer for our highest and greatest good need to go.
   </p>
 
-  <span class="section-label">Where emotions commonly lodge in the body</span>
-
-  <div class="body-diagram-wrap">
-
-    <!-- Simple SVG body silhouette -->
-    <div class="body-figure">
-      <svg class="body-svg" viewBox="0 0 120 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Body outline -->
-        <ellipse cx="60" cy="22" rx="18" ry="20" stroke="#6412b2" stroke-width="1.5" fill="rgba(100,18,178,0.06)"/>
-        <!-- Neck -->
-        <rect x="53" y="40" width="14" height="10" rx="2" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Torso -->
-        <path d="M32 52 Q28 80 30 130 Q34 145 60 148 Q86 145 90 130 Q92 80 88 52 Q74 44 60 44 Q46 44 32 52Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Left arm -->
-        <path d="M32 56 Q16 72 14 110 Q14 118 20 120 Q26 122 28 112 Q30 82 36 64Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Right arm -->
-        <path d="M88 56 Q104 72 106 110 Q106 118 100 120 Q94 122 92 112 Q90 82 84 64Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Left leg -->
-        <path d="M38 148 Q30 170 28 220 Q28 234 36 236 Q44 238 46 224 Q48 186 52 152Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Right leg -->
-        <path d="M82 148 Q90 170 92 220 Q92 234 84 236 Q76 238 74 224 Q72 186 68 152Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-
-        <!-- Emotion dots -->
-        <!-- Grief - chest/lungs -->
-        <circle cx="60" cy="82" r="5" fill="rgba(93,129,255,0.7)" stroke="white" stroke-width="1"/>
-        <text x="67" y="85" font-size="6" fill="#5d81ff" font-family="Inter">1</text>
-
-        <!-- Anger - liver/jaw -->
-        <circle cx="44" cy="105" r="5" fill="rgba(241,0,101,0.7)" stroke="white" stroke-width="1"/>
-        <text x="51" y="108" font-size="6" fill="#f10065" font-family="Inter">2</text>
-
-        <!-- Jaw -->
-        <circle cx="60" cy="38" r="4" fill="rgba(241,0,101,0.7)" stroke="white" stroke-width="1"/>
-        <text x="67" y="41" font-size="6" fill="#f10065" font-family="Inter">2</text>
-
-        <!-- Fear - kidneys -->
-        <circle cx="74" cy="118" r="5" fill="rgba(100,18,178,0.8)" stroke="white" stroke-width="1"/>
-        <text x="81" y="121" font-size="6" fill="#6412b2" font-family="Inter">3</text>
-
-        <!-- Heartbreak - heart wall -->
-        <circle cx="52" cy="75" r="5" fill="rgba(29,4,38,0.75)" stroke="white" stroke-width="1"/>
-        <text x="59" y="78" font-size="6" fill="#1d0426" font-family="Inter">4</text>
-      </svg>
-    </div>
-
-    <div class="emotion-locations">
-      <div class="location-item">
-        <span class="location-dot" style="background:#5d81ff"></span>
-        <span class="location-label">1 &nbsp;Grief &amp; Sorrow</span>
-        <span class="location-desc">Chest, lungs, upper back - the physical weight you feel when your heart is heavy</span>
-      </div>
-      <div class="location-item">
-        <span class="location-dot" style="background:#f10065"></span>
-        <span class="location-label">2 &nbsp;Anger &amp; Bitterness</span>
-        <span class="location-desc">Liver, jaw, neck - why your jaw clenches when you're frustrated</span>
-      </div>
-      <div class="location-item">
-        <span class="location-dot" style="background:#6412b2"></span>
-        <span class="location-label">3 &nbsp;Fear &amp; Anxiety</span>
-        <span class="location-desc">Kidneys, adrenals, lower back - your body's survival wiring</span>
-      </div>
-      <div class="location-item">
-        <span class="location-dot" style="background:#1d0426"></span>
-        <span class="location-label">4 &nbsp;Heartbreak</span>
-        <span class="location-desc">The Heart Wall - layers of emotional protection that can block love and connection</span>
-      </div>
-      <div class="location-item">
-        <span class="location-dot" style="background:#9b59b6"></span>
-        <span class="location-label">&nbsp;&nbsp; Shame &amp; Guilt</span>
-        <span class="location-desc">Stomach, solar plexus, throat - the energy of "not enough"</span>
-      </div>
-    </div>
-
+  <div class="callout accent-purple">
+    <div class="callout-title">Key Concepts</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>Everything is energy - we are energy, other people are energy, situations are energy</li>
+      <li><span class="check-box"></span>Energy is vibration - actions, emotions, thoughts, and events all leave energy behind</li>
+      <li><span class="check-box"></span>Clearing = releasing what doesn't belong, extracting, cleansing, restoring flow and balance</li>
+      <li><span class="check-box"></span>You clean your personal space, your home space, and your work space energetically</li>
+      <li><span class="check-box"></span>Energy cannot be created nor destroyed - it can just change form</li>
+    </ul>
   </div>
 
   <div class="callout accent-blue">
-    <p>Your subconscious mind holds the map. It knows exactly what's stored, where it lives, and when it got there. That's what we're accessing during a clearing session.</p>
+    <p>You're a receiving antenna. You receive energy and you give off energy. The whole point of this work is to keep your mind open and allow yourself to see the unimaginable.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
   </div>
 
   <div class="page-footer">
@@ -1739,13 +1477,13 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>What is Energy Clearing?</span>
+    <span>What is Energy?</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 4: HOW TRAPPED EMOTIONS AFFECT YOU
+     PAGE 3: SIGNS YOUR SPACE NEEDS CLEARING
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1756,43 +1494,40 @@
 
   <div class="section-header">
     <span class="section-number">Section 02</span>
-    <h2>How Trapped Emotions Affect You</h2>
-    <p>A self-assessment - be honest, this is just for you</p>
+    <h2>Signs Your Space Needs Clearing</h2>
+    <p>How to know when your energy field or your home needs an energetic cleaning</p>
   </div>
 
   <p style="margin-bottom: 14px;">
-    Trapped emotions don't announce themselves. They show up as symptoms - physical, emotional, relational. Take a moment and tick anything that resonates. Be honest. This is for you.
+    How do we know when our space - our bioenergetic field, or the space that we live in - needs an energetic cleaning? Mila teaches us to use our feelings to sense when something is not right.
   </p>
 
-  <span class="section-label">Check any that apply to you</span>
+  <span class="section-label">Check any signs you recognise</span>
 
   <ul class="check-list">
-    <li><span class="check-box"></span>Chronic pain with no clear physical cause - it's there, the scans are "normal"</li>
-    <li><span class="check-box"></span>Anxiety or panic that seems to come from nowhere</li>
-    <li><span class="check-box"></span>Persistent fatigue and exhaustion, even after rest</li>
-    <li><span class="check-box"></span>Difficulty in relationships - patterns that keep repeating</li>
-    <li><span class="check-box"></span>Feeling stuck, like you're spinning your wheels no matter what you do</li>
-    <li><span class="check-box"></span>A heaviness you can't explain - not sadness exactly, just... heavy</li>
-    <li><span class="check-box"></span>Recurring patterns showing up across different areas of life</li>
-    <li><span class="check-box"></span>Physical tension that won't fully release no matter how much you stretch or massage</li>
-    <li><span class="check-box"></span>Emotional reactions that feel out of proportion to what's actually happening</li>
-    <li><span class="check-box"></span>Low self-worth or a persistent inner critic</li>
-    <li><span class="check-box"></span>Difficulty feeling joy, ease, or safety in your own body</li>
-    <li><span class="check-box"></span>Physical symptoms that have followed you for years with no resolution</li>
+    <li><span class="check-box"></span><strong>Feeling off or drained for no reason</strong> - You're tired, exhausted, and there's no reason behind it</li>
+    <li><span class="check-box"></span><strong>Heaviness when you walk into a room</strong> - A subtleness, like you can feel the density even if you don't know what happened there</li>
+    <li><span class="check-box"></span><strong>Increased arguments in the home</strong> - No one's getting along, there's tension, there's stress - the space needs to be cleared</li>
+    <li><span class="check-box"></span><strong>Feeling emotionally stuck or scattered</strong> - A sign that something is off and you need to find balance and alignment</li>
+    <li><span class="check-box"></span><strong>Not sleeping well at night</strong> - Your room and your space need clearing</li>
+    <li><span class="check-box"></span><strong>Electronics are glitchy</strong> - Space needs to be cleared</li>
+    <li><span class="check-box"></span><strong>After having people over</strong> - Even loved ones. Protect your space before they arrive and clean it when everyone leaves</li>
+    <li><span class="check-box"></span><strong>Illness in the house</strong> - Any kind of illness or emotional distress happening in the home</li>
+    <li><span class="check-box"></span><strong>Pets unsettled or acting strange</strong> - Pets are very sensitive to energy, including entities</li>
+    <li><span class="check-box"></span><strong>Feeling disconnected from your intuition</strong> - The space needs to be cleared and you need to ground</li>
   </ul>
 
-  <span class="section-label" style="margin-top: 16px;">What did you notice?</span>
-  <p style="font-size: 9.5px; color: var(--grey-600); margin-bottom: 6px;">Write down anything that stood out - or how many you ticked, and how that felt.</p>
+  <div class="callout accent-pink" style="margin-top: 12px;">
+    <p>Mila's personal sign: "When I feel stuck and frustrated and I feel like I'm scattering all over the place, that's my sign that something is off. I clear my space, I work on myself a little bit, I ground, and then I recheck again."</p>
+  </div>
 
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
-  </div>
-
-  <div class="callout accent-pink" style="margin-top: 16px;">
-    <p>If you ticked even two or three of these, there's trapped emotional energy contributing. That's not a character flaw. That's just what happens when we're human and we feel things we don't always have the space to fully process.</p>
+    <div class="journal-line"></div>
   </div>
 
   <div class="page-footer">
@@ -1800,13 +1535,13 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>How Trapped Emotions Affect You</span>
+    <span>Signs Your Space Needs Clearing</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 5: THE CLEARING PROCESS
+     PAGE 4: HOW TO CLEAN YOUR ENERGY
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -1817,92 +1552,33 @@
 
   <div class="section-header">
     <span class="section-number">Section 03</span>
-    <h2>The Clearing Process</h2>
-    <p>What happens during a session - step by step</p>
+    <h2>How to Clean Your Energy</h2>
+    <p>Cleaning your energy field is a spiritual practice that should be done every day</p>
   </div>
 
-  <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png');"></div>
+  <ul class="experience-list">
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Grounding</strong> - A daily routine. Relieves stress and releases the energy you're carrying. Great as a starting point for any clearing work.</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Smudging your aura</strong> - Encompasses fire, air, and earth (the herbs). Use palo santo, sage, wormwood, rue, juniper, cedar, or Russian sage. Use a conch shell with salt on the bottom (the coating is toxic when on fire) and a feather to waft the smoke.</span></li>
+    <li><span class="exp-dot" style="background: var(--primary);"></span><span><strong>Salt baths</strong> - Add crystals (clear quartz to amplify), Epsom salt, or magnesium flakes. Set the intention that the salt is clearing your energy and washing everything off.</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Movement</strong> - Jumping, speed walking, dancing, shaking, skipping, humming. Any kind of motion to release energy that is stuck. When autistic children run back and forth, they're releasing pent-up energy - that's their way of moving it out.</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Yoga and breathing</strong> - Breathe things out. Use breath as a tool for releasing energy from the body.</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Crystals</strong> - Wonderful for releasing energy. Can be worn as amulets or placed with intention.</span></li>
+    <li><span class="exp-dot" style="background: var(--primary);"></span><span><strong>Sound tools</strong> - Bowls, tuning forks, bells, maracas. Any kind of sound to break up the density and shift the frequency.</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Hand motions</strong> - Use your hands to spin out energy. Motion combined with intent clears energy.</span></li>
+  </ul>
 
-  <p style="margin-bottom: 14px;">
-    Energy clearing follows a specific sequence. Each step matters. Here's what happens during a session - including the one we're doing together today.
-  </p>
-
-  <div class="meridian-wrap">
-
-    <!-- Simple SVG governing meridian illustration -->
-    <div class="meridian-figure">
-      <svg viewBox="0 0 90 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
-        <!-- Head profile -->
-        <ellipse cx="45" cy="28" rx="22" ry="24" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Ear -->
-        <ellipse cx="66" cy="30" rx="5" ry="8" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Neck -->
-        <rect x="38" y="50" width="14" height="12" rx="2" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Torso -->
-        <path d="M22 64 Q18 100 20 170 Q24 180 45 182 Q66 180 70 170 Q72 100 68 64 Q58 58 45 58 Q32 58 22 64Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-
-        <!-- Governing meridian path -->
-        <path d="M45 182 Q45 150 45 130 Q45 100 45 80 Q45 65 45 62 Q44 58 44 50 Q43 44 42 36 Q41 28 40 18 Q41 10 45 8 Q49 6 52 12 Q54 18 54 26 Q53 34 52 40 Q50 48 48 58 Q47 68 47 88"
-              stroke="#f10065" stroke-width="2" stroke-dasharray="4,2" fill="none"
-              stroke-linecap="round"/>
-
-        <!-- Forehead dot -->
-        <circle cx="42" cy="18" r="4" fill="#f10065"/>
-
-        <!-- Crown dot -->
-        <circle cx="46" cy="7" r="3" fill="#5d81ff"/>
-
-        <!-- Spine dots -->
-        <circle cx="45" cy="90" r="3" fill="#f10065"/>
-        <circle cx="45" cy="115" r="3" fill="#f10065"/>
-        <circle cx="45" cy="140" r="3" fill="#f10065"/>
-        <circle cx="45" cy="165" r="3" fill="#f10065"/>
-      </svg>
-      <p class="meridian-label">Governing meridian - forehead to tailbone</p>
-    </div>
-
-    <ol class="step-list" style="flex: 1;">
-      <li>
-        <span class="step-number">1</span>
-        <div class="step-content">
-          <strong>Connect with the subconscious mind</strong>
-          <span>We establish communication using muscle testing - your body's built-in feedback system. Your subconscious responds with yes/no signals through muscle response.</span>
-        </div>
-      </li>
-      <li>
-        <span class="step-number">2</span>
-        <div class="step-content">
-          <strong>Identify the trapped emotion</strong>
-          <span>Using the Emotion Code chart, we systematically narrow down exactly which emotion is trapped. Your body knows. We're just asking the right questions.</span>
-        </div>
-      </li>
-      <li>
-        <span class="step-number">3</span>
-        <div class="step-content">
-          <strong>Locate when and where it became trapped</strong>
-          <span>The subconscious can tell us your age when this emotion got stuck, and sometimes the circumstances. This creates context - not so we re-live it, but so the release is complete.</span>
-        </div>
-      </li>
-      <li>
-        <span class="step-number">4</span>
-        <div class="step-content">
-          <strong>Release using magnetic energy</strong>
-          <span>We use a magnet (or the hand's natural magnetic field) drawn along the governing meridian - from the forehead, over the crown, and down the spine. Three strokes typically releases the emotion.</span>
-        </div>
-      </li>
-      <li>
-        <span class="step-number">5</span>
-        <div class="step-content">
-          <strong>Confirm the release</strong>
-          <span>We test again. Your body will confirm when the emotion is gone. Sometimes you'll feel it leave - a breath, a lightness, a shift in your chest. Sometimes it's quiet. Both are valid.</span>
-        </div>
-      </li>
-    </ol>
-
+  <div class="quote-featured" style="margin-top: 14px;">
+    <p>"Your intention - that strong, powerful intention that stands in its power, with enthusiasm and passion - is enough to clear energy. I will it so and so be it, and you release."</p>
+    <span class="attribution">- Mila Velazquez</span>
   </div>
 
-  <div class="callout accent-blue">
-    <p>You don't have to understand exactly how this works for it to work. I didn't believe in it either until I tried it. Your body knows what it's doing.</p>
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
   </div>
 
   <div class="page-footer">
@@ -1910,195 +1586,57 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>The Clearing Process</span>
+    <span>How to Clean Your Energy</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 6: EMOTION CHART
+     PAGE 5: WORKING WITH THE FOUR ELEMENTS
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
   <div class="corner-accent"></div>
   <div class="corner-accent-bottom"></div>
 
-  <div class="gradient-bar" style="margin-bottom: 14px;"></div>
+  <div class="gradient-bar"></div>
 
-  <div class="section-header" style="margin-bottom: 10px; padding-bottom: 8px;">
+  <div class="section-header">
     <span class="section-number">Section 04</span>
-    <h2>The Emotion Code Chart</h2>
-    <p>Your primary reference tool - keep this page handy</p>
+    <h2>Working with the Four Elements</h2>
+    <p>Combine fire, water, earth, and air to clear and protect your energy</p>
   </div>
 
-  <div class="callout accent-blue" style="margin-bottom: 8px; padding: 7px 12px;">
-    <p style="font-size: 9px;">The Emotion Code chart organises 60 emotions into groups. During a clearing, we use this chart and muscle testing to identify exactly which emotion is trapped.</p>
+  <div class="element-card fire">
+    <h4>Fire</h4>
+    <p><strong>Candles</strong> - Beeswax is best. Light a candle with intention before sessions or clearing work. <strong>Fire gazing</strong> - Whether it's a candle flame or a campfire, gazing into the fire is a beautiful way to clear energy. Put your intention into it. <strong>Burning herbs</strong> - Combine fire with earth (herbs) to burn and cleanse your space. Mila prefers palo santo, wormwood, and rue for clearing; sage for blessing.</p>
   </div>
 
-  <div class="chart-image-wrapper" style="text-align: center; margin: 16px 0;">
-    <p style="font-size: 10px; font-weight: 600; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.02em;">Official Emotion Code Chart - keep this page handy for reference</p>
-    <img src="./assets/emotion-code-chart.jpeg" alt="The Emotion Code Chart" style="width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 16px rgba(29,4,38,0.15);">
-    <p style="font-size: 9px; color: var(--grey-400); margin-top: 6px; font-style: italic;">The Emotion Code Chart &copy; Dr. Bradley Nelson</p>
+  <div class="element-card water">
+    <h4>Water</h4>
+    <p><strong>Shower as waterfall</strong> - Imagine you're standing under a waterfall, cleansing your body. Visualise the energy washing down the drain. Cut the cords. <strong>Salt wash</strong> - Use salt with water to wash yourself with the intent of cleaning your space. <strong>Spiritual baths</strong> - Full immersion with intention. <strong>Sprays</strong> - Make sprays with essential oils that are protective and cleansing. Spray into your energy field, take deep breaths, and ask and intend to clear your space. Mila makes her own homemade rue spray (boil dried rue, use as a protection spray - it stains, so be careful on surfaces).</p>
   </div>
 
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>The Emotion Code Chart</span>
-  </div>
-</div>
-
-
-<!-- =============================================
-     PAGE 7: EXERCISE 1 - BODY SCAN
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Workshop Exercise 01</span>
-    <h2>Body Scan</h2>
-    <p>Before we begin clearing, let's check in with your body</p>
+  <div class="element-card earth">
+    <h4>Earth</h4>
+    <p><strong>Salt</strong> - Use any kind (Celtic salt, sea salt, regular salt). <strong>Plants and herbs</strong> - Natural tools for clearing and protection. <strong>Crystals</strong> - Place with intention, use in baths, or create grids. <strong>Sand</strong> - Another earth element for grounding. Earth is the easiest element to combine with the others to make a powerful concoction.</p>
   </div>
 
-  <p style="margin-bottom: 12px;">
-    This exercise takes about 3 minutes. Read through the prompts slowly, and actually do it - don't just read and move on.
-  </p>
-
-  <div class="exercise-box">
-    <span class="exercise-tag">Guided Exercise</span>
-    <h3>The Body Scan</h3>
-
-    <div class="callout accent-blue" style="margin-bottom: 12px;">
-      <p>Close your eyes. Take three slow breaths. Now scan from the top of your head down to your feet. Where do you feel heaviness, tension, tightness, or discomfort? Don't analyse it - just notice it. Open your eyes and note it below.</p>
-    </div>
-
-    <div class="scan-wrap">
-
-      <!-- Body outline for marking -->
-      <div class="scan-figure">
-        <p style="font-size: 8px; color: var(--grey-600); margin-bottom: 6px; text-align: center;">Mark where you feel something</p>
-        <svg viewBox="0 0 100 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
-          <!-- Head -->
-          <ellipse cx="50" cy="20" rx="18" ry="18" stroke="#c4bfbf" stroke-width="1.5" fill="rgba(241,239,239,0.5)"/>
-          <!-- Neck -->
-          <rect x="43" y="36" width="14" height="10" rx="2" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-          <!-- Torso -->
-          <path d="M25 48 Q21 80 23 125 Q27 138 50 140 Q73 138 77 125 Q79 80 75 48 Q63 42 50 42 Q37 42 25 48Z" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-          <!-- Left arm -->
-          <path d="M25 52 Q10 68 8 104 Q8 112 14 114 Q20 116 22 106 Q24 76 28 58Z" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-          <!-- Right arm -->
-          <path d="M75 52 Q90 68 92 104 Q92 112 86 114 Q80 116 78 106 Q76 76 72 58Z" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-          <!-- Left leg -->
-          <path d="M31 140 Q24 162 22 208 Q22 220 30 222 Q38 224 40 210 Q42 178 46 144Z" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-          <!-- Right leg -->
-          <path d="M69 140 Q76 162 78 208 Q78 220 70 222 Q62 224 60 210 Q58 178 54 144Z" fill="rgba(241,239,239,0.5)" stroke="#c4bfbf" stroke-width="1.5"/>
-        </svg>
-      </div>
-
-      <div style="flex: 1;">
-        <span class="section-label">What did you notice?</span>
-        <p style="font-size: 9px; color: var(--grey-600); margin-bottom: 6px;">Describe any areas of tension, heaviness, or discomfort. Be specific - "tight" or "achy" or "hollow" are all valid.</p>
-
-        <div class="journal-lines">
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-        </div>
-
-        <span class="section-label" style="margin-top: 14px;">What emotion, if any, came up?</span>
-        <p style="font-size: 9px; color: var(--grey-600); margin-bottom: 6px;">First instinct. Even if it doesn't make sense.</p>
-
-        <div class="journal-lines">
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-        </div>
-
-        <span class="section-label" style="margin-top: 14px;">How long have you felt this?</span>
-        <div class="journal-lines">
-          <div class="journal-line"></div>
-          <div class="journal-line"></div>
-        </div>
-      </div>
-
-    </div>
+  <div class="element-card air">
+    <h4>Air</h4>
+    <p><strong>Breath</strong> - Use breath to release energy. <strong>Chimes</strong> - Change the frequency of your space with sound. <strong>Feathers</strong> - Used in smudging to waft smoke. <strong>Intention</strong> - The air element is really the thought behind it. The idea, the intent of what you're doing. Combine intention with the other three elements for the most powerful clearing.</p>
   </div>
 
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Exercise 01 - Body Scan</span>
-  </div>
-</div>
-
-
-<!-- =============================================
-     PAGE 8: EXERCISE 2 - IDENTIFYING TRAPPED EMOTIONS
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Workshop Exercise 02</span>
-    <h2>Identifying Your Trapped Emotions</h2>
-    <p>Track what comes up during today's live clearing</p>
+  <div class="callout accent-blue" style="margin-top: 10px;">
+    <p>You can combine all three physical elements (fire + earth + air) together with intention. Mila says: "You're taking something and you're putting an intention to get an outcome... to clean your energy space."</p>
   </div>
 
-  <p style="margin-bottom: 14px;">
-    Use this table to track what comes up during today's live clearing. Don't worry about filling every column in the moment - you can go back and fill in more detail after. The important thing is to write it down while it's fresh.
-  </p>
-
-  <table style="margin-bottom: 6px;">
-    <thead>
-      <tr>
-        <th style="width: 22%;">Emotion</th>
-        <th style="width: 18%;">Age When Trapped</th>
-        <th style="width: 20%;">Where in Body</th>
-        <th style="width: 12%;">Released? Y/N</th>
-        <th style="width: 28%;">Notes</th>
-      </tr>
-    </thead>
-    <tbody class="table-write">
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    </tbody>
-  </table>
-
-  <span class="section-label" style="margin-top: 18px;">In-session observations</span>
-  <p style="font-size: 9.5px; color: var(--grey-600); margin-bottom: 6px;">Any physical sensations during the clearing? Any emotions that surprised you? Anything you want to remember?</p>
-
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <div class="callout accent-purple" style="margin-top: 14px;">
-    <p>There's no right amount to clear in one session. Your body will stop when it's done. Trust the process - even one emotion releasing is a real shift.</p>
   </div>
 
   <div class="page-footer">
@@ -2106,139 +1644,13 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Exercise 02 - Identifying Your Trapped Emotions</span>
+    <span>Working with the Four Elements</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 9: EXERCISE 3 - SELF-CLEARING
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-  <div class="sacred-watermark"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">Workshop Exercise 03</span>
-    <h2>Self-Clearing Practice</h2>
-    <p>A real tool for releasing emotional energy at home</p>
-  </div>
-
-  <p style="margin-bottom: 14px;">
-    You can do a simplified version of this work at home. This technique won't replace a full session, but it's a real tool for releasing emotional energy when something feels stuck. Use it whenever you feel heavy, anxious, or like you're carrying something you can't shake.
-  </p>
-
-  <div class="two-col" style="gap: 16px; align-items: start;">
-
-    <div>
-      <span class="section-label">The technique</span>
-      <ol class="step-list">
-        <li>
-          <span class="step-number">1</span>
-          <div class="step-content">
-            <strong>Name what you're feeling</strong>
-            <span>Don't filter it. "I feel heavy." "I feel angry." "I feel like I want to cry and I don't know why." Say it out loud if you can. Your subconscious mind needs to know you're working with it, not against it.</span>
-          </div>
-        </li>
-        <li>
-          <span class="step-number">2</span>
-          <div class="step-content">
-            <strong>Intend to release it</strong>
-            <span>Say (out loud or internally): "I intend to release this feeling from my body, permanently and completely."</span>
-          </div>
-        </li>
-        <li>
-          <span class="step-number">3</span>
-          <div class="step-content">
-            <strong>Stroke the governing meridian</strong>
-            <span>Using your fingers or the palm of your hand, stroke from your forehead, up and over the top of your head, and down the back of your neck. Do this three times in one continuous motion. You can use a magnet if you have one.</span>
-          </div>
-        </li>
-        <li>
-          <span class="step-number">4</span>
-          <div class="step-content">
-            <strong>Check in</strong>
-            <span>Take a breath. Notice if anything has shifted - even slightly. Sometimes it's dramatic. Sometimes it's a very quiet "oh." Both are valid.</span>
-          </div>
-        </li>
-        <li>
-          <span class="step-number">5</span>
-          <div class="step-content">
-            <strong>Drink water</strong>
-            <span>Always. Energy work requires hydration for your body to process the release. This is not optional - your body needs it.</span>
-          </div>
-        </li>
-      </ol>
-    </div>
-
-    <!-- Meridian illustration - self-clearing version -->
-    <div>
-      <svg viewBox="0 0 110 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:110px; margin:0 auto; display:block;">
-        <!-- Profile head -->
-        <ellipse cx="55" cy="30" rx="24" ry="26" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Ear -->
-        <ellipse cx="78" cy="32" rx="5" ry="8" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Neck/shoulder suggestion -->
-        <path d="M38 54 Q32 70 30 90 Q32 96 55 98 Q78 96 80 90 Q78 70 72 54 Q64 50 55 50 Q46 50 38 54Z" fill="rgba(100,18,178,0.06)" stroke="#6412b2" stroke-width="1.5"/>
-        <!-- Governing meridian arrow -->
-        <path d="M44 22 Q46 12 55 8 Q64 4 68 16 Q70 24 66 34 Q62 42 60 52 Q58 66 58 80"
-              stroke="#f10065" stroke-width="2.5" fill="none" stroke-linecap="round"
-              marker-end="url(#arrowhead)"/>
-        <!-- Arrow definition -->
-        <defs>
-          <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#f10065"/>
-          </marker>
-        </defs>
-        <!-- Hand indication -->
-        <path d="M26 30 Q22 36 24 42 Q30 46 38 42 Q42 38 38 28Z" fill="rgba(93,129,255,0.2)" stroke="#5d81ff" stroke-width="1"/>
-        <!-- Forehead start dot -->
-        <circle cx="44" cy="22" r="4" fill="#f10065"/>
-        <text x="26" y="26" font-size="7" fill="#5d81ff" font-weight="600" font-family="Inter">Hand</text>
-        <!-- Labels -->
-        <text x="72" y="20" font-size="6.5" fill="#6412b2" font-family="Inter">Forehead</text>
-        <text x="72" y="30" font-size="6.5" fill="#6412b2" font-family="Inter">to crown</text>
-        <text x="64" y="56" font-size="6.5" fill="#6412b2" font-family="Inter">down neck</text>
-        <text x="60" y="85" font-size="6.5" fill="#6412b2" font-family="Inter">to spine</text>
-      </svg>
-      <p style="font-size: 8px; color: var(--grey-600); text-align: center; margin-top: 6px;">3 strokes, forehead to tailbone</p>
-
-      <div class="callout accent-blue" style="margin-top: 10px; padding: 10px 12px;">
-        <div class="callout-title">When to use this</div>
-        <ul class="check-list" style="margin-top: 4px;">
-          <li><span class="check-box"></span>Before a difficult conversation</li>
-          <li><span class="check-box"></span>When anxiety spikes suddenly</li>
-          <li><span class="check-box"></span>After a stressful event</li>
-          <li><span class="check-box"></span>When you feel physically heavy</li>
-          <li><span class="check-box"></span>Before sleep</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <span class="section-label" style="margin-top: 16px;">Practice notes</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Exercise 03 - Self-Clearing Practice</span>
-  </div>
-</div>
-
-
-<!-- =============================================
-     PAGE 10: AFTER YOUR CLEARING
+     PAGE 6: CLEANING YOUR HOME
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -2249,50 +1661,55 @@
 
   <div class="section-header">
     <span class="section-number">Section 05</span>
-    <h2>After Your Clearing</h2>
-    <p>What to expect in the 24-48 hours after a session</p>
+    <h2>Cleaning Your Home</h2>
+    <p>A step-by-step guide to energetically clearing your living space</p>
   </div>
 
-  <p style="margin-bottom: 14px;">
-    Your body just let go of something it's been holding for a long time. Give yourself grace. The next 24-48 hours matter. This isn't the time to push through and pretend nothing happened.
-  </p>
+  <div class="image-strip" style="background-image: url('./assets/overlay-misty-mountains.png');"></div>
 
-  <div class="care-grid">
-    <div class="care-card">
-      <h4>Drink water</h4>
-      <p>More than you think you need. Energy clearing stirs things up and your body needs hydration to flush it out. Aim for at least 2 litres today and tomorrow.</p>
-    </div>
-    <div class="care-card" style="border-top-color: var(--primary);">
-      <h4>Rest without guilt</h4>
-      <p>If you feel tired, lie down. A nap after a clearing is common and normal - it means your body is processing. This is not weakness. This is healing.</p>
-    </div>
-    <div class="care-card" style="border-top-color: var(--accent);">
-      <h4>Journal what came up</h4>
-      <p>Use the journal pages at the back of this workbook. Write while it's fresh. You don't have to make sense of it - just get it out of your head and onto paper.</p>
-    </div>
-    <div class="care-card" style="border-top-color: var(--dark);">
-      <h4>Be gentle with yourself</h4>
-      <p>Skip the intense workout. Avoid alcohol today. Don't schedule anything stressful if you can help it. Your nervous system just did real work.</p>
-    </div>
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Set your intention</strong>
+        <span>Call upon your angels, your spirits, your guides. "I ask and intend" - not please and thank you. You are commanding and asking and intending with your thoughts to create what is for your highest and greatest good. Make up your own words - speak them as they come to you.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Start at the doorway, go clockwise room by room</strong>
+        <span>Use a white candle for purity with the intent that any negativity gets burned up and out. Smudge with palo santo, sage, mugwort, copal, frankincense, rue, patchouli, wormwood, juniper, or cedarwood. Get the smoke into the corners.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Keep windows CLOSED while smudging</strong>
+        <span>Kill off the energy first, then open the windows to let it out. Exception: if working with entities, always keep a window or door open so the entity has an "out."</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Use the broom</strong>
+        <span>Go clockwise around your home, knock on the walls to get stuck energy out. Sweep everything out. At New Year, sweep the house before midnight - anything that doesn't belong in the old year, sweep it out, and go fresh into the New Year.</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout accent-purple" style="margin-top: 8px;">
+    <div class="callout-title">Mila's Intention for Clearing a Home</div>
+    <p style="font-family: var(--font-heading); font-style: italic; font-size: 12px; line-height: 1.7;">"I ask for protection, and I ask to energetically cleanse my space, to extract any information, any thoughts, any emotions, any energies that are no longer for the highest and greatest good of this home and whoever resides in this house."</p>
   </div>
 
-  <span class="section-label" style="margin-top: 16px;">What you might experience</span>
-  <p style="font-size: 9.5px; color: var(--grey-600); margin-bottom: 8px;">
-    Post-clearing experiences vary. All of the following are normal signs your body is processing a release.
-  </p>
-
-  <ul class="experience-list">
-    <li><span class="exp-dot"></span><span><strong>Tiredness or emotional fatigue</strong> - Your body worked hard. Rest is the right response.</span></li>
-    <li><span class="exp-dot"></span><span><strong>Emotional waves</strong> - Tears, laughter, or a sudden feeling of relief. Let it move through.</span></li>
-    <li><span class="exp-dot"></span><span><strong>Vivid dreams</strong> - Your subconscious mind continues to process during sleep. This is good.</span></li>
-    <li><span class="exp-dot"></span><span><strong>Feeling lighter</strong> - A real, physical lightness in the chest or body. This is what release feels like.</span></li>
-    <li><span class="exp-dot"></span><span><strong>Temporary physical symptoms</strong> - A headache or mild soreness can occur. It passes within a day or two.</span></li>
-    <li><span class="exp-dot"></span><span><strong>Increased clarity</strong> - Things you've been wrestling with may suddenly feel obvious or resolved.</span></li>
-  </ul>
-
-  <div class="quote-featured" style="margin-top: 14px;">
-    <p>"Give yourself at least 48 hours before you decide if it worked. The shift isn't always immediate - sometimes it's the day after when you realise you just... don't feel that thing anymore."</p>
-    <span class="attribution">- Mila Velazquez, MSPT, CECP</span>
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
   </div>
 
   <div class="page-footer">
@@ -2300,50 +1717,213 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>After Your Clearing</span>
+    <span>Cleaning Your Home</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 11: JOURNAL SPACE - PAGE 1
+     PAGE 7: SALT, CRYSTALS & PROTECTION
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
   <div class="corner-accent"></div>
   <div class="corner-accent-bottom"></div>
-  <div class="sacred-watermark"></div>
 
   <div class="gradient-bar"></div>
 
   <div class="section-header">
     <span class="section-number">Section 06</span>
-    <h2>Journal Space</h2>
-    <p>Write whatever needs to come out - there's no wrong answer here</p>
+    <h2>Salt, Crystals &amp; Protection</h2>
+    <p>Tools and techniques for protecting your space</p>
   </div>
 
-  <span class="journal-prompt">"What did I release today?"</span>
+  <span class="section-label">Salt</span>
+
+  <ul class="experience-list" style="margin-bottom: 12px;">
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt by doorways and any entrance</strong> - Sprinkle with the intent that any negativity stays out</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt on the perimeter of the home</strong> - On walkways, steps, anywhere leading to the house</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt and poppy seeds in corners</strong> - Mix together with the intent of strong protection and sweetness in the home</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Blessed salt</strong> - Salt blessed with intention, mixed with water. For extreme entity cases, wipe down windowsills - when the water dries, the salt remains as a barrier</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt and bread for a new home</strong> - The first time you walk into a new home, bring salt (for protection) and bread (for abundance, dough, stability, harvest)</span></li>
+  </ul>
+
+  <span class="section-label">Crystals</span>
+
+  <ul class="experience-list" style="margin-bottom: 12px;">
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Crystals by your doors</strong> - Black tourmaline, malachite, and onyx for protection</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Selenite</strong> - A cleaning crystal</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Smoky quartz, obsidian, labradorite</strong> - Dark stones for clearing negativity</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Crystal grids</strong> - Lay out crystals in designs with an intention for them to have a purpose. Keep for as long as you want.</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Channeler/transmission crystals</strong> - Mila uses a special faceted crystal from Arkansas for channelling work - "the crystal already picked you"</span></li>
+  </ul>
+
+  <span class="section-label">Red String</span>
+
+  <ul class="experience-list" style="margin-bottom: 8px;">
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Around drain pipes</strong> - So the money doesn't flow down the drain</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Around doors</strong> - A sign of protection</span></li>
+  </ul>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
-    <div class="journal-line"></div>
   </div>
 
-  <span class="journal-prompt">"How does my body feel different right now?"</span>
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Salt, Crystals &amp; Protection</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 8: ROSE OF JERICHO
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 07</span>
+    <h2>Rose of Jericho</h2>
+    <p>The resurrection flower - a living energy absorber</p>
+  </div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png');"></div>
+
+  <p style="margin-bottom: 14px;">
+    The Rose of Jericho is a resurrection flower - a living plant that absorbs negativity from your space. Mila describes it as looking like "a little bird's nest" when dry, and it opens into a green plant when placed in water.
+  </p>
+
+  <div class="callout accent-purple">
+    <div class="callout-title">How to Use the Rose of Jericho</div>
+    <ol class="step-list" style="margin-top: 8px;">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Set it up</strong>
+          <span>Place the dry plant in a basin with water. Add copper coins (pennies) to the water.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>Let it open</strong>
+          <span>It opens into a green plant and begins soaking in the energy around it.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>Daily care</strong>
+          <span>Talk to it, thank it for what it's doing, and change the water every day. If you don't change the water, it goes stale.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>When you're done</strong>
+          <span>Take it out of the water, allow it to dry, and it goes back to its bird's nest form. It stays like this forever until you put it in water again - reusable indefinitely.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">Best uses</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span>Basements (especially those without windows)</li>
+    <li><span class="check-box"></span>Offices and treatment rooms</li>
+    <li><span class="check-box"></span>When guests are coming over - put it in water to soak up the extra energy</li>
+    <li><span class="check-box"></span>Any space that needs ongoing passive clearing</li>
+  </ul>
+
+  <div class="callout accent-blue" style="margin-top: 10px;">
+    <p>Available on Amazon. Mila used to keep one on the floor in her office and gave them as gifts. When people asked what it was, she'd say "I'm growing something in water."</p>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 10px;">
+    <div class="callout-title">Pet Safety Note</div>
+    <p>Mila doesn't know for certain if the Rose of Jericho is safe for pets. Her animals never went near it, but keep it out of reach to be safe - especially with cats who might want to play with it.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
   <div class="journal-lines">
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
   </div>
 
-  <span class="journal-prompt">"What surprised me about today?"</span>
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Rose of Jericho</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 9: ANIMAL SAFETY & PET CONSIDERATIONS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 08</span>
+    <h2>Animal Safety &amp; Pet Considerations</h2>
+    <p>Be mindful of your animals when doing clearing work</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Mila reminds us to be very careful with our clearing materials around animals. Pets are sensitive to energy, but they're also sensitive to the physical tools we use.
+  </p>
+
+  <div class="care-grid">
+    <div class="care-card" style="border-top-color: var(--accent);">
+      <h4>Rue is Toxic to Dogs</h4>
+      <p>If you use rue in any form - dried, sprayed, or burned - keep it well away from dogs. This is a serious safety concern.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--primary);">
+      <h4>Essential Oils &amp; Sprays</h4>
+      <p>Be very careful with essential oils and sprays around animals, especially cats. What's safe for humans can be harmful for pets.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--gold);">
+      <h4>Know Your Animals</h4>
+      <p>Some animals get into everything. Keep clearing materials out of reach. If they can't access it - like up on a sofa or high shelf - that's safer.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--secondary);">
+      <h4>Clearing for Pets</h4>
+      <p>You can clear energy for your animals too. Pets are very sensitive to all kinds of energies, including entities. If your pet is acting strange, the space needs clearing.</p>
+    </div>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 12px;">
+    <p>When in doubt, research every herb, oil, and material you plan to use around your animals before you use it. Their safety comes first.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 20px;">Notes</span>
   <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
     <div class="journal-line"></div>
@@ -2357,13 +1937,13 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Journal Space</span>
+    <span>Animal Safety &amp; Pet Considerations</span>
   </div>
 </div>
 
 
 <!-- =============================================
-     PAGE 12: JOURNAL SPACE - PAGE 2
+     PAGE 10: YOUR PERSONAL CLEARING PRACTICE
 ============================================= -->
 <div class="page">
   <div class="page-top-border"></div>
@@ -2373,127 +1953,60 @@
 
   <div class="gradient-bar"></div>
 
-  <div class="section-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 14px;">
-    <span class="section-number">Journal - continued</span>
-    <h2>Reflection, continued</h2>
-    <p>Use this space however your body is asking you to use it</p>
-  </div>
-
-  <span class="journal-prompt">"What am I ready to let go of next?"</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <span class="journal-prompt">"What does my life feel like when this weight is gone?"</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <span class="journal-prompt">Free write - anything else on your mind</span>
-  <div class="journal-lines">
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-    <div class="journal-line"></div>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>Journal Space</span>
-  </div>
-</div>
-
-
-<!-- =============================================
-     PAGE 13: YOUR NEXT STEPS
-============================================= -->
-<div class="page">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="image-strip" style="background-image: url('./assets/overlay-sunset-gold.png');"></div>
-
   <div class="section-header">
-    <span class="section-number">Section 07</span>
-    <h2>Your Next Steps</h2>
-    <p>Today was a starting point - not a finish line</p>
+    <span class="section-number">Your Practice</span>
+    <h2>Your Personal Clearing Practice</h2>
+    <p>Design your own daily clearing routine using what you learned today</p>
   </div>
 
-  <p style="margin-bottom: 16px;">
-    Energy clearing works in layers. One session opens something up. Continued work moves it deeper. Here's how to keep going.
-  </p>
+  <div class="exercise-box">
+    <span class="exercise-tag">Workshop Exercise</span>
+    <h3>Write Your Own Clearing Intention</h3>
 
-  <div class="paths-grid">
-
-    <div class="path-card">
-      <h4>Book a 1:1 Session</h4>
-      <p>A private session is where the deep work happens. Mila will access your subconscious directly, identify what's ready to release, and clear it with you - personally.</p>
-      <a class="path-link" href="https://milashealingtouch.as.me">milashealingtouch.as.me</a>
-    </div>
-
-    <div class="path-card">
-      <h4>Join Another Workshop</h4>
-      <p>Workshops run regularly. Each one builds on the last. The more you do this work, the more layers come free - and the lighter you feel.</p>
-      <a class="path-link" href="https://milashealingtouch.com">milashealingtouch.com</a>
-    </div>
-
-    <div class="path-card">
-      <h4>Join the Waitlist</h4>
-      <p>New programmes and group offerings are coming. Get on the list to hear first - and at the best price.</p>
-      <a class="path-link" href="https://milashealingtouch.com">milashealingtouch.com/waitlist</a>
-    </div>
-
-  </div>
-
-  <span class="section-label" style="margin-top: 18px;">Stay connected</span>
-
-  <div style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap;">
-    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
-      <span style="font-weight: 600; color: var(--dark);">Instagram</span>
-      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
-    </div>
-    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
-      <span style="font-weight: 600; color: var(--dark);">Facebook</span>
-      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
-    </div>
-    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
-      <span style="font-weight: 600; color: var(--dark);">TikTok</span>
-      <span style="color: var(--grey-600); margin-left: 6px;">@milashealingtouch</span>
-    </div>
-    <div style="padding: 8px 12px; border: 1px solid var(--grey-200); border-radius: 6px; font-size: 10px;">
-      <span style="font-weight: 600; color: var(--dark);">Website</span>
-      <span style="color: var(--secondary); margin-left: 6px;">milashealingtouch.com</span>
-    </div>
-  </div>
-
-  <div class="callout accent-pink" style="margin-top: 16px;">
-    <p>If something from today is still sitting with you - a feeling, a question, something that came up that surprised you - reach out. Seriously. That's exactly what I'm here for.</p>
-  </div>
-
-  <div style="margin-top: 22px; text-align: center;">
-    <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 12px;"></div>
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--secondary); line-height: 1.6;">
-      Your body knows how to heal. You're just learning to listen.
+    <p style="font-size: 10px; color: var(--grey-600); margin-bottom: 10px;">
+      Mila says to make up your own words - speak them as they come to you. There's no wrong or right with an intention. Use her example as a starting point:
     </p>
+
+    <div class="callout accent-purple" style="margin-bottom: 12px; padding: 12px 16px;">
+      <p style="font-family: var(--font-heading); font-style: italic; font-size: 12px; line-height: 1.7;">"I ask and intend to clear my space, to extract any thoughts, any words, any actions, any behaviors from my energy centers. I ask and intend to release what no longer serves me."</p>
+    </div>
+
+    <span class="section-label">My clearing intention</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Elements I want to work with</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span>Fire - candles, burning herbs, fire gazing</li>
+    <li><span class="check-box"></span>Water - showers, salt baths, spiritual baths, sprays</li>
+    <li><span class="check-box"></span>Earth - salt, crystals, plants, sand</li>
+    <li><span class="check-box"></span>Air - breath, chimes, sound, feathers, intention</li>
+  </ul>
+
+  <span class="section-label" style="margin-top: 12px;">Herbs and tools I want to use</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="section-label" style="margin-top: 12px;">My daily clearing routine</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+  </ul>
+
+  <div class="quote-block" style="margin-top: 14px;">
+    <p>"It's really, truly all in the intent. Everything is energy. All it is, is an intention for what it is that you want for yourself."</p>
+    <span class="attribution">- Mila Velazquez</span>
   </div>
 
   <div class="page-footer">
@@ -2501,109 +2014,10 @@
       <span class="footer-dot"></span>
       Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
     </div>
-    <span>Your Next Steps</span>
+    <span>Your Personal Clearing Practice</span>
   </div>
 </div>
 
-
-<!-- =============================================
-     PAGE 14: ABOUT MILA
-============================================= -->
-<div class="page page-about">
-  <div class="page-top-border"></div>
-  <div class="corner-accent"></div>
-  <div class="corner-accent-bottom"></div>
-
-  <div class="gradient-bar"></div>
-
-  <div class="section-header">
-    <span class="section-number">About Your Practitioner</span>
-    <h2>About Mila</h2>
-  </div>
-
-  <div class="about-block">
-
-    <div class="about-avatar">MV</div>
-
-    <div>
-      <h3 style="font-size: 20px; margin-bottom: 4px;">Mila Velazquez</h3>
-      <div class="credential-badges">
-        <span class="badge">MSPT</span>
-        <span class="badge">CECP</span>
-        <span class="badge">30+ Years Clinical Experience</span>
-      </div>
-    </div>
-
-  </div>
-
-  <p style="margin-bottom: 12px;">
-    I spent 30 years as a Physical Therapist watching patients carry pain that had no physical explanation. The imaging was clear. The tissue was fine. The mechanics were good. And yet - they hurt. Chronic, persistent, unexplained pain that conventional medicine kept trying to fix with the same tools that weren't working.
-  </p>
-
-  <p style="margin-bottom: 12px;">
-    I started asking different questions. What if the pain wasn't structural? What if the body was holding something emotional that had nowhere else to go? That question led me to the Emotion Code - and everything clicked.
-  </p>
-
-  <p style="margin-bottom: 12px;">
-    I've now combined three decades of clinical knowledge with Certified Emotion Code Practice. I understand the body from the inside out - both what science says and what science hasn't figured out yet. I take both seriously.
-  </p>
-
-  <div class="quote-block">
-    <p>"I came to energy healing as a sceptic. A very educated, 30-years-of-clinical-experience sceptic. And then I tried it. The results were undeniable."</p>
-    <span class="attribution">- Mila Velazquez, MSPT, CECP</span>
-  </div>
-
-  <p style="margin-bottom: 16px;">
-    My approach is direct, warm, and grounded in real anatomy and real emotional experience. I own the woo - but I also own 30 years of watching bodies heal, and I know what's possible when we stop ignoring half the picture.
-  </p>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
-    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
-      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">MSPT</p>
-      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Master of Science in Physical Therapy</p>
-    </div>
-    <div style="padding: 10px 12px; background: var(--grey-100); border-radius: 6px;">
-      <p style="font-size: 10px; font-weight: 700; color: var(--dark); margin-bottom: 2px;">CECP</p>
-      <p style="font-size: 9.5px; color: var(--grey-600); margin: 0;">Certified Emotion Code Practitioner</p>
-    </div>
-  </div>
-
-  <div style="margin-top: 20px; background: var(--dark); border-radius: 12px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-    <div>
-      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Connect with Mila</p>
-      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.com</p>
-    </div>
-    <div>
-      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Book a session</p>
-      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">milashealingtouch.as.me</p>
-    </div>
-    <div>
-      <p style="color: rgba(255,255,255,0.55); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px;">Social</p>
-      <p style="color: var(--white); font-size: 12px; font-family: 'Cormorant Garamond', serif; font-weight: 400;">@milashealingtouch everywhere</p>
-    </div>
-    <div>
-      <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--grad-bar); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: white; flex-shrink: 0;">MV</div>
-    </div>
-  </div>
-
-  <div style="margin-top: 18px; text-align: center;">
-    <div class="gradient-bar-sm" style="width: 60px; margin: 0 auto 10px;"></div>
-    <p style="font-size: 9px; color: var(--grey-400); letter-spacing: 0.06em;">
-      Energy Clearing Workshop &nbsp;|&nbsp; Mila's Healing Touch &nbsp;|&nbsp; All rights reserved
-    </p>
-    <p style="font-size: 9px; color: var(--grey-400); margin-top: 4px;">
-      This workbook is for educational purposes. It is not medical advice. Consult a healthcare provider for medical concerns.
-    </p>
-  </div>
-
-  <div class="page-footer">
-    <div class="footer-brand">
-      <span class="footer-dot"></span>
-      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
-    </div>
-    <span>About Mila Velazquez, MSPT, CECP</span>
-  </div>
-</div>
 
 </body>
 </html>
