@@ -568,9 +568,28 @@ body {
 
 /* ---- WORKSHOPS ---- */
 .section-workshops { padding: 8rem 8vw; background: linear-gradient(180deg, var(--dark), #1a1030); }
+.section-workshop-library {
+  padding: 8rem 8vw;
+  background: #ffffff;
+}
+.section-workshop-library .label { color: var(--purple); }
+.section-workshop-library .heading { color: #1d0426; }
+.section-workshop-library .heading .accent { color: var(--purple); }
+.section-workshop-library .body-text { color: #1d0426; }
+.section-workshop-library .workshop-card {
+  background: #f8f6fb;
+  border-color: rgba(64,13,113,0.1);
+}
+.section-workshop-library .workshop-card:hover {
+  border-color: rgba(64,13,113,0.25);
+}
+.section-workshop-library .workshop-card h3 { color: #1d0426; }
+.section-workshop-library .workshop-card p { color: #1d0426; }
+.section-workshop-library .workshop-link { color: var(--purple); }
+.section-workshop-library .coming-soon { color: #1d0426; }
 .workshops-inner { max-width: 1000px; margin: 0 auto; }
 .workshop-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem; margin: 2.5rem 0;
 }
 .workshop-card {
@@ -690,6 +709,7 @@ body {
   .section-split { gap: 4rem; }
   .workshop-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-heading { font-size: clamp(2.8rem, 8vw, 6rem); }
+  .section-workshop-library { padding: 6rem 6vw; }
   .stats-grid { gap: 1.5rem; }
   .section-about { padding: 8rem 6vw; }
   .section-testimonials { padding: 6rem 6vw; }

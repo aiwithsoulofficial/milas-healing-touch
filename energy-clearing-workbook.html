@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Not Your Energy, Not Your Problem - Workbook | Mila's Healing Touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES & RESET
+    ============================================= */
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+      --grad-accent-stripe: linear-gradient(180deg, #6412b2 0%, #5d81ff 100%);
+      --grad-accent-stripe-pink: linear-gradient(180deg, #f10065 0%, #6412b2 100%);
+      --grad-footer: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0));
+
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: #e8e5ee;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       PAGE SHELL
+    ============================================= */
+    .page {
+      width: var(--page-width);
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      padding: var(--page-pad) var(--page-pad) 24mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(29,4,38,0.12);
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page:nth-child(even)::before {
+      top: auto;
+      bottom: -80px;
+      right: auto;
+      left: -80px;
+      background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%);
+    }
+
+    .page:nth-child(3n)::before {
+      top: 40%;
+      right: -100px;
+      bottom: auto;
+      left: auto;
+      background: radial-gradient(circle, rgba(197,160,94,0.05) 0%, rgba(93,129,255,0.03) 50%, transparent 70%);
+    }
+
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* =============================================
+       FOOTER (every page)
+    ============================================= */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: var(--page-pad);
+      right: var(--page-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 400;
+      color: var(--grey-400);
+      padding-top: 7px;
+      letter-spacing: 0.04em;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--grad-footer);
+    }
+
+    .page-footer .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a05e, #6412b2);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       DECORATIVE ELEMENTS
+    ============================================= */
+    .gradient-bar {
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .gradient-bar-sm {
+      height: 1px;
+      background: var(--grad-gold);
+      border-radius: 1px;
+      margin-bottom: 14px;
+    }
+
+    .corner-accent {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent::before,
+    .corner-accent::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    .corner-accent::before {
+      width: 64px;
+      height: 64px;
+      border-top: 1px solid rgba(100,18,178,0.22);
+      border-right: 1px solid rgba(100,18,178,0.22);
+    }
+
+    .corner-accent::after {
+      width: 44px;
+      height: 44px;
+      border-top: 1px solid rgba(93,129,255,0.18);
+      border-right: 1px solid rgba(93,129,255,0.18);
+    }
+
+    .corner-accent-bottom {
+      position: absolute;
+      bottom: 24mm;
+      left: 8px;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .corner-accent-bottom::before,
+    .corner-accent-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    .corner-accent-bottom::before {
+      width: 50px;
+      height: 50px;
+      border-bottom: 1px solid rgba(197,160,94,0.2);
+      border-left: 1px solid rgba(197,160,94,0.2);
+    }
+
+    .corner-accent-bottom::after {
+      width: 32px;
+      height: 32px;
+      border-bottom: 1px solid rgba(100,18,178,0.15);
+      border-left: 1px solid rgba(100,18,178,0.15);
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+
+    .section-divider span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .section-divider span:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      opacity: 0.9;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 42px; }
+    h2 { font-size: 28px; font-weight: 500; }
+    h3 { font-size: 20px; font-weight: 600; }
+    h4 { font-size: 15px; font-weight: 600; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--secondary); }
+
+    p {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #3a2e45;
+    }
+
+    strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* =============================================
+       QUOTE BLOCK
+    ============================================= */
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(197,160,94,0.06) 0%, rgba(93,129,255,0.05) 100%);
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+    }
+
+    .quote-block p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
+    .quote-block .attribution {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       CALLOUT / INFO BOX
+    ============================================= */
+    .callout {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      box-shadow: 0 2px 12px rgba(29,4,38,0.05);
+    }
+
+    .callout.accent-blue {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(93,129,255,0.05);
+      position: relative;
+    }
+
+    .callout.accent-blue::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe);
+    }
+
+    .callout.accent-purple {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(100,18,178,0.04);
+      position: relative;
+    }
+
+    .callout.accent-purple::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: linear-gradient(180deg, #6412b2 0%, #c5a05e 100%);
+    }
+
+    .callout.accent-pink {
+      border-left: none;
+      padding-left: 20px;
+      background: rgba(241,0,101,0.04);
+      position: relative;
+    }
+
+    .callout.accent-pink::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 14px 0 0 14px;
+      background: var(--grad-accent-stripe-pink);
+    }
+
+    .callout p {
+      font-size: 11px;
+      margin: 0;
+    }
+
+    .callout-title {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: var(--secondary);
+    }
+
+    /* =============================================
+       INPUT / WRITE FIELDS
+    ============================================= */
+    .write-field {
+      margin: 8px 0;
+    }
+
+    .write-field label {
+      font-size: 9.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey-600);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .write-line {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid var(--line-color);
+      padding: 4px 0;
+      font-size: 12px;
+      font-family: var(--font-body);
+      background: transparent;
+      color: var(--dark);
+      outline: none;
+      display: block;
+      min-height: 28px;
+    }
+
+    .journal-lines {
+      margin: 10px 0;
+    }
+
+    .journal-line {
+      height: 28px;
+      border-bottom: 1px solid var(--line-color);
+      width: 100%;
+      display: block;
+    }
+
+    .journal-prompt {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 8px;
+      margin-top: 18px;
+      display: block;
+      letter-spacing: 0.015em;
+      padding-left: 10px;
+      border-left: 2px solid var(--gold-light);
+    }
+
+    /* =============================================
+       STEPS / PROCESS LIST
+    ============================================= */
+    .step-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .step-content span {
+      font-size: 10.5px;
+      color: var(--grey-600);
+    }
+
+    /* =============================================
+       TABLES
+    ============================================= */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      font-family: var(--font-body);
+    }
+
+    th {
+      background: var(--grad-bar);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--grey-200);
+      vertical-align: top;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #3a2e45;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--grey-100);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-write td {
+      border-bottom: 1.5px solid var(--line-color);
+      background: transparent !important;
+      vertical-align: bottom;
+      height: 32px;
+    }
+
+    /* =============================================
+       CHECKBOX LIST
+    ============================================= */
+    .check-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      color: #3a2e45;
+    }
+
+    .check-box {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--grey-400);
+      border-radius: 3px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+
+    /* =============================================
+       TWO COLUMN LAYOUT
+    ============================================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .two-col-wide {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 20px;
+    }
+
+    /* =============================================
+       SECTION HEADER BAR
+    ============================================= */
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .section-number {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-number::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--grad-gold);
+      margin-top: 4px;
+    }
+
+    .section-header h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .section-header p {
+      font-size: 11.5px;
+      color: var(--grey-600);
+      margin-top: 6px;
+      font-style: italic;
+      font-family: var(--font-heading);
+    }
+
+    /* =============================================
+       EXERCISE BOX
+    ============================================= */
+    .exercise-box {
+      border: 1.5px solid rgba(93,129,255,0.4);
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+      margin: 14px 0;
+      position: relative;
+      background: linear-gradient(160deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.035) 100%);
+      box-shadow: 0 2px 18px rgba(93,129,255,0.08);
+    }
+
+    .exercise-tag {
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: var(--grad-bar);
+      color: var(--white);
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(93,129,255,0.35);
+    }
+
+    .exercise-box h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    /* =============================================
+       CARE GRID
+    ============================================= */
+    .care-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .care-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 8px;
+      padding: 14px;
+      border-top: 3px solid var(--secondary);
+      position: relative;
+    }
+
+    .care-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .care-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin: 0;
+    }
+
+    /* =============================================
+       EXPERIENCE LIST
+    ============================================= */
+    .experience-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .experience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 10.5px;
+      border-bottom: 1px solid var(--grey-200);
+      color: #3a2e45;
+    }
+
+    .experience-list li:last-child { border-bottom: none; }
+
+    .exp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    /* =============================================
+       NEXT STEPS CARDS
+    ============================================= */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .path-card {
+      border: 1.5px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 16px 14px 14px;
+      text-align: center;
+      position: relative;
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad-bar);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .path-card:nth-child(2)::before {
+      background: var(--secondary);
+    }
+
+    .path-card:nth-child(3)::before {
+      background: var(--accent);
+    }
+
+    .path-card h4 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .path-card p {
+      font-size: 9.5px;
+      color: var(--grey-600);
+      margin-bottom: 8px;
+    }
+
+    .path-link {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+      display: block;
+    }
+
+    /* =============================================
+       ABOUT / PRACTITIONER BLOCK
+    ============================================= */
+    .about-block {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin: 14px 0;
+    }
+
+    .about-avatar {
+      width: 52px;
+      height: 52px;
+      background: var(--grad-bar);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .credential-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 8px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+    }
+
+    /* =============================================
+       PROCESSING GRID
+    ============================================= */
+    .processing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .processing-item {
+      background: linear-gradient(135deg, rgba(93,129,255,0.04) 0%, rgba(100,18,178,0.03) 100%);
+      border: 1px solid rgba(100,18,178,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 10px;
+      color: #3a2e45;
+      line-height: 1.6;
+    }
+
+    .processing-item strong {
+      font-size: 10px;
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 3px;
+    }
+
+    /* =============================================
+       ELEMENT CARD
+    ============================================= */
+    .element-card {
+      border: 1px solid var(--grey-200);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      position: relative;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .element-card h4 {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: var(--dark);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .element-card p {
+      font-size: 10px;
+      color: var(--grey-600);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .element-card.fire { border-left-color: #f10065; }
+    .element-card.water { border-left-color: #5d81ff; }
+    .element-card.earth { border-left-color: #c5a05e; }
+    .element-card.air { border-left-color: #6412b2; }
+
+    /* =============================================
+       COVER PAGE
+    ============================================= */
+    .cover-page {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-page::before {
+      display: none;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .cover-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(29, 4, 38, 0.65) 0%,
+        rgba(100, 18, 178, 0.55) 30%,
+        rgba(29, 4, 38, 0.7) 60%,
+        rgba(29, 4, 38, 0.88) 100%
+      );
+      z-index: 1;
+    }
+
+    .cover-header {
+      background: transparent !important;
+      background-image: none !important;
+      padding: 60px var(--page-pad) 30px;
+      position: relative;
+      z-index: 2;
+      flex: 0;
+    }
+
+    .image-strip {
+      width: calc(100% + 36mm);
+      margin-left: calc(-1 * var(--page-pad));
+      height: 80px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      border-radius: 0;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-about {
+      background-image: url('./assets/texture-gold-glow.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: soft-light;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .quote-featured {
+      background-image: url('./assets/pexels-candle-flame.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-left: none;
+      border-radius: 12px;
+      padding: 24px 28px;
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .quote-featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(29,4,38,0.82), rgba(100,18,178,0.72));
+      border-radius: 12px;
+    }
+    .quote-featured p, .quote-featured .attribution {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .quote-featured p {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .quote-featured .attribution {
+      color: rgba(255,255,255,0.7);
+      font-size: 9.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+    }
+
+    .sacred-watermark {
+      position: absolute;
+      bottom: 30mm;
+      right: 10mm;
+      width: 200px;
+      height: 200px;
+      background-image: url('./assets/texture-sacred-geometry.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .cover-sacred-ring {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1px solid rgba(197,160,94,0.08);
+      box-shadow:
+        0 0 0 18px rgba(93,129,255,0.03),
+        0 0 0 36px rgba(100,18,178,0.02);
+      pointer-events: none;
+      opacity: 0.08;
+    }
+
+    .cover-constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 48px 48px, 72px 72px, 36px 36px;
+      background-position: 0 0, 24px 24px, 12px 12px;
+      opacity: 0.15;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 50px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    }
+
+    .cover-brand {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-brand::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    .cover-body {
+      flex: 1;
+      padding: 20px var(--page-pad) 28mm;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .participant-block {
+      margin-top: 16px;
+    }
+
+    .participant-block p {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .cover-field {
+      margin-bottom: 20px;
+    }
+
+    .cover-field label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cover-field-line {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding: 6px 0;
+      font-size: 14px;
+      font-family: var(--font-heading);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      outline: none;
+      display: block;
+    }
+
+    .cover-field-line::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-field-line:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .cover-practitioner {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .practitioner-initials {
+      width: 44px;
+      height: 44px;
+      background: var(--grad-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(197,160,94,0.2), 0 2px 10px rgba(197,160,94,0.25);
+    }
+
+    .practitioner-info p {
+      margin: 0;
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .practitioner-info strong {
+      font-size: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .cover-page .page-footer {
+      z-index: 2;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cover-page .page-footer .footer-brand {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: 297mm;
+        margin: 0;
+        padding: 16mm 18mm 22mm;
+        box-shadow: none;
+        page-break-after: always;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+      }
+
+      .cover-page {
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .write-line, .cover-field-line {
+        border-bottom: 1.5px solid #d9d4e5;
+      }
+
+      .cover-bg,
+      .cover-header,
+      .cover-constellation,
+      .cover-sacred-ring,
+      .corner-accent,
+      .corner-accent-bottom,
+      .callout,
+      .callout.accent-blue,
+      .callout.accent-purple,
+      .callout.accent-pink,
+      .exercise-box,
+      .processing-item,
+      .quote-block,
+      .quote-featured,
+      .image-strip,
+      .cover-practitioner,
+      .practitioner-initials,
+      .section-number::after,
+      .page-footer::before,
+      .page-top-border {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .image-strip {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .sacred-watermark {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page-about {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cover-bg, .cover-bg::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .element-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =============================================
+       SCREEN ONLY HELPER
+    ============================================= */
+    @media screen {
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: white;
+        font-size: 11px;
+        font-family: var(--font-body);
+        padding: 10px 16px;
+        border-radius: 8px;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT HINT (screen only) -->
+<div class="print-hint no-print">Print this page (Ctrl/Cmd + P) for A4 PDF output</div>
+
+<!-- =============================================
+     PAGE 1: COVER
+============================================= -->
+<div class="page cover-page">
+  <div class="cover-bg" style="background-image: url('./assets/pexels-celestial-moon.jpg')"></div>
+
+  <div class="cover-header">
+    <div class="cover-sacred-ring"></div>
+    <div class="cover-constellation"></div>
+    <div class="cover-eyebrow">Workshop Workbook</div>
+    <h1 class="cover-title">Not Your Energy,<br>Not Your Problem</h1>
+    <p class="cover-subtitle">Energy Clearing Workshop with Mila Velazquez</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+
+  <div class="cover-body">
+    <div>
+      <div class="participant-block">
+        <p>This workbook is yours to keep. Write in it, return to it, and use it as your guide to clearing and protecting your energy.</p>
+
+        <div class="cover-field">
+          <label>Participant Name</label>
+          <input type="text" class="cover-field-line" placeholder="Your name here" />
+        </div>
+
+        <div class="cover-field">
+          <label>Date</label>
+          <input type="text" class="cover-field-line" placeholder="Date" />
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-practitioner">
+      <div class="practitioner-initials">MV</div>
+      <div class="practitioner-info">
+        <strong>Mila Velazquez</strong>
+        <p>Energy Healer &nbsp;|&nbsp; Retired Physical Therapist</p>
+        <p>milashealingtouch.com &nbsp;|&nbsp; @milashealingtouch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Not Your Energy, Not Your Problem &nbsp;&copy;&nbsp; 2026</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 2: WHAT IS ENERGY?
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 01</span>
+    <h2>What is Energy?</h2>
+    <p>Understanding the unseen life force that flows through all living things</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Energy is an unseen life force that flows through all living things. It flows through space, objects, and environments. Everything is a vibration.
+  </p>
+
+  <p style="margin-bottom: 14px;">
+    At every given point in time, you give off a vibration. Every action, every emotion, every thought, every event leaves behind some kind of energy.
+  </p>
+
+  <div class="quote-block">
+    <p>"To clear the energy means to release what doesn't belong to you, to extract, to release and to cleanse in order to restore the flow and the balance back into your energy field."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Just like cleaning your home and your body, you clean yourself energetically. Your home has an energy to it, too. If we want to be in balance and harmony, energies that are no longer for our highest and greatest good need to go.
+  </p>
+
+  <div class="callout accent-purple">
+    <div class="callout-title">Key Concepts</div>
+    <ul class="check-list" style="margin-top: 4px;">
+      <li><span class="check-box"></span>Everything is energy - we are energy, other people are energy, situations are energy</li>
+      <li><span class="check-box"></span>Energy is vibration - actions, emotions, thoughts, and events all leave energy behind</li>
+      <li><span class="check-box"></span>Clearing = releasing what doesn't belong, extracting, cleansing, restoring flow and balance</li>
+      <li><span class="check-box"></span>You clean your personal space, your home space, and your work space energetically</li>
+      <li><span class="check-box"></span>Energy cannot be created nor destroyed - it can just change form</li>
+    </ul>
+  </div>
+
+  <div class="callout accent-blue">
+    <p>You're a receiving antenna. You receive energy and you give off energy. The whole point of this work is to keep your mind open and allow yourself to see the unimaginable.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>What is Energy?</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 3: SIGNS YOUR SPACE NEEDS CLEARING
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 02</span>
+    <h2>Signs Your Space Needs Clearing</h2>
+    <p>How to know when your energy field or your home needs an energetic cleaning</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    How do we know when our space - our bioenergetic field, or the space that we live in - needs an energetic cleaning? Mila teaches us to use our feelings to sense when something is not right.
+  </p>
+
+  <span class="section-label">Check any signs you recognise</span>
+
+  <ul class="check-list">
+    <li><span class="check-box"></span><strong>Feeling off or drained for no reason</strong> - You're tired, exhausted, and there's no reason behind it</li>
+    <li><span class="check-box"></span><strong>Heaviness when you walk into a room</strong> - A subtleness, like you can feel the density even if you don't know what happened there</li>
+    <li><span class="check-box"></span><strong>Increased arguments in the home</strong> - No one's getting along, there's tension, there's stress - the space needs to be cleared</li>
+    <li><span class="check-box"></span><strong>Feeling emotionally stuck or scattered</strong> - A sign that something is off and you need to find balance and alignment</li>
+    <li><span class="check-box"></span><strong>Not sleeping well at night</strong> - Your room and your space need clearing</li>
+    <li><span class="check-box"></span><strong>Electronics are glitchy</strong> - Space needs to be cleared</li>
+    <li><span class="check-box"></span><strong>After having people over</strong> - Even loved ones. Protect your space before they arrive and clean it when everyone leaves</li>
+    <li><span class="check-box"></span><strong>Illness in the house</strong> - Any kind of illness or emotional distress happening in the home</li>
+    <li><span class="check-box"></span><strong>Pets unsettled or acting strange</strong> - Pets are very sensitive to energy, including entities</li>
+    <li><span class="check-box"></span><strong>Feeling disconnected from your intuition</strong> - The space needs to be cleared and you need to ground</li>
+  </ul>
+
+  <div class="callout accent-pink" style="margin-top: 12px;">
+    <p>Mila's personal sign: "When I feel stuck and frustrated and I feel like I'm scattering all over the place, that's my sign that something is off. I clear my space, I work on myself a little bit, I ground, and then I recheck again."</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Signs Your Space Needs Clearing</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 4: HOW TO CLEAN YOUR ENERGY
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 03</span>
+    <h2>How to Clean Your Energy</h2>
+    <p>Cleaning your energy field is a spiritual practice that should be done every day</p>
+  </div>
+
+  <ul class="experience-list">
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Grounding</strong> - A daily routine. Relieves stress and releases the energy you're carrying. Great as a starting point for any clearing work.</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Smudging your aura</strong> - Encompasses fire, air, and earth (the herbs). Use palo santo, sage, wormwood, rue, juniper, cedar, or Russian sage. Use a conch shell with salt on the bottom (the coating is toxic when on fire) and a feather to waft the smoke.</span></li>
+    <li><span class="exp-dot" style="background: var(--primary);"></span><span><strong>Salt baths</strong> - Add crystals (clear quartz to amplify), Epsom salt, or magnesium flakes. Set the intention that the salt is clearing your energy and washing everything off.</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Movement</strong> - Jumping, speed walking, dancing, shaking, skipping, humming. Any kind of motion to release energy that is stuck. When autistic children run back and forth, they're releasing pent-up energy - that's their way of moving it out.</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Yoga and breathing</strong> - Breathe things out. Use breath as a tool for releasing energy from the body.</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Crystals</strong> - Wonderful for releasing energy. Can be worn as amulets or placed with intention.</span></li>
+    <li><span class="exp-dot" style="background: var(--primary);"></span><span><strong>Sound tools</strong> - Bowls, tuning forks, bells, maracas. Any kind of sound to break up the density and shift the frequency.</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Hand motions</strong> - Use your hands to spin out energy. Motion combined with intent clears energy.</span></li>
+  </ul>
+
+  <div class="quote-featured" style="margin-top: 14px;">
+    <p>"Your intention - that strong, powerful intention that stands in its power, with enthusiasm and passion - is enough to clear energy. I will it so and so be it, and you release."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>How to Clean Your Energy</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 5: WORKING WITH THE FOUR ELEMENTS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 04</span>
+    <h2>Working with the Four Elements</h2>
+    <p>Combine fire, water, earth, and air to clear and protect your energy</p>
+  </div>
+
+  <div class="element-card fire">
+    <h4>Fire</h4>
+    <p><strong>Candles</strong> - Beeswax is best. Light a candle with intention before sessions or clearing work. <strong>Fire gazing</strong> - Whether it's a candle flame or a campfire, gazing into the fire is a beautiful way to clear energy. Put your intention into it. <strong>Burning herbs</strong> - Combine fire with earth (herbs) to burn and cleanse your space. Mila prefers palo santo, wormwood, and rue for clearing; sage for blessing.</p>
+  </div>
+
+  <div class="element-card water">
+    <h4>Water</h4>
+    <p><strong>Shower as waterfall</strong> - Imagine you're standing under a waterfall, cleansing your body. Visualise the energy washing down the drain. Cut the cords. <strong>Salt wash</strong> - Use salt with water to wash yourself with the intent of cleaning your space. <strong>Spiritual baths</strong> - Full immersion with intention. <strong>Sprays</strong> - Make sprays with essential oils that are protective and cleansing. Spray into your energy field, take deep breaths, and ask and intend to clear your space. Mila makes her own homemade rue spray (boil dried rue, use as a protection spray - it stains, so be careful on surfaces).</p>
+  </div>
+
+  <div class="element-card earth">
+    <h4>Earth</h4>
+    <p><strong>Salt</strong> - Use any kind (Celtic salt, sea salt, regular salt). <strong>Plants and herbs</strong> - Natural tools for clearing and protection. <strong>Crystals</strong> - Place with intention, use in baths, or create grids. <strong>Sand</strong> - Another earth element for grounding. Earth is the easiest element to combine with the others to make a powerful concoction.</p>
+  </div>
+
+  <div class="element-card air">
+    <h4>Air</h4>
+    <p><strong>Breath</strong> - Use breath to release energy. <strong>Chimes</strong> - Change the frequency of your space with sound. <strong>Feathers</strong> - Used in smudging to waft smoke. <strong>Intention</strong> - The air element is really the thought behind it. The idea, the intent of what you're doing. Combine intention with the other three elements for the most powerful clearing.</p>
+  </div>
+
+  <div class="callout accent-blue" style="margin-top: 10px;">
+    <p>You can combine all three physical elements (fire + earth + air) together with intention. Mila says: "You're taking something and you're putting an intention to get an outcome... to clean your energy space."</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Working with the Four Elements</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 6: CLEANING YOUR HOME
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 05</span>
+    <h2>Cleaning Your Home</h2>
+    <p>A step-by-step guide to energetically clearing your living space</p>
+  </div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-misty-mountains.png');"></div>
+
+  <ol class="step-list">
+    <li>
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <strong>Set your intention</strong>
+        <span>Call upon your angels, your spirits, your guides. "I ask and intend" - not please and thank you. You are commanding and asking and intending with your thoughts to create what is for your highest and greatest good. Make up your own words - speak them as they come to you.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <strong>Start at the doorway, go clockwise room by room</strong>
+        <span>Use a white candle for purity with the intent that any negativity gets burned up and out. Smudge with palo santo, sage, mugwort, copal, frankincense, rue, patchouli, wormwood, juniper, or cedarwood. Get the smoke into the corners.</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <strong>Keep windows CLOSED while smudging</strong>
+        <span>Kill off the energy first, then open the windows to let it out. Exception: if working with entities, always keep a window or door open so the entity has an "out."</span>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <strong>Use the broom</strong>
+        <span>Go clockwise around your home, knock on the walls to get stuck energy out. Sweep everything out. At New Year, sweep the house before midnight - anything that doesn't belong in the old year, sweep it out, and go fresh into the New Year.</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="callout accent-purple" style="margin-top: 8px;">
+    <div class="callout-title">Mila's Intention for Clearing a Home</div>
+    <p style="font-family: var(--font-heading); font-style: italic; font-size: 12px; line-height: 1.7;">"I ask for protection, and I ask to energetically cleanse my space, to extract any information, any thoughts, any emotions, any energies that are no longer for the highest and greatest good of this home and whoever resides in this house."</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Cleaning Your Home</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 7: SALT, CRYSTALS & PROTECTION
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 06</span>
+    <h2>Salt, Crystals &amp; Protection</h2>
+    <p>Tools and techniques for protecting your space</p>
+  </div>
+
+  <span class="section-label">Salt</span>
+
+  <ul class="experience-list" style="margin-bottom: 12px;">
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt by doorways and any entrance</strong> - Sprinkle with the intent that any negativity stays out</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt on the perimeter of the home</strong> - On walkways, steps, anywhere leading to the house</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt and poppy seeds in corners</strong> - Mix together with the intent of strong protection and sweetness in the home</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Blessed salt</strong> - Salt blessed with intention, mixed with water. For extreme entity cases, wipe down windowsills - when the water dries, the salt remains as a barrier</span></li>
+    <li><span class="exp-dot" style="background: var(--gold);"></span><span><strong>Salt and bread for a new home</strong> - The first time you walk into a new home, bring salt (for protection) and bread (for abundance, dough, stability, harvest)</span></li>
+  </ul>
+
+  <span class="section-label">Crystals</span>
+
+  <ul class="experience-list" style="margin-bottom: 12px;">
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Crystals by your doors</strong> - Black tourmaline, malachite, and onyx for protection</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Selenite</strong> - A cleaning crystal</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Smoky quartz, obsidian, labradorite</strong> - Dark stones for clearing negativity</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Crystal grids</strong> - Lay out crystals in designs with an intention for them to have a purpose. Keep for as long as you want.</span></li>
+    <li><span class="exp-dot" style="background: var(--secondary);"></span><span><strong>Channeler/transmission crystals</strong> - Mila uses a special faceted crystal from Arkansas for channelling work - "the crystal already picked you"</span></li>
+  </ul>
+
+  <span class="section-label">Red String</span>
+
+  <ul class="experience-list" style="margin-bottom: 8px;">
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Around drain pipes</strong> - So the money doesn't flow down the drain</span></li>
+    <li><span class="exp-dot" style="background: var(--accent);"></span><span><strong>Around doors</strong> - A sign of protection</span></li>
+  </ul>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Salt, Crystals &amp; Protection</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 8: ROSE OF JERICHO
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 07</span>
+    <h2>Rose of Jericho</h2>
+    <p>The resurrection flower - a living energy absorber</p>
+  </div>
+
+  <div class="image-strip" style="background-image: url('./assets/overlay-celestial-moon.png');"></div>
+
+  <p style="margin-bottom: 14px;">
+    The Rose of Jericho is a resurrection flower - a living plant that absorbs negativity from your space. Mila describes it as looking like "a little bird's nest" when dry, and it opens into a green plant when placed in water.
+  </p>
+
+  <div class="callout accent-purple">
+    <div class="callout-title">How to Use the Rose of Jericho</div>
+    <ol class="step-list" style="margin-top: 8px;">
+      <li>
+        <span class="step-number">1</span>
+        <div class="step-content">
+          <strong>Set it up</strong>
+          <span>Place the dry plant in a basin with water. Add copper coins (pennies) to the water.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">2</span>
+        <div class="step-content">
+          <strong>Let it open</strong>
+          <span>It opens into a green plant and begins soaking in the energy around it.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">3</span>
+        <div class="step-content">
+          <strong>Daily care</strong>
+          <span>Talk to it, thank it for what it's doing, and change the water every day. If you don't change the water, it goes stale.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-number">4</span>
+        <div class="step-content">
+          <strong>When you're done</strong>
+          <span>Take it out of the water, allow it to dry, and it goes back to its bird's nest form. It stays like this forever until you put it in water again - reusable indefinitely.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <span class="section-label" style="margin-top: 14px;">Best uses</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span>Basements (especially those without windows)</li>
+    <li><span class="check-box"></span>Offices and treatment rooms</li>
+    <li><span class="check-box"></span>When guests are coming over - put it in water to soak up the extra energy</li>
+    <li><span class="check-box"></span>Any space that needs ongoing passive clearing</li>
+  </ul>
+
+  <div class="callout accent-blue" style="margin-top: 10px;">
+    <p>Available on Amazon. Mila used to keep one on the floor in her office and gave them as gifts. When people asked what it was, she'd say "I'm growing something in water."</p>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 10px;">
+    <div class="callout-title">Pet Safety Note</div>
+    <p>Mila doesn't know for certain if the Rose of Jericho is safe for pets. Her animals never went near it, but keep it out of reach to be safe - especially with cats who might want to play with it.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Rose of Jericho</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 9: ANIMAL SAFETY & PET CONSIDERATIONS
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Section 08</span>
+    <h2>Animal Safety &amp; Pet Considerations</h2>
+    <p>Be mindful of your animals when doing clearing work</p>
+  </div>
+
+  <p style="margin-bottom: 14px;">
+    Mila reminds us to be very careful with our clearing materials around animals. Pets are sensitive to energy, but they're also sensitive to the physical tools we use.
+  </p>
+
+  <div class="care-grid">
+    <div class="care-card" style="border-top-color: var(--accent);">
+      <h4>Rue is Toxic to Dogs</h4>
+      <p>If you use rue in any form - dried, sprayed, or burned - keep it well away from dogs. This is a serious safety concern.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--primary);">
+      <h4>Essential Oils &amp; Sprays</h4>
+      <p>Be very careful with essential oils and sprays around animals, especially cats. What's safe for humans can be harmful for pets.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--gold);">
+      <h4>Know Your Animals</h4>
+      <p>Some animals get into everything. Keep clearing materials out of reach. If they can't access it - like up on a sofa or high shelf - that's safer.</p>
+    </div>
+    <div class="care-card" style="border-top-color: var(--secondary);">
+      <h4>Clearing for Pets</h4>
+      <p>You can clear energy for your animals too. Pets are very sensitive to all kinds of energies, including entities. If your pet is acting strange, the space needs clearing.</p>
+    </div>
+  </div>
+
+  <div class="callout accent-pink" style="margin-top: 12px;">
+    <p>When in doubt, research every herb, oil, and material you plan to use around your animals before you use it. Their safety comes first.</p>
+  </div>
+
+  <span class="section-label" style="margin-top: 20px;">Notes</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Animal Safety &amp; Pet Considerations</span>
+  </div>
+</div>
+
+
+<!-- =============================================
+     PAGE 10: YOUR PERSONAL CLEARING PRACTICE
+============================================= -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-bottom"></div>
+  <div class="sacred-watermark"></div>
+
+  <div class="gradient-bar"></div>
+
+  <div class="section-header">
+    <span class="section-number">Your Practice</span>
+    <h2>Your Personal Clearing Practice</h2>
+    <p>Design your own daily clearing routine using what you learned today</p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="exercise-tag">Workshop Exercise</span>
+    <h3>Write Your Own Clearing Intention</h3>
+
+    <p style="font-size: 10px; color: var(--grey-600); margin-bottom: 10px;">
+      Mila says to make up your own words - speak them as they come to you. There's no wrong or right with an intention. Use her example as a starting point:
+    </p>
+
+    <div class="callout accent-purple" style="margin-bottom: 12px; padding: 12px 16px;">
+      <p style="font-family: var(--font-heading); font-style: italic; font-size: 12px; line-height: 1.7;">"I ask and intend to clear my space, to extract any thoughts, any words, any actions, any behaviors from my energy centers. I ask and intend to release what no longer serves me."</p>
+    </div>
+
+    <span class="section-label">My clearing intention</span>
+    <div class="journal-lines">
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+      <div class="journal-line"></div>
+    </div>
+  </div>
+
+  <span class="section-label" style="margin-top: 16px;">Elements I want to work with</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span>Fire - candles, burning herbs, fire gazing</li>
+    <li><span class="check-box"></span>Water - showers, salt baths, spiritual baths, sprays</li>
+    <li><span class="check-box"></span>Earth - salt, crystals, plants, sand</li>
+    <li><span class="check-box"></span>Air - breath, chimes, sound, feathers, intention</li>
+  </ul>
+
+  <span class="section-label" style="margin-top: 12px;">Herbs and tools I want to use</span>
+  <div class="journal-lines">
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+    <div class="journal-line"></div>
+  </div>
+
+  <span class="section-label" style="margin-top: 12px;">My daily clearing routine</span>
+  <ul class="check-list">
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+    <li><span class="check-box"></span><div class="journal-line" style="flex: 1;"></div></li>
+  </ul>
+
+  <div class="quote-block" style="margin-top: 14px;">
+    <p>"It's really, truly all in the intent. Everything is energy. All it is, is an intention for what it is that you want for yourself."</p>
+    <span class="attribution">- Mila Velazquez</span>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <span class="footer-dot"></span>
+      Mila's Healing Touch &nbsp;|&nbsp; milashealingtouch.com
+    </div>
+    <span>Your Personal Clearing Practice</span>
+  </div>
+</div>
+
+
+</body>
+</html>
