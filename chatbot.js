@@ -38,7 +38,7 @@
     BOOK_PATH: {
       messages: [
         "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with trapped emotions, the Emotion Code, and deep energy clearing.",
-        "Just so you know - Mila is currently booked out until the end of May 2026. You can either book ahead or join the waitlist to be first in line.",
+        "Mila is currently booked out and taking a break in June. New spots open in July. You can book ahead or join the waitlist to be first in line.",
       ],
       options: [
         { label: 'Book a 1:1 session',        next: 'LINK', url: 'https://milashealingtouch.as.me' },
@@ -56,21 +56,23 @@
       options: [
         { label: 'Live workshops ($111)',           next: 'WORKSHOP_LIVE' },
         { label: 'Pre-recorded workshops ($77)',    next: 'WORKSHOP_RECORDED' },
-        { label: 'Get all 6 recordings ($347)',     next: 'WORKSHOP_BUNDLE' },
+        { label: 'Get all 4 recordings ($297)',     next: 'WORKSHOP_BUNDLE' },
         { label: 'Back to start',                   next: 'START' },
       ],
     },
 
     WORKSHOP_LIVE: {
       messages: [
-        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go. No experience needed.",
+        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go.",
       ],
       options: [
-        { label: 'Book Energy Clearing - $111',    next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
-        { label: 'Book Emotion Code - $111',       next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
-        { label: 'Book Muscle Testing - $111',     next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
-        { label: 'See pre-recorded options',        next: 'WORKSHOP_RECORDED' },
-        { label: 'Back to start',                   next: 'START' },
+        { label: 'Book Energy Clearing - $111',       next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
+        { label: 'Book Muscle Testing - $111',        next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
+        { label: 'Book Emotion Code - $111',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
+        { label: 'Book Release the Heartwall - $111', next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
+        { label: 'Book Candle Energy - $111',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
+        { label: 'See pre-recorded options',           next: 'WORKSHOP_RECORDED' },
+        { label: 'Back to start',                      next: 'START' },
       ],
     },
 
@@ -83,7 +85,7 @@
         { label: '2. Muscle Test Like Mila',        next: 'WORKSHOP_MT' },
         { label: '3. Learn the Emotion Code',       next: 'WORKSHOP_EMO' },
         { label: '4. Advanced Techniques',          next: 'WORKSHOP_ADV' },
-        { label: 'Get all 6 for $347',              next: 'WORKSHOP_BUNDLE' },
+        { label: 'Get all 4 for $297',              next: 'WORKSHOP_BUNDLE' },
       ],
     },
 
@@ -93,7 +95,7 @@
         '"Weight lifted like magic." - Multiple clients',
       ],
       options: [
-        { label: 'Buy Energy Clearing - $77',  next: 'LINK', url: 'workshops.html#workshops' },
+        { label: 'Buy Energy Clearing - $77',  next: 'LINK', url: 'https://buy.stripe.com/4gMaEQa0N1pw1MseWh6Zy00' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -104,7 +106,7 @@
         "Muscle Test Like Mila (64 min) - Your body already knows the answer. Learn three methods - the sway test, the arm test, and the O-ring finger test - and practice live. This is the skill that makes everything else in energy work possible.",
       ],
       options: [
-        { label: 'Buy Muscle Testing - $77',   next: 'LINK', url: 'workshops.html#workshops' },
+        { label: 'Buy Muscle Testing - $77',   next: 'LINK', url: 'https://buy.stripe.com/fZucMY4Gt3xEeze29v6Zy01' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -116,7 +118,7 @@
         '"Better after one session than 10 years of talk therapy." - Nancy B',
       ],
       options: [
-        { label: 'Buy Emotion Code - $77',     next: 'LINK', url: 'workshops.html#workshops' },
+        { label: 'Buy Emotion Code - $77',     next: 'LINK', url: 'https://buy.stripe.com/00w6oAeh32tAaiYbK56Zy02' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -127,7 +129,7 @@
         "Advanced Techniques (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, the process of elimination technique, reading the body's messages, and live healing demonstrations.",
       ],
       options: [
-        { label: 'Buy Advanced - $77',         next: 'LINK', url: 'workshops.html#workshops' },
+        { label: 'Buy Advanced - $77',         next: 'LINK', url: 'https://buy.stripe.com/3cI9AM4GtgkqfDi8xT6Zy03' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -135,11 +137,11 @@
 
     WORKSHOP_BUNDLE: {
       messages: [
-        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $347 (save $30+ vs buying individually). Over 4 hours of content. Lifetime access to everything.",
+        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297 (save $11 vs buying individually). Over 4 hours of content. Lifetime access to everything.",
         "Energy Clearing, Muscle Test Like Mila, Learn the Emotion Code, and Advanced Techniques - the full foundation for a self-healing practice.",
       ],
       options: [
-        { label: 'Get the Complete Collection - $347', next: 'LINK', url: 'workshops.html#workshops' },
+        { label: 'Get the Complete Collection - $297', next: 'LINK', url: 'https://buy.stripe.com/5kQ5kwdcZ5FM62I6pL6Zy04' },
         { label: 'See individual workshops',            next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                       next: 'START' },
       ],
@@ -147,7 +149,7 @@
 
     WAITLIST_PATH: {
       messages: [
-        "Mila is currently booked out for 1:1 sessions until the end of May. Join the waitlist and you'll be first to know when spots open up.",
+        "Mila is taking a break in June and new 1:1 spots open in July. Join the waitlist and you'll be first to know when booking opens up.",
         "In the meantime, her live workshops are running - same energy, same gift, group experience. $111 each.",
       ],
       options: [
