@@ -207,7 +207,8 @@ body {
   background: var(--dark);
   text-align: center;
 }
-.mirror-inner { max-width: 650px; margin: 0 auto; }
+.mirror-inner { max-width: 650px; margin: 0 auto; text-align: center; }
+.mirror-inner .heading { text-align: center; }
 .body-text.large { font-size: 1.15rem; line-height: 1.7; color: #ffffff; }
 .body-text.muted { color: rgba(255,255,255,0.7); margin-top: 1.5rem; }
 
