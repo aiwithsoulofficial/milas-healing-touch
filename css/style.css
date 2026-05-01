@@ -350,7 +350,7 @@ body {
   width: 100%; display: block;
   aspect-ratio: 9/16; object-fit: cover;
   max-height: 420px;
-  object-position: center 20%;
+  object-position: center top;
 }
 
 .service-block-text .label { margin-bottom: 0.8rem; }
