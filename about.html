@@ -57,6 +57,7 @@
       font-weight: 500 !important;
     }
     .nav-cta:hover { background: var(--pink) !important; }
+    .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; align-items: center; }
 
     /* HERO */
     .about-hero {
@@ -241,7 +242,7 @@
     @media (max-width: 768px) {
       .site-header { padding: 1rem 1.5rem; }
       .header-nav { display: none; }
-      .mobile-menu-btn { display: flex; }
+      .mobile-menu-btn { display: flex !important; }
       .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.95); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
       .mobile-nav.open { display: flex; }
       .mobile-nav a { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); text-decoration: none; }
@@ -261,9 +262,10 @@
   <!-- MOBILE NAV -->
   <div class="mobile-nav" id="mobileNav">
     <button class="close-btn" onclick="document.getElementById('mobileNav').classList.remove('open')">&times;</button>
-    <a href="index.html" onclick="document.getElementById('mobileNav').classList.remove('open')">Home</a>
-    <a href="about.html">About</a>
-    <a href="workshops.html">Workshops</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Mila</a>
+    <a href="index.html#live-workshops">Live Workshops</a>
+    <a href="workshops.html">Workshop Library</a>
     <a href="index.html#faq">FAQ</a>
     <a href="https://milashealingtouch.as.me/" target="_blank" rel="noopener">Book a Session</a>
   </div>
@@ -271,11 +273,11 @@
   <!-- HEADER -->
   <header class="site-header">
     <a href="index.html" class="header-logo">Mila's Healing Touch</a>
-    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open')" style="display:none;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">&#9776;</button>
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open')">&#9776;</button>
     <nav class="header-nav">
       <a href="about.html">About</a>
-      <a href="index.html#services-overview">Services</a>
-      <a href="workshops.html">Workshops</a>
+      <a href="index.html#live-workshops">Live Workshops</a>
+      <a href="workshops.html">Workshop Library</a>
       <a href="index.html#faq">FAQ</a>
       <a href="https://milashealingtouch.as.me/" target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
     </nav>
