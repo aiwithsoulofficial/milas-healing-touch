@@ -28,74 +28,88 @@
         "I'm here to help you find exactly what you need. What brings you here today?"
       ],
       options: [
-        { label: 'I want to book a session',         next: 'BOOK_PATH' },
-        { label: "I'm interested in a workshop",     next: 'WORKSHOP_PATH' },
-        { label: "I'd like to join the waitlist",    next: 'WAITLIST_PATH' },
-        { label: 'Tell me more about what Mila does', next: 'ABOUT_PATH' },
+        { label: 'I want to book a 1:1 session',     next: 'BOOK_PATH' },
+        { label: "I'm interested in workshops",       next: 'WORKSHOP_PATH' },
+        { label: 'Join the waitlist',                 next: 'WAITLIST_PATH' },
+        { label: 'Tell me more about Mila',           next: 'ABOUT_PATH' },
+        { label: 'I have a question',                 next: 'FAQ_PATH' },
       ],
     },
 
     BOOK_PATH: {
       messages: [
         "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with trapped emotions, the Emotion Code, and deep energy clearing.",
-        "Mila is currently booked out and taking a break in June. New spots open in July. You can book ahead or join the waitlist to be first in line.",
+        "Mila is currently booked out and taking a break in June. New spots open in July. You can book ahead now or try a live workshop in the meantime.",
       ],
       options: [
-        { label: 'Book a 1:1 session',        next: 'LINK', url: 'https://milashealingtouch.as.me' },
-        { label: 'Join the waitlist instead', next: 'WAITLIST_PATH' },
-        { label: 'What about workshops?',     next: 'WORKSHOP_PATH' },
+        { label: 'Book a 1:1 session',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
+        { label: 'Join the waitlist',          next: 'WAITLIST_PATH' },
+        { label: 'Try a live workshop instead', next: 'WORKSHOP_LIVE' },
+        { label: 'Back to start',              next: 'START' },
       ],
     },
 
     WORKSHOP_PATH: {
       messages: [
         "Mila has two ways to learn from her:",
-        "Live workshops on Zoom ($111) - hands-on, real-time, transformational.",
-        "Pre-recorded workshops ($77 each) - watch anytime, pause and rewind, lifetime access. Each comes with a PDF workbook.",
+        "Live workshops on Zoom ($111 each) - hands-on, real-time, Mila answers your questions as you go.",
+        "Pre-recorded workshops ($77 each) - watch anytime, lifetime access. Each comes with a premium PDF workbook.",
       ],
       options: [
-        { label: 'Live workshops ($111)',           next: 'WORKSHOP_LIVE' },
-        { label: 'Pre-recorded workshops ($77)',    next: 'WORKSHOP_RECORDED' },
-        { label: 'Get all 4 recordings ($297)',     next: 'WORKSHOP_BUNDLE' },
-        { label: 'Back to start',                   next: 'START' },
+        { label: 'Live workshops ($111)',          next: 'WORKSHOP_LIVE' },
+        { label: 'Pre-recorded workshops ($77)',   next: 'WORKSHOP_RECORDED' },
+        { label: 'Complete Collection ($297)',      next: 'WORKSHOP_BUNDLE' },
+        { label: 'Back to start',                  next: 'START' },
       ],
     },
 
     WORKSHOP_LIVE: {
       messages: [
-        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go.",
+        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go. Here are the upcoming workshops:",
       ],
       options: [
-        { label: 'Book Energy Clearing - $111',       next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
-        { label: 'Book Muscle Testing - $111',        next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
-        { label: 'Book Emotion Code - $111',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
-        { label: 'Book Release the Heartwall - $111', next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
-        { label: 'Book Candle Energy - $111',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=78587690' },
-        { label: 'See pre-recorded options',           next: 'WORKSHOP_RECORDED' },
-        { label: 'Back to start',                      next: 'START' },
+        { label: 'Muscle Test Like Mila ($111)',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
+        { label: 'Learn the Emotion Code ($111)',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
+        { label: 'Release the Heartwall ($111)',          next: 'HEARTWALL_INFO' },
+        { label: 'Go Deeper: Advanced Healing ($111)',    next: 'LINK', url: 'https://milashealingtouch.as.me/' },
+        { label: 'See pre-recorded options instead',      next: 'WORKSHOP_RECORDED' },
+        { label: 'Back to start',                         next: 'START' },
+      ],
+    },
+
+    HEARTWALL_INFO: {
+      messages: [
+        "Release the Heartwall teaches you how to identify, clear, and fully release the Heart Wall - the energetic barrier your subconscious builds to protect you from emotional pain.",
+        "Important: You need to complete Learn the Emotion Code first before taking this workshop.",
+      ],
+      options: [
+        { label: 'Book Release the Heartwall ($111)', next: 'LINK', url: 'https://milashealingtouch.as.me/' },
+        { label: 'I need Emotion Code first',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
+        { label: 'See other workshops',               next: 'WORKSHOP_LIVE' },
+        { label: 'Back to start',                     next: 'START' },
       ],
     },
 
     WORKSHOP_RECORDED: {
       messages: [
-        "Four pre-recorded workshops - $77 each. Watch on your own schedule, as many times as you like. Each includes a premium PDF workbook. Recommended order:",
+        "Four pre-recorded workshops at $77 each. Watch on your own schedule, as many times as you like. Each includes a premium PDF workbook.",
       ],
       options: [
-        { label: '1. Energy Clearing',              next: 'WORKSHOP_EC' },
-        { label: '2. Muscle Test Like Mila',        next: 'WORKSHOP_MT' },
-        { label: '3. Learn the Emotion Code',       next: 'WORKSHOP_EMO' },
-        { label: '4. Advanced Techniques',          next: 'WORKSHOP_ADV' },
-        { label: 'Get all 4 for $297',              next: 'WORKSHOP_BUNDLE' },
+        { label: '1. Not Your Energy, Not Your Problem',  next: 'WORKSHOP_EC' },
+        { label: '2. Muscle Test Like Mila',              next: 'WORKSHOP_MT' },
+        { label: '3. Learn the Emotion Code',             next: 'WORKSHOP_EMO' },
+        { label: '4. Go Deeper: Advanced Healing',        next: 'WORKSHOP_ADV' },
+        { label: 'Get all 4 for $297',                    next: 'WORKSHOP_BUNDLE' },
       ],
     },
 
     WORKSHOP_EC: {
       messages: [
-        "Energy Clearing (55 min) - Your space holds energy, and not all of it is yours. Learn to identify when your environment is draining you, clear trapped energies, and protect your space daily. Mila demonstrates her Rose of Jericho clearing technique live.",
+        "Not Your Energy, Not Your Problem (55 min) - Your space holds energy, and not all of it is yours. Learn to clear trapped energies from yourself, your home, and your environment. Mila demonstrates her Rose of Jericho clearing technique live.",
         '"Weight lifted like magic." - Multiple clients',
       ],
       options: [
-        { label: 'Buy Energy Clearing - $77',  next: 'LINK', url: 'https://buy.stripe.com/4gMaEQa0N1pw1MseWh6Zy00' },
+        { label: 'Get Energy Clearing ($77)',   next: 'LINK', url: 'https://buy.stripe.com/4gMaEQa0N1pw1MseWh6Zy00' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -103,10 +117,10 @@
 
     WORKSHOP_MT: {
       messages: [
-        "Muscle Test Like Mila (64 min) - Your body already knows the answer. Learn three methods - the sway test, the arm test, and the O-ring finger test - and practice live. This is the skill that makes everything else in energy work possible.",
+        "Muscle Test Like Mila (64 min) - Your body already knows the answer. Learn three methods - the sway test, the arm test, and the O-ring finger test. This is the foundational skill that makes everything else in energy work possible.",
       ],
       options: [
-        { label: 'Buy Muscle Testing - $77',   next: 'LINK', url: 'https://buy.stripe.com/fZucMY4Gt3xEeze29v6Zy01' },
+        { label: 'Get Muscle Testing ($77)',    next: 'LINK', url: 'https://buy.stripe.com/fZucMY4Gt3xEeze29v6Zy01' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -114,11 +128,11 @@
 
     WORKSHOP_EMO: {
       messages: [
-        "Learn the Emotion Code (80 min) - The full method. How trapped emotions form, how to trace them through generations, how to identify them using the chart, and how to release them permanently. Includes Heart-Wall clearing.",
+        "Learn the Emotion Code (80 min) - The full method. How trapped emotions form, how to trace them through generations, how to identify them using the chart, and how to release them permanently.",
         '"Better after one session than 10 years of talk therapy." - Nancy B',
       ],
       options: [
-        { label: 'Buy Emotion Code - $77',     next: 'LINK', url: 'https://buy.stripe.com/00w6oAeh32tAaiYbK56Zy02' },
+        { label: 'Get Emotion Code ($77)',      next: 'LINK', url: 'https://buy.stripe.com/00w6oAeh32tAaiYbK56Zy02' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -126,10 +140,10 @@
 
     WORKSHOP_ADV: {
       messages: [
-        "Advanced Techniques (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, the process of elimination technique, reading the body's messages, and live healing demonstrations.",
+        "Go Deeper: Advanced Healing (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, connecting in the quantum field, and live healing demonstrations.",
       ],
       options: [
-        { label: 'Buy Advanced - $77',         next: 'LINK', url: 'https://buy.stripe.com/3cI9AM4GtgkqfDi8xT6Zy03' },
+        { label: 'Get Advanced Healing ($77)',  next: 'LINK', url: 'https://buy.stripe.com/3cI9AM4GtgkqfDi8xT6Zy03' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -137,38 +151,127 @@
 
     WORKSHOP_BUNDLE: {
       messages: [
-        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297 (save $11 vs buying individually). Over 4 hours of content. Lifetime access to everything.",
-        "Energy Clearing, Muscle Test Like Mila, Learn the Emotion Code, and Advanced Techniques - the full foundation for a self-healing practice.",
+        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297. Over 4 hours of content. Lifetime access to everything.",
+        "Not Your Energy, Muscle Test Like Mila, Learn the Emotion Code, and Go Deeper: Advanced Healing - the full foundation for a self-healing practice.",
       ],
       options: [
-        { label: 'Get the Complete Collection - $297', next: 'LINK', url: 'https://buy.stripe.com/5kQ5kwdcZ5FM62I6pL6Zy04' },
+        { label: 'Get the Complete Collection ($297)',  next: 'LINK', url: 'https://buy.stripe.com/5kQ5kwdcZ5FM62I6pL6Zy04' },
         { label: 'See individual workshops',            next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                       next: 'START' },
+      ],
+    },
+
+    ANIMAL_PATH: {
+      messages: [
+        "Animals carry energy too. Mila works with horses, dogs, and cats - using Emotion Code sessions, animal communication, and energy clearing to bring harmony to your pets.",
+        "Dogs and Cats: $222 (45 min) | Horses: $333 (60 min). All sessions are via Zoom.",
+      ],
+      options: [
+        { label: 'Book for my pet',             next: 'LINK', url: 'https://milashealingtouch.as.me/' },
+        { label: 'Tell me more about Mila',     next: 'ABOUT_PATH' },
+        { label: 'Back to start',               next: 'START' },
+      ],
+    },
+
+    FAQ_PATH: {
+      messages: [
+        "What would you like to know?",
+      ],
+      options: [
+        { label: 'What happens in a session?',     next: 'FAQ_SESSION' },
+        { label: 'Do remote sessions work?',       next: 'FAQ_REMOTE' },
+        { label: 'Workshop order?',                next: 'FAQ_ORDER' },
+        { label: 'Cancellation policy?',           next: 'FAQ_CANCEL' },
+        { label: 'Something else',                 next: 'FAQ_OTHER' },
+      ],
+    },
+
+    FAQ_SESSION: {
+      messages: [
+        "Every first session begins with clearing your Heart Wall - the protective layer around your heart that blocks you from connecting fully with yourself and others.",
+        "Mila identifies the underlying root cause of your issue and releases the trapped emotions causing dis-ease, pain, destructive patterns and behaviours. Using manual muscle testing, she connects to your subconscious mind to find and release what's stuck.",
+      ],
+      options: [
+        { label: 'Book a session',              next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
+        { label: 'More questions',              next: 'FAQ_PATH' },
+        { label: 'Back to start',               next: 'START' },
+      ],
+    },
+
+    FAQ_REMOTE: {
+      messages: [
+        "Yes! Mila's remote sessions via Zoom are just as effective as in person. She connects to your energy field through the quantum field - location doesn't matter. She has clients across the world.",
+        '"Virtual session is as effective as in person. Greetings from Germany." - Dan L',
+      ],
+      options: [
+        { label: 'Book a session',              next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
+        { label: 'More questions',              next: 'FAQ_PATH' },
+        { label: 'Back to start',               next: 'START' },
+      ],
+    },
+
+    FAQ_ORDER: {
+      messages: [
+        "For pre-recorded workshops, the recommended order is:",
+        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Learn the Emotion Code (the full method) - 4. Go Deeper: Advanced Healing (for practitioners).",
+        "For live workshops, Release the Heartwall requires Learn the Emotion Code as a prerequisite. All other workshops can be taken in any order.",
+      ],
+      options: [
+        { label: 'See pre-recorded workshops',  next: 'WORKSHOP_RECORDED' },
+        { label: 'See live workshops',          next: 'WORKSHOP_LIVE' },
+        { label: 'Back to start',               next: 'START' },
+      ],
+    },
+
+    FAQ_CANCEL: {
+      messages: [
+        "Live workshops: You can reschedule to a different date at no charge. Cancellations made 24+ hours before receive a full refund. No-shows and cancellations within 24 hours are non-refundable.",
+        "1:1 sessions: A credit card is required to hold your appointment. Cancellations within 24 hours or no-shows are charged the full session fee.",
+        "Pre-recorded workshops: No refunds on digital products (you receive instant access).",
+      ],
+      options: [
+        { label: 'Book a session',              next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
+        { label: 'More questions',              next: 'FAQ_PATH' },
+        { label: 'Back to start',               next: 'START' },
+      ],
+    },
+
+    FAQ_OTHER: {
+      messages: [
+        "The best way to reach Mila is through Instagram @milashealingtouch or by booking directly through her website.",
+      ],
+      options: [
+        { label: 'Instagram',                   next: 'LINK', url: 'https://www.instagram.com/milashealingtouch/' },
+        { label: 'YouTube',                     next: 'LINK', url: 'https://www.youtube.com/@milashealingtouch' },
+        { label: 'TikTok',                      next: 'LINK', url: 'https://www.tiktok.com/@milashealingtouch' },
+        { label: 'Facebook',                    next: 'LINK', url: 'https://www.facebook.com/InnerWisdomHolisticHealing' },
+        { label: 'Back to start',               next: 'START' },
       ],
     },
 
     WAITLIST_PATH: {
       messages: [
         "Mila is taking a break in June and new 1:1 spots open in July. Join the waitlist and you'll be first to know when booking opens up.",
-        "In the meantime, her live workshops are running - same energy, same gift, group experience. $111 each.",
+        "In the meantime, her live workshops are running - same energy, same gift, group experience. $111 each on Zoom.",
       ],
       options: [
         { label: 'Join the waitlist',            next: 'LINK', url: '#waitlist' },
-        { label: 'Check out workshops instead',  next: 'WORKSHOP_PATH' },
+        { label: 'Check out live workshops',     next: 'WORKSHOP_LIVE' },
+        { label: 'Pre-recorded workshops',       next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                next: 'START' },
       ],
     },
 
     ABOUT_PATH: {
       messages: [
-        "Mila Velazquez spent 30 years as a Physical Therapist before discovering what medicine couldn't explain. Now she helps women release trapped emotions and chronic pain through energy healing.",
-        "She's a Certified Emotion Code Practitioner who bridges the physical and the metaphysical - clinical experience meets consciousness work, the angelic realm, and all kinds of woo. And she owns it.",
-        "155,000+ followers across social media. 1,690+ YouTube subscribers. Clients across the world.",
+        "Mila Velazquez spent 30 years as a licensed Physical Therapist - orthopaedic, neurological, women's health. She knew the body inside out. But she kept seeing patients carry pain that had no physical explanation.",
+        "Today she bridges the physical and the metaphysical. She uses the Emotion Code, Neuro-Emotional Technique, the Omnium Method, and consciousness work to help people release what they've been carrying - sometimes for decades. She goes deep into the woo. And she owns it.",
       ],
       options: [
-        { label: 'Book a session',    next: 'BOOK_PATH' },
-        { label: 'See workshops',     next: 'WORKSHOP_PATH' },
-        { label: 'Join the waitlist', next: 'WAITLIST_PATH' },
+        { label: 'Book a session',              next: 'BOOK_PATH' },
+        { label: 'See workshops',               next: 'WORKSHOP_PATH' },
+        { label: 'Animal healing',              next: 'ANIMAL_PATH' },
+        { label: 'Back to start',               next: 'START' },
       ],
     },
   };
@@ -595,7 +698,7 @@
       btn.className = 'mht-option-btn';
       btn.textContent = opt.label;
       btn.style.animationDelay = (idx * 60) + 'ms';
-      btn.addEventListener('click', function () { handleOption(opt); });
+      btn.addEventListener('click', function (e) { e.stopPropagation(); handleOption(opt); });
       btn.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -653,7 +756,8 @@
       var restartBtn = document.createElement('button');
       restartBtn.className = 'mht-option-btn';
       restartBtn.textContent = 'Start over';
-      restartBtn.addEventListener('click', function () {
+      restartBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
         clearOptions();
         state.node = 'START';
         renderNode('START');
