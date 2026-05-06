@@ -276,7 +276,7 @@ body {
 .meet-mila-quote {
   font-family: var(--font-display);
   font-size: 1.15rem; font-weight: 400; font-style: italic;
-  color: var(--purple); line-height: 1.6;
+  color: var(--pink); line-height: 1.6;
   margin-top: 2rem; padding: 1.5rem 0 1.5rem 1.5rem;
   border-left: 3px solid rgba(123, 104, 174, 0.4);
 }
