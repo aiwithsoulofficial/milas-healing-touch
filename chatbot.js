@@ -109,7 +109,7 @@
         '"Weight lifted like magic." - Multiple clients',
       ],
       options: [
-        { label: 'Get Energy Clearing ($77)',   next: 'LINK', url: 'https://buy.stripe.com/4gMaEQa0N1pw1MseWh6Zy00' },
+        { label: 'Get Energy Clearing ($77)',   next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1d6034d67b041e7e82f1' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -120,7 +120,7 @@
         "Muscle Test Like Mila (64 min) - Your body already knows the answer. Learn three methods - the sway test, the arm test, and the O-ring finger test. This is the foundational skill that makes everything else in energy work possible.",
       ],
       options: [
-        { label: 'Get Muscle Testing ($77)',    next: 'LINK', url: 'https://buy.stripe.com/fZucMY4Gt3xEeze29v6Zy01' },
+        { label: 'Get Muscle Testing ($77)',    next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1e3b34d67b041e7e82f4' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -132,7 +132,7 @@
         '"Better after one session than 10 years of talk therapy." - Nancy B',
       ],
       options: [
-        { label: 'Get Emotion Code ($77)',      next: 'LINK', url: 'https://buy.stripe.com/00w6oAeh32tAaiYbK56Zy02' },
+        { label: 'Get Emotion Code ($77)',      next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1eb6c43a7488828c214b' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -143,7 +143,7 @@
         "Go Deeper: Advanced Healing (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, connecting in the quantum field, and live healing demonstrations.",
       ],
       options: [
-        { label: 'Get Advanced Healing ($77)',  next: 'LINK', url: 'https://buy.stripe.com/3cI9AM4GtgkqfDi8xT6Zy03' },
+        { label: 'Get Advanced Healing ($77)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1f2fc43a7488828c214c' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -155,7 +155,7 @@
         "Not Your Energy, Muscle Test Like Mila, Learn the Emotion Code, and Go Deeper: Advanced Healing - the full foundation for a self-healing practice.",
       ],
       options: [
-        { label: 'Get the Complete Collection ($297)',  next: 'LINK', url: 'https://buy.stripe.com/5kQ5kwdcZ5FM62I6pL6Zy04' },
+        { label: 'Get the Complete Collection ($297)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1fba34d67b041e7e82f7' },
         { label: 'See individual workshops',            next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                       next: 'START' },
       ],
