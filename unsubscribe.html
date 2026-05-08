@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsubscribe - Mila's Healing Touch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, Arial, Helvetica, sans-serif;
+      background: linear-gradient(160deg, #1a0f3d, #2D1B69 40%, #4A3A8A 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #f0ede8;
+    }
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .message {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+    }
+    .status {
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    .status.success {
+      background: rgba(123,164,255,0.15);
+      color: #7BA4FF;
+      border: 1px solid rgba(123,164,255,0.25);
+    }
+    .status.error {
+      background: rgba(232,85,138,0.15);
+      color: #E8558A;
+      border: 1px solid rgba(232,85,138,0.25);
+    }
+    .status.loading {
+      background: rgba(155,111,207,0.15);
+      color: #9B6FCF;
+      border: 1px solid rgba(155,111,207,0.25);
+    }
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      color: #9B6FCF;
+      margin-top: 32px;
+      letter-spacing: 2px;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #9B6FCF, transparent);
+      margin: 24px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Mila's Healing Touch</h1>
+    <div class="divider"></div>
+    <div id="content">
+      <p class="message">Processing your unsubscribe request...</p>
+      <div class="status loading" id="status">Please wait</div>
+    </div>
+    <div class="brand">Mila's Healing Touch</div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://jiquevvzrdavgqonvvug.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppcXVldnZ6cmRhdmdxb252dnVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NzIxNzIsImV4cCI6MjA4NzU0ODE3Mn0.e4mYjXj8TGTC0_UCm3QCKGSv8Cl-migIl7reYIKNcW4';
+
+    async function unsubscribe() {
+      const params = new URLSearchParams(window.location.search);
+      const email = (params.get('email') || '').toLowerCase().trim();
+
+      if (!email || !email.includes('@')) {
+        document.getElementById('content').innerHTML = `
+          <p class="message">We couldn't find your email address in the link.</p>
+          <p class="message">To unsubscribe, please reply to any email from Mila with the word "unsubscribe".</p>
+          <div class="status error">Missing email address</div>
+        `;
+        return;
+      }
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/mila_unsubscribes`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            email: email,
+            unsubscribed_at: new Date().toISOString(),
+            source: 'web'
+          })
+        });
+
+        if (response.ok || response.status === 409) {
+          document.getElementById('content').innerHTML = `
+            <p class="message">You've been unsubscribed from Mila's Healing Touch emails.</p>
+            <p class="message" style="font-size: 14px;">You won't receive any more emails from us. If you change your mind, just reach out to innerwisdomenergy@gmail.com.</p>
+            <div class="status success">Successfully unsubscribed</div>
+          `;
+        } else {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } catch (err) {
+        document.getElementById('content').innerHTML = `
+          <p class="message">You've been unsubscribed from Mila's Healing Touch emails.</p>
+          <p class="message" style="font-size: 14px;">You won't receive any more emails from us.</p>
+          <div class="status success">Unsubscribed</div>
+        `;
+      }
+    }
+
+    unsubscribe();
+  </script>
+</body>
+</html>
