@@ -407,13 +407,13 @@ svg { width: 20px; height: 20px; fill: currentColor; }
       <span class="link-arrow">&rsaquo;</span>
     </a>
 
-    <a href="https://www.milashealingtouch.com/index.html#live-workshops" class="link-btn" target="_blank" rel="noopener">
+    <a id="liveWorkshopsLink" href="https://www.milashealingtouch.com/index.html#live-workshops" class="link-btn" target="_blank" rel="noopener">
       <div class="link-icon icon-live">
         <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
       </div>
       <div class="link-text">
-        <span>LIVE Workshops <span class="live-dot"></span></span>
-        <small>Join Mila live on Zoom</small>
+        <span id="liveWorkshopsLabel">LIVE Workshops <span class="live-dot"></span></span>
+        <small id="liveWorkshopsSub">Join Mila live on Zoom</small>
       </div>
       <span class="link-arrow">&rsaquo;</span>
     </a>
@@ -470,6 +470,24 @@ function createSparkle() {
 }
 setInterval(createSparkle, 400);
 for (let i = 0; i < 15; i++) setTimeout(createSparkle, i * 200);
+
+// Live workshops run through Thu Jul 24 2026. Once that date passes, the LIVE
+// Workshops button becomes the Live Workshop Waitlist automatically.
+// To put live workshops back: move CUTOFF to the day after the new last session.
+(function () {
+  var CUTOFF = new Date('2026-07-25T00:00:00-04:00'); // 12am EDT, Jul 25 2026
+  var WAITLIST_URL = 'https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs';
+  if (new Date() < CUTOFF) return;
+
+  var link = document.getElementById('liveWorkshopsLink');
+  var label = document.getElementById('liveWorkshopsLabel');
+  var sub = document.getElementById('liveWorkshopsSub');
+  if (!link) return;
+
+  link.href = WAITLIST_URL;
+  if (label) label.textContent = 'Live Workshop Waitlist';
+  if (sub) sub.textContent = 'Be first to know when new live dates open';
+})();
 </script>
 
 </body>
