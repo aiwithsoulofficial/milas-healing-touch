@@ -311,7 +311,7 @@
             </div>
             <h3>Muscle Test Like Mila</h3>
             <p>Your body already knows the answer to every question you are carrying. Learn the sway test and other muscle testing techniques to tap into your subconscious and release what no longer serves you.</p>
-            <p style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
+            <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
               New live date coming soon - join the waitlist to be first to know.
             </p>
             <a href="https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs" target="_blank" rel="noopener" class="workshop-link">Join the Waitlist</a>
@@ -322,7 +322,7 @@
             </div>
             <h3>Learn the Emotion Code: The Basics</h3>
             <p>Your body stores every emotion you have ever swallowed. Learn how to identify trapped emotions, trace them through generations, and release them for good - for yourself, loved ones, or clients.</p>
-            <p style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
+            <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
               Tue Jul 21 - 5pm EDT | 2pm PDT | 10pm BST
             </p>
             <a href="https://milashealingtouch.as.me/?appointmentType=92230793" target="_blank" rel="noopener" class="workshop-link">Book Live - $111</a>
@@ -333,7 +333,7 @@
             </div>
             <h3>Go Deeper: Advanced Healing</h3>
             <p>This is for healers who want another tool in their box. Connect to consciousness, open your gifts, and learn the techniques Mila has developed over 30 years of bridging the physical and the metaphysical.</p>
-            <p style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
+            <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
               Thu Jul 23 - 1pm EDT | 10am PDT | 6pm BST<br>
               Thu Jul 23 - 5pm EDT | 2pm PDT | 10pm BST
             </p>
@@ -518,6 +518,30 @@
       s.style.setProperty('--drift', (3 + Math.random() * 4) + 's');
       container.appendChild(s);
     }
+  })();
+  </script>
+
+  <script>
+  // Live workshops run through Thu Jul 24 2026. Once that date passes, any card
+  // still pointing at an Acuity booking link becomes a waitlist card, so the page
+  // never advertises a session that has already happened.
+  // To put live workshops back: update the card dates and move CUTOFF to the day
+  // after the new last session.
+  (function () {
+    var CUTOFF = new Date('2026-07-25T00:00:00-04:00'); // 12am EDT, Jul 25 2026
+    var WAITLIST_URL = 'https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs';
+    var WAITLIST_NOTE = 'New live date coming soon - join the waitlist to be first to know.';
+    if (new Date() < CUTOFF) return;
+
+    var cards = document.querySelectorAll('#live-workshops .workshop-card');
+    Array.prototype.forEach.call(cards, function (card) {
+      var btn = card.querySelector('a.workshop-link');
+      if (!btn || btn.href.indexOf('as.me') === -1) return; // already a waitlist card
+      btn.href = WAITLIST_URL;
+      btn.textContent = 'Join the Waitlist';
+      var dates = card.querySelector('.wk-dates');
+      if (dates) dates.textContent = WAITLIST_NOTE;
+    });
   })();
   </script>
   <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a503777cf52f8a07da5e0b8" data-source="WEB_USER"></script>
