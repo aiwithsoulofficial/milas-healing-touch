@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release the Heartwall - Mila's Facilitator Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary:    #5d81ff;
+      --secondary:  #6412b2;
+      --dark:       #1d0426;
+      --light:      #f1efef;
+      --accent:     #f10065;
+      --gold:       #c5a05e;
+      --gold-light: rgba(197,160,94,0.18);
+      --white:      #ffffff;
+      --grey-100:   #f8f7f9;
+      --grey-200:   #e8e5ee;
+      --grey-400:   #b0a8c0;
+      --grey-600:   #6e6480;
+      --line-color: #d9d4e5;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --grad-header: linear-gradient(135deg, #1d0426 0%, #6412b2 50%, #5d81ff 100%);
+      --grad-subtle: linear-gradient(135deg, rgba(93,129,255,0.08) 0%, rgba(100,18,178,0.06) 100%);
+      --grad-bar:    linear-gradient(90deg, #6412b2, #5d81ff);
+      --grad-gold:   linear-gradient(90deg, #c5a05e, #e8c98a, #c5a05e);
+      --page-width: 210mm;
+      --page-pad:   18mm;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--dark); background: #e8e5ee; line-height: 1.6; }
+    .page { width: var(--page-width); min-height: 297mm; background: var(--white); margin: 0 auto 20px; padding: var(--page-pad) var(--page-pad) 24mm; position: relative; overflow: hidden; box-shadow: 0 4px 32px rgba(29,4,38,0.12); }
+    .page::before { content: ''; position: absolute; top: -80px; right: -80px; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(93,129,255,0.07) 0%, rgba(100,18,178,0.04) 50%, transparent 70%); pointer-events: none; z-index: 0; }
+    .page:nth-child(even)::before { top: auto; bottom: -80px; right: auto; left: -80px; background: radial-gradient(circle, rgba(100,18,178,0.07) 0%, rgba(93,129,255,0.04) 50%, transparent 70%); }
+    .page > * { position: relative; z-index: 1; }
+    .page-top-border { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent 0%, rgba(100,18,178,0.5) 20%, rgba(93,129,255,0.7) 50%, rgba(197,160,94,0.5) 80%, transparent 100%); pointer-events: none; z-index: 2; }
+    .page-footer { position: absolute; bottom: 10mm; left: var(--page-pad); right: var(--page-pad); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-body); font-size: 9px; font-weight: 400; color: var(--grey-400); padding-top: 7px; letter-spacing: 0.04em; }
+    .page-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, rgba(100,18,178,0.35), rgba(93,129,255,0.35), rgba(100,18,178,0.0)); }
+    .page-footer .footer-brand { display: flex; align-items: center; gap: 8px; }
+    .footer-dot { width: 5px; height: 5px; border-radius: 50%; background: linear-gradient(135deg, #c5a05e, #6412b2); display: inline-block; flex-shrink: 0; }
+    .gradient-bar { height: 3px; background: var(--grad-bar); border-radius: 2px; margin-bottom: 20px; }
+    .corner-accent { position: absolute; top: 8px; right: 8px; width: 72px; height: 72px; pointer-events: none; overflow: hidden; z-index: 2; }
+    .corner-accent::before, .corner-accent::after { content: ''; position: absolute; top: 0; right: 0; border-style: solid; border-color: transparent; border-radius: 50%; }
+    .corner-accent::before { width: 64px; height: 64px; border-top: 1px solid rgba(100,18,178,0.22); border-right: 1px solid rgba(100,18,178,0.22); }
+    .corner-accent::after { width: 44px; height: 44px; border-top: 1px solid rgba(93,129,255,0.18); border-right: 1px solid rgba(93,129,255,0.18); }
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--dark); font-weight: 600; line-height: 1.2; }
+    h1 { font-size: 48px; } h2 { font-size: 32px; font-weight: 500; } h3 { font-size: 24px; font-weight: 600; }
+    h4 { font-size: 16px; font-weight: 700; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--secondary); }
+    p, li { font-size: 15px; line-height: 1.7; color: #3a2e45; }
+    .section-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--primary); margin-bottom: 6px; display: block; }
+    .module-header { margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--grey-200); }
+    .module-number { font-family: var(--font-body); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--primary); display: block; margin-bottom: 4px; }
+    .module-number::after { content: ''; display: block; width: 30px; height: 2px; background: var(--grad-gold); margin-top: 6px; }
+    .module-header h2 { font-size: 34px; font-weight: 500; margin-top: 4px; }
+    .timing-badge { display: inline-block; background: rgba(93,129,255,0.12); border: 2px solid rgba(93,129,255,0.35); border-radius: 10px; padding: 8px 18px; font-family: var(--font-body); font-size: 16px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; margin-top: 8px; }
+    .timing-badge::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); margin-right: 10px; vertical-align: middle; }
+    .say-this { border-left: 5px solid var(--secondary); padding: 18px 22px; background: rgba(100,18,178,0.06); border-radius: 0 14px 14px 0; margin: 16px 0; position: relative; }
+    .say-this-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--secondary); margin-bottom: 8px; display: block; }
+    .say-this p { font-family: var(--font-heading); font-size: 18px; font-style: italic; font-weight: 400; color: var(--dark); line-height: 1.55; margin-bottom: 0; }
+    .demo-cue { border-left: 5px solid var(--gold); padding: 16px 22px; background: rgba(197,160,94,0.1); border-radius: 0 14px 14px 0; margin: 16px 0; position: relative; }
+    .demo-cue-label { font-family: var(--font-body); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #8a6d2e; margin-bottom: 6px; display: block; }
+    .demo-cue p, .demo-cue li { font-size: 15px; color: #3a2e45; line-height: 1.6; }
+    .teach-points { list-style: none; margin: 14px 0; padding: 0; }
+    .teach-points li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; font-size: 15px; line-height: 1.6; color: #3a2e45; }
+    .teach-points li::before { content: ''; flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--grad-bar); margin-top: 7px; }
+    .teach-points.gold li::before { background: var(--grad-gold); }
+    .transition { border-top: 1px solid var(--grey-200); margin-top: 20px; padding-top: 14px; display: flex; align-items: center; gap: 10px; }
+    .transition-arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--grad-bar); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; font-size: 14px; font-weight: 700; }
+    .transition p { font-size: 14px; font-weight: 500; font-style: italic; color: var(--grey-600); }
+    .timing-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); margin: 16px 0; }
+    .timing-table th { background: var(--grad-bar); color: var(--white); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 14px; text-align: left; }
+    .timing-table td { padding: 10px 14px; border-bottom: 1px solid var(--grey-200); font-size: 14px; line-height: 1.5; color: #3a2e45; }
+    .timing-table tr:nth-child(even) td { background: var(--grey-100); }
+    .timing-table .time-col { font-weight: 700; color: var(--primary); white-space: nowrap; width: 80px; }
+    .timing-table .total-row td { background: rgba(100,18,178,0.08); font-weight: 700; color: var(--dark); border-top: 2px solid var(--secondary); font-size: 15px; }
+    .cover-page { padding: 0; display: flex; flex-direction: column; background: var(--dark); position: relative; overflow: hidden; }
+    .cover-page::before { display: none; }
+    .cover-constellation { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; background-image: radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px), radial-gradient(circle, rgba(197,160,94,0.5) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 48px 48px, 72px 72px, 36px 36px; background-position: 0 0, 24px 24px, 12px 12px; opacity: 0.12; z-index: 0; }
+    .cover-header { padding: 70px var(--page-pad) 40px; position: relative; z-index: 2; flex: 0; }
+    .cover-eyebrow { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .cover-title { font-family: var(--font-heading); font-size: 56px; font-weight: 300; color: var(--white); line-height: 1.08; margin-bottom: 12px; letter-spacing: 0.04em; }
+    .cover-subtitle { font-family: var(--font-heading); font-size: 26px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.75); margin-bottom: 0; }
+    .cover-brand { font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 28px; }
+    .cover-brand::after { content: ''; display: block; width: 60px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin-top: 16px; }
+    .cover-body { flex: 1; padding: 20px var(--page-pad) 28mm; position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; }
+    .cover-meta { margin-top: auto; }
+    .cover-meta p { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; line-height: 1.6; }
+    .cover-meta strong { color: rgba(255,255,255,0.8); }
+    .cover-badge { display: inline-block; background: rgba(197,160,94,0.2); border: 1px solid rgba(197,160,94,0.3); color: var(--gold); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; padding: 8px 18px; border-radius: 8px; margin-top: 16px; }
+    .cover-page .page-footer { z-index: 2; color: rgba(255,255,255,0.3); }
+    .cover-page .page-footer .footer-brand { color: rgba(255,255,255,0.3); }
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+      .page { width: 210mm; min-height: 297mm; height: 297mm; margin: 0; padding: 16mm 18mm 22mm; box-shadow: none; page-break-after: always; overflow: hidden; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page:last-child { page-break-after: avoid; }
+      .cover-page { padding: 0; }
+      .no-print { display: none !important; }
+      .say-this, .demo-cue, .timing-badge, .cover-page, .cover-constellation, .corner-accent, .page-top-border, .page-footer::before { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    @media screen {
+      .print-hint { position: fixed; bottom: 20px; right: 20px; background: var(--dark); color: white; font-size: 11px; font-family: var(--font-body); padding: 10px 16px; border-radius: 8px; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-hint no-print">Print (Ctrl/Cmd + P) for A4 PDF</div>
+
+<!-- COVER PAGE -->
+<div class="page cover-page">
+  <div class="cover-constellation"></div>
+  <div class="cover-header">
+    <div class="cover-eyebrow">Facilitator Guide</div>
+    <h1 class="cover-title">Release the<br>Heartwall</h1>
+    <p class="cover-subtitle">Putting the Emotion Code into Practice</p>
+    <div class="cover-brand">Mila's Healing Touch</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-meta">
+      <p><strong>Format:</strong> LIVE on Zoom</p>
+      <p><strong>Duration:</strong> ~90 minutes (8 modules)</p>
+      <p><strong>Price:</strong> $111 live / $77 replay</p>
+      <p><strong>Prerequisite:</strong> Learn the Emotion Code: The Basics</p>
+      <p><strong>Attendee materials:</strong> Magnet, Emotion Code Chart, journal, quiet space</p>
+      <div class="cover-badge">Mila's Eyes Only</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Facilitator Guide - Not for Distribution</span>
+  </div>
+</div>
+
+<!-- TIMING OVERVIEW -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">At a Glance</span>
+    <h2>Workshop Timing Overview</h2>
+  </div>
+  <table class="timing-table">
+    <thead>
+      <tr><th>Module</th><th>Topic</th><th>Time</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>What is the Heart Wall?</td><td class="time-col">10 min</td></tr>
+      <tr><td>2</td><td>What is the Heart Wall Made Of?</td><td class="time-col">10 min</td></tr>
+      <tr><td>3</td><td>Why Does the Heart Wall Matter?</td><td class="time-col">10 min</td></tr>
+      <tr><td>4</td><td>The Emotion Code Chart Review</td><td class="time-col">10 min</td></tr>
+      <tr><td>5</td><td>How to Clear the Heart Wall - LIVE Demo</td><td class="time-col">20 min</td></tr>
+      <tr><td>6</td><td>Guided Practice - Participants Clear</td><td class="time-col">15 min</td></tr>
+      <tr><td>7</td><td>What Happens After + Self-Care</td><td class="time-col">10 min</td></tr>
+      <tr><td>8</td><td>Q&A + Closing</td><td class="time-col">5 min</td></tr>
+      <tr class="total-row"><td colspan="2">Total Workshop Time</td><td>~90 min</td></tr>
+    </tbody>
+  </table>
+  <div class="demo-cue" style="margin-top: 20px;">
+    <span class="demo-cue-label">Reminder - Prerequisite</span>
+    <p>This workshop requires attendees to have completed <strong>Learn the Emotion Code: The Basics</strong>. They must be able to muscle test reliably before they can work on the Heart Wall.</p>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Attendee Materials</span>
+    <p><strong>Magnet (any fridge magnet works), Emotion Code Chart (from previous workshop), journal/pen, quiet space</strong></p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- MODULE 1: What is the Heart Wall? -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 1</span>
+    <h2>What is the Heart Wall?</h2>
+    <div class="timing-badge">10 Minutes</div>
+  </div>
+  <ul class="teach-points">
+    <li>The heart is the most electromagnetic organ in your body - its field extends up to <strong>12 feet</strong> around you</li>
+    <li>The heart has its own nervous system - over <strong>40,000 neurons</strong> - sometimes called the "heart brain"</li>
+    <li>The heart sends more signals to the brain than the brain sends to the heart</li>
+    <li>When we experience intense emotional events - heartbreak, grief, trauma, betrayal, loss - the subconscious builds a <strong>protective wall</strong> around the heart using trapped emotions</li>
+    <li>Layer by layer, emotion by emotion, the Heart Wall forms</li>
+  </ul>
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"Your subconscious built your Heart Wall to protect you. It was doing its job. But the wall that once kept you safe may now be the very thing keeping you stuck - blocking love, connection, abundance, and the full experience of being alive."</p>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Reference</span>
+    <p>Dr. Bradley Nelson discovered that approximately <strong>93% of people</strong> have a Heart Wall. It is built by the subconscious as protection during times of emotional distress - using whatever trapped emotions are available as building material.</p>
+  </div>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"So now the question is - what is YOUR Heart Wall made of? Let's find out..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 1</span>
+  </div>
+</div>
+
+<!-- MODULE 2: What is the Heart Wall Made Of? -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 2</span>
+    <h2>What is the Heart Wall Made Of?</h2>
+    <div class="timing-badge">10 Minutes</div>
+  </div>
+  <ul class="teach-points">
+    <li>Each Heart Wall is completely unique - made of different trapped emotions</li>
+    <li>When you ask the subconscious what the Heart Wall is "made of," it gives you a <strong>metaphor</strong> - a physical material</li>
+    <li>The material tells you about how strong the protection is and how long it has been there</li>
+  </ul>
+  <h4 style="margin: 16px 0 10px;">Common Materials:</h4>
+  <ul class="teach-points">
+    <li><strong>Wood</strong> - natural, organic protection</li>
+    <li><strong>Stone or brick</strong> - heavy, long-standing</li>
+    <li><strong>Metal or steel</strong> - hard, impenetrable</li>
+    <li><strong>Glass</strong> - fragile but sharp</li>
+    <li><strong>Concrete</strong> - thick and dense</li>
+    <li><strong>Ice</strong> - cold, frozen grief</li>
+  </ul>
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"The material is a message from your subconscious. If your Heart Wall is made of steel, that tells you something different than if it's made of wood. There's no wrong answer - just information."</p>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Interactive Moment</span>
+    <p>Ask the group: <strong>"Muscle test right now - do you have a Heart Wall? If yes, ask your subconscious what it's made of."</strong> Give them 2 minutes. Ask a few people to share.</p>
+  </div>
+  <h4 style="margin: 16px 0 8px;">Thickness varies too:</h4>
+  <p>Some Heart Walls are paper thin. Some are 20 feet thick. Some have been there since childhood. You can ask: "How thick is my Heart Wall?" and muscle test for the answer.</p>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now let's talk about WHY this matters - what the Heart Wall is actually blocking in your life..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 2</span>
+  </div>
+</div>
+
+<!-- MODULE 3: Why Does the Heart Wall Matter? -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 3</span>
+    <h2>Why Does the Heart Wall Matter?</h2>
+    <div class="timing-badge">10 Minutes</div>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Open With</span>
+    <p>"The Heart Wall does not just block pain from coming in. It blocks everything. Love going in. Love going out. Connection. Abundance. Creativity. The full experience of being alive."</p>
+  </div>
+  <h4 style="margin: 16px 0 10px;">What the Heart Wall Blocks:</h4>
+  <ul class="teach-points">
+    <li>Love going in and coming out</li>
+    <li>Deep connection with others</li>
+    <li>Abundance and success</li>
+    <li>Creative expression</li>
+    <li>Feeling fully alive and present</li>
+    <li>Joy, peace, and contentment</li>
+    <li>Intimacy and vulnerability</li>
+  </ul>
+  <h4 style="margin: 16px 0 10px;">Signs Someone May Have a Heart Wall:</h4>
+  <ul class="teach-points">
+    <li>Chest tightness or pressure</li>
+    <li>Difficulty giving or receiving love</li>
+    <li>Feeling numb or disconnected</li>
+    <li>Relationship struggles</li>
+    <li>Feeling like something is blocking you</li>
+    <li>Depression or sadness you can't explain</li>
+    <li>Anxiety or overwhelm</li>
+  </ul>
+  <div class="say-this">
+    <span class="say-this-label">Key Line</span>
+    <p>"Your Heart Wall was there for a reason. It served you. But now it might be the very thing standing between you and the life you actually want."</p>
+  </div>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Let's quickly review the Emotion Code Chart - because that's the tool we use to find what emotions are trapped in the Heart Wall..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 3</span>
+  </div>
+</div>
+
+<!-- MODULE 4: Emotion Code Chart Review -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 4</span>
+    <h2>The Emotion Code Chart Review</h2>
+    <div class="timing-badge">10 Minutes</div>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"If you've done the Emotion Code Basics workshop, you already know this chart. This is a quick refresher because we're about to use it live."</p>
+  </div>
+  <h4 style="margin: 16px 0 10px;">How to Use the Chart:</h4>
+  <ul class="teach-points gold">
+    <li><strong>Step 1:</strong> Ask "Is this trapped emotion in Column A?" - muscle test for yes or no. If no, it is in Column B.</li>
+    <li><strong>Step 2:</strong> Ask "Is this emotion in an odd row?" - then narrow to the specific row (1-6).</li>
+    <li><strong>Step 3:</strong> Once you have the row, test each emotion in that row until you get a "yes." That is the trapped emotion.</li>
+  </ul>
+  <h4 style="margin: 16px 0 10px;">For the Heart Wall specifically, ask:</h4>
+  <ul class="teach-points">
+    <li>"Is the <strong>first</strong> trapped emotion in the Heart Wall in Column A?"</li>
+    <li>Narrow down to the row, then the specific emotion</li>
+    <li>Once identified, ask for details if guided: "When was this trapped?" "Was it absorbed?" "Was it inherited?"</li>
+  </ul>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Quick Check</span>
+    <p>Ask the group: <strong>"Does everyone have their Emotion Code Chart ready? Hold it up."</strong> Make sure everyone can see it before you proceed to the live demo.</p>
+  </div>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Alright - charts ready, magnets ready. I'm going to walk you through the full Heart Wall clearing process now, step by step..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 4</span>
+  </div>
+</div>
+
+<!-- MODULE 5: How to Clear the Heart Wall - LIVE Demo -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 5</span>
+    <h2>How to Clear the Heart Wall - LIVE Demo</h2>
+    <div class="timing-badge">20 Minutes</div>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Open With</span>
+    <p>"I'm going to walk you through the exact process I use with my clients. Watch first, then you'll do it yourself."</p>
+  </div>
+  <h4 style="margin: 12px 0 10px;">The 7-Step Process:</h4>
+  <ul class="teach-points gold">
+    <li><strong>1. Connect</strong> - Set your intention. Take a breath. Connect to your higher self. Ask for permission to work on the Heart Wall. This is not a rushed process - you go in with respect.</li>
+    <li><strong>2. Ask</strong> - "Do I have a Heart Wall?" Muscle test for yes or no. If yes, you are ready to begin identifying the emotions within it.</li>
+    <li><strong>3. Identify</strong> - Use the Emotion Code Chart. Ask: "Is the first trapped emotion in the Heart Wall in Column A?" Narrow it down to the row, then to the specific emotion.</li>
+    <li><strong>4. Get Details</strong> - Once you have the emotion, ask the subconscious for more information. "When was this emotion trapped?" "Was it absorbed from someone else?" "Was it inherited?" You do not need details to release it, but they can bring powerful awareness.</li>
+    <li><strong>5. Release</strong> - Swipe a magnet (or your hand) along the governing meridian - from the forehead, over the top of the head, and down the back of the neck. <strong>Three swipes for a personal emotion. Ten swipes for an inherited emotion.</strong></li>
+    <li><strong>6. Confirm</strong> - Muscle test to confirm: "Has this emotion been released from the Heart Wall?" You should get a yes. If not, swipe again.</li>
+    <li><strong>7. Repeat</strong> - Continue identifying and releasing emotions until the subconscious says the Heart Wall is gone - or until it says you have released enough for today.</li>
+  </ul>
+  <div class="demo-cue">
+    <span class="demo-cue-label">LIVE Demo Now</span>
+    <p>Demonstrate the full process on yourself or a volunteer. Talk through each step out loud so they can follow along. Show the muscle test, the chart navigation, and the magnet swipe clearly on camera.</p>
+  </div>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Now it's your turn. Grab your magnet and your chart - we're going to do this together..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 5</span>
+  </div>
+</div>
+
+<!-- MODULE 6: Guided Practice -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 6</span>
+    <h2>Guided Practice - Participants Clear</h2>
+    <div class="timing-badge">15 Minutes</div>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Lead the Group Through This</span>
+    <p>Walk them through steps 1-7 in real time. Go slowly. Pause between each step so they can muscle test and work through their own Heart Wall.</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Step 1 - Guide Them</span>
+    <p>"Close your eyes. Take a breath. Set your intention to connect to your higher self. Ask for permission to work on your Heart Wall today."</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Step 2 - Guide Them</span>
+    <p>"Ask your body: Do I have a Heart Wall? Muscle test. If yes, let's begin."</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Step 3 - Guide Them</span>
+    <p>"Ask: Is the first trapped emotion in my Heart Wall in Column A? Test. Narrow to the row. Find the emotion. Take your time."</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Steps 4-7 - Guide Them</span>
+    <p>"Once you have the emotion, ask for any details your subconscious wants to share. Then take your magnet, and swipe from forehead, over the top of your head, down the back of your neck. Three times for personal, ten for inherited. Then confirm: has it been released? If yes, move to the next one."</p>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Important</span>
+    <p>Remind them: <strong>"Your body will tell you when it has released enough for today. If your muscle test starts giving unclear answers, that is your signal to stop. Do not force it. Honor what the body is ready to do."</strong></p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Processing Time</span>
+    <p>"Your body needs time to process after releasing trapped emotions. Typically 1-3 days between sessions, though it can be longer. Your subconscious will tell you when you are ready for the next round. Listen to your body. Do not rush this."</p>
+  </div>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Beautiful work everyone. Now let's talk about what to expect after a clearing and how to take care of yourself..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 6</span>
+  </div>
+</div>
+
+<!-- MODULE 7: What Happens After + Self-Care -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 7</span>
+    <h2>What Happens After + Self-Care</h2>
+    <div class="timing-badge">10 Minutes</div>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Say This</span>
+    <p>"Some people feel the difference immediately. Others notice it unfolding over days and weeks. There is no single correct experience. What matters is that the wall is no longer there, and the heart can do what it was always meant to do."</p>
+  </div>
+  <h4 style="margin: 16px 0 10px;">What They May Experience:</h4>
+  <ul class="teach-points">
+    <li><strong>Feeling lighter</strong> - a weight they didn't know they were carrying lifts. Chest opens. Breathing changes.</li>
+    <li><strong>Emotional waves</strong> - crying, vivid dreams, waves of emotion moving through. This is normal processing.</li>
+    <li><strong>More connection</strong> - relationships shift. More open, more present, more willing to let people in.</li>
+    <li><strong>Fatigue</strong> - the body is doing energetic work. Rest is not laziness - it is part of the healing.</li>
+    <li><strong>Abundance opens</strong> - financial shifts, career opportunities, creative breakthroughs.</li>
+    <li><strong>Vivid dreams</strong> - the subconscious processes through dreams. This is normal.</li>
+  </ul>
+  <h4 style="margin: 16px 0 10px;">Self-Care Protocol:</h4>
+  <ul class="teach-points gold">
+    <li><strong>Drink plenty of water</strong> - helps the body move and process released energy</li>
+    <li><strong>Rest when your body asks for it</strong> - sleep, nap, lie down</li>
+    <li><strong>Be gentle with yourself</strong> - you just released something you may have carried for decades</li>
+    <li><strong>Journal what comes up</strong> - memories, feelings, dreams, body sensations</li>
+    <li><strong>Give yourself time to integrate</strong> - wait 1-3 days minimum before the next clearing session</li>
+    <li><strong>Epsom salt bath</strong> - 20 minutes in warm water with 1-2 cups of Epsom salt</li>
+  </ul>
+  <div class="transition">
+    <div class="transition-arrow">&rarr;</div>
+    <p>"Let's open it up for any questions before we close..."</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 7</span>
+  </div>
+</div>
+
+<!-- MODULE 8: Q&A + Closing -->
+<div class="page">
+  <div class="page-top-border"></div>
+  <div class="corner-accent"></div>
+  <div class="module-header">
+    <span class="module-number">Module 8</span>
+    <h2>Q&A + Workshop Close</h2>
+    <div class="timing-badge">5 Minutes</div>
+  </div>
+  <div class="demo-cue">
+    <span class="demo-cue-label">Open for Questions</span>
+    <p>Take 2-3 questions from the group. Common questions: "How do I know when the Heart Wall is fully gone?" "Can it come back?" "What if I can't muscle test clearly today?"</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Answer - Can It Come Back?</span>
+    <p>"Once the emotion is cleared, it's cleared. Emotions can get stuck again if the person does not do the work required of them to respond differently in the situation that allowed the original emotion to get stuck in the first place."</p>
+  </div>
+  <div class="say-this">
+    <span class="say-this-label">Answer - How Do I Know It's Gone?</span>
+    <p>"Muscle test: Do I still have a Heart Wall? When the answer is no, it's gone. Some people release it in one session. Others take multiple sessions over days or weeks. There is no wrong pace."</p>
+  </div>
+  <div class="gradient-bar" style="margin-top: 24px;"></div>
+  <h3 style="margin-bottom: 14px; text-align: center;">Workshop Closing</h3>
+  <div class="say-this" style="background: rgba(100,18,178,0.1); border-left-color: var(--gold);">
+    <span class="say-this-label" style="color: var(--gold);">Closing Script - Read Slowly</span>
+    <p>"I don't fix anybody. I don't heal anybody. I assist you in releasing what's trapped so your body can do what it already knows how to do. Today you have taken the first step in releasing the wall around your heart. The number one thing that will change your life: having your Heart Wall released. When you take the Heart Wall away, love can go in and love can go out. Thank you for being brave enough to do this work."</p>
+  </div>
+  <div class="demo-cue" style="margin-top: 16px;">
+    <span class="demo-cue-label">After Closing</span>
+    <p>Thank them for being here. Mention the workbook and session tracker they will receive. Remind them about the self-care protocol. Open for any final shares. Point them to MilasHealingTouch.com for the next workshop: <strong>Go Deeper - Advanced Healing</strong>.</p>
+  </div>
+  <div class="page-footer">
+    <div class="footer-brand"><span class="footer-dot"></span> Mila's Healing Touch</div>
+    <span>Module 8 - End</span>
+  </div>
+</div>
+
+</body>
+</html>
