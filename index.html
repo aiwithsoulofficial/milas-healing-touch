@@ -305,37 +305,39 @@
         <h2 class="heading">Live Workshops <span class="accent">$111</span></h2>
 
         <div class="workshop-grid">
-          <div class="workshop-card">
+          <div class="workshop-card" data-expires="2026-09-16T19:00:00-04:00">
             <div class="workshop-icon">
               <img src="images/mood-pendulum-crystals.jpg" alt="" class="workshop-img">
             </div>
             <h3>Muscle Test Like Mila</h3>
             <p>Your body already knows the answer to every question you are carrying. Learn the sway test and other muscle testing techniques to tap into your subconscious and release what no longer serves you.</p>
             <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
-              New live date coming soon - join the waitlist to be first to know.
+              Wed Sep 16 - 1pm EDT | 10am PDT | 6pm BST<br>
+              Wed Sep 16 - 6pm EDT | 3pm PDT | 11pm BST
             </p>
-            <a href="https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs" target="_blank" rel="noopener" class="workshop-link">Join the Waitlist</a>
+            <a href="https://milashealingtouch.as.me/?appointmentType=81779232" target="_blank" rel="noopener" class="workshop-link">Book Live - $111</a>
           </div>
-          <div class="workshop-card">
+          <div class="workshop-card" data-expires="2026-09-22T19:00:00-04:00">
             <div class="workshop-icon">
               <img src="images/mood-intuition.jpg" alt="" class="workshop-img">
             </div>
             <h3>Learn the Emotion Code: The Basics</h3>
             <p>Your body stores every emotion you have ever swallowed. Learn how to identify trapped emotions, trace them through generations, and release them for good - for yourself, loved ones, or clients.</p>
             <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
-              Tue Jul 21 - 5pm EDT | 2pm PDT | 10pm BST
+              Tue Sep 22 - 1pm EDT | 10am PDT | 6pm BST<br>
+              Tue Sep 22 - 6pm EDT | 3pm PDT | 11pm BST
             </p>
             <a href="https://milashealingtouch.as.me/?appointmentType=92230793" target="_blank" rel="noopener" class="workshop-link">Book Live - $111</a>
           </div>
-          <div class="workshop-card">
+          <div class="workshop-card" data-expires="2026-09-29T19:00:00-04:00">
             <div class="workshop-icon">
               <img src="images/mood-pendulum-crystals.jpg" alt="" class="workshop-img">
             </div>
             <h3>Go Deeper: Advanced Healing</h3>
             <p>This is for healers who want another tool in their box. Connect to consciousness, open your gifts, and learn the techniques Mila has developed over 30 years of bridging the physical and the metaphysical.</p>
             <p class="wk-dates" style="font-size:0.7rem; color:var(--pink); margin:0.5rem 0; line-height:1.6;">
-              Thu Jul 23 - 1pm EDT | 10am PDT | 6pm BST<br>
-              Thu Jul 23 - 5pm EDT | 2pm PDT | 10pm BST
+              Tue Sep 29 - 1pm EDT | 10am PDT | 6pm BST<br>
+              Tue Sep 29 - 6pm EDT | 3pm PDT | 11pm BST
             </p>
             <a href="https://milashealingtouch.as.me/?appointmentType=81779785" target="_blank" rel="noopener" class="workshop-link">Book Live - $111</a>
           </div>
@@ -527,19 +529,27 @@
   </script>
 
   <script>
-  // Live workshops run through Thu Jul 24 2026. Once that date passes, any card
-  // still pointing at an Acuity booking link becomes a waitlist card, so the page
-  // never advertises a session that has already happened.
-  // To put live workshops back: update the card dates and move CUTOFF to the day
-  // after the new last session.
+  // Each live workshop card carries its own data-expires date. Once that moment
+  // passes, that single card turns into a waitlist card - so the page never
+  // advertises a session that has already happened, and the workshops still to
+  // come keep their booking links. CUTOFF is the backstop for any card without
+  // a data-expires attribute.
+  // To put live workshops back: update each card's dates + data-expires, and
+  // move CUTOFF to the day after the new last session.
+  // Current run: Wed Sep 16, Tue Sep 22, Tue Sep 29 2026.
   (function () {
-    var CUTOFF = new Date('2026-07-25T00:00:00-04:00'); // 12am EDT, Jul 25 2026
+    var CUTOFF = new Date('2026-09-30T00:00:00-04:00'); // 12am EDT, Sep 30 2026
     var WAITLIST_URL = 'https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs';
     var WAITLIST_NOTE = 'New live date coming soon - join the waitlist to be first to know.';
-    if (new Date() < CUTOFF) return;
+    var now = new Date();
 
     var cards = document.querySelectorAll('#live-workshops .workshop-card');
     Array.prototype.forEach.call(cards, function (card) {
+      var stamp = card.getAttribute('data-expires');
+      var expires = stamp ? new Date(stamp) : CUTOFF;
+      if (isNaN(expires.getTime())) expires = CUTOFF;
+      if (now < expires) return; // still upcoming
+
       var btn = card.querySelector('a.workshop-link');
       if (!btn || btn.href.indexOf('as.me') === -1) return; // already a waitlist card
       btn.href = WAITLIST_URL;

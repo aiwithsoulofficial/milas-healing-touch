@@ -471,11 +471,11 @@ function createSparkle() {
 setInterval(createSparkle, 400);
 for (let i = 0; i < 15; i++) setTimeout(createSparkle, i * 200);
 
-// Live workshops run through Thu Jul 24 2026. Once that date passes, the LIVE
+// Live workshops run through Tue Sep 29 2026. Once that date passes, the LIVE
 // Workshops button becomes the Live Workshop Waitlist automatically.
 // To put live workshops back: move CUTOFF to the day after the new last session.
 (function () {
-  var CUTOFF = new Date('2026-07-25T00:00:00-04:00'); // 12am EDT, Jul 25 2026
+  var CUTOFF = new Date('2026-09-30T00:00:00-04:00'); // 12am EDT, Sep 30 2026
   var WAITLIST_URL = 'https://api.leadconnectorhq.com/widget/form/pT99aaKqjncmpcCOLXOs';
   if (new Date() < CUTOFF) return;
 
