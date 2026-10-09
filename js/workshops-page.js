@@ -248,7 +248,7 @@
 
   /* ---------- VIDEO AUTOPLAY ON SCROLL ---------- */
   function initVideoAutoplay() {
-    var videos = document.querySelectorAll("video[autoplay]");
+    var videos = document.querySelectorAll("video[autoplay], video[data-autoplay]");
     if (!videos.length) return;
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -258,7 +258,7 @@
           entry.target.pause();
         }
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.01, rootMargin: "300px 0px" });
     videos.forEach(function (v) { observer.observe(v); });
   }
 
