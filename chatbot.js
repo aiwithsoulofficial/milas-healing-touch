@@ -69,7 +69,7 @@
       ],
       options: [
         { label: 'Muscle Test Like Mila ($111)',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
-        { label: 'Learn the Emotion Code ($111)',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
+        { label: 'Learn Emotional Healing ($111)',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
         { label: 'Release the Heartwall ($111)',          next: 'HEARTWALL_INFO' },
         { label: 'Go Deeper: Advanced Healing ($111)',    next: 'LINK', url: 'https://milashealingtouch.as.me/' },
         { label: 'See pre-recorded options instead',      next: 'WORKSHOP_RECORDED' },
@@ -80,11 +80,11 @@
     HEARTWALL_INFO: {
       messages: [
         "Release the Heartwall teaches you how to identify, clear, and fully release the Heart Wall - the energetic barrier your subconscious builds to protect you from emotional pain.",
-        "Important: You need to complete Learn the Emotion Code first before taking this workshop.",
+        "Important: You need to complete Learn Emotional Healing first before taking this workshop.",
       ],
       options: [
         { label: 'Book Release the Heartwall ($111)', next: 'LINK', url: 'https://milashealingtouch.as.me/' },
-        { label: 'I need Emotion Code first',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
+        { label: 'I need Emotional Healing first',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
         { label: 'See other workshops',               next: 'WORKSHOP_LIVE' },
         { label: 'Back to start',                     next: 'START' },
       ],
@@ -97,7 +97,7 @@
       options: [
         { label: '1. Not Your Energy, Not Your Problem',  next: 'WORKSHOP_EC' },
         { label: '2. Muscle Test Like Mila',              next: 'WORKSHOP_MT' },
-        { label: '3. Learn the Emotion Code',             next: 'WORKSHOP_EMO' },
+        { label: '3. Learn Emotional Healing',             next: 'WORKSHOP_EMO' },
         { label: '4. Go Deeper: Advanced Healing',        next: 'WORKSHOP_ADV' },
         { label: 'Get all 4 for $297',                    next: 'WORKSHOP_BUNDLE' },
       ],
@@ -128,11 +128,11 @@
 
     WORKSHOP_EMO: {
       messages: [
-        "Learn the Emotion Code (80 min) - The full method. How trapped emotions form, how to trace them through generations, how to identify them using the chart, and how to release them permanently.",
+        "Learn Emotional Healing (80 min) - The full method. How trapped emotions form, how to trace them through generations, how to identify them using the chart, and how to release them permanently.",
         '"Better after one session than 10 years of talk therapy." - Nancy B',
       ],
       options: [
-        { label: 'Get Emotion Code ($77)',      next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1eb6c43a7488828c214b' },
+        { label: 'Get Emotional Healing ($77)',      next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1eb6c43a7488828c214b' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
       ],
@@ -152,7 +152,7 @@
     WORKSHOP_BUNDLE: {
       messages: [
         "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297. Over 4 hours of content. Lifetime access to everything.",
-        "Not Your Energy, Muscle Test Like Mila, Learn the Emotion Code, and Go Deeper: Advanced Healing - the full foundation for a self-healing practice.",
+        "Not Your Energy, Muscle Test Like Mila, Learn Emotional Healing, and Go Deeper: Advanced Healing - the full foundation for a self-healing practice.",
       ],
       options: [
         { label: 'Get the Complete Collection ($297)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1fba34d67b041e7e82f7' },
@@ -213,8 +213,8 @@
     FAQ_ORDER: {
       messages: [
         "For pre-recorded workshops, the recommended order is:",
-        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Learn the Emotion Code (the full method) - 4. Go Deeper: Advanced Healing (for practitioners).",
-        "For live workshops, Release the Heartwall requires Learn the Emotion Code as a prerequisite. All other workshops can be taken in any order.",
+        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Learn Emotional Healing (the full method) - 4. Go Deeper: Advanced Healing (for practitioners).",
+        "For live workshops, Release the Heartwall requires Learn Emotional Healing as a prerequisite. All other workshops can be taken in any order.",
       ],
       options: [
         { label: 'See pre-recorded workshops',  next: 'WORKSHOP_RECORDED' },
