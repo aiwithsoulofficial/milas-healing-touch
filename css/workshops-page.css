@@ -216,6 +216,15 @@
   gap: 1.5rem;
 }
 
+/* Odd card out on the last row sits centred, not stranded on the left */
+@media (min-width: 769px) {
+  .wk-grid > .wk-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.75rem);
+  }
+}
+
 /* ---- WORKSHOP CARD ---- */
 .wk-card {
   position: relative;

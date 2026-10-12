@@ -58,7 +58,6 @@
       options: [
         { label: 'Live workshops ($111)',          next: 'WORKSHOP_LIVE' },
         { label: 'Pre-recorded workshops ($77)',   next: 'WORKSHOP_RECORDED' },
-        { label: 'Complete Collection ($297)',      next: 'WORKSHOP_BUNDLE' },
         { label: 'Back to start',                  next: 'START' },
       ],
     },
@@ -69,37 +68,20 @@
       ],
       options: [
         { label: 'Muscle Test Like Mila ($111)',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
-        { label: 'Learn Emotional Healing ($111)',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
-        { label: 'Release the Heartwall ($111)',          next: 'HEARTWALL_INFO' },
         { label: 'Go Deeper: Advanced Healing ($111)',    next: 'LINK', url: 'https://milashealingtouch.as.me/' },
         { label: 'See pre-recorded options instead',      next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                         next: 'START' },
       ],
     },
 
-    HEARTWALL_INFO: {
-      messages: [
-        "Release the Heartwall teaches you how to identify, clear, and fully release the Heart Wall - the energetic barrier your subconscious builds to protect you from emotional pain.",
-        "Important: You need to complete Learn Emotional Healing first before taking this workshop.",
-      ],
-      options: [
-        { label: 'Book Release the Heartwall ($111)', next: 'LINK', url: 'https://milashealingtouch.as.me/' },
-        { label: 'I need Emotional Healing first',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779394' },
-        { label: 'See other workshops',               next: 'WORKSHOP_LIVE' },
-        { label: 'Back to start',                     next: 'START' },
-      ],
-    },
-
     WORKSHOP_RECORDED: {
       messages: [
-        "Four pre-recorded workshops at $77 each. Watch on your own schedule, as many times as you like. Each includes a premium PDF workbook.",
+        "Three pre-recorded workshops at $77 each. Watch on your own schedule, as many times as you like. Each includes a premium PDF workbook.",
       ],
       options: [
         { label: '1. Not Your Energy, Not Your Problem',  next: 'WORKSHOP_EC' },
         { label: '2. Muscle Test Like Mila',              next: 'WORKSHOP_MT' },
-        { label: '3. Learn Emotional Healing',             next: 'WORKSHOP_EMO' },
-        { label: '4. Go Deeper: Advanced Healing',        next: 'WORKSHOP_ADV' },
-        { label: 'Get all 4 for $297',                    next: 'WORKSHOP_BUNDLE' },
+        { label: '3. Go Deeper: Advanced Healing',        next: 'WORKSHOP_ADV' },
       ],
     },
 
@@ -126,18 +108,6 @@
       ],
     },
 
-    WORKSHOP_EMO: {
-      messages: [
-        "Learn Emotional Healing (80 min) - The full method. How trapped emotions form, how to trace them through generations, how to identify them using the chart, and how to release them permanently.",
-        '"Better after one session than 10 years of talk therapy." - Nancy B',
-      ],
-      options: [
-        { label: 'Get Emotional Healing ($77)',      next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1eb6c43a7488828c214b' },
-        { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
-        { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
     WORKSHOP_ADV: {
       messages: [
         "Go Deeper: Advanced Healing (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, connecting in the quantum field, and live healing demonstrations.",
@@ -146,18 +116,6 @@
         { label: 'Get Advanced Healing ($77)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1f2fc43a7488828c214c' },
         { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
-    WORKSHOP_BUNDLE: {
-      messages: [
-        "The Complete Collection - all 4 recorded workshops + all 4 PDF workbooks for $297. Over 4 hours of content. Lifetime access to everything.",
-        "Not Your Energy, Muscle Test Like Mila, Learn Emotional Healing, and Go Deeper: Advanced Healing - the full foundation for a self-healing practice.",
-      ],
-      options: [
-        { label: 'Get the Complete Collection ($297)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1fba34d67b041e7e82f7' },
-        { label: 'See individual workshops',            next: 'WORKSHOP_RECORDED' },
-        { label: 'Back to start',                       next: 'START' },
       ],
     },
 
@@ -213,8 +171,7 @@
     FAQ_ORDER: {
       messages: [
         "For pre-recorded workshops, the recommended order is:",
-        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Learn Emotional Healing (the full method) - 4. Go Deeper: Advanced Healing (for practitioners).",
-        "For live workshops, Release the Heartwall requires Learn Emotional Healing as a prerequisite. All other workshops can be taken in any order.",
+        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Go Deeper: Advanced Healing (for practitioners).",
       ],
       options: [
         { label: 'See pre-recorded workshops',  next: 'WORKSHOP_RECORDED' },

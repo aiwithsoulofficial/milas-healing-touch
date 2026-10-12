@@ -597,7 +597,7 @@ body {
 .section-workshop-library .coming-soon { color: #1d0426; }
 .workshops-inner { max-width: 1000px; margin: 0 auto; }
 .workshop-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem; margin: 2.5rem 0;
 }
 .workshop-card {
