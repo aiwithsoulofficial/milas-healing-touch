@@ -281,14 +281,6 @@
   background-image: url('../images/pexels-amethyst-crystal.jpg');
 }
 
-.wk-card--emotion-code::before {
-  background-image: url('../images/pexels-lavender-field.jpg');
-}
-
-.wk-card--heartwall::before {
-  background-image: url('../images/pexels-heart-light.jpg');
-}
-
 .wk-card--advanced::before {
   background-image: url('../images/pexels-golden-light-forest.jpg');
 }

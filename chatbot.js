@@ -38,7 +38,7 @@
 
     BOOK_PATH: {
       messages: [
-        "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with trapped emotions, the Emotion Code, and deep energy clearing.",
+        "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with trapped emotions, emotional release, and deep energy clearing.",
         "Mila is currently booked out and taking a break in June. New spots open in July. You can book ahead now or try a live workshop in the meantime.",
       ],
       options: [
@@ -121,7 +121,7 @@
 
     ANIMAL_PATH: {
       messages: [
-        "Animals carry energy too. Mila works with horses, dogs, and cats - using Emotion Code sessions, animal communication, and energy clearing to bring harmony to your pets.",
+        "Animals carry energy too. Mila works with horses, dogs, and cats - using emotional release sessions, animal communication, and energy clearing to bring harmony to your pets.",
         "Dogs and Cats: $222 (45 min) | Horses: $333 (60 min). All sessions are via Zoom.",
       ],
       options: [
@@ -146,7 +146,7 @@
 
     FAQ_SESSION: {
       messages: [
-        "Every first session begins with clearing your Heart Wall - the protective layer around your heart that blocks you from connecting fully with yourself and others.",
+        "Every 1:1 session begins by connecting to the higher self and the subconscious mind, allowing us to identify what the body is ready to release.",
         "Mila identifies the underlying root cause of your issue and releases the trapped emotions causing dis-ease, pain, destructive patterns and behaviours. Using manual muscle testing, she connects to your subconscious mind to find and release what's stuck.",
       ],
       options: [
@@ -222,7 +222,7 @@
     ABOUT_PATH: {
       messages: [
         "Mila Velazquez spent 30 years as a licensed Physical Therapist - orthopaedic, neurological, women's health. She knew the body inside out. But she kept seeing patients carry pain that had no physical explanation.",
-        "Today she bridges the physical and the metaphysical. She uses the Emotion Code, Neuro-Emotional Technique, the Omnium Method, and consciousness work to help people release what they've been carrying - sometimes for decades. She goes deep into the woo. And she owns it.",
+        "Today she bridges the physical and the metaphysical. She uses muscle testing, Neuro-Emotional Technique, the Omnium Method, and consciousness work to help people release what they've been carrying - sometimes for decades. She goes deep into the woo. And she owns it.",
       ],
       options: [
         { label: 'Book a session',              next: 'BOOK_PATH' },
