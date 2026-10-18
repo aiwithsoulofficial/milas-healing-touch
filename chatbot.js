@@ -122,7 +122,7 @@
     ANIMAL_PATH: {
       messages: [
         "Animals carry energy too. Mila works with horses, dogs, and cats - using emotional release sessions, animal communication, and energy clearing to bring harmony to your pets.",
-        "Dogs and Cats: $222 (45 min) | Horses: $333 (60 min). All sessions are via Zoom.",
+        "Dogs and Cats: $222 (45 min) | Horses: $289 (60 min). All sessions are via Zoom.",
       ],
       options: [
         { label: 'Book for my pet',             next: 'LINK', url: 'https://milashealingtouch.as.me/' },
