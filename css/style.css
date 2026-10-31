@@ -135,7 +135,7 @@ body {
 .hero-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
-  object-position: center 50%;
+  object-position: center 56%;
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -210,6 +210,9 @@ body {
 }
 .mirror-inner { max-width: 650px; margin: 0 auto; text-align: center; }
 .mirror-inner .heading { text-align: center; }
+.mirror-inner .body-text { max-width: 600px; margin-left: auto; margin-right: auto; text-wrap: balance; }
+.mirror-inner .body-text + .body-text { margin-top: 1.4rem; }
+.mirror-inner .body-text.muted { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.78); }
 .body-text.large { font-size: 1.15rem; line-height: 1.7; color: #ffffff; }
 .body-text.muted { color: rgba(255,255,255,0.7); margin-top: 1.5rem; }
 
@@ -597,7 +600,8 @@ body {
 .section-workshop-library .coming-soon { color: #1d0426; }
 .workshops-inner { max-width: 1000px; margin: 0 auto; }
 .workshop-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 340px));
+  justify-content: center;
   gap: 1.5rem; margin: 2.5rem 0;
 }
 .workshop-card {
@@ -715,7 +719,7 @@ body {
 /* ---- TABLET ---- */
 @media (max-width: 1024px) {
   .section-split { gap: 4rem; }
-  .workshop-grid { grid-template-columns: repeat(2, 1fr); }
+  .workshop-grid { grid-template-columns: repeat(2, minmax(0, 340px)); }
   .hero-heading { font-size: clamp(2.8rem, 8vw, 6rem); }
   .section-workshop-library { padding: 6rem 6vw; }
   .stats-grid { gap: 1.5rem; }

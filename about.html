@@ -136,6 +136,13 @@
       background: rgba(0,0,0,0.4);
       display: flex; align-items: center; justify-content: center;
     }
+    .video-break.portrait { height: auto; padding: 4rem 8vw; display: flex; align-items: center; justify-content: center; gap: 4rem; }
+    .video-break.portrait .vb-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      filter: blur(30px) brightness(0.4); transform: scale(1.2); }
+    .video-break.portrait .vb-main { position: relative; inset: auto; width: auto; height: min(70vh, 560px); aspect-ratio: 9/16;
+      object-fit: cover; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.45); flex-shrink: 0; }
+    .video-break.portrait .video-break-overlay { position: relative; inset: auto; background: none; }
+    .video-break.portrait .video-break-quote { text-align: left; padding: 0; }
     .video-break-quote {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 3.5vw, 2.5rem);
@@ -152,12 +159,11 @@
       padding: 6rem 8vw;
     }
     .split.reverse .split-text { order: -1; }
-    .split-media { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.3); }
+    .split-media { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      width: 100%; max-width: 340px; justify-self: center; }
     .split-media video {
       width: 100%; display: block;
       aspect-ratio: 9/16; object-fit: cover;
-      object-position: center top;
-      max-height: 500px;
     }
     .split-media img {
       width: 100%; display: block;
@@ -257,6 +263,10 @@
       .split-media { order: -1; }
       .modalities-grid { grid-template-columns: 1fr; }
       .video-break { height: 40vh; }
+      .split-media { max-width: 300px; margin: 0 auto; }
+      .video-break.portrait { height: auto; flex-direction: column; gap: 2rem; padding: 3rem 1.5rem; }
+      .video-break.portrait .vb-main { height: 60vh; }
+      .video-break.portrait .video-break-quote { text-align: center; }
       .btn { display: block; margin: 0.5rem auto; max-width: 300px; text-align: center; }
     }
   </style>
@@ -297,7 +307,7 @@
       <div class="about-hero-overlay"></div>
       <div class="about-hero-content">
         <h1>Meet Mila</h1>
-        <p>Retired Physical Therapist.<br>Intuitive Energy Healer, Spiritual Life Advisor &amp; Teacher.<br>Mother of two &amp; Dog Mom to Leo.</p>
+        <p>Retired Physical Therapist.<br>Certified Emotion Code&trade; Practitioner.<br>Intuitive Energy Healer, Spiritual Life Advisor &amp; Teacher.<br>Mother of two &amp; Dog Mom to Leo.</p>
       </div>
     </section>
 
@@ -317,8 +327,11 @@
     </div>
 
     <!-- VIDEO BREAK 1 -->
-    <div class="video-break">
-      <video autoplay muted loop playsinline>
+    <div class="video-break portrait">
+      <video class="vb-bg" autoplay muted loop playsinline aria-hidden="true">
+        <source src="videos/ready-to-heal.mp4" type="video/mp4">
+      </video>
+      <video class="vb-main" autoplay muted loop playsinline>
         <source src="videos/ready-to-heal.mp4" type="video/mp4">
       </video>
       <div class="video-break-overlay">

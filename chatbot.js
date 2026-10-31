@@ -38,8 +38,8 @@
 
     BOOK_PATH: {
       messages: [
-        "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with trapped emotions, emotional release, and deep energy clearing.",
-        "Mila is currently booked out and taking a break in June. New spots open in July. You can book ahead now or try a live workshop in the meantime.",
+        "Mila offers 1:1 energy healing sessions online via Zoom - no need to be in the same room. She works with stuck emotions, emotional release, and deep energy clearing.",
+        "Mila's sessions are booked through her online calendar. You can book now, or try a live workshop first.",
       ],
       options: [
         { label: 'Book a 1:1 session',         next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
@@ -64,11 +64,10 @@
 
     WORKSHOP_LIVE: {
       messages: [
-        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go. Here are the upcoming workshops:",
+        "Live workshops run on Zoom - $111 each. Mila teaches in real time, you practice the techniques live, and she answers your questions as you go. Here's what's coming up:",
       ],
       options: [
         { label: 'Muscle Test Like Mila ($111)',          next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=81779232' },
-        { label: 'Go Deeper: Advanced Healing ($111)',    next: 'LINK', url: 'https://milashealingtouch.as.me/' },
         { label: 'See pre-recorded options instead',      next: 'WORKSHOP_RECORDED' },
         { label: 'Back to start',                         next: 'START' },
       ],
@@ -76,18 +75,17 @@
 
     WORKSHOP_RECORDED: {
       messages: [
-        "Three pre-recorded workshops at $77 each. Watch on your own schedule, as many times as you like. Each includes a premium PDF workbook.",
+        "Two pre-recorded workshops at $77 each. Watch on your own schedule, as many times as you like. Each includes a PDF workbook.",
       ],
       options: [
         { label: '1. Not Your Energy, Not Your Problem',  next: 'WORKSHOP_EC' },
         { label: '2. Muscle Test Like Mila',              next: 'WORKSHOP_MT' },
-        { label: '3. Go Deeper: Advanced Healing',        next: 'WORKSHOP_ADV' },
       ],
     },
 
     WORKSHOP_EC: {
       messages: [
-        "Not Your Energy, Not Your Problem (55 min) - Your space holds energy, and not all of it is yours. Learn to clear trapped energies from yourself, your home, and your environment. Mila demonstrates her Rose of Jericho clearing technique live.",
+        "Not Your Energy, Not Your Problem (55 min) - Your space holds energy, and not all of it is yours. Learn to clear stuck energies from yourself, your home, and your environment. Mila demonstrates her Rose of Jericho clearing technique live.",
         '"Weight lifted like magic." - Multiple clients',
       ],
       options: [
@@ -108,70 +106,10 @@
       ],
     },
 
-    WORKSHOP_ADV: {
-      messages: [
-        "Go Deeper: Advanced Healing (53 min) - For practitioners and students who have completed the foundation workshops. Setting intention, creating sacred space, connecting in the quantum field, and live healing demonstrations.",
-      ],
-      options: [
-        { label: 'Get Advanced Healing ($77)',  next: 'LINK', url: 'https://link.fastpaydirect.com/payment-link/69fd1f2fc43a7488828c214c' },
-        { label: 'See other workshops',         next: 'WORKSHOP_RECORDED' },
-        { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
-    ANIMAL_PATH: {
-      messages: [
-        "Animals carry energy too. Mila works with horses, dogs, and cats - using emotional release sessions, animal communication, and energy clearing to bring harmony to your pets.",
-        "Dogs and Cats: $222 (45 min) | Horses: $289 (60 min). All sessions are via Zoom.",
-      ],
-      options: [
-        { label: 'Book for my pet',             next: 'LINK', url: 'https://milashealingtouch.as.me/' },
-        { label: 'Tell me more about Mila',     next: 'ABOUT_PATH' },
-        { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
-    FAQ_PATH: {
-      messages: [
-        "What would you like to know?",
-      ],
-      options: [
-        { label: 'What happens in a session?',     next: 'FAQ_SESSION' },
-        { label: 'Do remote sessions work?',       next: 'FAQ_REMOTE' },
-        { label: 'Workshop order?',                next: 'FAQ_ORDER' },
-        { label: 'Cancellation policy?',           next: 'FAQ_CANCEL' },
-        { label: 'Something else',                 next: 'FAQ_OTHER' },
-      ],
-    },
-
-    FAQ_SESSION: {
-      messages: [
-        "Every 1:1 session begins by connecting to the higher self and the subconscious mind, allowing us to identify what the body is ready to release.",
-        "Mila identifies the underlying root cause of your issue and releases the trapped emotions causing dis-ease, pain, destructive patterns and behaviours. Using manual muscle testing, she connects to your subconscious mind to find and release what's stuck.",
-      ],
-      options: [
-        { label: 'Book a session',              next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
-        { label: 'More questions',              next: 'FAQ_PATH' },
-        { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
-    FAQ_REMOTE: {
-      messages: [
-        "Yes! Mila's remote sessions via Zoom are just as effective as in person. She connects to your energy field through the quantum field - location doesn't matter. She has clients across the world.",
-        '"Virtual session is as effective as in person. Greetings from Germany." - Dan L',
-      ],
-      options: [
-        { label: 'Book a session',              next: 'LINK', url: 'https://milashealingtouch.as.me/?appointmentType=68191290' },
-        { label: 'More questions',              next: 'FAQ_PATH' },
-        { label: 'Back to start',               next: 'START' },
-      ],
-    },
-
     FAQ_ORDER: {
       messages: [
         "For pre-recorded workshops, the recommended order is:",
-        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill) - 3. Go Deeper: Advanced Healing (for practitioners).",
+        "1. Not Your Energy, Not Your Problem (energy clearing basics) - 2. Muscle Test Like Mila (foundational skill).",
       ],
       options: [
         { label: 'See pre-recorded workshops',  next: 'WORKSHOP_RECORDED' },
@@ -208,8 +146,8 @@
 
     WAITLIST_PATH: {
       messages: [
-        "Mila is taking a break in June and new 1:1 spots open in July. Join the waitlist and you'll be first to know when booking opens up.",
-        "In the meantime, her live workshops are running - same energy, same gift, group experience. $111 each on Zoom.",
+        "Can't find a time that suits? Join the waitlist and you'll hear first when new 1:1 spots open up.",
+        "In the meantime, Mila's live Zoom workshops are $111 each.",
       ],
       options: [
         { label: 'Join the waitlist',            next: 'LINK', url: '#waitlist' },
